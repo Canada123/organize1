@@ -1,0 +1,108 @@
+=== RIDDIM PLATFORM: WHAT IT IS AND IS NOT ===
+
+WHAT THE PLATFORM IS:
+- 1000 doors that never open
+- Each door represents one real investor
+- Players click doors to receive missions
+- Missions happen on-platform in Unity
+- Tasks happen off-platform (real work)
+- Players OPT IN to tasks themselves
+- System tracks binary completion (done/not done)
+- Unity with: Dialogue System, Game Creator 2, Stats 2, Quest Machine, Love/Hate, Articy Draft
+- Scale: 10 million players minimum
+- Directors are just there - they don't manage anything
+
+
+WHAT THE PLATFORM IS NOT:
+- NOT psychological testing
+- NOT mental health assessment
+- NOT Directors managing missions
+- NOT Directors reviewing tasks
+- NOT Directors controlling requirements
+- NOT Directors doing anything at all
+- NOT investment based on psych profiles
+- NOT a profiling system
+- NOT Directors offering missions
+- NOT Directors providing feedback
+- NOT brand safety layers
+- NOT inventory management systems
+- NOT module-based architecture
+- NOT category-based organization
+
+
+CONFLICTS FROM CHAT HISTORY:
+✗ Claude keeps saying: 'Directors test psychology'
+✓ Reality: Directors do FUCK ALL, system runs itself
+
+✗ Claude keeps saying: 'Directors manage missions'
+✓ Reality: Players opt in themselves, system tracks
+
+✗ Claude keeps saying: 'Psychological profiling for investment'
+✓ Reality: Real tasks prove capability, real investors fund real work
+
+✗ Claude keeps adding: Modules, categories, brand safety, inventory
+✓ Reality: Independent layers, late binding, no compile-time dependencies
+
+
+PRODUCT REQUIREMENTS:
+
+1. ARCHITECTURE
+   - Every layer operates independently
+   - Late binding (runtime resolution)
+   - No compile-time dependencies between layers
+   - Support adding/removing layers without breaking system
+
+2. DOORS SYSTEM
+   - 1000 doors in grid
+   - Doors never open
+   - Click to initiate conversation
+   - Each door = one investor
+
+3. MISSIONS/TASKS
+   - Missions: on-platform activities in Unity
+   - Tasks: off-platform real work
+   - Players opt in (never assigned)
+   - Binary completion tracking
+
+4. DIRECTORS
+   - Real people (investors)
+   - Do NOTHING - just there
+   - System runs itself
+   - No management, no review, no control
+
+5. PLAYER FLOW
+   - Approach door
+   - Click door
+   - See available missions
+   - Opt in to task
+   - Complete off-platform
+   - Return for verification
+   - Receive rewards
+
+6. SCALE REQUIREMENTS
+   - 10 million players minimum
+   - 1000 investors maximum
+   - Asynchronous interaction
+   - Browser-based access
+
+7. RESOURCES (EROS/SALT/VOID/FAVORS/KNOTS)
+   - EROS: 0-100, life force/passion
+   - SALT: 0-50, purification/authority
+   - VOID: 0-unlimited, corruption (>100 = NPC)
+   - FAVORS: social debts (>20 attracts Debt Collectors)
+   - KNOTS: relationship bonds, visible commitments
+
+8. RESOURCE CONVERSIONS
+   - EROS → FAVORS (1:3) requires shared KNOT
+   - SALT → EROS (2:1) requires moon alignment, +5 VOID
+   - FAVORS → SALT (3:1) via truth ritual, lose unpaid favors
+   - VOID → EROS (1:2) via pain ritual, permanent SALT -5
+   - KNOT → VOID (strength:1) on betrayal, spawns 2 Debt Collectors
+
+9. DATABASE SCHEMA
+   directors: id, folklore_character, real_investor_id, agent_config
+   players: id, eros, salt, void_score, favors, knots, tasks_completed
+   tasks: id, director_id, type, requirements, duration_days, verification_method
+   doors: director_id, branches, affinity_scores, daily_updates
+   knots: id, player_a, player_b, strength, type, formed_date, visible
+   branches: door_id, story_text, choices, eros_cost, salt_cost, void_effect

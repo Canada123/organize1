@@ -1,0 +1,15 @@
+# Extracted Game Mechanics
+
+## 199 Action Modules:
+commitment, negotiation, validation, permission, restriction, progression, economy, inventory, combat, movement, social, communication, guild, party, raid, alliance, matchmaking, queue, instance, world, event, quest, achievement, collection, crafting, commitment, negotiation, offer, sacrifice, secret, hint, mislead, hide, crawl, walk, run, betray, reveal, bluff, spy, sabotage, disguise, track, escape, trap, rumor, gossip, whisper, tale, folklore
+... and 149 more
+
+## 8 Distributed System Repos:
+- https://github.com/redisson/redisson
+- https://github.com/apache/zookeeper
+- https://github.com/etcd-io/etcd
+- https://github.com/hashicorp/consul
+- https://github.com/hazelcast/hazelcast
+- https://github.com/awslabs/amazon-dynamodb-lock-client
+- https://github.com/temporalio/temporal
+- https://github.com/statelyai/xstate

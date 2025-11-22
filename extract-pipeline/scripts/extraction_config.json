@@ -1,0 +1,179 @@
+{
+  "pipeline": {
+    "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+    "processed_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_processed",
+    "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+  },
+  "extractors": {
+    "code_block": {
+      "enabled": true,
+      "output_file": "code_blocks_extracted.json",
+      "processed_log": "code_block_extractor_processed.json"
+    },
+    "module": {
+      "enabled": true,
+      "max_modules": 500,
+      "output_file": "modules_extracted.json",
+      "processed_log": "module_extractor_processed.json"
+    },
+    "action_item": {
+      "enabled": true,
+      "max_items": 1000,
+      "output_file": "action_items_extracted.json",
+      "processed_log": "action_item_extractor_processed.json"
+    },
+    "architecture": {
+      "enabled": true,
+      "max_decisions": 200,
+      "output_file": "architecture_decisions.json",
+      "processed_log": "architecture_extractor_processed.json"
+    },
+    "file_path": {
+      "enabled": true,
+      "max_paths": 500,
+      "output_file": "file_paths_extracted.json",
+      "processed_log": "file_path_extractor_processed.json"
+    },
+    "next_steps": {
+      "enabled": true,
+      "max_steps": 300,
+      "output_file": "next_steps_extracted.json",
+      "processed_log": "next_steps_extractor_processed.json"
+    },
+      "module_extractor": {
+        "max_modules": 100,
+        "max_categories": 8,
+        "output_file": "modules_extracted.json",
+        "skip_patterns": ["test_", "debug_", "temp_"],
+        "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+        "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+      },
+      "action_item_extractor": {
+        "max_items_per_module": 50,
+        "module_file": "modules_extracted.json",
+        "output_file": "action_items_by_module.json",
+        "skip_patterns": ["test_", "debug_", "temp_"],
+        "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+        "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+      },
+      "architecture_extractor": {
+        "max_decisions": 50,
+        "include_context": true,
+        "output_file": "architecture_decisions.json",
+        "skip_patterns": ["test_", "debug_", "temp_"],
+        "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+        "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+      },
+      "file_path_extractor": {
+        "max_paths": 200,
+        "categories": ["input", "output", "extraction", "reference"],
+        "output_file": "file_paths_categorized.json",
+        "skip_patterns": ["temp_", "cache_", ".tmp"],
+        "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+        "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+      },
+      "next_steps_extractor": {
+        "max_phases": 5,
+        "max_steps_per_phase": 20,
+        "output_file": "next_steps_by_phase.json",
+        "priority_keywords": ["critical", "urgent", "high", "medium", "low"],
+        "skip_patterns": ["test_", "debug_", "temp_"],
+        "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+        "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+      }
+  "extraction_log": {
+    "timestamp": "2025-11-20T10:30:00Z",
+    "source_file": "~/Documents/unity_plugin_documentation.md",
+    "scripts_extracted": [
+      {
+        "script_name": "block_11.py",
+        "destination": "~/Desktop/extraction_output/workflow_scripts/extraction/block_11.py",
+        "type": "workflow",
+        "extracted_at": "2025-11-20T10:30:15Z"
+      },
+      {
+        "script_name": "file_path_extractor.py",
+        "destination": "~/Desktop/extraction_output/workflow_scripts/extraction/file_path_extractor.py",
+        "type": "workflow",
+        "extracted_at": "2025-11-20T10:30:18Z"
+      }
+    ],
+    "source_tagged": true,
+    "tag_location": "line 5"
+  }
+}
+  {
+    "taxonomy": {
+      "game_modules": [
+        "directors", "doors", "tasks", "quests", "stats", "skills", "currency",
+        "relationships", "grid", "clock_towers", "choices", "architecture",
+        "faction", "chains", "items", "iching", "events", "data_lake",
+        "story_parts", "content_system", "lore", "world_definition"
+      ],
+      "pillars": [
+        "BDSM", "Dwarf Fortress", "Game of Life", "Golden Flower", "Jung",
+        "fairytales", "Swiss Forest", "archetypes", "autism", "beliefs",
+        "clocks", "collective unconscious", "complexes", "i ching",
+        "player ideas and dreams", "knots (relationships)", "lore",
+        "misunderstandings", "politics", "proof", "slaves", "swarm",
+        "theorems", "plants", "honor", "chinese myths", "slavic myths",
+        "native american myths", "bitcoin"
+      ],
+      "systems": [
+        "game mechanics", "mastery systems", "trade routes", "genetics",
+        "cascades", "voting", "algorithms", "sound systems"
+      ],
+      "system_modules": [
+        "extraction", "tagging", "routing", "logging", "templates", "config"
+      ],
+      "statuses": ["planning", "in_progress", "needs_revision", "complete", "rejected"]
+    }
+  }
+  {
+    "module_extractor": {
+      "max_modules": 100,
+      "max_categories": 8,
+      "output_file": "modules_extracted.json",
+      "skip_patterns": ["test_", "debug_", "temp_"],
+      "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+      "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+    },
+    "action_item_extractor": {
+      "max_items_per_module": 50,
+      "module_file": "modules_extracted.json",
+      "output_file": "action_items_by_module.json",
+      "skip_patterns": ["test_", "debug_", "temp_"],
+      "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+      "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+    },
+    "architecture_extractor": {
+      "max_decisions": 50,
+      "include_context": true,
+      "output_file": "architecture_decisions.json",
+      "skip_patterns": ["test_", "debug_", "temp_"],
+      "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+      "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+    },
+    "file_path_extractor": {
+      "max_paths": 200,
+      "categories": ["input", "output", "extraction", "reference"],
+      "output_file": "file_paths_categorized.json",
+      "skip_patterns": ["temp_", "cache_", ".tmp"],
+      "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+      "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+    },
+    "next_steps_extractor": {
+      "max_phases": 5,
+      "max_steps_per_phase": 20,
+      "output_file": "next_steps_by_phase.json",
+      "priority_keywords": ["critical", "urgent", "high", "medium", "low"],
+      "skip_patterns": ["test_", "debug_", "temp_"],
+      "input_dir": "/Users/ashleygeness/Desktop/capture_evidence/chatfiles_raw",
+      "output_dir": "/Users/ashleygeness/Desktop/capture_evidence/extracted"
+    },
+      "naming_rules": {
+        "script_pattern": "^(extract|process|tag)_[a-z_]+\\.py$",
+        "forbidden_patterns": ["^block_\\d+\\.py$", "^script_\\d+\\.py$"],
+        "required_prefix": ["extract_", "process_", "tag_"]
+      }
+    }

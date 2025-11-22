@@ -1,0 +1,16 @@
+{
+  "testModules": [
+    {
+      "moduleId": "/Users/yangsim/Nanoleq/sideProjects/skinn-convert-swiss-pages/src/example.test.ts",
+      "tests": [
+        {
+          "name": "should pass",
+          "fullName": "Example Test > should pass",
+          "state": "passed"
+        }
+      ]
+    }
+  ],
+  "unhandledErrors": [],
+  "reason": "passed"
+}

@@ -1,0 +1,34 @@
+# CODEOWNERS for SKIIN Switzerland Website
+
+# Default owners for everything
+* @yangsi7
+
+# Medical and regulatory content
+/docs/content/SKIIN_WEBSITE_COPY_*.md @yangsi7
+/src/translations/ @yangsi7
+
+# Protected clinical components - require special approval
+/src/components/protected/TabNavigation.tsx @yangsi7
+/src/components/protected/TodayTab.tsx @yangsi7
+/src/components/protected/HeartBalanceRing.tsx @yangsi7
+/src/components/protected/ContributingFactorCards.tsx @yangsi7
+
+# Infrastructure and CI/CD
+/.github/ @yangsi7
+/vite.config.ts @yangsi7
+/package*.json @yangsi7
+
+# Security-sensitive files
+/.env* @yangsi7
+/src/lib/supabase/ @yangsi7
+/src/lib/auth/ @yangsi7
+
+# Design system
+/src/components/ui/ @yangsi7
+/src/styles/ @yangsi7
+/tailwind.config.ts @yangsi7
+
+# Documentation
+/CLAUDE.md @yangsi7
+/README.md @yangsi7
+/docs/ @yangsi7

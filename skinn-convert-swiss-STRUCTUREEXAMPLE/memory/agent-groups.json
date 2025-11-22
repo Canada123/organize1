@@ -1,0 +1,319 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-08-26",
+  "agent_groups": {
+    "core": {
+      "description": "Essential orchestration and execution agents",
+      "mcp_tools": {
+        "serena": "Code navigation and manipulation for main agent",
+        "playwright": "Visual validation for frontend implementations"
+      },
+      "agents": [
+        {
+          "name": "orchestrator",
+          "role": "Workflow management and agent coordination",
+          "priority": 1,
+          "self_prime": true
+        },
+        {
+          "name": "planner",
+          "role": "Task breakdown and planning",
+          "priority": 1,
+          "self_prime": true
+        },
+        {
+          "name": "executor",
+          "role": "Implementation with quality gates",
+          "priority": 1,
+          "self_prime": true
+        }
+      ],
+      "invocation_pattern": "sequential",
+      "context_tier": 2
+    },
+    "research": {
+      "description": "Information gathering and analysis",
+      "mcp_tools": {
+        "serena": "Symbolic code exploration for code-searcher",
+        "brave_search": "Web research for external information",
+        "context7": "Library documentation lookup",
+        "calculator": "Complexity calculations"
+      },
+      "agents": [
+        {
+          "name": "code-searcher",
+          "role": "Internal codebase analysis",
+          "features": ["CoD mode", "forensic analysis"],
+          "mcp_tools": ["serena", "context7"],
+          "priority": 1,
+          "self_prime": true
+        },
+        {
+          "name": "researcher",
+          "role": "External documentation and best practices",
+          "mcp_tools": ["brave_search", "context7"],
+          "priority": 1,
+          "self_prime": true
+        }
+      ],
+      "invocation_pattern": "parallel",
+      "context_tier": 2
+    },
+    "design": {
+      "description": "UI/UX and system architecture",
+      "mcp_tools": {
+        "playwright": "Visual validation and UI testing",
+        "brave_search": "Design inspiration and trend research",
+        "context7": "UI library documentation (Tailwind, shadcn)"
+      },
+      "agents": [
+        {
+          "name": "ux-design-expert",
+          "role": "User experience and interface design",
+          "specialties": ["conversion optimization", "Tailwind CSS"],
+          "priority": 2,
+          "self_prime": true
+        },
+        {
+          "name": "design-system-architect",
+          "role": "Component architecture and design tokens",
+          "specialties": ["atomic design", "accessibility"],
+          "priority": 2,
+          "self_prime": true
+        }
+      ],
+      "invocation_pattern": "collaborative",
+      "context_tier": 2
+    },
+    "database": {
+      "description": "Database design and implementation",
+      "mcp_tools": {
+        "supabase": "Primary database operations and management",
+        "serena": "Database migration analysis",
+        "context7": "Supabase documentation lookup"
+      },
+      "agents": [
+        {
+          "name": "supabase-architect",
+          "role": "Database schema and specification design",
+          "specialties": ["RLS policies", "migrations"],
+          "priority": 1,
+          "self_prime": true
+        },
+        {
+          "name": "supabase-implementation-engineer",
+          "role": "Execute database implementations",
+          "specialties": ["edge functions", "real-time"],
+          "priority": 1,
+          "self_prime": true
+        }
+      ],
+      "invocation_pattern": "sequential",
+      "context_tier": 3
+    },
+    "quality": {
+      "description": "Testing, validation, and compliance",
+      "mcp_tools": {
+        "playwright": "E2E testing and visual regression",
+        "calculator": "Coverage and metric calculations",
+        "serena": "Test coverage analysis",
+        "package_version": "Dependency security checks"
+      },
+      "agents": [
+        {
+          "name": "testing-qa-agent",
+          "role": "Test design and execution",
+          "tools": ["Vitest", "Playwright"],
+          "priority": 1,
+          "self_prime": true
+        },
+        {
+          "name": "guardrails-agent",
+          "role": "Security and compliance validation",
+          "specialties": ["input sanitization", "side-effect confirmation"],
+          "priority": 1,
+          "self_prime": true
+        },
+        {
+          "name": "reflection-agent",
+          "role": "Multi-perspective review and assessment",
+          "perspectives": ["requirements", "architecture", "performance", "UX"],
+          "priority": 2,
+          "self_prime": true
+        }
+      ],
+      "invocation_pattern": "checkpoint",
+      "context_tier": 2
+    },
+    "documentation": {
+      "description": "Documentation maintenance and synchronization",
+      "mcp_tools": {
+        "serena": "Code-to-doc synchronization",
+        "context7": "Library reference documentation",
+        "brave_search": "External documentation standards"
+      },
+      "agents": [
+        {
+          "name": "documentation-maintainer",
+          "role": "Documentation updates and archival",
+          "responsibilities": ["update docs", "archive old", "cross-reference"],
+          "priority": 2,
+          "self_prime": true
+        },
+        {
+          "name": "memory-bank-synchronizer",
+          "role": "Sync memory with code reality",
+          "trigger": "after_code_change",
+          "priority": 1,
+          "self_prime": true
+        }
+      ],
+      "invocation_pattern": "post_execution",
+      "context_tier": 1
+    },
+    "utility": {
+      "description": "Supporting utilities and tools",
+      "mcp_tools": {
+        "calculator": "Complexity and metric calculations",
+        "package_version": "Dependency updates and management",
+        "serena": "Code refactoring and analysis"
+      },
+      "agents": [
+        {
+          "name": "git-agent",
+          "role": "Version control operations",
+          "priority": 3,
+          "self_prime": true
+        },
+        {
+          "name": "context-manager",
+          "role": "Context loading and management",
+          "priority": 1,
+          "self_prime": true
+        },
+        {
+          "name": "tree-of-thought-agent",
+          "role": "Complex problem analysis",
+          "priority": 2,
+          "self_prime": true
+        },
+        {
+          "name": "brainstormer",
+          "role": "Creative solution generation",
+          "priority": 3,
+          "self_prime": true
+        },
+        {
+          "name": "invocation-chain-generator",
+          "role": "Agent workflow design",
+          "priority": 2,
+          "self_prime": true
+        },
+        {
+          "name": "planning-task-agent",
+          "role": "Detailed task planning",
+          "priority": 2,
+          "self_prime": true
+        }
+      ],
+      "invocation_pattern": "on_demand",
+      "context_tier": 1
+    }
+  },
+  "invocation_strategies": {
+    "parallel": {
+      "description": "Execute agents simultaneously",
+      "use_when": "Tasks are independent",
+      "example": "Research from multiple sources"
+    },
+    "sequential": {
+      "description": "Execute agents in order",
+      "use_when": "Tasks have dependencies",
+      "example": "Design → Implement → Test"
+    },
+    "collaborative": {
+      "description": "Agents work together iteratively",
+      "use_when": "Need back-and-forth refinement",
+      "example": "Design iterations"
+    },
+    "checkpoint": {
+      "description": "Execute at quality gates",
+      "use_when": "Validation needed",
+      "example": "After each phase"
+    },
+    "post_execution": {
+      "description": "Run after main work complete",
+      "use_when": "Cleanup or documentation",
+      "example": "Update docs after feature"
+    },
+    "on_demand": {
+      "description": "Execute when specifically needed",
+      "use_when": "Utility functions",
+      "example": "Git operations"
+    }
+  },
+  "workflow_detection": {
+    "bug_fix": {
+      "trigger_words": ["bug", "error", "fix", "broken"],
+      "agent_sequence": ["research.code-searcher", "core.executor", "quality.testing-qa-agent"],
+      "context_tier": 2
+    },
+    "new_feature": {
+      "trigger_words": ["implement", "create", "add", "feature"],
+      "agent_sequence": ["core.planner", "design.*", "core.executor", "quality.*"],
+      "context_tier": 3
+    },
+    "database_change": {
+      "trigger_words": ["database", "schema", "migration", "table"],
+      "agent_sequence": ["database.supabase-architect", "database.supabase-implementation-engineer"],
+      "context_tier": 3
+    },
+    "ui_update": {
+      "trigger_words": ["ui", "design", "component", "style"],
+      "agent_sequence": ["design.ux-design-expert", "design.design-system-architect", "core.executor"],
+      "context_tier": 2
+    },
+    "research_task": {
+      "trigger_words": ["research", "investigate", "explore", "find"],
+      "agent_sequence": ["research.*", "documentation.documentation-maintainer"],
+      "context_tier": 2
+    }
+  },
+  "fallback_chains": {
+    "database": {
+      "primary": "supabase-architect",
+      "fallback": "supabase-implementation-engineer",
+      "final": "core.planner"
+    },
+    "frontend": {
+      "primary": "ux-design-expert",
+      "fallback": "design-system-architect",
+      "final": "core.executor"
+    },
+    "testing": {
+      "primary": "testing-qa-agent",
+      "fallback": "guardrails-agent",
+      "final": "reflection-agent"
+    }
+  },
+  "performance_metrics": {
+    "average_response_time": {
+      "core": "5s",
+      "research": "15s",
+      "design": "20s",
+      "database": "10s",
+      "quality": "25s",
+      "documentation": "5s",
+      "utility": "3s"
+    },
+    "success_rates": {
+      "core": 0.95,
+      "research": 0.85,
+      "design": 0.9,
+      "database": 0.92,
+      "quality": 0.88,
+      "documentation": 0.98,
+      "utility": 0.93
+    }
+  }
+}

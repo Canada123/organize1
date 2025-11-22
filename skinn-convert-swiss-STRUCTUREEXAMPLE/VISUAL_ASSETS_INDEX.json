@@ -1,0 +1,3874 @@
+{
+  "version": "1.0",
+  "generated": "2025-08-26T18:03:21.682Z",
+  "summary": {
+    "totalAssets": 463,
+    "totalSize": 211334601,
+    "byType": {
+      "images": {
+        "count": 461,
+        "size": 104511014,
+        "sizeFormatted": "99.67 MB"
+      },
+      "icons": {
+        "count": 0,
+        "size": 0,
+        "sizeFormatted": "0 B"
+      },
+      "videos": {
+        "count": 2,
+        "size": 106823587,
+        "sizeFormatted": "101.87 MB"
+      }
+    },
+    "byDirectory": {
+      "html": {
+        "count": 3,
+        "size": 194134,
+        "sizeFormatted": "189.58 KB"
+      },
+      "public": {
+        "count": 5,
+        "size": 62719,
+        "sizeFormatted": "61.25 KB"
+      },
+      "public/assets/images": {
+        "count": 26,
+        "size": 26246821,
+        "sizeFormatted": "25.03 MB"
+      },
+      "public/assets/images/design-examples": {
+        "count": 4,
+        "size": 1323613,
+        "sizeFormatted": "1.26 MB"
+      },
+      "public/assets/images/documents": {
+        "count": 1,
+        "size": 2861364,
+        "sizeFormatted": "2.73 MB"
+      },
+      "public/assets/images/marketing": {
+        "count": 2,
+        "size": 37842,
+        "sizeFormatted": "36.96 KB"
+      },
+      "public/assets/images/mvcp": {
+        "count": 3,
+        "size": 425120,
+        "sizeFormatted": "415.16 KB"
+      },
+      "public/assets/images/optimized": {
+        "count": 170,
+        "size": 23598853,
+        "sizeFormatted": "22.51 MB"
+      },
+      "public/assets/images/optimized/design-examples": {
+        "count": 48,
+        "size": 2109218,
+        "sizeFormatted": "2.01 MB"
+      },
+      "public/assets/images/optimized/documents": {
+        "count": 12,
+        "size": 2601477,
+        "sizeFormatted": "2.48 MB"
+      },
+      "public/assets/images/optimized/mvcp": {
+        "count": 20,
+        "size": 783964,
+        "sizeFormatted": "765.59 KB"
+      },
+      "public/assets/images/optimized/product": {
+        "count": 32,
+        "size": 5078780,
+        "sizeFormatted": "4.84 MB"
+      },
+      "public/assets/images/optimized/reports": {
+        "count": 34,
+        "size": 4425901,
+        "sizeFormatted": "4.22 MB"
+      },
+      "public/assets/images/optimized/team": {
+        "count": 72,
+        "size": 8999261,
+        "sizeFormatted": "8.58 MB"
+      },
+      "public/assets/images/product": {
+        "count": 11,
+        "size": 10819088,
+        "sizeFormatted": "10.32 MB"
+      },
+      "public/assets/images/products": {
+        "count": 2,
+        "size": 472061,
+        "sizeFormatted": "461 KB"
+      },
+      "public/assets/images/reports": {
+        "count": 4,
+        "size": 4642465,
+        "sizeFormatted": "4.43 MB"
+      },
+      "public/assets/images/team": {
+        "count": 11,
+        "size": 9805045,
+        "sizeFormatted": "9.35 MB"
+      },
+      "public/assets/logos": {
+        "count": 1,
+        "size": 23288,
+        "sizeFormatted": "22.74 KB"
+      },
+      "public/assets/videos": {
+        "count": 2,
+        "size": 106823587,
+        "sizeFormatted": "101.87 MB"
+      }
+    },
+    "totalSizeFormatted": "201.54 MB"
+  },
+  "assets": {
+    "html": [
+      {
+        "file": "bg.png",
+        "size": 190939,
+        "sizeFormatted": "186.46 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-25T08:07:35.069Z"
+      },
+      {
+        "file": "favicon.ico",
+        "size": 814,
+        "sizeFormatted": "814 B",
+        "format": "ico",
+        "type": "image",
+        "modified": "2025-08-25T08:07:35.069Z"
+      },
+      {
+        "file": "favicon.svg",
+        "size": 2381,
+        "sizeFormatted": "2.33 KB",
+        "format": "svg",
+        "type": "image",
+        "modified": "2025-08-25T08:07:35.069Z"
+      }
+    ],
+    "public": [
+      {
+        "file": "favicon.ico",
+        "size": 1150,
+        "sizeFormatted": "1.12 KB",
+        "format": "ico",
+        "type": "image",
+        "modified": "2025-07-10T14:23:02.137Z"
+      },
+      {
+        "file": "favicon.png",
+        "size": 28108,
+        "sizeFormatted": "27.45 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:56.180Z"
+      },
+      {
+        "file": "Myant-official-logo-white.svg",
+        "size": 2100,
+        "sizeFormatted": "2.05 KB",
+        "format": "svg",
+        "type": "image",
+        "modified": "2025-08-24T17:56:27.145Z"
+      },
+      {
+        "file": "og-image.png",
+        "size": 28108,
+        "sizeFormatted": "27.45 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:56.180Z"
+      },
+      {
+        "file": "placeholder.svg",
+        "size": 3253,
+        "sizeFormatted": "3.18 KB",
+        "format": "svg",
+        "type": "image",
+        "modified": "2025-07-10T14:23:02.141Z"
+      }
+    ],
+    "public/assets/images": [
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930.png",
+        "size": 343623,
+        "sizeFormatted": "335.57 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.937Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898.png",
+        "size": 110124,
+        "sizeFormatted": "107.54 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.939Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2.png",
+        "size": 27257,
+        "sizeFormatted": "26.62 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.939Z"
+      },
+      {
+        "file": "25b8354d-c321-4439-8a41-5dcafe49836e.png",
+        "size": 52190,
+        "sizeFormatted": "50.97 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.940Z"
+      },
+      {
+        "file": "2c470df9-6b84-48a2-b3f4-d958760f8b36.png",
+        "size": 25316,
+        "sizeFormatted": "24.72 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.940Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c.png",
+        "size": 637451,
+        "sizeFormatted": "622.51 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.942Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845.png",
+        "size": 30585,
+        "sizeFormatted": "29.87 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.945Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098.png",
+        "size": 255836,
+        "sizeFormatted": "249.84 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.946Z"
+      },
+      {
+        "file": "4ad65a99-4268-46c4-986f-d04c9ac055f4.png",
+        "size": 41838,
+        "sizeFormatted": "40.86 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.946Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06.png",
+        "size": 36093,
+        "sizeFormatted": "35.25 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.947Z"
+      },
+      {
+        "file": "5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3.png",
+        "size": 130026,
+        "sizeFormatted": "126.98 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.948Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410.png",
+        "size": 22882,
+        "sizeFormatted": "22.35 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.949Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c.png",
+        "size": 509233,
+        "sizeFormatted": "497.3 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.954Z"
+      },
+      {
+        "file": "72de88b6-6f7b-4e58-abb2-dc50a762a353.png",
+        "size": 49371,
+        "sizeFormatted": "48.21 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.958Z"
+      },
+      {
+        "file": "a94ae42b-2b12-49d8-a6af-965c9691535f.png",
+        "size": 9084,
+        "sizeFormatted": "8.87 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.977Z"
+      },
+      {
+        "file": "app-live-ecg.png",
+        "size": 713936,
+        "sizeFormatted": "697.2 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.979Z"
+      },
+      {
+        "file": "b74365b1-b855-4522-a9d7-f05b3e2ee15e.png",
+        "size": 48550,
+        "sizeFormatted": "47.41 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.980Z"
+      },
+      {
+        "file": "b91519c3-7e46-4722-a4f8-1a8ca54cb7c7.png",
+        "size": 51072,
+        "sizeFormatted": "49.88 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.981Z"
+      },
+      {
+        "file": "doctor-patient.jpeg",
+        "size": 6982072,
+        "sizeFormatted": "6.66 MB",
+        "format": "jpeg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.031Z"
+      },
+      {
+        "file": "Father-daughter.png",
+        "size": 2867473,
+        "sizeFormatted": "2.73 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.968Z"
+      },
+      {
+        "file": "health-insurance-senior.png",
+        "size": 4818374,
+        "sizeFormatted": "4.6 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:56:27.211Z"
+      },
+      {
+        "file": "Myant_new_logo_white.png",
+        "size": 23437,
+        "sizeFormatted": "22.89 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:56:27.147Z"
+      },
+      {
+        "file": "Myant_new_logo.png",
+        "size": 23288,
+        "sizeFormatted": "22.74 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:56:27.146Z"
+      },
+      {
+        "file": "woman-wear-skiin.png",
+        "size": 8106065,
+        "sizeFormatted": "7.73 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.821Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-cropped.jpeg",
+        "size": 119530,
+        "sizeFormatted": "116.73 KB",
+        "format": "jpeg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.825Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical.jpeg",
+        "size": 212115,
+        "sizeFormatted": "207.14 KB",
+        "format": "jpeg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.828Z"
+      }
+    ],
+    "public/assets/images/design-examples": [
+      {
+        "file": "example-progressive-scrolling-1of4.png",
+        "size": 251426,
+        "sizeFormatted": "245.53 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.982Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4.png",
+        "size": 256319,
+        "sizeFormatted": "250.31 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.988Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4.png",
+        "size": 267813,
+        "sizeFormatted": "261.54 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:54.993Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4.png",
+        "size": 548055,
+        "sizeFormatted": "535.21 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.000Z"
+      }
+    ],
+    "public/assets/images/documents": [
+      {
+        "file": "medicalgorythmic-pamflet.png",
+        "size": 2861364,
+        "sizeFormatted": "2.73 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.073Z"
+      }
+    ],
+    "public/assets/images/marketing": [
+      {
+        "file": "flurin-stauffer.jpeg",
+        "size": 9734,
+        "sizeFormatted": "9.51 KB",
+        "format": "jpeg",
+        "type": "image",
+        "modified": "2025-08-24T18:08:58.419Z"
+      },
+      {
+        "file": "to_favi.png",
+        "size": 28108,
+        "sizeFormatted": "27.45 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T18:08:58.419Z"
+      }
+    ],
+    "public/assets/images/mvcp": [
+      {
+        "file": "consultation-mvcp.jpg",
+        "size": 24755,
+        "sizeFormatted": "24.17 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.085Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25.png",
+        "size": 223100,
+        "sizeFormatted": "217.87 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.083Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54.png",
+        "size": 177265,
+        "sizeFormatted": "173.11 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.085Z"
+      }
+    ],
+    "public/assets/images/optimized": [
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930-1024w.png",
+        "size": 530346,
+        "sizeFormatted": "517.92 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.092Z"
+      },
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930-1024w.webp",
+        "size": 133150,
+        "sizeFormatted": "130.03 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.094Z"
+      },
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930-375w.png",
+        "size": 85569,
+        "sizeFormatted": "83.56 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.095Z"
+      },
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930-375w.webp",
+        "size": 22718,
+        "sizeFormatted": "22.19 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.096Z"
+      },
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930-768w.png",
+        "size": 320250,
+        "sizeFormatted": "312.74 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.101Z"
+      },
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930-768w.webp",
+        "size": 77872,
+        "sizeFormatted": "76.05 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.103Z"
+      },
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930-full.png",
+        "size": 530346,
+        "sizeFormatted": "517.92 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.104Z"
+      },
+      {
+        "file": "1e3b8979-f9b0-405d-9117-c8f3c4115930-full.webp",
+        "size": 133150,
+        "sizeFormatted": "130.03 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.105Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-1024w.png",
+        "size": 142401,
+        "sizeFormatted": "139.06 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.108Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-1024w.webp",
+        "size": 27574,
+        "sizeFormatted": "26.93 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.108Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-1440w.png",
+        "size": 265830,
+        "sizeFormatted": "259.6 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.115Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-1440w.webp",
+        "size": 50606,
+        "sizeFormatted": "49.42 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.116Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-1920w.png",
+        "size": 397274,
+        "sizeFormatted": "387.96 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.122Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-1920w.webp",
+        "size": 83116,
+        "sizeFormatted": "81.17 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.123Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-375w.png",
+        "size": 27355,
+        "sizeFormatted": "26.71 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.123Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-375w.webp",
+        "size": 6174,
+        "sizeFormatted": "6.03 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.124Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-768w.png",
+        "size": 87718,
+        "sizeFormatted": "85.66 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.125Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-768w.webp",
+        "size": 17068,
+        "sizeFormatted": "16.67 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.125Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-full.png",
+        "size": 397274,
+        "sizeFormatted": "387.96 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.126Z"
+      },
+      {
+        "file": "1f227914-01f4-49cb-9a48-3f39976b4898-full.webp",
+        "size": 83116,
+        "sizeFormatted": "81.17 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.127Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2-1024w.png",
+        "size": 8685,
+        "sizeFormatted": "8.48 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.128Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2-1024w.webp",
+        "size": 33036,
+        "sizeFormatted": "32.26 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.128Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2-375w.png",
+        "size": 3776,
+        "sizeFormatted": "3.69 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.129Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2-375w.webp",
+        "size": 11552,
+        "sizeFormatted": "11.28 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.129Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2-768w.png",
+        "size": 7050,
+        "sizeFormatted": "6.88 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.129Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2-768w.webp",
+        "size": 24936,
+        "sizeFormatted": "24.35 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.130Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2-full.png",
+        "size": 8685,
+        "sizeFormatted": "8.48 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.130Z"
+      },
+      {
+        "file": "21284932-ea0e-4aef-b6ba-99d0199e8fa2-full.webp",
+        "size": 33036,
+        "sizeFormatted": "32.26 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.130Z"
+      },
+      {
+        "file": "25b8354d-c321-4439-8a41-5dcafe49836e-375w.png",
+        "size": 54884,
+        "sizeFormatted": "53.6 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.131Z"
+      },
+      {
+        "file": "25b8354d-c321-4439-8a41-5dcafe49836e-375w.webp",
+        "size": 18118,
+        "sizeFormatted": "17.69 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.132Z"
+      },
+      {
+        "file": "25b8354d-c321-4439-8a41-5dcafe49836e-768w.png",
+        "size": 184968,
+        "sizeFormatted": "180.63 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.135Z"
+      },
+      {
+        "file": "25b8354d-c321-4439-8a41-5dcafe49836e-768w.webp",
+        "size": 47070,
+        "sizeFormatted": "45.97 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.135Z"
+      },
+      {
+        "file": "25b8354d-c321-4439-8a41-5dcafe49836e-full.png",
+        "size": 184968,
+        "sizeFormatted": "180.63 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.136Z"
+      },
+      {
+        "file": "25b8354d-c321-4439-8a41-5dcafe49836e-full.webp",
+        "size": 47070,
+        "sizeFormatted": "45.97 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.137Z"
+      },
+      {
+        "file": "2c470df9-6b84-48a2-b3f4-d958760f8b36-375w.png",
+        "size": 89896,
+        "sizeFormatted": "87.79 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.138Z"
+      },
+      {
+        "file": "2c470df9-6b84-48a2-b3f4-d958760f8b36-375w.webp",
+        "size": 18592,
+        "sizeFormatted": "18.16 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.139Z"
+      },
+      {
+        "file": "2c470df9-6b84-48a2-b3f4-d958760f8b36-full.png",
+        "size": 89896,
+        "sizeFormatted": "87.79 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.139Z"
+      },
+      {
+        "file": "2c470df9-6b84-48a2-b3f4-d958760f8b36-full.webp",
+        "size": 18592,
+        "sizeFormatted": "18.16 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.140Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-1024w.png",
+        "size": 412777,
+        "sizeFormatted": "403.1 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.143Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-1024w.webp",
+        "size": 89862,
+        "sizeFormatted": "87.76 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.146Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-1440w.png",
+        "size": 807959,
+        "sizeFormatted": "789.02 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.153Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-1440w.webp",
+        "size": 209564,
+        "sizeFormatted": "204.65 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.161Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-1920w.png",
+        "size": 1410861,
+        "sizeFormatted": "1.35 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.175Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-1920w.webp",
+        "size": 435522,
+        "sizeFormatted": "425.31 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.184Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-375w.png",
+        "size": 60465,
+        "sizeFormatted": "59.05 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.188Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-375w.webp",
+        "size": 13248,
+        "sizeFormatted": "12.94 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.188Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-768w.png",
+        "size": 233626,
+        "sizeFormatted": "228.15 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.190Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-768w.webp",
+        "size": 46526,
+        "sizeFormatted": "45.44 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.191Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-full.png",
+        "size": 1410861,
+        "sizeFormatted": "1.35 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.192Z"
+      },
+      {
+        "file": "32de0ca4-a556-4e60-bfaf-fc48bf4bd27c-full.webp",
+        "size": 435522,
+        "sizeFormatted": "425.31 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.199Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-1024w.png",
+        "size": 12073,
+        "sizeFormatted": "11.79 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.200Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-1024w.webp",
+        "size": 34066,
+        "sizeFormatted": "33.27 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.201Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-1440w.png",
+        "size": 17667,
+        "sizeFormatted": "17.25 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.201Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-1440w.webp",
+        "size": 46434,
+        "sizeFormatted": "45.35 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.202Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-375w.png",
+        "size": 4377,
+        "sizeFormatted": "4.27 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.202Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-375w.webp",
+        "size": 12880,
+        "sizeFormatted": "12.58 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.202Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-768w.png",
+        "size": 8873,
+        "sizeFormatted": "8.67 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.203Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-768w.webp",
+        "size": 24606,
+        "sizeFormatted": "24.03 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.203Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-full.png",
+        "size": 17667,
+        "sizeFormatted": "17.25 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.203Z"
+      },
+      {
+        "file": "3acb758c-e8c1-44f0-889b-fda9851bd845-full.webp",
+        "size": 46434,
+        "sizeFormatted": "45.35 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.203Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-1024w.png",
+        "size": 307111,
+        "sizeFormatted": "299.91 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.207Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-1024w.webp",
+        "size": 60130,
+        "sizeFormatted": "58.72 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.209Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-1440w.png",
+        "size": 553027,
+        "sizeFormatted": "540.07 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.216Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-1440w.webp",
+        "size": 92312,
+        "sizeFormatted": "90.15 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.218Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-1920w.png",
+        "size": 913130,
+        "sizeFormatted": "891.73 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.224Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-1920w.webp",
+        "size": 134128,
+        "sizeFormatted": "130.98 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.227Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-375w.png",
+        "size": 57100,
+        "sizeFormatted": "55.76 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.228Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-375w.webp",
+        "size": 16920,
+        "sizeFormatted": "16.52 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.228Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-768w.png",
+        "size": 188288,
+        "sizeFormatted": "183.88 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.230Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-768w.webp",
+        "size": 42556,
+        "sizeFormatted": "41.56 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.231Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-full.png",
+        "size": 913130,
+        "sizeFormatted": "891.73 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.233Z"
+      },
+      {
+        "file": "40ba1015-dfac-4b19-9548-8f3319ffe098-full.webp",
+        "size": 134128,
+        "sizeFormatted": "130.98 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.236Z"
+      },
+      {
+        "file": "4ad65a99-4268-46c4-986f-d04c9ac055f4-375w.png",
+        "size": 49962,
+        "sizeFormatted": "48.79 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.236Z"
+      },
+      {
+        "file": "4ad65a99-4268-46c4-986f-d04c9ac055f4-375w.webp",
+        "size": 18556,
+        "sizeFormatted": "18.12 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.237Z"
+      },
+      {
+        "file": "4ad65a99-4268-46c4-986f-d04c9ac055f4-768w.png",
+        "size": 158324,
+        "sizeFormatted": "154.61 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.238Z"
+      },
+      {
+        "file": "4ad65a99-4268-46c4-986f-d04c9ac055f4-768w.webp",
+        "size": 42068,
+        "sizeFormatted": "41.08 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.239Z"
+      },
+      {
+        "file": "4ad65a99-4268-46c4-986f-d04c9ac055f4-full.png",
+        "size": 158324,
+        "sizeFormatted": "154.61 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.240Z"
+      },
+      {
+        "file": "4ad65a99-4268-46c4-986f-d04c9ac055f4-full.webp",
+        "size": 42068,
+        "sizeFormatted": "41.08 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.240Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-1024w.png",
+        "size": 11039,
+        "sizeFormatted": "10.78 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.240Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-1024w.webp",
+        "size": 35310,
+        "sizeFormatted": "34.48 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.241Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-1440w.png",
+        "size": 17032,
+        "sizeFormatted": "16.63 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.241Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-1440w.webp",
+        "size": 49046,
+        "sizeFormatted": "47.9 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.241Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-375w.png",
+        "size": 4382,
+        "sizeFormatted": "4.28 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.241Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-375w.webp",
+        "size": 13208,
+        "sizeFormatted": "12.9 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.242Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-768w.png",
+        "size": 8471,
+        "sizeFormatted": "8.27 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.242Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-768w.webp",
+        "size": 25022,
+        "sizeFormatted": "24.44 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.242Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-full.png",
+        "size": 17032,
+        "sizeFormatted": "16.63 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.242Z"
+      },
+      {
+        "file": "4eaa19d0-ba50-4e2f-92e2-6be21d254e06-full.webp",
+        "size": 49046,
+        "sizeFormatted": "47.9 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.243Z"
+      },
+      {
+        "file": "5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3-375w.png",
+        "size": 74793,
+        "sizeFormatted": "73.04 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.244Z"
+      },
+      {
+        "file": "5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3-375w.webp",
+        "size": 39426,
+        "sizeFormatted": "38.5 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.244Z"
+      },
+      {
+        "file": "5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3-768w.png",
+        "size": 262546,
+        "sizeFormatted": "256.39 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.247Z"
+      },
+      {
+        "file": "5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3-768w.webp",
+        "size": 118306,
+        "sizeFormatted": "115.53 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.249Z"
+      },
+      {
+        "file": "5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3-full.png",
+        "size": 262546,
+        "sizeFormatted": "256.39 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.250Z"
+      },
+      {
+        "file": "5b7bbf12-0524-43d2-8e0d-6bbc2064d4f3-full.webp",
+        "size": 118306,
+        "sizeFormatted": "115.53 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.250Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410-1024w.png",
+        "size": 9223,
+        "sizeFormatted": "9.01 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.251Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410-1024w.webp",
+        "size": 32728,
+        "sizeFormatted": "31.96 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.251Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410-375w.png",
+        "size": 3752,
+        "sizeFormatted": "3.66 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.251Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410-375w.webp",
+        "size": 11350,
+        "sizeFormatted": "11.08 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.251Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410-768w.png",
+        "size": 6334,
+        "sizeFormatted": "6.19 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.251Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410-768w.webp",
+        "size": 24820,
+        "sizeFormatted": "24.24 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.252Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410-full.png",
+        "size": 9223,
+        "sizeFormatted": "9.01 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.252Z"
+      },
+      {
+        "file": "5cc0811e-7cbf-4686-a9fd-c4d65fa7a410-full.webp",
+        "size": 32728,
+        "sizeFormatted": "31.96 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.252Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-1024w.png",
+        "size": 151184,
+        "sizeFormatted": "147.64 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.253Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-1024w.webp",
+        "size": 57548,
+        "sizeFormatted": "56.2 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.254Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-1440w.png",
+        "size": 249969,
+        "sizeFormatted": "244.11 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.256Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-1440w.webp",
+        "size": 84988,
+        "sizeFormatted": "83 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.261Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-375w.png",
+        "size": 32692,
+        "sizeFormatted": "31.93 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.262Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-375w.webp",
+        "size": 16140,
+        "sizeFormatted": "15.76 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.262Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-768w.png",
+        "size": 90233,
+        "sizeFormatted": "88.12 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.263Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-768w.webp",
+        "size": 41280,
+        "sizeFormatted": "40.31 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.264Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-full.png",
+        "size": 249969,
+        "sizeFormatted": "244.11 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.265Z"
+      },
+      {
+        "file": "6e47298b-0a4d-4e21-92ed-0b25c0e34c4c-full.webp",
+        "size": 84988,
+        "sizeFormatted": "83 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.265Z"
+      },
+      {
+        "file": "72de88b6-6f7b-4e58-abb2-dc50a762a353-375w.png",
+        "size": 100260,
+        "sizeFormatted": "97.91 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.266Z"
+      },
+      {
+        "file": "72de88b6-6f7b-4e58-abb2-dc50a762a353-375w.webp",
+        "size": 28420,
+        "sizeFormatted": "27.75 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.267Z"
+      },
+      {
+        "file": "72de88b6-6f7b-4e58-abb2-dc50a762a353-full.png",
+        "size": 100260,
+        "sizeFormatted": "97.91 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.267Z"
+      },
+      {
+        "file": "72de88b6-6f7b-4e58-abb2-dc50a762a353-full.webp",
+        "size": 28420,
+        "sizeFormatted": "27.75 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.267Z"
+      },
+      {
+        "file": "a94ae42b-2b12-49d8-a6af-965c9691535f-375w.png",
+        "size": 25865,
+        "sizeFormatted": "25.26 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.295Z"
+      },
+      {
+        "file": "a94ae42b-2b12-49d8-a6af-965c9691535f-375w.webp",
+        "size": 6764,
+        "sizeFormatted": "6.61 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.296Z"
+      },
+      {
+        "file": "a94ae42b-2b12-49d8-a6af-965c9691535f-full.png",
+        "size": 25865,
+        "sizeFormatted": "25.26 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.296Z"
+      },
+      {
+        "file": "a94ae42b-2b12-49d8-a6af-965c9691535f-full.webp",
+        "size": 6764,
+        "sizeFormatted": "6.61 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.296Z"
+      },
+      {
+        "file": "app-live-ecg-1024w.png",
+        "size": 252408,
+        "sizeFormatted": "246.49 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.298Z"
+      },
+      {
+        "file": "app-live-ecg-1024w.webp",
+        "size": 61736,
+        "sizeFormatted": "60.29 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.299Z"
+      },
+      {
+        "file": "app-live-ecg-375w.png",
+        "size": 42681,
+        "sizeFormatted": "41.68 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.300Z"
+      },
+      {
+        "file": "app-live-ecg-375w.webp",
+        "size": 14102,
+        "sizeFormatted": "13.77 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.300Z"
+      },
+      {
+        "file": "app-live-ecg-768w.png",
+        "size": 150568,
+        "sizeFormatted": "147.04 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.302Z"
+      },
+      {
+        "file": "app-live-ecg-768w.webp",
+        "size": 40002,
+        "sizeFormatted": "39.06 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.303Z"
+      },
+      {
+        "file": "app-live-ecg-full.png",
+        "size": 252408,
+        "sizeFormatted": "246.49 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.304Z"
+      },
+      {
+        "file": "app-live-ecg-full.webp",
+        "size": 61736,
+        "sizeFormatted": "60.29 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.305Z"
+      },
+      {
+        "file": "b74365b1-b855-4522-a9d7-f05b3e2ee15e-375w.png",
+        "size": 49338,
+        "sizeFormatted": "48.18 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.306Z"
+      },
+      {
+        "file": "b74365b1-b855-4522-a9d7-f05b3e2ee15e-375w.webp",
+        "size": 19828,
+        "sizeFormatted": "19.36 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.306Z"
+      },
+      {
+        "file": "b74365b1-b855-4522-a9d7-f05b3e2ee15e-768w.png",
+        "size": 158559,
+        "sizeFormatted": "154.84 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.308Z"
+      },
+      {
+        "file": "b74365b1-b855-4522-a9d7-f05b3e2ee15e-768w.webp",
+        "size": 47094,
+        "sizeFormatted": "45.99 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.309Z"
+      },
+      {
+        "file": "b74365b1-b855-4522-a9d7-f05b3e2ee15e-full.png",
+        "size": 158559,
+        "sizeFormatted": "154.84 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.310Z"
+      },
+      {
+        "file": "b74365b1-b855-4522-a9d7-f05b3e2ee15e-full.webp",
+        "size": 47094,
+        "sizeFormatted": "45.99 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.310Z"
+      },
+      {
+        "file": "b91519c3-7e46-4722-a4f8-1a8ca54cb7c7-375w.png",
+        "size": 54411,
+        "sizeFormatted": "53.14 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.311Z"
+      },
+      {
+        "file": "b91519c3-7e46-4722-a4f8-1a8ca54cb7c7-375w.webp",
+        "size": 19284,
+        "sizeFormatted": "18.83 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.311Z"
+      },
+      {
+        "file": "b91519c3-7e46-4722-a4f8-1a8ca54cb7c7-768w.png",
+        "size": 175161,
+        "sizeFormatted": "171.06 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.313Z"
+      },
+      {
+        "file": "b91519c3-7e46-4722-a4f8-1a8ca54cb7c7-768w.webp",
+        "size": 47100,
+        "sizeFormatted": "46 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.315Z"
+      },
+      {
+        "file": "b91519c3-7e46-4722-a4f8-1a8ca54cb7c7-full.png",
+        "size": 175161,
+        "sizeFormatted": "171.06 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.315Z"
+      },
+      {
+        "file": "b91519c3-7e46-4722-a4f8-1a8ca54cb7c7-full.webp",
+        "size": 47100,
+        "sizeFormatted": "46 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.316Z"
+      },
+      {
+        "file": "doctor-patient-1024w.jpg",
+        "size": 97370,
+        "sizeFormatted": "95.09 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.347Z"
+      },
+      {
+        "file": "doctor-patient-1024w.webp",
+        "size": 72020,
+        "sizeFormatted": "70.33 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.347Z"
+      },
+      {
+        "file": "doctor-patient-1440w.jpg",
+        "size": 178899,
+        "sizeFormatted": "174.71 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.349Z"
+      },
+      {
+        "file": "doctor-patient-1440w.webp",
+        "size": 136212,
+        "sizeFormatted": "133.02 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.351Z"
+      },
+      {
+        "file": "doctor-patient-1920w.jpg",
+        "size": 295393,
+        "sizeFormatted": "288.47 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.353Z"
+      },
+      {
+        "file": "doctor-patient-1920w.webp",
+        "size": 220350,
+        "sizeFormatted": "215.19 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.356Z"
+      },
+      {
+        "file": "doctor-patient-375w.jpg",
+        "size": 18918,
+        "sizeFormatted": "18.47 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.357Z"
+      },
+      {
+        "file": "doctor-patient-375w.webp",
+        "size": 14742,
+        "sizeFormatted": "14.4 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.357Z"
+      },
+      {
+        "file": "doctor-patient-768w.jpg",
+        "size": 59646,
+        "sizeFormatted": "58.25 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.358Z"
+      },
+      {
+        "file": "doctor-patient-768w.webp",
+        "size": 44408,
+        "sizeFormatted": "43.37 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.359Z"
+      },
+      {
+        "file": "doctor-patient-full.jpg",
+        "size": 295393,
+        "sizeFormatted": "288.47 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.359Z"
+      },
+      {
+        "file": "doctor-patient-full.webp",
+        "size": 220350,
+        "sizeFormatted": "215.19 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.360Z"
+      },
+      {
+        "file": "Father-daughter-1024w.png",
+        "size": 930315,
+        "sizeFormatted": "908.51 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.274Z"
+      },
+      {
+        "file": "Father-daughter-1024w.webp",
+        "size": 252634,
+        "sizeFormatted": "246.71 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.280Z"
+      },
+      {
+        "file": "Father-daughter-375w.png",
+        "size": 106163,
+        "sizeFormatted": "103.67 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.281Z"
+      },
+      {
+        "file": "Father-daughter-375w.webp",
+        "size": 19814,
+        "sizeFormatted": "19.35 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.282Z"
+      },
+      {
+        "file": "Father-daughter-768w.png",
+        "size": 489053,
+        "sizeFormatted": "477.59 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.283Z"
+      },
+      {
+        "file": "Father-daughter-768w.webp",
+        "size": 110528,
+        "sizeFormatted": "107.94 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.286Z"
+      },
+      {
+        "file": "Father-daughter-full.png",
+        "size": 930315,
+        "sizeFormatted": "908.51 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.288Z"
+      },
+      {
+        "file": "Father-daughter-full.webp",
+        "size": 252634,
+        "sizeFormatted": "246.71 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.293Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-375w.jpg",
+        "size": 22087,
+        "sizeFormatted": "21.57 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.651Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-375w.webp",
+        "size": 13960,
+        "sizeFormatted": "13.63 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.652Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-768w.jpg",
+        "size": 72173,
+        "sizeFormatted": "70.48 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.652Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-768w.webp",
+        "size": 45568,
+        "sizeFormatted": "44.5 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.653Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-cropped-375w.jpg",
+        "size": 33081,
+        "sizeFormatted": "32.31 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.653Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-cropped-375w.webp",
+        "size": 23774,
+        "sizeFormatted": "23.22 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.654Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-cropped-full.jpg",
+        "size": 33081,
+        "sizeFormatted": "32.31 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.654Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-cropped-full.webp",
+        "size": 23774,
+        "sizeFormatted": "23.22 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.654Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-full.jpg",
+        "size": 72173,
+        "sizeFormatted": "70.48 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.654Z"
+      },
+      {
+        "file": "woman-wearing-skiin-vertical-full.webp",
+        "size": 45568,
+        "sizeFormatted": "44.5 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.654Z"
+      }
+    ],
+    "public/assets/images/optimized/design-examples": [
+      {
+        "file": "example-progressive-scrolling-1of4-1024w.png",
+        "size": 32926,
+        "sizeFormatted": "32.15 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.316Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-1024w.webp",
+        "size": 24710,
+        "sizeFormatted": "24.13 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.316Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-1440w.png",
+        "size": 47897,
+        "sizeFormatted": "46.77 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.317Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-1440w.webp",
+        "size": 37092,
+        "sizeFormatted": "36.22 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.318Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-1920w.png",
+        "size": 67548,
+        "sizeFormatted": "65.96 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.319Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-1920w.webp",
+        "size": 51352,
+        "sizeFormatted": "50.15 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.319Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-375w.png",
+        "size": 9595,
+        "sizeFormatted": "9.37 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.319Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-375w.webp",
+        "size": 6776,
+        "sizeFormatted": "6.62 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.320Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-768w.png",
+        "size": 23687,
+        "sizeFormatted": "23.13 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.320Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-768w.webp",
+        "size": 17582,
+        "sizeFormatted": "17.17 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.320Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-full.png",
+        "size": 67548,
+        "sizeFormatted": "65.96 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.321Z"
+      },
+      {
+        "file": "example-progressive-scrolling-1of4-full.webp",
+        "size": 51352,
+        "sizeFormatted": "50.15 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.321Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-1024w.png",
+        "size": 33106,
+        "sizeFormatted": "32.33 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.321Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-1024w.webp",
+        "size": 27698,
+        "sizeFormatted": "27.05 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.322Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-1440w.png",
+        "size": 50695,
+        "sizeFormatted": "49.51 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.322Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-1440w.webp",
+        "size": 40794,
+        "sizeFormatted": "39.84 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.323Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-1920w.png",
+        "size": 70112,
+        "sizeFormatted": "68.47 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.324Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-1920w.webp",
+        "size": 56810,
+        "sizeFormatted": "55.48 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.326Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-375w.png",
+        "size": 9891,
+        "sizeFormatted": "9.66 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.328Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-375w.webp",
+        "size": 7408,
+        "sizeFormatted": "7.23 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.328Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-768w.png",
+        "size": 24391,
+        "sizeFormatted": "23.82 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.328Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-768w.webp",
+        "size": 19438,
+        "sizeFormatted": "18.98 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.329Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-full.png",
+        "size": 70112,
+        "sizeFormatted": "68.47 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.329Z"
+      },
+      {
+        "file": "example-progressive-scrolling-2of4-full.webp",
+        "size": 56810,
+        "sizeFormatted": "55.48 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.330Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-1024w.png",
+        "size": 35216,
+        "sizeFormatted": "34.39 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.330Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-1024w.webp",
+        "size": 34410,
+        "sizeFormatted": "33.6 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.331Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-1440w.png",
+        "size": 50930,
+        "sizeFormatted": "49.74 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.332Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-1440w.webp",
+        "size": 51964,
+        "sizeFormatted": "50.75 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.333Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-1920w.png",
+        "size": 70909,
+        "sizeFormatted": "69.25 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.334Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-1920w.webp",
+        "size": 71464,
+        "sizeFormatted": "69.79 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.335Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-375w.png",
+        "size": 11053,
+        "sizeFormatted": "10.79 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.336Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-375w.webp",
+        "size": 9070,
+        "sizeFormatted": "8.86 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.336Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-768w.png",
+        "size": 24734,
+        "sizeFormatted": "24.15 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.336Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-768w.webp",
+        "size": 23948,
+        "sizeFormatted": "23.39 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.337Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-full.png",
+        "size": 70909,
+        "sizeFormatted": "69.25 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.337Z"
+      },
+      {
+        "file": "example-progressive-scrolling-3of4-full.webp",
+        "size": 71464,
+        "sizeFormatted": "69.79 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.337Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-1024w.png",
+        "size": 51887,
+        "sizeFormatted": "50.67 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.338Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-1024w.webp",
+        "size": 37000,
+        "sizeFormatted": "36.13 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.338Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-1440w.png",
+        "size": 77999,
+        "sizeFormatted": "76.17 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.339Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-1440w.webp",
+        "size": 55316,
+        "sizeFormatted": "54.02 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.340Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-1920w.png",
+        "size": 108270,
+        "sizeFormatted": "105.73 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.341Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-1920w.webp",
+        "size": 77830,
+        "sizeFormatted": "76.01 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.343Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-375w.png",
+        "size": 12316,
+        "sizeFormatted": "12.03 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.343Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-375w.webp",
+        "size": 9626,
+        "sizeFormatted": "9.4 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.343Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-768w.png",
+        "size": 36017,
+        "sizeFormatted": "35.17 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.344Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-768w.webp",
+        "size": 25456,
+        "sizeFormatted": "24.86 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.344Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-full.png",
+        "size": 108270,
+        "sizeFormatted": "105.73 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.345Z"
+      },
+      {
+        "file": "example-progressive-scrolling-4of4-full.webp",
+        "size": 77830,
+        "sizeFormatted": "76.01 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.345Z"
+      }
+    ],
+    "public/assets/images/optimized/documents": [
+      {
+        "file": "medicalgorythmic-pamflet-1024w.png",
+        "size": 178329,
+        "sizeFormatted": "174.15 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.364Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-1024w.webp",
+        "size": 116094,
+        "sizeFormatted": "113.37 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.366Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-1440w.png",
+        "size": 296738,
+        "sizeFormatted": "289.78 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.368Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-1440w.webp",
+        "size": 207342,
+        "sizeFormatted": "202.48 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.370Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-1920w.png",
+        "size": 452039,
+        "sizeFormatted": "441.44 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.377Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-1920w.webp",
+        "size": 330978,
+        "sizeFormatted": "323.22 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.387Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-375w.png",
+        "size": 35918,
+        "sizeFormatted": "35.08 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.389Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-375w.webp",
+        "size": 17970,
+        "sizeFormatted": "17.55 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.390Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-768w.png",
+        "size": 114376,
+        "sizeFormatted": "111.7 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.393Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-768w.webp",
+        "size": 68676,
+        "sizeFormatted": "67.07 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.394Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-full.png",
+        "size": 452039,
+        "sizeFormatted": "441.44 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.395Z"
+      },
+      {
+        "file": "medicalgorythmic-pamflet-full.webp",
+        "size": 330978,
+        "sizeFormatted": "323.22 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.396Z"
+      }
+    ],
+    "public/assets/images/optimized/mvcp": [
+      {
+        "file": "consultation-mvcp-375w.jpg",
+        "size": 13971,
+        "sizeFormatted": "13.64 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.412Z"
+      },
+      {
+        "file": "consultation-mvcp-375w.webp",
+        "size": 9316,
+        "sizeFormatted": "9.1 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.412Z"
+      },
+      {
+        "file": "consultation-mvcp-full.jpg",
+        "size": 13971,
+        "sizeFormatted": "13.64 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.412Z"
+      },
+      {
+        "file": "consultation-mvcp-full.webp",
+        "size": 9316,
+        "sizeFormatted": "9.1 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.412Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25-1024w.png",
+        "size": 61514,
+        "sizeFormatted": "60.07 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.399Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25-1024w.webp",
+        "size": 55628,
+        "sizeFormatted": "54.32 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.400Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25-375w.png",
+        "size": 15960,
+        "sizeFormatted": "15.59 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.401Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25-375w.webp",
+        "size": 11812,
+        "sizeFormatted": "11.54 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.401Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25-768w.png",
+        "size": 43068,
+        "sizeFormatted": "42.06 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.402Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25-768w.webp",
+        "size": 36282,
+        "sizeFormatted": "35.43 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.403Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25-full.png",
+        "size": 61514,
+        "sizeFormatted": "60.07 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.403Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.36.25-full.webp",
+        "size": 55628,
+        "sizeFormatted": "54.32 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.403Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54-1024w.png",
+        "size": 79335,
+        "sizeFormatted": "77.48 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.406Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54-1024w.webp",
+        "size": 58102,
+        "sizeFormatted": "56.74 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.407Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54-375w.png",
+        "size": 18650,
+        "sizeFormatted": "18.21 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.408Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54-375w.webp",
+        "size": 11206,
+        "sizeFormatted": "10.94 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.408Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54-768w.png",
+        "size": 55626,
+        "sizeFormatted": "54.32 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.409Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54-768w.webp",
+        "size": 35628,
+        "sizeFormatted": "34.79 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.410Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54-full.png",
+        "size": 79335,
+        "sizeFormatted": "77.48 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.411Z"
+      },
+      {
+        "file": "MVCP 2025-06-24 at 10.37.54-full.webp",
+        "size": 58102,
+        "sizeFormatted": "56.74 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.411Z"
+      }
+    ],
+    "public/assets/images/optimized/product": [
+      {
+        "file": "Mother-daughter-HQ-1024w.jpg",
+        "size": 73168,
+        "sizeFormatted": "71.45 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.414Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-1024w.webp",
+        "size": 43824,
+        "sizeFormatted": "42.8 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.415Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-1440w.jpg",
+        "size": 131694,
+        "sizeFormatted": "128.61 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.418Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-1440w.webp",
+        "size": 79126,
+        "sizeFormatted": "77.27 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.422Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-1920w.jpg",
+        "size": 222520,
+        "sizeFormatted": "217.3 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.426Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-1920w.webp",
+        "size": 131916,
+        "sizeFormatted": "128.82 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.430Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-375w.jpg",
+        "size": 15735,
+        "sizeFormatted": "15.37 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.430Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-375w.webp",
+        "size": 10718,
+        "sizeFormatted": "10.47 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.430Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-768w.jpg",
+        "size": 45901,
+        "sizeFormatted": "44.83 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.431Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-768w.webp",
+        "size": 28398,
+        "sizeFormatted": "27.73 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.432Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-full.jpg",
+        "size": 222520,
+        "sizeFormatted": "217.3 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.432Z"
+      },
+      {
+        "file": "Mother-daughter-HQ-full.webp",
+        "size": 131916,
+        "sizeFormatted": "128.82 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.433Z"
+      },
+      {
+        "file": "skiin-your-second-skin-1024w.png",
+        "size": 305051,
+        "sizeFormatted": "297.9 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.438Z"
+      },
+      {
+        "file": "skiin-your-second-skin-1024w.webp",
+        "size": 41346,
+        "sizeFormatted": "40.38 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.440Z"
+      },
+      {
+        "file": "skiin-your-second-skin-1440w.png",
+        "size": 555022,
+        "sizeFormatted": "542.01 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.447Z"
+      },
+      {
+        "file": "skiin-your-second-skin-1440w.webp",
+        "size": 63324,
+        "sizeFormatted": "61.84 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.449Z"
+      },
+      {
+        "file": "skiin-your-second-skin-375w.png",
+        "size": 56806,
+        "sizeFormatted": "55.47 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.450Z"
+      },
+      {
+        "file": "skiin-your-second-skin-375w.webp",
+        "size": 14266,
+        "sizeFormatted": "13.93 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.451Z"
+      },
+      {
+        "file": "skiin-your-second-skin-768w.png",
+        "size": 187752,
+        "sizeFormatted": "183.35 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.452Z"
+      },
+      {
+        "file": "skiin-your-second-skin-768w.webp",
+        "size": 30654,
+        "sizeFormatted": "29.94 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.453Z"
+      },
+      {
+        "file": "skiin-your-second-skin-full.png",
+        "size": 555022,
+        "sizeFormatted": "542.01 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.454Z"
+      },
+      {
+        "file": "skiin-your-second-skin-full.webp",
+        "size": 63324,
+        "sizeFormatted": "61.84 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.456Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-1024w.png",
+        "size": 332332,
+        "sizeFormatted": "324.54 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.459Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-1024w.webp",
+        "size": 73126,
+        "sizeFormatted": "71.41 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.462Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-1440w.png",
+        "size": 553095,
+        "sizeFormatted": "540.13 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.467Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-1440w.webp",
+        "size": 104916,
+        "sizeFormatted": "102.46 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.469Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-375w.png",
+        "size": 65358,
+        "sizeFormatted": "63.83 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.470Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-375w.webp",
+        "size": 23064,
+        "sizeFormatted": "22.52 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.471Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-768w.png",
+        "size": 204871,
+        "sizeFormatted": "200.07 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.473Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-768w.webp",
+        "size": 54004,
+        "sizeFormatted": "52.74 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.474Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-full.png",
+        "size": 553095,
+        "sizeFormatted": "540.13 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.475Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable-full.webp",
+        "size": 104916,
+        "sizeFormatted": "102.46 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.477Z"
+      }
+    ],
+    "public/assets/images/optimized/reports": [
+      {
+        "file": "ABPM-report-screenshot-1024w.png",
+        "size": 158251,
+        "sizeFormatted": "154.54 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.479Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-1024w.webp",
+        "size": 130708,
+        "sizeFormatted": "127.64 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.479Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-1440w.png",
+        "size": 237770,
+        "sizeFormatted": "232.2 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.482Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-1440w.webp",
+        "size": 195516,
+        "sizeFormatted": "190.93 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.485Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-375w.png",
+        "size": 45215,
+        "sizeFormatted": "44.16 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.486Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-375w.webp",
+        "size": 31442,
+        "sizeFormatted": "30.71 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.487Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-768w.png",
+        "size": 112543,
+        "sizeFormatted": "109.91 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.488Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-768w.webp",
+        "size": 90590,
+        "sizeFormatted": "88.47 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.489Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-full.png",
+        "size": 237770,
+        "sizeFormatted": "232.2 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.490Z"
+      },
+      {
+        "file": "ABPM-report-screenshot-full.webp",
+        "size": 195516,
+        "sizeFormatted": "190.93 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.492Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-1024w.png",
+        "size": 136040,
+        "sizeFormatted": "132.85 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.494Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-1024w.webp",
+        "size": 91896,
+        "sizeFormatted": "89.74 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.495Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-1440w.png",
+        "size": 214657,
+        "sizeFormatted": "209.63 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.498Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-1440w.webp",
+        "size": 158648,
+        "sizeFormatted": "154.93 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.500Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-1920w.png",
+        "size": 312043,
+        "sizeFormatted": "304.73 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.508Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-1920w.webp",
+        "size": 237932,
+        "sizeFormatted": "232.36 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.513Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-375w.png",
+        "size": 27188,
+        "sizeFormatted": "26.55 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.514Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-375w.webp",
+        "size": 15500,
+        "sizeFormatted": "15.14 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.515Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-768w.png",
+        "size": 82414,
+        "sizeFormatted": "80.48 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.516Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-768w.webp",
+        "size": 56184,
+        "sizeFormatted": "54.87 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.517Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-full.png",
+        "size": 312043,
+        "sizeFormatted": "304.73 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.518Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1-full.webp",
+        "size": 237932,
+        "sizeFormatted": "232.36 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.519Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-1024w.png",
+        "size": 85195,
+        "sizeFormatted": "83.2 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.521Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-1024w.webp",
+        "size": 42668,
+        "sizeFormatted": "41.67 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.522Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-1440w.png",
+        "size": 153578,
+        "sizeFormatted": "149.98 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.524Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-1440w.webp",
+        "size": 72396,
+        "sizeFormatted": "70.7 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.525Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-1920w.png",
+        "size": 213560,
+        "sizeFormatted": "208.55 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.527Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-1920w.webp",
+        "size": 110146,
+        "sizeFormatted": "107.56 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.529Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-375w.png",
+        "size": 18191,
+        "sizeFormatted": "17.76 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.530Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-375w.webp",
+        "size": 9838,
+        "sizeFormatted": "9.61 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.530Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-768w.png",
+        "size": 52517,
+        "sizeFormatted": "51.29 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.531Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-768w.webp",
+        "size": 26308,
+        "sizeFormatted": "25.69 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.532Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-full.png",
+        "size": 213560,
+        "sizeFormatted": "208.55 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.532Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2-full.webp",
+        "size": 110146,
+        "sizeFormatted": "107.56 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.534Z"
+      }
+    ],
+    "public/assets/images/optimized/team": [
+      {
+        "file": "dr-frank-ruschitzka-faceshot-375w.jpg",
+        "size": 15488,
+        "sizeFormatted": "15.13 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.626Z"
+      },
+      {
+        "file": "dr-frank-ruschitzka-faceshot-375w.webp",
+        "size": 8878,
+        "sizeFormatted": "8.67 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.626Z"
+      },
+      {
+        "file": "dr-frank-ruschitzka-faceshot-full.jpg",
+        "size": 15488,
+        "sizeFormatted": "15.13 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.626Z"
+      },
+      {
+        "file": "dr-frank-ruschitzka-faceshot-full.webp",
+        "size": 8878,
+        "sizeFormatted": "8.67 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.626Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot-1024w.jpg",
+        "size": 35691,
+        "sizeFormatted": "34.85 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.627Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot-1024w.webp",
+        "size": 19264,
+        "sizeFormatted": "18.81 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.627Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot-375w.jpg",
+        "size": 7877,
+        "sizeFormatted": "7.69 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.627Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot-375w.webp",
+        "size": 4524,
+        "sizeFormatted": "4.42 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.627Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot-768w.jpg",
+        "size": 22627,
+        "sizeFormatted": "22.1 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.628Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot-768w.webp",
+        "size": 12696,
+        "sizeFormatted": "12.4 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.628Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot-full.jpg",
+        "size": 35691,
+        "sizeFormatted": "34.85 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.629Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot-full.webp",
+        "size": 19264,
+        "sizeFormatted": "18.81 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.629Z"
+      },
+      {
+        "file": "dr-michiel-winter-faceshot-375w.jpg",
+        "size": 11241,
+        "sizeFormatted": "10.98 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.629Z"
+      },
+      {
+        "file": "dr-michiel-winter-faceshot-375w.webp",
+        "size": 6606,
+        "sizeFormatted": "6.45 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.629Z"
+      },
+      {
+        "file": "dr-michiel-winter-faceshot-768w.jpg",
+        "size": 31535,
+        "sizeFormatted": "30.8 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.630Z"
+      },
+      {
+        "file": "dr-michiel-winter-faceshot-768w.webp",
+        "size": 17106,
+        "sizeFormatted": "16.71 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.630Z"
+      },
+      {
+        "file": "dr-michiel-winter-faceshot-full.jpg",
+        "size": 31535,
+        "sizeFormatted": "30.8 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.631Z"
+      },
+      {
+        "file": "dr-michiel-winter-faceshot-full.webp",
+        "size": 17106,
+        "sizeFormatted": "16.71 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.631Z"
+      },
+      {
+        "file": "Myant-Team-1024w.png",
+        "size": 391507,
+        "sizeFormatted": "382.33 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.540Z"
+      },
+      {
+        "file": "Myant-Team-1024w.webp",
+        "size": 150366,
+        "sizeFormatted": "146.84 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.543Z"
+      },
+      {
+        "file": "Myant-Team-1440w.png",
+        "size": 725412,
+        "sizeFormatted": "708.41 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.552Z"
+      },
+      {
+        "file": "Myant-Team-1440w.webp",
+        "size": 249940,
+        "sizeFormatted": "244.08 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.565Z"
+      },
+      {
+        "file": "Myant-Team-1920w.png",
+        "size": 1213375,
+        "sizeFormatted": "1.16 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.595Z"
+      },
+      {
+        "file": "Myant-Team-1920w.webp",
+        "size": 356396,
+        "sizeFormatted": "348.04 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.599Z"
+      },
+      {
+        "file": "Myant-Team-375w.png",
+        "size": 61625,
+        "sizeFormatted": "60.18 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.599Z"
+      },
+      {
+        "file": "Myant-Team-375w.webp",
+        "size": 24756,
+        "sizeFormatted": "24.18 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.600Z"
+      },
+      {
+        "file": "Myant-Team-768w.png",
+        "size": 230538,
+        "sizeFormatted": "225.13 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.602Z"
+      },
+      {
+        "file": "Myant-Team-768w.webp",
+        "size": 92880,
+        "sizeFormatted": "90.7 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.604Z"
+      },
+      {
+        "file": "Myant-Team-full.png",
+        "size": 1213375,
+        "sizeFormatted": "1.16 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.605Z"
+      },
+      {
+        "file": "Myant-Team-full.webp",
+        "size": 356396,
+        "sizeFormatted": "348.04 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.605Z"
+      },
+      {
+        "file": "Pablo-Doerig-375w.jpg",
+        "size": 8985,
+        "sizeFormatted": "8.77 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.606Z"
+      },
+      {
+        "file": "Pablo-Doerig-375w.webp",
+        "size": 5488,
+        "sizeFormatted": "5.36 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.606Z"
+      },
+      {
+        "file": "Pablo-Doerig-full.jpg",
+        "size": 8985,
+        "sizeFormatted": "8.77 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.606Z"
+      },
+      {
+        "file": "Pablo-Doerig-full.webp",
+        "size": 5488,
+        "sizeFormatted": "5.36 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.606Z"
+      },
+      {
+        "file": "pd-dr-med-mehdi-namdar-faceshot-375w.jpg",
+        "size": 17224,
+        "sizeFormatted": "16.82 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.631Z"
+      },
+      {
+        "file": "pd-dr-med-mehdi-namdar-faceshot-375w.webp",
+        "size": 11178,
+        "sizeFormatted": "10.92 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.631Z"
+      },
+      {
+        "file": "pd-dr-med-mehdi-namdar-faceshot-full.jpg",
+        "size": 17224,
+        "sizeFormatted": "16.82 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.631Z"
+      },
+      {
+        "file": "pd-dr-med-mehdi-namdar-faceshot-full.webp",
+        "size": 11178,
+        "sizeFormatted": "10.92 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.632Z"
+      },
+      {
+        "file": "Team-CH-1024w.jpg",
+        "size": 66782,
+        "sizeFormatted": "65.22 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.607Z"
+      },
+      {
+        "file": "Team-CH-1024w.webp",
+        "size": 40800,
+        "sizeFormatted": "39.84 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.607Z"
+      },
+      {
+        "file": "Team-CH-1440w.jpg",
+        "size": 113880,
+        "sizeFormatted": "111.21 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.609Z"
+      },
+      {
+        "file": "Team-CH-1440w.webp",
+        "size": 67972,
+        "sizeFormatted": "66.38 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.610Z"
+      },
+      {
+        "file": "Team-CH-1920w.jpg",
+        "size": 180632,
+        "sizeFormatted": "176.4 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.613Z"
+      },
+      {
+        "file": "Team-CH-1920w.webp",
+        "size": 104982,
+        "sizeFormatted": "102.52 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.614Z"
+      },
+      {
+        "file": "Team-CH-375w.jpg",
+        "size": 14626,
+        "sizeFormatted": "14.28 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.614Z"
+      },
+      {
+        "file": "Team-CH-375w.webp",
+        "size": 9836,
+        "sizeFormatted": "9.61 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.614Z"
+      },
+      {
+        "file": "Team-CH-768w.jpg",
+        "size": 42404,
+        "sizeFormatted": "41.41 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.616Z"
+      },
+      {
+        "file": "Team-CH-768w.webp",
+        "size": 26320,
+        "sizeFormatted": "25.7 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.618Z"
+      },
+      {
+        "file": "Team-CH-full.jpg",
+        "size": 180632,
+        "sizeFormatted": "176.4 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.618Z"
+      },
+      {
+        "file": "Team-CH-full.webp",
+        "size": 104982,
+        "sizeFormatted": "102.52 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.618Z"
+      },
+      {
+        "file": "Team-CH2-375w.png",
+        "size": 97973,
+        "sizeFormatted": "95.68 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.620Z"
+      },
+      {
+        "file": "Team-CH2-375w.webp",
+        "size": 28994,
+        "sizeFormatted": "28.31 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.621Z"
+      },
+      {
+        "file": "Team-CH2-768w.png",
+        "size": 309079,
+        "sizeFormatted": "301.83 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.624Z"
+      },
+      {
+        "file": "Team-CH2-768w.webp",
+        "size": 62950,
+        "sizeFormatted": "61.47 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.624Z"
+      },
+      {
+        "file": "Team-CH2-full.png",
+        "size": 309079,
+        "sizeFormatted": "301.83 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.625Z"
+      },
+      {
+        "file": "Team-CH2-full.webp",
+        "size": 62950,
+        "sizeFormatted": "61.47 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.625Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp-1024w.jpg",
+        "size": 194477,
+        "sizeFormatted": "189.92 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.634Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp-1024w.webp",
+        "size": 148110,
+        "sizeFormatted": "144.64 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.635Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp-375w.jpg",
+        "size": 38348,
+        "sizeFormatted": "37.45 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.636Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp-375w.webp",
+        "size": 33392,
+        "sizeFormatted": "32.61 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.636Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp-768w.jpg",
+        "size": 125603,
+        "sizeFormatted": "122.66 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.638Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp-768w.webp",
+        "size": 100798,
+        "sizeFormatted": "98.44 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.640Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp-full.jpg",
+        "size": 194477,
+        "sizeFormatted": "189.92 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.640Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp-full.webp",
+        "size": 148110,
+        "sizeFormatted": "144.64 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.641Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot-1024w.jpg",
+        "size": 151292,
+        "sizeFormatted": "147.75 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.643Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot-1024w.webp",
+        "size": 106162,
+        "sizeFormatted": "103.67 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.644Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot-375w.jpg",
+        "size": 24622,
+        "sizeFormatted": "24.04 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.644Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot-375w.webp",
+        "size": 17552,
+        "sizeFormatted": "17.14 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.644Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot-768w.jpg",
+        "size": 91778,
+        "sizeFormatted": "89.63 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.646Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot-768w.webp",
+        "size": 68402,
+        "sizeFormatted": "66.8 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.650Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot-full.jpg",
+        "size": 151292,
+        "sizeFormatted": "147.75 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.651Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot-full.webp",
+        "size": 106162,
+        "sizeFormatted": "103.67 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.651Z"
+      }
+    ],
+    "public/assets/images/product": [
+      {
+        "file": "app-live-ecg.png",
+        "size": 713936,
+        "sizeFormatted": "697.2 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.672Z"
+      },
+      {
+        "file": "early-senior-woman-full-product-shot.png",
+        "size": 110124,
+        "sizeFormatted": "107.54 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.673Z"
+      },
+      {
+        "file": "half-shot-woman-product-shot.png",
+        "size": 637451,
+        "sizeFormatted": "622.51 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.674Z"
+      },
+      {
+        "file": "man-wear-band.webp",
+        "size": 27708,
+        "sizeFormatted": "27.06 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.676Z"
+      },
+      {
+        "file": "Mother-daughter-HQ.jpg",
+        "size": 3319734,
+        "sizeFormatted": "3.17 MB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.671Z"
+      },
+      {
+        "file": "skiin-holter-kit.png",
+        "size": 9084,
+        "sizeFormatted": "8.87 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.676Z"
+      },
+      {
+        "file": "skiin-kit.webp",
+        "size": 19412,
+        "sizeFormatted": "18.96 KB",
+        "format": "webp",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.676Z"
+      },
+      {
+        "file": "skiin-your-second-skin.png",
+        "size": 2841029,
+        "sizeFormatted": "2.71 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.684Z"
+      },
+      {
+        "file": "smart-textile-knitting-electrodes.jpg",
+        "size": 364140,
+        "sizeFormatted": "355.61 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.691Z"
+      },
+      {
+        "file": "visual-compar-skiin-medical-wearable.png",
+        "size": 2668549,
+        "sizeFormatted": "2.54 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.699Z"
+      },
+      {
+        "file": "wear-skiin-man-band-insert-pod.png",
+        "size": 107921,
+        "sizeFormatted": "105.39 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.700Z"
+      }
+    ],
+    "public/assets/images/products": [
+      {
+        "file": "smart-textile-knitting-electrodes.jpg",
+        "size": 364140,
+        "sizeFormatted": "355.61 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T18:08:58.421Z"
+      },
+      {
+        "file": "wear-skiin-man-band-insert-pod.png",
+        "size": 107921,
+        "sizeFormatted": "105.39 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T18:08:58.423Z"
+      }
+    ],
+    "public/assets/images/reports": [
+      {
+        "file": "ABPM-report-screenshot.png",
+        "size": 609633,
+        "sizeFormatted": "595.34 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.704Z"
+      },
+      {
+        "file": "mdg-page-report-example.png",
+        "size": 817937,
+        "sizeFormatted": "798.77 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.717Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-1.png",
+        "size": 1433501,
+        "sizeFormatted": "1.37 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.724Z"
+      },
+      {
+        "file": "medicalgorythmic-example-report-screenshot-2.png",
+        "size": 1781394,
+        "sizeFormatted": "1.7 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.733Z"
+      }
+    ],
+    "public/assets/images/team": [
+      {
+        "file": "dr-frank-ruschitzka-faceshot.jpeg",
+        "size": 17243,
+        "sizeFormatted": "16.84 KB",
+        "format": "jpeg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.768Z"
+      },
+      {
+        "file": "dr-mathias-wilhelm-faceshot.jpg",
+        "size": 41215,
+        "sizeFormatted": "40.25 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.769Z"
+      },
+      {
+        "file": "dr-michiel-winter-faceshot.jpg",
+        "size": 27097,
+        "sizeFormatted": "26.46 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.770Z"
+      },
+      {
+        "file": "flurin-stauffer.jpeg",
+        "size": 9734,
+        "sizeFormatted": "9.51 KB",
+        "format": "jpeg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.770Z"
+      },
+      {
+        "file": "Myant-Team.png",
+        "size": 7196295,
+        "sizeFormatted": "6.86 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.756Z"
+      },
+      {
+        "file": "Pablo-Doerig.jpeg",
+        "size": 11712,
+        "sizeFormatted": "11.44 KB",
+        "format": "jpeg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.759Z"
+      },
+      {
+        "file": "pd-dr-med-mehdi-namdar-faceshot.jpg",
+        "size": 105338,
+        "sizeFormatted": "102.87 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.770Z"
+      },
+      {
+        "file": "Team-CH.jpg",
+        "size": 259689,
+        "sizeFormatted": "253.6 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.764Z"
+      },
+      {
+        "file": "Team-CH2.png",
+        "size": 1832198,
+        "sizeFormatted": "1.75 MB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.768Z"
+      },
+      {
+        "file": "tony-chahine-official-headshot-myant-corp.jpg",
+        "size": 158025,
+        "sizeFormatted": "154.32 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.771Z"
+      },
+      {
+        "file": "vincent-martinez-official-headshot.jpg",
+        "size": 146499,
+        "sizeFormatted": "143.07 KB",
+        "format": "jpg",
+        "type": "image",
+        "modified": "2025-08-24T17:52:55.771Z"
+      }
+    ],
+    "public/assets/logos": [
+      {
+        "file": "Myant_new_logo.png",
+        "size": 23288,
+        "sizeFormatted": "22.74 KB",
+        "format": "png",
+        "type": "image",
+        "modified": "2025-08-24T17:56:27.221Z"
+      }
+    ],
+    "public/assets/videos": [
+      {
+        "file": "Myant-EU-cardiac-health-assesement-at-home.mp4",
+        "size": 61522566,
+        "sizeFormatted": "58.67 MB",
+        "format": "mp4",
+        "type": "video",
+        "modified": "2025-08-24T17:52:56.039Z"
+      },
+      {
+        "file": "Myant-EU-video-70-percent-of-arrythmia-are-silent.mp4",
+        "size": 45301021,
+        "sizeFormatted": "43.2 MB",
+        "format": "mp4",
+        "type": "video",
+        "modified": "2025-08-24T17:52:56.177Z"
+      }
+    ]
+  }
+}

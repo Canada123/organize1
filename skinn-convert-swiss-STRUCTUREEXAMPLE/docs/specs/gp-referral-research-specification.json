@@ -1,0 +1,277 @@
+{
+  "research_specification": {
+    "research_id": "RES-GP-001",
+    "version": "1.0.0",
+    "created_date": "2025-08-25",
+    "priority": "High",
+    "context": "SKIIN Switzerland requires a secure GP referral system with document upload capabilities for Swiss healthcare compliance"
+  },
+  
+  "research_objectives": [
+    {
+      "objective_id": "OBJ-001",
+      "question": "What are the best practices for secure referral code generation in healthcare applications?",
+      "context": "Need cryptographically secure, unique codes that prevent tampering and ensure single-use",
+      "success_criteria": [
+        "Identify CSPRNG algorithms suitable for healthcare",
+        "Document code format standards (length, character set)",
+        "Find collision prevention strategies",
+        "Understand expiration and invalidation patterns"
+      ]
+    },
+    {
+      "objective_id": "OBJ-002",
+      "question": "How to implement HIPAA/GDPR-compliant document upload systems for medical records?",
+      "context": "Doctors need to upload patient referrals and medical documents securely",
+      "success_criteria": [
+        "Document encryption requirements (at-rest and in-transit)",
+        "Identify file validation and sanitization techniques",
+        "Find virus scanning integration patterns",
+        "Document audit logging requirements"
+      ]
+    },
+    {
+      "objective_id": "OBJ-003",
+      "question": "What are Swiss-specific healthcare data protection requirements?",
+      "context": "Must comply with Swiss Federal Data Protection Act (FADP) and healthcare regulations",
+      "success_criteria": [
+        "Identify Swiss data residency requirements",
+        "Document HIN (Health Info Net) integration requirements",
+        "Find canton-specific healthcare regulations",
+        "Understand Swiss medical confidentiality laws"
+      ]
+    },
+    {
+      "objective_id": "OBJ-004",
+      "question": "How to implement row-level security in Supabase for multi-tenant healthcare data?",
+      "context": "Multiple doctors and patients accessing system with strict data isolation",
+      "success_criteria": [
+        "Document RLS patterns for healthcare applications",
+        "Identify role-based access control strategies",
+        "Find performance optimization techniques for RLS",
+        "Document testing strategies for security policies"
+      ]
+    },
+    {
+      "objective_id": "OBJ-005",
+      "question": "What are best practices for medical document retention and lifecycle management?",
+      "context": "Swiss law requires 7-year retention for medical records",
+      "success_criteria": [
+        "Document automated retention policy implementation",
+        "Identify compliant deletion strategies",
+        "Find backup and recovery patterns",
+        "Document legal hold and audit requirements"
+      ]
+    },
+    {
+      "objective_id": "OBJ-006",
+      "question": "How to implement secure authentication for healthcare providers?",
+      "context": "GPs need secure access with potential HIN email validation",
+      "success_criteria": [
+        "Document multi-factor authentication patterns",
+        "Identify healthcare provider verification methods",
+        "Find session management best practices",
+        "Document rate limiting and security headers"
+      ]
+    }
+  ],
+  
+  "research_methodology": {
+    "approach": "literature_review",
+    "timeline": "1 week",
+    "resources_required": [
+      "Access to healthcare compliance documentation",
+      "Swiss regulatory guidance",
+      "Supabase enterprise documentation",
+      "Security best practices repositories"
+    ],
+    "deliverables": [
+      "Comprehensive implementation guide",
+      "Security compliance checklist",
+      "Database schema with RLS policies",
+      "API specification with authentication flows"
+    ]
+  },
+  
+  "source_specifications": {
+    "primary_sources": [
+      {
+        "source_type": "official_documentation",
+        "location": "https://www.admin.ch/gov/en/start/documentation/media-releases.msg-id-83149.html",
+        "authority_level": "High",
+        "content_focus": "Swiss Federal Data Protection Act (FADP)"
+      },
+      {
+        "source_type": "official_documentation",
+        "location": "https://supabase.com/docs/guides/database/postgres/row-level-security",
+        "authority_level": "High",
+        "content_focus": "Supabase RLS implementation patterns"
+      },
+      {
+        "source_type": "standards_body",
+        "location": "https://www.hin.ch/en/",
+        "authority_level": "High",
+        "content_focus": "HIN (Health Info Net) Swiss healthcare network"
+      },
+      {
+        "source_type": "regulatory_guidance",
+        "location": "OWASP Healthcare Security Guidelines",
+        "authority_level": "High",
+        "content_focus": "Medical application security standards"
+      }
+    ],
+    "secondary_sources": [
+      {
+        "source_type": "technical_articles",
+        "criteria": "Published by healthcare tech companies with production deployments",
+        "focus": "Real-world implementation case studies"
+      },
+      {
+        "source_type": "security_research",
+        "criteria": "Academic papers on healthcare data security",
+        "focus": "Cryptographic algorithms and threat models"
+      },
+      {
+        "source_type": "github_repositories",
+        "criteria": "Healthcare applications with 100+ stars",
+        "focus": "Open-source implementation patterns"
+      }
+    ],
+    "expert_sources": [
+      {
+        "expertise": "Healthcare compliance consultants",
+        "consultation_type": "Blog posts, whitepapers, conference presentations"
+      },
+      {
+        "expertise": "Supabase core team members",
+        "consultation_type": "GitHub discussions, Discord community, official examples"
+      },
+      {
+        "expertise": "Swiss healthcare IT professionals",
+        "consultation_type": "HIN documentation, Swiss eHealth community"
+      }
+    ]
+  },
+  
+  "validation_requirements": {
+    "cross_reference_minimum": 3,
+    "authority_threshold": "Sources must be from recognized healthcare or security organizations",
+    "recency_requirement": "Regulations from current versions, technical content within 2 years",
+    "bias_mitigation": [
+      "Compare vendor-neutral and vendor-specific solutions",
+      "Include both academic and industry perspectives",
+      "Validate against Swiss and international standards",
+      "Cross-check with production deployment experiences"
+    ]
+  },
+  
+  "information_gaps": [
+    {
+      "gap_id": "GAP-001",
+      "description": "Secure referral code generation algorithms for healthcare",
+      "impact": "High - core security feature for system",
+      "current_knowledge": "Basic understanding of UUID generation",
+      "required_depth": "Cryptographically secure patterns with healthcare compliance"
+    },
+    {
+      "gap_id": "GAP-002",
+      "description": "Swiss-specific medical data retention requirements",
+      "impact": "High - legal compliance requirement",
+      "current_knowledge": "General 7-year retention knowledge",
+      "required_depth": "Detailed implementation with automated lifecycle management"
+    },
+    {
+      "gap_id": "GAP-003",
+      "description": "HIN email validation integration patterns",
+      "impact": "Medium - Swiss healthcare provider verification",
+      "current_knowledge": "No current HIN integration knowledge",
+      "required_depth": "API integration patterns and verification flows"
+    },
+    {
+      "gap_id": "GAP-004",
+      "description": "Supabase Storage security for medical documents",
+      "impact": "High - critical for HIPAA/GDPR compliance",
+      "current_knowledge": "Basic Supabase Storage usage",
+      "required_depth": "Encryption, access control, and audit logging patterns"
+    },
+    {
+      "gap_id": "GAP-005",
+      "description": "Real-time notifications for referral status updates",
+      "impact": "Medium - user experience enhancement",
+      "current_knowledge": "Basic Supabase Realtime knowledge",
+      "required_depth": "Secure WebSocket patterns for healthcare data"
+    }
+  ],
+  
+  "research_questions": [
+    "What cryptographic algorithms are recommended for healthcare referral codes?",
+    "How to implement secure file upload with virus scanning in Supabase?",
+    "What are the specific Swiss cantonal requirements for medical data?",
+    "How to design RLS policies for doctor-patient-referral relationships?",
+    "What are the audit logging requirements for Swiss healthcare applications?",
+    "How to implement compliant data deletion while maintaining audit trails?",
+    "What are the performance implications of complex RLS policies?",
+    "How to validate HIN email addresses programmatically?",
+    "What are the best practices for medical document encryption keys?",
+    "How to implement secure shareable links for referral codes?"
+  ],
+  
+  "success_metrics": {
+    "completeness": "All research questions answered with implementation examples",
+    "authority": "All security recommendations from recognized standards bodies",
+    "actionability": "Research provides step-by-step implementation guidance",
+    "validation": "Security patterns validated against OWASP and Swiss regulations",
+    "testability": "All patterns include testing strategies and validation methods"
+  },
+  
+  "implementation_considerations": {
+    "technical_constraints": [
+      "Must work with existing Supabase infrastructure",
+      "Should integrate with current eligibility workflow",
+      "Must support 4 languages (DE, FR, IT, EN)",
+      "Performance requirements for Swiss user base"
+    ],
+    "security_requirements": [
+      "Zero-trust architecture principles",
+      "End-to-end encryption for sensitive data",
+      "Comprehensive audit logging",
+      "Rate limiting and DDoS protection"
+    ],
+    "compliance_requirements": [
+      "Swiss Federal Data Protection Act (FADP)",
+      "GDPR for EU residents in Switzerland",
+      "Medical device regulations (MDR)",
+      "Canton-specific healthcare laws"
+    ]
+  },
+  
+  "deliverable_format": {
+    "implementation_guide": {
+      "sections": [
+        "Architecture overview with security boundaries",
+        "Database schema with RLS policies",
+        "API endpoints with authentication flows",
+        "Frontend components with security considerations",
+        "Testing strategy with security test cases"
+      ]
+    },
+    "compliance_checklist": {
+      "categories": [
+        "Data protection compliance",
+        "Security controls",
+        "Audit and logging",
+        "Retention and deletion",
+        "Access control"
+      ]
+    },
+    "code_templates": {
+      "components": [
+        "Referral code generation service",
+        "Document upload with validation",
+        "RLS policy templates",
+        "Authentication middleware",
+        "Audit logging utilities"
+      ]
+    }
+  }
+}

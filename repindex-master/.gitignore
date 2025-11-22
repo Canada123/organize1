@@ -1,0 +1,33 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+build/
+dist/
+*.egg-info/
+*.egg
+
+# Virtual environments
+env/
+venv/
+.venv/
+
+# Installer logs
+pip-log.txt
+pip-delete-this-directory.txt
+
+# PyCharm project files
+.idea/
+
+# VS Code settings
+.vscode/
+
+# Output directories
+repindex/
+reindex/
+
+# OS files
+.DS_Store
+Thumbs.db

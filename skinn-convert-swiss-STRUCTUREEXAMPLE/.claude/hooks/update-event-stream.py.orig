@@ -1,0 +1,173 @@
+#!/usr/bin/env python3
+"""
+Automatically updates context/event-stream.md with project events.
+This hook runs after various tool operations to log events.
+"""
+import json
+import sys
+import os
+from datetime import datetime
+from pathlib import Path
+
+# Event type mapping based on tool names
+TOOL_EVENT_MAPPING = {
+    'Write': 'Action',
+    'Edit': 'Action',
+    'MultiEdit': 'Action',
+    'NotebookEdit': 'Action',
+    'Bash': 'Action',
+    'Task': 'Action',
+    'Read': 'Observation',
+    'Grep': 'Observation',
+    'Glob': 'Observation',
+    'WebSearch': 'Research',
+    'WebFetch': 'Research',
+    'TodoWrite': 'PlanUpdate',
+    'mcp__memory__create_entities': 'GraphUpdate',
+    'mcp__memory__create_relations': 'GraphUpdate',
+    'mcp__memory__store': 'MemoryStore',
+    'mcp__memory__recall': 'MemoryRecall',
+}
+
+def get_event_type(tool_name):
+    """Determine event type based on tool name."""
+    return TOOL_EVENT_MAPPING.get(tool_name, 'Action')
+
+def format_event_description(tool_name, tool_input, tool_response=None):
+    """Generate a concise description of the event."""
+    description = ""
+    
+    if tool_name == 'Write':
+        file_path = tool_input.get('file_path', 'unknown')
+        file_name = os.path.basename(file_path)
+        description = f"Created/updated {file_name}"
+    
+    elif tool_name in ['Edit', 'MultiEdit']:
+        file_path = tool_input.get('file_path', 'unknown')
+        file_name = os.path.basename(file_path)
+        description = f"Modified {file_name}"
+    
+    elif tool_name == 'Bash':
+        command = tool_input.get('command', '')[:50]  # First 50 chars
+        description = f"Executed: {command}..."
+    
+    elif tool_name == 'Task':
+        subagent = tool_input.get('subagent_type', 'unknown')
+        task_desc = tool_input.get('description', 'task')
+        description = f"Invoked {subagent} for {task_desc}"
+    
+    elif tool_name == 'TodoWrite':
+        todos = tool_input.get('todos', [])
+        completed = sum(1 for t in todos if t.get('status') == 'completed')
+        in_progress = sum(1 for t in todos if t.get('status') == 'in_progress')
+        pending = sum(1 for t in todos if t.get('status') == 'pending')
+        description = f"Updated todos: {completed} completed, {in_progress} in progress, {pending} pending"
+    
+    elif tool_name == 'Read':
+        file_path = tool_input.get('file_path', 'unknown')
+        file_name = os.path.basename(file_path)
+        description = f"Read {file_name}"
+    
+    elif tool_name.startswith('mcp__memory__'):
+        operation = tool_name.split('__')[-1]
+        description = f"Memory operation: {operation}"
+    
+    elif tool_name == 'WebSearch':
+        query = tool_input.get('query', '')[:30]
+        description = f"Searched: {query}..."
+    
+    elif tool_name == 'WebFetch':
+        url = tool_input.get('url', '')
+        domain = url.split('/')[2] if '/' in url else url
+        description = f"Fetched content from {domain}"
+    
+    else:
+        # Generic description
+        description = f"{tool_name} operation completed"
+    
+    # Add success/failure info if available
+    if tool_response and isinstance(tool_response, dict):
+        if tool_response.get('success') == False:
+            description += " (failed)"
+    
+    return description
+
+def append_event(event_line):
+    """Append a new event to the event stream file."""
+    project_dir = os.environ.get('CLAUDE_PROJECT_DIR', os.getcwd())
+    event_stream_path = Path(project_dir) / 'context' / 'event-stream.md'
+    
+    if not event_stream_path.exists():
+        print(f"Warning: {event_stream_path} does not exist", file=sys.stderr)
+        return False
+    
+    try:
+        # Read the file to find where to insert the new event
+        with open(event_stream_path, 'r') as f:
+            lines = f.readlines()
+        
+        # Find the last event line (starts with '[')
+        last_event_index = -1
+        for i in range(len(lines) - 1, -1, -1):
+            if lines[i].strip().startswith('['):
+                last_event_index = i
+                break
+        
+        if last_event_index == -1:
+            # No events found, append at the end
+            lines.append(event_line + '\n')
+        else:
+            # Insert after the last event
+            lines.insert(last_event_index + 1, event_line + '\n')
+        
+        # Write back to file
+        with open(event_stream_path, 'w') as f:
+            f.writelines(lines)
+        
+        return True
+    
+    except Exception as e:
+        print(f"Error updating event stream: {e}", file=sys.stderr)
+        return False
+
+def main():
+    """Main hook function."""
+    try:
+        # Read input from stdin
+        input_data = json.load(sys.stdin)
+    except json.JSONDecodeError as e:
+        print(f"Error parsing JSON input: {e}", file=sys.stderr)
+        sys.exit(1)
+    
+    # Extract relevant information
+    hook_event = input_data.get('hook_event_name', '')
+    tool_name = input_data.get('tool_name', '')
+    tool_input = input_data.get('tool_input', {})
+    tool_response = input_data.get('tool_response', {})
+    
+    # Only process PostToolUse events
+    if hook_event != 'PostToolUse':
+        sys.exit(0)
+    
+    # Skip certain tools that don't need logging
+    skip_tools = ['LS', 'BashOutput', 'KillBash', 'ListMcpResourcesTool']
+    if tool_name in skip_tools:
+        sys.exit(0)
+    
+    # Generate event entry
+    timestamp = datetime.now().strftime('[%Y-%m-%d %H:%M]')
+    event_type = get_event_type(tool_name)
+    description = format_event_description(tool_name, tool_input, tool_response)
+    
+    # Format the event line
+    event_line = f"{timestamp} {event_type} - {description}"
+    
+    # Append to event stream
+    if append_event(event_line):
+        # Optionally output to stdout for transcript mode visibility
+        print(f"📝 Event logged: {event_line}")
+    
+    sys.exit(0)
+
+if __name__ == '__main__':
+    main()

@@ -1,0 +1,87 @@
+      "mcpServers": {
+        "brave-search": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@modelcontextprotocol/server-brave-search"
+          ],
+          "env": {
+            "BRAVE_API_KEY": "BSAIjJzq_o-BEF2Qgcs_1ZJaDTGK5qD"
+          }
+        },
+        "memory": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "mcp-knowledge-graph",
+            "--memory-path",
+            "/Users/yangsim/Nanoleq/sideProjects/memory/db/memory_skinn-convert-swiss-pages.jsonl"
+          ]
+        },
+        "stripe": {
+          "type": "http",
+          "url": "https://mcp.stripe.com/"
+        },
+        "context7": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@upstash/context7-mcp@latest"
+          ]
+        },
+        "21st-dev": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@21st-dev/magic@latest"
+          ],
+          "env": {
+            "API_KEY": "8c455d5b1d96b5677aa80400c33a98a0d41b1558c1ab6d004691f0e7429d7c77"
+          }
+        },
+        "supabase": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@supabase/mcp-server-supabase@latest",
+            "--access-token",
+            "sbp_2319933352dbd23b6fbede1cf6a6786e10a69cb8",
+            "--project-ref=trfrikhxxtzmknjmpgub"
+          ]
+        },
+        "calculator": {
+          "command": "uvx",
+          "args": [
+            "mcp-server-calculator"
+          ]
+        },
+        "package-version": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "mcp-package-version"
+          ]
+        },
+        "puppeteer": {
+          "command": "npx",
+          "args": [
+            "-y",
+            "@modelcontextprotocol/server-puppeteer"
+          ]
+        },
+        "serena": {
+          "type": "stdio",
+          "command": "uvx",
+          "args": [
+            "--from",
+            "git+https://github.com/oraios/serena",
+            "serena",
+            "start-mcp-server",
+            "--context",
+            "ide-assistant",
+            "--project",
+            "/Users/yangsim/Nanoleq/sideProjects/skinn-convert-swiss-pages"
+          ],
+          "env": {}
+        }
+      },

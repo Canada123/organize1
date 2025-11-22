@@ -1,0 +1,259 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-08-26",
+  "decisions": {
+    "core_architecture": [
+      {
+        "id": "ARCH-001",
+        "title": "React 18 + TypeScript 5 + Vite",
+        "date": "2025-01-01",
+        "status": "active",
+        "rationale": "Modern stack with excellent DX and performance",
+        "outcome": "47ms page load achieved",
+        "ttl_days": 365,
+        "confidence": 0.95
+      },
+      {
+        "id": "ARCH-002",
+        "title": "Supabase for Backend",
+        "date": "2025-01-01",
+        "status": "active",
+        "rationale": "Built-in auth, RLS, edge functions",
+        "outcome": "Secure, scalable backend",
+        "ttl_days": 180,
+        "confidence": 0.9
+      },
+      {
+        "id": "ARCH-003",
+        "title": "Atomic Design Pattern",
+        "date": "2025-08-01",
+        "status": "active",
+        "rationale": "Enforces modularity, ≤50 lines rule",
+        "outcome": "87% complexity reduction",
+        "ttl_days": 90,
+        "confidence": 1.0
+      }
+    ],
+    "security": [
+      {
+        "id": "SEC-001",
+        "title": "OTP Authentication Only",
+        "date": "2025-08-01",
+        "status": "active",
+        "rationale": "No password complexity, better UX",
+        "outcome": "Secure auth with rate limiting",
+        "ttl_days": 180,
+        "confidence": 1.0
+      },
+      {
+        "id": "SEC-002",
+        "title": "bcrypt Code Hashing",
+        "date": "2025-08-25",
+        "status": "active",
+        "rationale": "Industry standard for secure storage",
+        "outcome": "Cryptographically secure",
+        "ttl_days": 365,
+        "confidence": 1.0
+      }
+    ],
+    "database": [
+      {
+        "id": "DB-001",
+        "title": "16-Table Schema with RLS",
+        "date": "2025-08-25",
+        "status": "active",
+        "rationale": "Comprehensive Swiss healthcare model",
+        "outcome": "Secure, compliant architecture",
+        "ttl_days": 90,
+        "confidence": 0.95
+      },
+      {
+        "id": "DB-002",
+        "title": "Migration-Based Schema Management",
+        "date": "2025-08-01",
+        "status": "active",
+        "rationale": "Version control for DB changes",
+        "outcome": "11+ migrations successfully applied",
+        "ttl_days": 365,
+        "confidence": 0.9
+      }
+    ],
+    "performance": [
+      {
+        "id": "PERF-001",
+        "title": "Core Web Vitals Targets",
+        "date": "2025-01-01",
+        "status": "active",
+        "rationale": "Google ranking, UX",
+        "targets": {
+          "LCP": "<2.5s",
+          "CLS": "<0.1",
+          "FID": "<100ms"
+        },
+        "outcome": "All targets met",
+        "ttl_days": 90,
+        "confidence": 1.0
+      },
+      {
+        "id": "PERF-002",
+        "title": "4-Index Context System",
+        "date": "2025-08-01",
+        "status": "active",
+        "rationale": "Reduce context bloat by 73%",
+        "outcome": "Efficient context management",
+        "ttl_days": 60,
+        "confidence": 0.85
+      }
+    ],
+    "process": [
+      {
+        "id": "PROC-001",
+        "title": "Research-First Methodology",
+        "date": "2025-08-01",
+        "status": "active",
+        "rationale": "Evidence-based development",
+        "outcome": "Higher quality implementations",
+        "ttl_days": 365,
+        "confidence": 1.0
+      },
+      {
+        "id": "PROC-002",
+        "title": "5-Phase Process (v2)",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Simplified from 8 phases",
+        "outcome": "40% faster execution",
+        "ttl_days": 90,
+        "confidence": 0.8
+      },
+      {
+        "id": "PROC-003",
+        "title": "Tiered Context Loading",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Optimize token usage",
+        "tiers": {
+          "tier1": "2K tokens",
+          "tier2": "8K tokens",
+          "tier3": "32K tokens"
+        },
+        "outcome": "60% token reduction",
+        "ttl_days": 60,
+        "confidence": 0.9
+      }
+    ],
+    "recent_features": [
+      {
+        "id": "FEAT-001",
+        "title": "GP Referral System",
+        "date": "2025-08-25",
+        "status": "active",
+        "components": {
+          "code_format": "3 letters + 3 numbers",
+          "expiration": "30 days",
+          "email_service": "Resend API",
+          "validation": "HIN email for doctors"
+        },
+        "outcome": "Full production implementation",
+        "ttl_days": 180,
+        "confidence": 1.0
+      }
+    ],
+    "mcp_integration": [
+      {
+        "id": "MCP-001",
+        "title": "JSON Memory System v2.0 (Remove Memory MCP)",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Direct file system access more efficient than MCP overhead",
+        "outcome": "Tiered memory system with 2K/8K/32K boundaries",
+        "ttl_days": 365,
+        "confidence": 1.0
+      },
+      {
+        "id": "MCP-002",
+        "title": "Serena MCP for Code Navigation",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Symbolic code search superior to text search",
+        "outcome": "Precise symbol location and refactoring",
+        "ttl_days": 180,
+        "confidence": 0.95
+      },
+      {
+        "id": "MCP-003",
+        "title": "Playwright MCP Replaces Puppeteer",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Better cross-browser support, modern API",
+        "outcome": "Improved E2E testing reliability",
+        "ttl_days": 180,
+        "confidence": 0.9
+      },
+      {
+        "id": "MCP-004",
+        "title": "Supabase MCP for All Database Operations",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Centralized database management through MCP",
+        "outcome": "Consistent migration and query handling",
+        "ttl_days": 180,
+        "confidence": 1.0
+      },
+      {
+        "id": "MCP-005",
+        "title": "Brave Search for External Research",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Privacy-focused search with good API",
+        "outcome": "Effective external documentation retrieval",
+        "ttl_days": 90,
+        "confidence": 0.85
+      },
+      {
+        "id": "MCP-006",
+        "title": "Context7 for Library Documentation",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Official, up-to-date library docs",
+        "outcome": "Accurate API references and migration guides",
+        "ttl_days": 90,
+        "confidence": 0.95
+      },
+      {
+        "id": "MCP-007",
+        "title": "Calculator MCP for Metrics",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Centralized calculation tool",
+        "outcome": "Consistent metric calculations",
+        "ttl_days": 365,
+        "confidence": 1.0
+      },
+      {
+        "id": "MCP-008",
+        "title": "Package Version MCP for Dependencies",
+        "date": "2025-08-26",
+        "status": "active",
+        "rationale": "Automated dependency management",
+        "outcome": "Timely security updates",
+        "ttl_days": 90,
+        "confidence": 0.9
+      }
+    ]
+  },
+  "deprecated_decisions": [
+    {
+      "id": "DEP-001",
+      "title": "Redux for State Management",
+      "deprecated_date": "2025-08-01",
+      "reason": "Complexity overhead",
+      "replacement": "Context + Reducer pattern"
+    }
+  ],
+  "decision_criteria": {
+    "confidence_threshold": 0.7,
+    "review_frequency_days": 30,
+    "auto_archive_after_days": 365
+  }
+}

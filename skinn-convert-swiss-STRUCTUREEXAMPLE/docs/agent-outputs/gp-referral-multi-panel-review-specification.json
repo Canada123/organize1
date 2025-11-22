@@ -1,0 +1,920 @@
+{
+  "review_specification": {
+    "spec_id": "MPR-GP-REF-001",
+    "version": "1.0.0",
+    "created_date": "2025-08-25",
+    "scope": "GP Referral Code System Production Readiness Assessment",
+    "deliverable_type": "Complete Healthcare Feature Implementation",
+    "criticality": "High",
+    "estimated_duration": "8-10 hours",
+    "context": {
+      "project": "SKIIN Switzerland Healthcare Eligibility Platform",
+      "implementation_status": "Complete - Backend + Frontend + Database + UI Specs",
+      "swiss_compliance_required": true,
+      "gdpr_fadp_compliance_required": true,
+      "medical_data_handling": true
+    }
+  },
+  
+  "expert_panel_specifications": [
+    {
+      "expert_id": "REQ-001",
+      "perspective": "Requirements & Compliance Expert",
+      "evaluation_focus": [
+        "Swiss healthcare regulatory compliance",
+        "GDPR/FADP data protection alignment",
+        "Medical workflow requirements coverage",
+        "User story and acceptance criteria completeness",
+        "Edge case identification and handling",
+        "Business rule adherence"
+      ],
+      "evaluation_criteria": [
+        {
+          "criterion": "Swiss Healthcare Compliance",
+          "weight": "35%",
+          "assessment_method": "Review against Swiss medical law, KVG regulations, and cantonal requirements",
+          "pass_threshold": "100% critical compliance items, 95% recommended items",
+          "key_areas": [
+            "Patient data protection (FADP Art. 4-8)",
+            "Medical document retention policies",
+            "Doctor-patient confidentiality maintenance",
+            "Swiss medical professional standards",
+            "Cantonal healthcare system integration"
+          ]
+        },
+        {
+          "criterion": "GDPR/FADP Data Protection",
+          "weight": "30%",
+          "assessment_method": "Privacy impact assessment and data flow analysis",
+          "pass_threshold": "100% GDPR compliance, zero privacy violations",
+          "key_areas": [
+            "Consent mechanisms for data processing",
+            "Data minimization in referral code system",
+            "Right to erasure implementation",
+            "Cross-border data transfer protections",
+            "Audit trail completeness"
+          ]
+        },
+        {
+          "criterion": "Functional Requirements Coverage",
+          "weight": "25%",
+          "assessment_method": "Traceability matrix validation",
+          "pass_threshold": "100% critical requirements, 95% non-critical",
+          "key_areas": [
+            "6-character unique referral code generation",
+            "Doctor upload portal functionality",
+            "Email notification system",
+            "Patient-doctor linking mechanism",
+            "Document management workflow"
+          ]
+        },
+        {
+          "criterion": "Edge Case Coverage",
+          "weight": "10%",
+          "assessment_method": "Scenario analysis and failure mode review",
+          "pass_threshold": "90% edge cases identified with mitigation",
+          "key_areas": [
+            "Duplicate referral code handling",
+            "Doctor portal access failures",
+            "Email delivery failures",
+            "Document upload failures",
+            "System downtime scenarios"
+          ]
+        }
+      ],
+      "deliverable_focus": [
+        "Requirements documentation",
+        "Compliance checklists",
+        "User stories and acceptance criteria",
+        "Privacy impact assessment",
+        "Swiss healthcare workflow mapping"
+      ]
+    },
+    {
+      "expert_id": "ARCH-001", 
+      "perspective": "Architecture & Technical Expert",
+      "evaluation_focus": [
+        "Database schema design and integrity",
+        "API design patterns and security",
+        "System scalability and performance",
+        "Technical debt assessment",
+        "Integration architecture quality",
+        "Security architecture robustness"
+      ],
+      "evaluation_criteria": [
+        {
+          "criterion": "Database Schema Design",
+          "weight": "30%",
+          "assessment_method": "Schema review, normalization analysis, and constraint validation",
+          "pass_threshold": "Zero schema violations, optimal normalization",
+          "key_areas": [
+            "gp_referral_codes table structure",
+            "gp_referral_uploads table relationships",
+            "Foreign key constraints and cascading",
+            "Index optimization for performance",
+            "Data type appropriateness"
+          ]
+        },
+        {
+          "criterion": "Security Architecture",
+          "weight": "25%",
+          "assessment_method": "Security review, threat modeling, and penetration testing readiness",
+          "pass_threshold": "Zero critical vulnerabilities, minimal medium risks",
+          "key_areas": [
+            "Row Level Security (RLS) policy implementation",
+            "API endpoint security (authentication/authorization)",
+            "Document upload security (file validation, virus scanning)",
+            "Data encryption at rest and in transit",
+            "Access control granularity"
+          ]
+        },
+        {
+          "criterion": "API Design Quality",
+          "weight": "20%",
+          "assessment_method": "RESTful principles, OpenAPI spec compliance",
+          "pass_threshold": "90% API best practices adherence",
+          "key_areas": [
+            "Consistent naming conventions",
+            "Proper HTTP status codes",
+            "Error handling standardization",
+            "Rate limiting implementation",
+            "API versioning strategy"
+          ]
+        },
+        {
+          "criterion": "Scalability & Performance",
+          "weight": "15%",
+          "assessment_method": "Performance testing, load analysis, bottleneck identification",
+          "pass_threshold": "Supports 10x current load, <2s response times",
+          "key_areas": [
+            "Database query optimization",
+            "Caching strategy implementation",
+            "Connection pooling configuration",
+            "File upload performance",
+            "Edge function performance"
+          ]
+        },
+        {
+          "criterion": "Integration Architecture",
+          "weight": "10%",
+          "assessment_method": "Integration point analysis, dependency mapping",
+          "pass_threshold": "Clean integration boundaries, minimal coupling",
+          "key_areas": [
+            "Eligibility system integration points",
+            "Email service integration robustness",
+            "File storage integration security",
+            "External service dependency management",
+            "Graceful degradation capabilities"
+          ]
+        }
+      ],
+      "deliverable_focus": [
+        "Database migrations and schema",
+        "Supabase edge functions",
+        "RLS policies",
+        "API specifications",
+        "Performance benchmarks"
+      ]
+    },
+    {
+      "expert_id": "IMPL-001",
+      "perspective": "Implementation Quality Expert",
+      "evaluation_focus": [
+        "Code quality and maintainability",
+        "TypeScript implementation completeness",
+        "Error handling robustness",
+        "Testing coverage adequacy",
+        "Development workflow compliance"
+      ],
+      "evaluation_criteria": [
+        {
+          "criterion": "Code Quality & Standards",
+          "weight": "30%",
+          "assessment_method": "Static code analysis, ESLint compliance, TypeScript strict mode",
+          "pass_threshold": "Zero ESLint errors, 95% TypeScript strict compliance",
+          "key_areas": [
+            "Atomic component design (≤50 lines)",
+            "TypeScript strict mode adherence",
+            "Function purity and side effect management",
+            "Component composability",
+            "Code documentation completeness"
+          ]
+        },
+        {
+          "criterion": "Error Handling Robustness",
+          "weight": "25%",
+          "assessment_method": "Error scenario testing, exception path analysis",
+          "pass_threshold": "100% error paths handled gracefully",
+          "key_areas": [
+            "Database operation error handling",
+            "File upload failure scenarios",
+            "Network timeout handling",
+            "Validation error presentation",
+            "Fallback mechanism implementation"
+          ]
+        },
+        {
+          "criterion": "Testing Coverage",
+          "weight": "25%",
+          "assessment_method": "Test execution, coverage metrics, test quality analysis",
+          "pass_threshold": "85% code coverage, 100% critical path coverage",
+          "key_areas": [
+            "Unit test coverage for services",
+            "Integration test coverage for workflows",
+            "Component test coverage for UI",
+            "Edge case test scenarios",
+            "Performance regression tests"
+          ]
+        },
+        {
+          "criterion": "Development Workflow Compliance",
+          "weight": "20%",
+          "assessment_method": "Workflow adherence check, documentation review",
+          "pass_threshold": "100% workflow compliance",
+          "key_areas": [
+            "Atomic design pattern adherence",
+            "Git commit message standards",
+            "Code review checklist completion",
+            "Documentation maintenance",
+            "Continuous integration compliance"
+          ]
+        }
+      ],
+      "deliverable_focus": [
+        "React components (ReferralCodeDisplay, DoctorPortal)",
+        "Service layer implementations",
+        "Test suites and coverage reports",
+        "Type definitions",
+        "Error handling patterns"
+      ]
+    },
+    {
+      "expert_id": "UX-001",
+      "perspective": "UX/UI Design Expert",
+      "evaluation_focus": [
+        "User experience flow optimization",
+        "Accessibility compliance (WCAG 2.1 AA)",
+        "Mobile responsiveness",
+        "Error messaging clarity",
+        "Trust and security signaling"
+      ],
+      "evaluation_criteria": [
+        {
+          "criterion": "User Flow Efficiency",
+          "weight": "30%",
+          "assessment_method": "User journey mapping, task completion time analysis",
+          "pass_threshold": "95% task completion rate, <3 minute average completion",
+          "key_areas": [
+            "Referral code display clarity",
+            "Doctor portal discovery and access",
+            "File upload process simplicity",
+            "Status tracking visibility",
+            "Error recovery pathways"
+          ]
+        },
+        {
+          "criterion": "Accessibility Compliance",
+          "weight": "25%",
+          "assessment_method": "WCAG 2.1 AA audit, screen reader testing",
+          "pass_threshold": "100% WCAG 2.1 AA compliance",
+          "key_areas": [
+            "Keyboard navigation support",
+            "Screen reader compatibility",
+            "Color contrast ratios (4.5:1 minimum)",
+            "Focus indicators and management",
+            "Alternative text for all visual elements"
+          ]
+        },
+        {
+          "criterion": "Mobile Responsiveness",
+          "weight": "20%",
+          "assessment_method": "Multi-device testing, responsive design validation",
+          "pass_threshold": "Perfect function across all viewport sizes",
+          "key_areas": [
+            "Referral code display on mobile",
+            "Doctor portal mobile optimization",
+            "File upload mobile experience",
+            "Touch target sizing (44px minimum)",
+            "Mobile performance optimization"
+          ]
+        },
+        {
+          "criterion": "Trust & Security Signaling",
+          "weight": "15%",
+          "assessment_method": "Trust signal analysis, security perception study",
+          "pass_threshold": "90% user confidence in security measures",
+          "key_areas": [
+            "Medical data security messaging",
+            "Doctor verification indicators",
+            "Privacy policy accessibility",
+            "Secure transmission indicators",
+            "Professional medical interface design"
+          ]
+        },
+        {
+          "criterion": "Error Messaging Quality",
+          "weight": "10%",
+          "assessment_method": "Error scenario testing, message clarity assessment",
+          "pass_threshold": "100% errors provide actionable guidance",
+          "key_areas": [
+            "Upload failure messaging",
+            "Network error handling",
+            "Validation error clarity",
+            "Recovery action guidance",
+            "Progressive error disclosure"
+          ]
+        }
+      ],
+      "deliverable_focus": [
+        "UI component specifications",
+        "User journey wireframes",
+        "Accessibility test results",
+        "Mobile responsiveness documentation",
+        "Error state designs"
+      ]
+    },
+    {
+      "expert_id": "SEC-001",
+      "perspective": "Security & Compliance Expert",
+      "evaluation_focus": [
+        "Medical data protection measures",
+        "Authentication and authorization patterns",
+        "Document security and retention policies",
+        "Audit trail completeness",
+        "Threat mitigation effectiveness"
+      ],
+      "evaluation_criteria": [
+        {
+          "criterion": "Medical Data Protection",
+          "weight": "35%",
+          "assessment_method": "Privacy impact assessment, data flow security analysis",
+          "pass_threshold": "100% medical data protection compliance",
+          "key_areas": [
+            "Doctor-patient confidentiality preservation",
+            "Medical document encryption standards",
+            "Access logging and monitoring",
+            "Data retention policy enforcement",
+            "Cross-border transfer protections"
+          ]
+        },
+        {
+          "criterion": "Authentication & Authorization",
+          "weight": "25%",
+          "assessment_method": "Security testing, access control validation",
+          "pass_threshold": "Zero unauthorized access possibilities",
+          "key_areas": [
+            "Doctor portal access controls",
+            "Patient data access restrictions",
+            "Session management security",
+            "Multi-factor authentication requirements",
+            "Role-based permission enforcement"
+          ]
+        },
+        {
+          "criterion": "Document Security",
+          "weight": "20%",
+          "assessment_method": "File security audit, malware protection testing",
+          "pass_threshold": "100% secure document handling",
+          "key_areas": [
+            "File type validation and restrictions",
+            "Malware scanning implementation",
+            "Document encryption at rest",
+            "Secure document transmission",
+            "Document integrity verification"
+          ]
+        },
+        {
+          "criterion": "Audit Trail Completeness",
+          "weight": "15%",
+          "assessment_method": "Audit log analysis, compliance validation",
+          "pass_threshold": "100% activity logging, 7-year retention",
+          "key_areas": [
+            "Referral code generation logging",
+            "Document upload tracking",
+            "Access attempt monitoring",
+            "Data modification auditing",
+            "Security event alerting"
+          ]
+        },
+        {
+          "criterion": "Threat Mitigation",
+          "weight": "5%",
+          "assessment_method": "Threat modeling, vulnerability assessment",
+          "pass_threshold": "90% threats mitigated, monitoring for remainder",
+          "key_areas": [
+            "SQL injection prevention",
+            "Cross-site scripting protection",
+            "File upload attack prevention",
+            "Rate limiting and DDoS protection",
+            "Social engineering attack mitigation"
+          ]
+        }
+      ],
+      "deliverable_focus": [
+        "Security architecture documentation",
+        "RLS policies and implementation",
+        "Audit trail specifications",
+        "Threat model analysis",
+        "Security test results"
+      ]
+    },
+    {
+      "expert_id": "PROD-001",
+      "perspective": "Product & Business Expert",
+      "evaluation_focus": [
+        "User value delivery assessment",
+        "Business goal alignment",
+        "Risk assessment and mitigation",
+        "Success metrics definition",
+        "Launch readiness criteria"
+      ],
+      "evaluation_criteria": [
+        {
+          "criterion": "User Value Delivery",
+          "weight": "30%",
+          "assessment_method": "Value proposition analysis, user benefit assessment",
+          "pass_threshold": "95% user needs satisfied, clear value demonstration",
+          "key_areas": [
+            "Streamlined doctor-patient referral process",
+            "Reduced administrative burden",
+            "Improved compliance with medical workflows",
+            "Enhanced patient experience",
+            "Doctor portal usability and efficiency"
+          ]
+        },
+        {
+          "criterion": "Business Goal Alignment",
+          "weight": "25%",
+          "assessment_method": "Business requirement mapping, KPI alignment check",
+          "pass_threshold": "100% business requirements satisfied",
+          "key_areas": [
+            "Healthcare digitization objectives",
+            "Swiss market expansion support",
+            "Regulatory compliance enablement",
+            "Operational efficiency improvements",
+            "Revenue impact and cost reduction"
+          ]
+        },
+        {
+          "criterion": "Risk Assessment",
+          "weight": "20%",
+          "assessment_method": "Risk register analysis, mitigation strategy review",
+          "pass_threshold": "90% risks mitigated or accepted with plans",
+          "key_areas": [
+            "Regulatory compliance risks",
+            "Technical implementation risks",
+            "User adoption risks",
+            "Data security risks",
+            "Operational continuity risks"
+          ]
+        },
+        {
+          "criterion": "Success Metrics Definition",
+          "weight": "15%",
+          "assessment_method": "KPI framework validation, measurement feasibility",
+          "pass_threshold": "100% critical metrics defined and measurable",
+          "key_areas": [
+            "Referral code generation success rate",
+            "Doctor portal adoption metrics",
+            "Document upload completion rates",
+            "User satisfaction scores",
+            "System uptime and reliability"
+          ]
+        },
+        {
+          "criterion": "Launch Readiness",
+          "weight": "10%",
+          "assessment_method": "Readiness checklist completion, stakeholder sign-off",
+          "pass_threshold": "100% launch criteria satisfied",
+          "key_areas": [
+            "Documentation completeness",
+            "Training material preparation",
+            "Support process establishment",
+            "Monitoring and alerting setup",
+            "Rollback procedure validation"
+          ]
+        }
+      ],
+      "deliverable_focus": [
+        "Business requirements documentation",
+        "User journey maps",
+        "Risk mitigation plans",
+        "Success metrics dashboard",
+        "Launch readiness checklist"
+      ]
+    }
+  ],
+  
+  "review_procedures": [
+    {
+      "procedure_id": "RP-001",
+      "name": "Parallel Expert Evaluation with Cross-Validation",
+      "execution_order": "Parallel Phase 1 → Cross-validation Phase 2 → Synthesis Phase 3",
+      "total_duration": "8-10 hours",
+      "evaluation_steps": [
+        {
+          "step": 1,
+          "phase": "Independent Parallel Evaluation",
+          "action": "All experts evaluate simultaneously",
+          "duration": "4-5 hours (parallel execution)",
+          "participants": "All 6 expert perspectives",
+          "deliverables": [
+            "Individual expert evaluation scorecards",
+            "Detailed findings reports per perspective",
+            "Risk identification matrices",
+            "Recommendation lists with priorities"
+          ],
+          "evaluation_focus": [
+            "Requirements expert: Compliance and coverage analysis",
+            "Architecture expert: Technical design review",
+            "Implementation expert: Code quality assessment", 
+            "UX expert: User experience evaluation",
+            "Security expert: Threat and privacy analysis",
+            "Product expert: Business value validation"
+          ]
+        },
+        {
+          "step": 2,
+          "phase": "Cross-Expert Validation",
+          "action": "Validate findings across perspectives",
+          "duration": "2-3 hours",
+          "participants": "Expert panel coordination",
+          "deliverables": [
+            "Cross-validated issue priority matrix",
+            "Resolved conflicting recommendations",
+            "Integrated risk assessment",
+            "Consolidated improvement roadmap"
+          ],
+          "coordination_activities": [
+            "Security-Architecture alignment on data protection",
+            "UX-Requirements validation on user workflow compliance",
+            "Implementation-Architecture consistency check",
+            "Product-Business goal alignment verification"
+          ]
+        },
+        {
+          "step": 3,
+          "phase": "Synthesis and Recommendation",
+          "action": "Create consolidated assessment report",
+          "duration": "2 hours",
+          "participants": "Panel lead with expert input validation",
+          "deliverables": [
+            "Comprehensive production readiness assessment",
+            "Prioritized action plan with timelines",
+            "Go/No-Go recommendation with conditions",
+            "Success metrics and monitoring plan"
+          ]
+        }
+      ],
+      "coordination_requirements": [
+        "Shared evaluation criteria documentation before review",
+        "Real-time collaboration tools for cross-validation",
+        "Expert availability coordination for parallel evaluation",
+        "Standardized scoring templates and reporting formats",
+        "Final validation session with all experts present"
+      ]
+    }
+  ],
+  
+  "quality_assessment_framework": {
+    "scoring_system": {
+      "scale": "1-10 (10 = production ready, 1 = major blockers)",
+      "pass_threshold": "8.0 overall weighted average",
+      "critical_threshold": "7.0 minimum per expert perspective",
+      "blocking_threshold": "5.0 absolute minimum (any score below triggers no-go)",
+      "weighting": {
+        "requirements_compliance": "20%",
+        "architecture_technical": "20%", 
+        "implementation_quality": "15%",
+        "ux_design": "15%",
+        "security_compliance": "20%",
+        "product_business": "10%"
+      }
+    },
+    "issue_classification": [
+      {
+        "severity": "Blocker",
+        "definition": "Prevents production deployment or violates critical compliance requirements",
+        "action_required": "Must resolve before any deployment",
+        "examples": [
+          "GDPR/FADP compliance violations",
+          "Swiss healthcare regulatory non-compliance",
+          "Critical security vulnerabilities",
+          "Data loss or corruption risks",
+          "Complete feature dysfunction"
+        ],
+        "escalation": "Immediate stakeholder notification required"
+      },
+      {
+        "severity": "High",
+        "definition": "Significant impact on user experience, security, or business objectives", 
+        "action_required": "Resolve before production launch",
+        "examples": [
+          "Major accessibility violations (WCAG 2.1 AA)",
+          "Performance issues affecting user experience",
+          "Minor security risks requiring mitigation",
+          "Integration failures with core systems",
+          "Swiss market-specific workflow issues"
+        ],
+        "escalation": "Product owner and technical lead notification"
+      },
+      {
+        "severity": "Medium",
+        "definition": "Quality improvements that enhance but don't prevent deployment",
+        "action_required": "Address in post-launch iteration or technical debt backlog",
+        "examples": [
+          "Code quality improvements",
+          "Documentation gaps",
+          "Non-critical UX enhancements",
+          "Performance optimizations",
+          "Test coverage improvements"
+        ],
+        "escalation": "Development team notification"
+      },
+      {
+        "severity": "Low",
+        "definition": "Enhancement opportunities for future optimization",
+        "action_required": "Consider for future product iterations",
+        "examples": [
+          "Advanced feature suggestions",
+          "UI polish improvements",
+          "Additional monitoring capabilities",
+          "Developer experience enhancements",
+          "Optional compliance certifications"
+        ],
+        "escalation": "Product backlog consideration"
+      }
+    ],
+    "swiss_healthcare_specific_criteria": {
+      "mandatory_compliance_items": [
+        "Swiss Federal Act on Data Protection (FADP) compliance",
+        "Health Insurance Act (KVG) adherence",
+        "Medical Professional Confidentiality maintenance",
+        "Cantonal healthcare system integration capability",
+        "Swiss medical document retention standards"
+      ],
+      "recommended_standards": [
+        "eHealth Suisse interoperability standards",
+        "Swiss Digital Health Strategy alignment",
+        "Medical device regulation considerations",
+        "Healthcare cybersecurity framework adherence"
+      ]
+    }
+  },
+  
+  "feedback_specifications": [
+    {
+      "feedback_type": "Individual Expert Report", 
+      "format": "Structured evaluation template with Swiss healthcare context",
+      "required_sections": [
+        {
+          "section": "Executive Summary",
+          "content": "Overall score, readiness assessment, critical blockers",
+          "max_length": "500 words"
+        },
+        {
+          "section": "Swiss Healthcare Compliance Assessment",
+          "content": "FADP, KVG, and medical regulation compliance analysis",
+          "max_length": "800 words"
+        },
+        {
+          "section": "Detailed Findings by Criterion",
+          "content": "Issue-by-issue analysis with evidence, severity, and Swiss context",
+          "max_length": "1500 words"
+        },
+        {
+          "section": "Risk Assessment Matrix",
+          "content": "Identified risks with probability, impact, and Swiss market considerations",
+          "format": "Structured risk table"
+        },
+        {
+          "section": "Actionable Recommendations",
+          "content": "Prioritized improvement actions with effort estimates and Swiss considerations",
+          "max_length": "1000 words"
+        },
+        {
+          "section": "Success Metrics",
+          "content": "Specific KPIs for measuring post-launch success",
+          "format": "Measurable metrics list"
+        }
+      ]
+    },
+    {
+      "feedback_type": "Consolidated Multi-Panel Report",
+      "format": "Executive summary with detailed technical appendices",
+      "synthesis_requirements": [
+        "Aggregate individual expert scores into weighted overall rating",
+        "Identify and resolve conflicting recommendations across perspectives", 
+        "Prioritize all improvement actions by Swiss market impact and implementation effort",
+        "Create integrated timeline addressing Swiss healthcare go-to-market requirements",
+        "Establish monitoring framework for Swiss compliance and user adoption"
+      ],
+      "required_sections": [
+        {
+          "section": "Production Readiness Decision",
+          "content": "Clear Go/No-Go/Conditional-Go recommendation with conditions"
+        },
+        {
+          "section": "Swiss Market Readiness Assessment",
+          "content": "Specific evaluation of Swiss healthcare market entry readiness"
+        },
+        {
+          "section": "Integrated Risk Matrix",
+          "content": "Combined risk assessment with Swiss regulatory and market considerations"
+        },
+        {
+          "section": "Implementation Roadmap",
+          "content": "Phased approach to address findings with Swiss compliance timeline"
+        },
+        {
+          "section": "Success Framework",
+          "content": "KPIs, monitoring plan, and success criteria for Swiss market"
+        }
+      ]
+    }
+  ],
+  
+  "iterative_review_specifications": {
+    "review_cycles": [
+      {
+        "cycle": "Initial Comprehensive Review",
+        "trigger": "Complete GP referral implementation ready for assessment",
+        "expert_participation": "Full 6-person panel",
+        "expected_duration": "8-10 hours",
+        "expected_issues": "High to medium severity findings across all dimensions",
+        "deliverables": [
+          "Comprehensive multi-panel assessment report",
+          "Prioritized improvement backlog",
+          "Swiss healthcare compliance validation",
+          "Production readiness decision"
+        ]
+      },
+      {
+        "cycle": "Focused Re-Review", 
+        "trigger": "Critical and high-severity issues addressed",
+        "expert_participation": "Affected experts + security expert (mandatory)",
+        "expected_duration": "3-4 hours",
+        "expected_issues": "Verification of fixes, residual medium-severity issues",
+        "deliverables": [
+          "Fix verification report",
+          "Updated risk assessment",
+          "Remaining issue prioritization",
+          "Conditional launch approval consideration"
+        ]
+      },
+      {
+        "cycle": "Final Production Approval",
+        "trigger": "All blocking and high-severity issues resolved",
+        "expert_participation": "Panel lead + Security expert + Requirements expert",
+        "expected_duration": "2-3 hours",
+        "expected_issues": "Final compliance validation, medium/low priority items",
+        "deliverables": [
+          "Final production approval certification",
+          "Launch monitoring plan",
+          "Post-launch review schedule",
+          "Success metrics baseline"
+        ]
+      }
+    ],
+    "improvement_tracking": [
+      "Link all review findings to specific implementation tasks",
+      "Track issue resolution status with evidence of fixes",
+      "Monitor quality score improvements between review cycles",
+      "Maintain complete audit trail for Swiss regulatory compliance",
+      "Document all architectural and security decisions",
+      "Track compliance verification for FADP and healthcare regulations"
+    ],
+    "escalation_procedures": [
+      {
+        "condition": "Any expert scores below 5.0 (blocking threshold)",
+        "action": "Immediate escalation to technical leadership and product owner",
+        "timeline": "Within 4 hours of identification"
+      },
+      {
+        "condition": "Swiss compliance violations identified",
+        "action": "Escalation to legal and compliance teams",
+        "timeline": "Within 24 hours, regulatory consultation within 48 hours"
+      },
+      {
+        "condition": "Security vulnerabilities in medical data handling",
+        "action": "Security team immediate notification, implementation freeze",
+        "timeline": "Immediate (within 1 hour)"
+      }
+    ]
+  },
+  
+  "knowledge_graph_integration": [
+    {
+      "operation": "create_entities",
+      "entity_specifications": [
+        {
+          "name": "GP Referral Multi-Panel Review Session",
+          "type": "Quality Gate",
+          "properties": {
+            "review_date": "execution timestamp",
+            "deliverable_scope": "Complete GP referral code system",
+            "overall_score": "weighted quality rating (1-10)",
+            "expert_count": "6 (Requirements, Architecture, Implementation, UX, Security, Product)",
+            "issue_count": "total issues identified by severity",
+            "resolution_status": "approved|conditional|rejected|pending",
+            "swiss_compliance_validated": "boolean",
+            "gdpr_fadp_compliant": "boolean"
+          }
+        },
+        {
+          "name": "Swiss Healthcare Compliance Validation",
+          "type": "Regulatory Assessment",
+          "properties": {
+            "fadp_compliance_score": "1-10 rating",
+            "kvg_alignment_score": "1-10 rating",
+            "medical_confidentiality_score": "1-10 rating",
+            "cantonal_integration_readiness": "1-10 rating",
+            "regulatory_risks_identified": "number of risks",
+            "mitigation_plans_created": "number of mitigation strategies"
+          }
+        }
+      ]
+    },
+    {
+      "operation": "create_relations",
+      "relation_specifications": [
+        {
+          "from": "GP Referral Multi-Panel Review Session",
+          "to": "GP Referral Code System Implementation",
+          "type": "evaluates",
+          "properties": {
+            "review_outcome": "production readiness assessment result",
+            "improvement_tasks_created": "count of follow-up implementation tasks",
+            "swiss_market_readiness": "assessment of Swiss healthcare market entry readiness"
+          }
+        },
+        {
+          "from": "Swiss Healthcare Compliance Validation",
+          "to": "GP Referral Multi-Panel Review Session",
+          "type": "informs",
+          "properties": {
+            "compliance_influence": "impact of compliance assessment on overall review",
+            "regulatory_requirements_mapped": "number of requirements validated"
+          }
+        }
+      ]
+    }
+  ],
+  
+  "process_optimization": {
+    "efficiency_measures": [
+      "Pre-populate evaluation templates with Swiss healthcare-specific criteria",
+      "Create standardized compliance checklists for FADP and KVG requirements",
+      "Develop expert knowledge base for consistent Swiss medical regulation interpretation",
+      "Automate scorecard compilation with weighted Swiss compliance factors",
+      "Create shared digital workspace for parallel expert collaboration",
+      "Implement real-time scoring dashboard with Swiss regulatory flags"
+    ],
+    "quality_improvements": [
+      "Calibrate expert evaluations through Swiss healthcare case study reviews",
+      "Track evaluation accuracy against post-launch Swiss market performance",
+      "Continuously refine Swiss compliance criteria based on regulatory updates",
+      "Maintain expert expertise through Swiss healthcare regulatory training",
+      "Establish feedback loops with Swiss medical professionals",
+      "Create continuous improvement cycle based on market launch outcomes"
+    ],
+    "swiss_market_specific_optimizations": [
+      "Include Swiss medical professionals as advisory panel members",
+      "Establish relationships with Swiss healthcare regulatory consultants",
+      "Create Swiss healthcare workflow validation with local medical practices",
+      "Develop Swiss German language proficiency for regulatory document review",
+      "Establish monitoring framework for Swiss healthcare regulation changes",
+      "Create rapid response process for Swiss regulatory compliance updates"
+    ]
+  },
+  
+  "success_criteria": {
+    "review_completion_criteria": [
+      "All 6 expert perspectives complete comprehensive evaluations",
+      "Cross-validation resolves any conflicting recommendations",
+      "Swiss healthcare compliance validated by requirements expert",
+      "Security expert certifies medical data protection measures",
+      "Overall weighted score ≥ 8.0 for production approval",
+      "No blocking issues remain unresolved",
+      "Launch readiness checklist 100% complete"
+    ],
+    "swiss_market_readiness_criteria": [
+      "FADP compliance score ≥ 9.0",
+      "KVG alignment score ≥ 8.5", 
+      "Medical confidentiality score ≥ 9.5",
+      "Cantonal integration readiness ≥ 8.0",
+      "All Swiss healthcare workflow requirements validated",
+      "Legal review complete with no blocking issues",
+      "Swiss German language support validated"
+    ],
+    "production_deployment_criteria": [
+      "Technical architecture approved by architecture expert (≥8.0)",
+      "Security measures approved by security expert (≥9.0)",
+      "User experience validated by UX expert (≥8.0)",
+      "Implementation quality approved by implementation expert (≥8.0)",
+      "Business value confirmed by product expert (≥8.0)",
+      "All high-severity issues resolved with evidence",
+      "Monitoring and alerting systems validated and operational"
+    ]
+  }
+}

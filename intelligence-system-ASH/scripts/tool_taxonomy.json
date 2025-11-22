@@ -1,0 +1,193 @@
+
+{
+  "machine_learning_libraries": {
+    "tools": [
+      "sklearn",
+      "tensorflow",
+      "torch",
+      "pytorch",
+      "xgboost",
+      "lightgbm",
+      "catboost",
+      "statsmodels",
+      "prophet",
+      "surprise",
+      "imblearn"
+    ]
+  },
+  "deep_learning_frameworks": {
+    "tools": [
+      "transformers",
+      "keras",
+      "jax",
+      "flax",
+      "fastai"
+    ]
+  },
+  "nlp_libraries": {
+    "tools": [
+      "nltk",
+      "spacy",
+      "gensim",
+      "stanza",
+      "allennlp",
+      "flair",
+      "rasa",
+      "textblob"
+    ]
+  },
+  "computer_vision_libraries": {
+    "tools": [
+      "cv2",
+      "PIL",
+      "Image",
+      "albumentations",
+      "imgaug",
+      "detectron2",
+      "mmdetection",
+      "ultralytics"
+    ]
+  },
+  "data_science_core": {
+    "tools": [
+      "pandas",
+      "numpy",
+      "scipy",
+      "matplotlib",
+      "seaborn",
+      "plotly",
+      "bokeh",
+      "dask",
+      "polars"
+    ]
+  },
+  "vector_databases_embeddings": {
+    "tools": [
+      "faiss",
+      "annoy",
+      "hnswlib",
+      "chromadb",
+      "qdrant_client",
+      "weaviate",
+      "pinecone",
+      "sentence_transformers"
+    ]
+  },
+  "time_series_libraries": {
+    "tools": [
+      "sktime",
+      "tsfresh",
+      "arch",
+      "kats",
+      "pmdarima",
+      "gluonts"
+    ]
+  },
+  "graph_network_libraries": {
+    "tools": [
+      "networkx",
+      "igraph",
+      "graph_tool",
+      "stellargraph",
+      "dgl",
+      "pytorch_geometric",
+      "spektral"
+    ]
+  },
+  "optimization_solvers": {
+    "tools": [
+      "scipy.optimize",
+      "cvxpy",
+      "pulp",
+      "gurobipy",
+      "ortools",
+      "pymoo",
+      "optuna",
+      "hyperopt",
+      "bayes_opt"
+    ]
+  },
+  "mlops_tools": {
+    "tools": [
+      "mlflow",
+      "wandb",
+      "comet_ml",
+      "kedro",
+      "prefect",
+      "airflow",
+      "bentoml",
+      "clearml"
+    ]
+  },
+  "data_processing_tools": {
+    "tools": [
+      "pyspark",
+      "modin",
+      "ray",
+      "apache_beam"
+    ]
+  },
+  "audio_processing": {
+    "tools": [
+      "librosa",
+      "pyaudio",
+      "pydub",
+      "torchaudio"
+    ]
+  },
+  "reinforcement_learning": {
+    "tools": [
+      "gym",
+      "stable_baselines3",
+      "tianshou"
+    ]
+  },
+  "anomaly_detection": {
+    "tools": [
+      "pyod",
+      "alibi_detect"
+    ]
+  },
+  "feature_engineering": {
+    "tools": [
+      "feature_engine",
+      "category_encoders",
+      "featuretools"
+    ]
+  },
+  "automl_frameworks": {
+    "tools": [
+      "autosklearn",
+      "tpot",
+      "h2o",
+      "autogluon",
+      "flaml"
+    ]
+  },
+  "web_scraping": {
+    "tools": [
+      "bs4",
+      "scrapy",
+      "selenium",
+      "playwright",
+      "requests",
+      "lxml"
+    ]
+  },
+  "api_clients": {
+    "tools": [
+      "aiohttp",
+      "httpx",
+      "boto3",
+      "google.cloud"
+    ]
+  },
+  "testing_frameworks": {
+    "tools": [
+      "pytest",
+      "unittest",
+      "hypothesis",
+      "pytest_cov"
+    ]
+  }
+}

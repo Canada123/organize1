@@ -1,0 +1,66 @@
+{
+  "cultural": {
+    "description": "mythology, religion, humans",
+    "categories": ["mythology", "folklore", "humans", "culture", "sociology", "anthropology", "religion"]
+  },
+  "divination": {
+    "description": "divination + tarot + iching repos",
+    "categories": ["divination", "tarot", "magic", "occult", "astrology", "scrying", "augury", "iching"]
+  },
+  "material": {
+    "description": "objects, architecture, technology",
+    "categories": ["objects", "architecture", "technology", "materials", "corporations", "tools"]
+  },
+  "natural": {
+    "description": "animals, plants, geography",
+    "categories": ["animals", "plants", "geography", "foods", "medicine"]
+  },
+  "ritual": {
+    "description": "ritual engine + ceremonial items",
+    "categories": ["ritual", "ceremony", "magic", "alchemy"]
+  },
+  "knowledge": {
+    "description": "books, science, instructions",
+    "categories": ["book", "instructions", "mathematics", "math", "learning", "education", "doc"]
+  },
+  "game_systems": {
+    "description": "game engines and mechanics",
+    "categories": ["godot", "unity", "unreal", "phaser", "pygame", "love2d", "defold", "game_engine", "mechanics", "rpg", "dice", "skills", "stats", "quest", "combat"]
+  },
+  "narrative_systems": {
+    "description": "story and dialogue systems",
+    "categories": ["narrative", "dialogue", "story_structure", "folklore", "psychology"]
+  },
+  "data_systems": {
+    "description": "data processing and analysis",
+    "categories": ["ontology", "prolog", "extraction", "validation", "transform", "parser", "schema", "db", "nlp"]
+  },
+  "social_systems": {
+    "description": "social and collaborative systems",
+    "categories": ["social", "team", "voting", "contract", "relationships", "governance"]
+  },
+  "generation_systems": {
+    "description": "procedural generation and simulation",
+    "categories": ["generator", "simulation", "procedural_generation", "game_of_life"]
+  },
+  "analysis_systems": {
+    "description": "analysis and pattern recognition",
+    "categories": ["analysis", "analytics", "patterns", "predict", "media_analysis", "code_analysis"]
+  },
+  "creative_systems": {
+    "description": "art, music, and creative tools",
+    "categories": ["art", "music", "poetry", "colors", "design", "ui", "ux"]
+  },
+  "workflow_systems": {
+    "description": "task and process management",
+    "categories": ["tasks", "workflow", "process", "event", "pipeline", "route"]
+  },
+  "economy_systems": {
+    "description": "economic and reward systems",
+    "categories": ["economy", "currency", "reward", "achievements", "business", "marketing"]
+  },
+  "logic_systems": {
+    "description": "rules, requirements, and logic",
+    "categories": ["prolog", "rules", "requirements", "validation", "consequences", "alignment"]
+  }
+}

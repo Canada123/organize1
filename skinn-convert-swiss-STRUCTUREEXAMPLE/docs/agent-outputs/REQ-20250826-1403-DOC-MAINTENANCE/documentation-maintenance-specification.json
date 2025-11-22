@@ -1,0 +1,435 @@
+{
+  "metadata": {
+    "request_id": "REQ-20250826-1403-DOC-MAINTENANCE",
+    "parent_request_id": null,
+    "agent": "documentation-maintainer",
+    "timestamp": "2025-08-26T14:03:00Z",
+    "output_path": "docs/agent-outputs/REQ-20250826-1403-DOC-MAINTENANCE/documentation-maintainer/",
+    "version": "1.0.0"
+  },
+  
+  "documentation_specification": {
+    "spec_id": "DOC-MAINTENANCE-001",
+    "version": "2.0.0",
+    "created_date": "2025-08-26",
+    "scope": "Complete design system reorganization and atomic component documentation",
+    "triggers": [
+      "15+ new atomic components created (atoms/molecules)",
+      "ContactAccountStage refactored from 165 to modular components", 
+      "Text overlap issues resolved with atomic architecture",
+      "21st.dev Swiss healthcare components implemented",
+      "New shadcn/ui integrations (RadioGroup, Checkbox, Label, Input)"
+    ]
+  },
+  
+  "gap_analysis": {
+    "current_documentation_issues": [
+      "Mixed website and eligibility form specifications in same files",
+      "No clear separation between general design system and form-specific components",
+      "Outdated component specifications don't reflect new atomic structure",
+      "Multiple overlapping JSON specifications causing confusion",
+      "No documentation of new 15+ atomic components created today",
+      "Implementation progress not reflected in design system docs"
+    ],
+    "missing_documentation": [
+      "Atomic component catalog for eligibility forms",
+      "Clear distinction between website vs form design systems",
+      "New molecules documentation (EmailSection, DateOfBirthSection, etc.)",
+      "Updated ContactAccountStage refactoring documentation",
+      "shadcn/ui integration guidelines for Swiss healthcare context",
+      "21st.dev component specifications and usage patterns"
+    ],
+    "outdated_content": [
+      "Component line count references (before atomic refactoring)",
+      "Old form structure references",
+      "Obsolete design specifications that don't match implementation",
+      "Mixed specifications causing architectural confusion"
+    ]
+  },
+  
+  "reorganization_strategy": {
+    "new_folder_structure": {
+      "docs/design-system/": {
+        "purpose": "Root design system directory",
+        "contents": [
+          "README.md - Design system overview and navigation",
+          "design-tokens.md - Centralized token documentation",
+          "implementation-guide.md - General implementation guidelines"
+        ]
+      },
+      "docs/design-system/website/": {
+        "purpose": "Marketing website design system",
+        "contents": [
+          "components.md - Website component library",
+          "layouts.md - Page layout specifications", 
+          "marketing-patterns.md - Marketing-specific UI patterns",
+          "myant-violet-palette.md - Website color palette"
+        ]
+      },
+      "docs/design-system/eligibility/": {
+        "purpose": "Eligibility form design system (separated)",
+        "contents": [
+          "overview.md - Eligibility form design philosophy",
+          "atomic-components.md - Complete atomic component catalog",
+          "form-patterns.md - Form-specific interaction patterns",
+          "swiss-healthcare-ui.md - Healthcare-specific components",
+          "workflow-stages.md - 6-stage workflow UI specifications"
+        ]
+      },
+      "docs/design-system/shared/": {
+        "purpose": "Shared components used in both systems",
+        "contents": [
+          "ui-primitives.md - shadcn/ui base components",
+          "icons-typography.md - Shared visual elements",
+          "accessibility-standards.md - WCAG compliance guidelines"
+        ]
+      },
+      "docs/design-system/archive/": {
+        "purpose": "Archived/superseded specifications",
+        "contents": [
+          "2025-08-26/ - Archive folder for today's reorganization"
+        ]
+      }
+    },
+    
+    "separation_criteria": {
+      "website_components": [
+        "Marketing page layouts",
+        "Hero sections", 
+        "Testimonials",
+        "Pricing tables",
+        "General navigation"
+      ],
+      "eligibility_components": [
+        "Form atoms (FormField, FormLabel, FormError, etc.)",
+        "Form molecules (EmailSection, DateOfBirthSection, etc.)",
+        "Stage organisms (ContactAccountStage components)",
+        "Workflow containers",
+        "Swiss healthcare specific UI"
+      ],
+      "shared_components": [
+        "shadcn/ui base components",
+        "Icon system",
+        "Typography system",
+        "Color tokens",
+        "Animation system"
+      ]
+    }
+  },
+  
+  "documentation_updates": [
+    {
+      "update_id": "DU-001",
+      "document_path": "docs/design-system/README.md",
+      "update_type": "create_new",
+      "section": "root",
+      "required_content": "Navigation guide for reorganized design system with clear separation between website and eligibility form components",
+      "priority": "High",
+      "dependencies": ["Folder structure creation complete"]
+    },
+    {
+      "update_id": "DU-002", 
+      "document_path": "docs/design-system/eligibility/atomic-components.md",
+      "update_type": "create_comprehensive",
+      "section": "complete_catalog",
+      "required_content": "Complete catalog of 15+ new atomic components with: FormField, FormLabel, FormError, AlertBox, DateInput, SwissInsuranceSelector, CompactSymptomSelector, EmailSection, DateOfBirthSection, EmailVerificationSection, InsuranceSection, SymptomSection, ContraindicationSection",
+      "priority": "Critical",
+      "dependencies": ["Component analysis complete"]
+    },
+    {
+      "update_id": "DU-003",
+      "document_path": "docs/design-system/eligibility/workflow-stages.md", 
+      "update_type": "create_new",
+      "section": "stage_components",
+      "required_content": "Document ContactAccountStage refactoring from 165 lines to modular atomic components, including before/after architecture",
+      "priority": "High",
+      "dependencies": ["Atomic components documented"]
+    },
+    {
+      "update_id": "DU-004",
+      "document_path": "docs/design-system/shared/ui-primitives.md",
+      "update_type": "create_new", 
+      "section": "shadcn_integration",
+      "required_content": "Document shadcn/ui components used (RadioGroup, Checkbox, Label, Input) with Swiss healthcare customizations",
+      "priority": "Medium",
+      "dependencies": ["Implementation review complete"]
+    },
+    {
+      "update_id": "DU-005",
+      "document_path": "docs/design-system/eligibility/swiss-healthcare-ui.md",
+      "update_type": "create_new",
+      "section": "21st_dev_components", 
+      "required_content": "Document 21st.dev generated components for Swiss healthcare context, including usage patterns and customizations",
+      "priority": "Medium",
+      "dependencies": ["21st.dev integration documented"]
+    }
+  ],
+  
+  "file_organization": {
+    "moves_required": [
+      {
+        "source": "docs/design-system/myant-violet-palette.md",
+        "destination": "docs/design-system/website/myant-violet-palette.md",
+        "reason": "Website-specific color palette"
+      },
+      {
+        "source": "docs/design-system/minimalist-component-library.md", 
+        "destination": "docs/design-system/website/components.md",
+        "reason": "Website marketing components, not form components"
+      },
+      {
+        "source": "docs/design-system/tokens.md",
+        "destination": "docs/design-system/design-tokens.md",
+        "reason": "Move to root as shared tokens"
+      }
+    ],
+    
+    "archival_operations": [
+      {
+        "source": "docs/design-system/eligibility-form-redesign-specification.json",
+        "destination": "docs/design-system/archive/2025-08-26/eligibility-form-redesign-specification.json",
+        "reason": "Superseded by new atomic component structure"
+      },
+      {
+        "source": "docs/design-system/gp-referral-ui-specifications.json",
+        "destination": "docs/design-system/archive/2025-08-26/gp-referral-ui-specifications.json", 
+        "reason": "Integrated into main eligibility system documentation"
+      },
+      {
+        "source": "docs/design-system/components/eligibility-workflow-atomic.md",
+        "destination": "docs/design-system/archive/2025-08-26/eligibility-workflow-atomic.md",
+        "reason": "Outdated atomic structure, replaced by new implementation"
+      },
+      {
+        "source": "docs/design-system/2025-08-19-eligibility-form-design-system.md",
+        "destination": "docs/design-system/archive/2025-08-26/2025-08-19-eligibility-form-design-system.md",
+        "reason": "Date-stamped document, superseded by organized structure"
+      }
+    ],
+    
+    "cleanup_operations": [
+      {
+        "operation": "consolidate",
+        "target": "docs/design-system/components/",
+        "action": "Merge remaining component docs into appropriate category folders",
+        "preserve_content": true
+      },
+      {
+        "operation": "remove_duplicates",
+        "target": "Multiple JSON specification files",
+        "action": "Archive overlapping specifications, keep single source of truth per component type"
+      }
+    ]
+  },
+  
+  "atomic_component_documentation": {
+    "atoms_to_document": [
+      {
+        "name": "FormField", 
+        "file": "src/components/forms/eligibility/atoms/FormField.tsx",
+        "lines": 81,
+        "description": "Reusable form field with label, input, error handling",
+        "props": ["label", "id", "type", "required", "error", "placeholder", "value", "onChange"],
+        "usage_context": "All form inputs across eligibility workflow"
+      },
+      {
+        "name": "FormLabel",
+        "file": "src/components/forms/eligibility/atoms/FormLabel.tsx", 
+        "lines": "~25",
+        "description": "Consistent form label with required indicator",
+        "usage_context": "Form field labeling"
+      },
+      {
+        "name": "FormError",
+        "file": "src/components/forms/eligibility/atoms/FormError.tsx",
+        "lines": "~20", 
+        "description": "Error message display with styling",
+        "usage_context": "Form validation feedback"
+      },
+      {
+        "name": "AlertBox",
+        "file": "src/components/forms/eligibility/atoms/AlertBox.tsx",
+        "lines": "~30",
+        "description": "Alert/notification component",
+        "usage_context": "Form status messages"
+      },
+      {
+        "name": "DateInput", 
+        "file": "src/components/forms/eligibility/atoms/DateInput.tsx",
+        "lines": "~40",
+        "description": "Date input with calendar icon and Swiss formatting",
+        "usage_context": "Date of birth, medical dates"
+      },
+      {
+        "name": "SwissInsuranceSelector",
+        "file": "src/components/forms/eligibility/atoms/SwissInsuranceSelector.tsx",
+        "lines": "~45",
+        "description": "Swiss insurance provider selection with RadioGroup",
+        "usage_context": "Insurance selection stage"
+      },
+      {
+        "name": "CompactSymptomSelector",
+        "file": "src/components/forms/eligibility/atoms/CompactSymptomSelector.tsx", 
+        "lines": "~40",
+        "description": "Compact symptom selection with checkboxes",
+        "usage_context": "Medical questionnaire"
+      }
+    ],
+    
+    "molecules_to_document": [
+      {
+        "name": "EmailSection",
+        "file": "src/components/forms/eligibility/molecules/EmailSection.tsx",
+        "lines": 24,
+        "description": "Email input section using FormField atom",
+        "composition": ["FormField"],
+        "usage_context": "Contact information collection"
+      },
+      {
+        "name": "DateOfBirthSection", 
+        "file": "src/components/forms/eligibility/molecules/DateOfBirthSection.tsx",
+        "lines": "~30",
+        "description": "Date of birth input with validation", 
+        "composition": ["DateInput", "FormLabel", "FormError"],
+        "usage_context": "Age verification"
+      },
+      {
+        "name": "EmailVerificationSection",
+        "file": "src/components/forms/eligibility/molecules/EmailVerificationSection.tsx",
+        "lines": "~35",
+        "description": "Email verification with OTP",
+        "composition": ["EmailSection", "OTP components"],
+        "usage_context": "Email verification workflow"
+      },
+      {
+        "name": "InsuranceSection",
+        "file": "src/components/forms/eligibility/molecules/InsuranceSection.tsx", 
+        "lines": "~40",
+        "description": "Insurance selection section",
+        "composition": ["SwissInsuranceSelector", "FormLabel"],
+        "usage_context": "Insurance model selection"
+      },
+      {
+        "name": "SymptomSection",
+        "file": "src/components/forms/eligibility/molecules/SymptomSection.tsx",
+        "lines": "~35", 
+        "description": "Symptom selection section",
+        "composition": ["CompactSymptomSelector", "AlertBox"],
+        "usage_context": "Medical questionnaire"
+      },
+      {
+        "name": "ContraindicationSection",
+        "file": "src/components/forms/eligibility/molecules/ContraindicationSection.tsx",
+        "lines": "~30",
+        "description": "Contraindication screening",
+        "composition": ["CompactSymptomSelector", "AlertBox"],
+        "usage_context": "Medical safety screening"
+      }
+    ]
+  },
+  
+  "implementation_review_updates": [
+    {
+      "document": "docs/design-system/implementation-review.md",
+      "required_updates": [
+        "Add section on atomic component refactoring progress",
+        "Document ContactAccountStage breakdown from 165 lines to modular components",
+        "Update component count with new atoms and molecules",
+        "Add progress metrics on ≤50 lines compliance",
+        "Document text overlap resolution through atomic architecture"
+      ]
+    }
+  ],
+  
+  "changelog_entries": [
+    {
+      "version": "2.1.0",
+      "entry_type": "feat", 
+      "category": "Design System",
+      "description": "Complete atomic component refactoring for eligibility forms",
+      "breaking_changes": false,
+      "migration_required": false,
+      "details": [
+        "Added 15+ new atomic components following ≤50 lines rule",
+        "Refactored ContactAccountStage from 165 lines to modular components", 
+        "Integrated shadcn/ui components (RadioGroup, Checkbox, Label, Input)",
+        "Resolved text overlap issues through atomic architecture",
+        "Implemented 21st.dev Swiss healthcare UI patterns",
+        "Separated website and eligibility form design systems"
+      ]
+    },
+    {
+      "version": "2.1.0",
+      "entry_type": "docs",
+      "category": "Documentation", 
+      "description": "Reorganized design system documentation with clear separation",
+      "details": [
+        "Separated website vs eligibility form design systems",
+        "Created comprehensive atomic component catalog", 
+        "Archived outdated specifications",
+        "Added Swiss healthcare UI documentation",
+        "Updated implementation progress tracking"
+      ]
+    }
+  ],
+  
+  "quality_requirements": {
+    "accuracy_checks": [
+      "Verify all component file paths and line counts",
+      "Cross-reference atomic component structure with actual implementation",
+      "Validate shadcn/ui integration patterns",
+      "Confirm 21st.dev component specifications"
+    ],
+    "completeness_requirements": [
+      "Document all 15+ new atomic components",
+      "Include prop interfaces and usage examples", 
+      "Provide clear composition hierarchy (atoms → molecules → organisms)",
+      "Include accessibility considerations for each component",
+      "Document Swiss healthcare context and patterns"
+    ],
+    "consistency_standards": [
+      "Follow established documentation patterns",
+      "Use consistent terminology across all documents",
+      "Maintain uniform formatting and structure",
+      "Ensure clear separation between website and form systems"
+    ]
+  },
+  
+  "success_metrics": {
+    "documentation_coverage": "100% of new atomic components documented",
+    "organization_clarity": "Clear separation between website and form design systems", 
+    "implementation_alignment": "Documentation matches actual component implementation",
+    "maintainability": "Easy to update as components evolve",
+    "developer_experience": "Clear navigation and component discovery"
+  },
+  
+  "implementation_timeline": {
+    "phase_1_immediate": [
+      "Create new folder structure",
+      "Archive outdated specifications", 
+      "Move files to appropriate categories"
+    ],
+    "phase_2_content": [
+      "Create atomic component catalog",
+      "Document workflow stage refactoring",
+      "Write Swiss healthcare UI specifications" 
+    ],
+    "phase_3_integration": [
+      "Update implementation review documentation",
+      "Create navigation guide",
+      "Update project indexes"
+    ]
+  },
+  
+  "validation_checklist": [
+    "All atomic components under 50 lines documented",
+    "Clear separation between website and eligibility design systems",
+    "ContactAccountStage refactoring properly documented", 
+    "shadcn/ui integration patterns explained",
+    "21st.dev component usage documented",
+    "Text overlap resolution approach documented",
+    "Swiss healthcare context maintained throughout",
+    "Accessibility considerations included",
+    "Implementation progress accurately reflected"
+  ]
+}

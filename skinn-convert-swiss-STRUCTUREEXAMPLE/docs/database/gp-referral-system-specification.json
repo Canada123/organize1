@@ -1,0 +1,350 @@
+{
+  "metadata": {
+    "request_id": "REQ-2025-08-25-1810-gp-referral",
+    "parent_request_id": null,
+    "agent": "supabase-architect",
+    "timestamp": "2025-08-25T18:10:00Z",
+    "output_path": "docs/database/",
+    "spec_location": "docs/database/gp-referral-system-specification.json",
+    "iteration_type": "new",
+    "version": "1.0.0",
+    "previous_version": null
+  },
+  
+  "feature": "GP Referral Code System with Doctor Upload Portal",
+  "changelog": [
+    {
+      "version": "1.0.0",
+      "date": "2025-08-25",
+      "changes": [
+        "Initial specification for GP referral system",
+        "Designed referral_codes table with unique 6-character codes",
+        "Designed doctor_referrals table for referral uploads",
+        "Added comprehensive RLS policies",
+        "Specified Edge Functions for code generation and notifications"
+      ]
+    }
+  ],
+  
+  "requirements": {
+    "functional": [
+      "Generate unique 6-character alphanumeric referral codes after Stage 3A completion",
+      "Store referral codes with 30-day expiration",
+      "Single-use validation to prevent code reuse",
+      "Doctor portal for referral code entry and document upload",
+      "Capture doctor details (name, clinic, HIN email, phone)",
+      "Support PDF and image uploads up to 10MB",
+      "Email notifications via HIN email system",
+      "7-year document retention policy"
+    ],
+    "non_functional": [
+      "GDPR compliance for medical data",
+      "Swiss healthcare data protection standards",
+      "Secure file storage with encryption",
+      "Rate limiting for code generation",
+      "Audit logging for all operations"
+    ],
+    "compliance": [
+      "Swiss Federal Data Protection Act (FADP)",
+      "Medical confidentiality requirements",
+      "7-year retention for medical documents",
+      "HIN (Health Info Net) email compliance"
+    ]
+  },
+  
+  "current_state_analysis": {
+    "existing_tables": [
+      "user_profiles_v2 - Contains user data with Swiss compliance fields",
+      "form_sessions - Tracks eligibility form progress with gp_referral_status field",
+      "documents - Stores uploaded documents with retention policies",
+      "otp_codes - Existing OTP verification system with rate limiting",
+      "audit_events - Comprehensive audit logging",
+      "payments - Payment processing with Swiss VAT"
+    ],
+    "existing_migrations": [
+      "009_schema_v2_consolidation",
+      "010_business_logic_functions",
+      "otp_functions_v2",
+      "fix_otp_functions"
+    ],
+    "identified_issues": [
+      "No referral code generation system exists",
+      "No dedicated doctor referral upload table",
+      "Missing notification Edge Functions",
+      "Function search_path security warnings need addressing"
+    ],
+    "relevant_extensions": [
+      "uuid-ossp - For UUID generation",
+      "pgcrypto - For secure hashing",
+      "pg_trgm - For text similarity matching"
+    ]
+  },
+  
+  "schema_changes": [
+    {
+      "type": "declarative_schema",
+      "file_path": "supabase/schemas/20_gp_referral_tables.sql",
+      "description": "Creates referral_codes and doctor_referrals tables",
+      "sql_content": "-- GP Referral System Tables\n-- Author: Supabase Architect\n-- Version: 1.0.0\n-- Date: 2025-08-25\n\n-- Table: referral_codes\n-- Purpose: Stores unique 6-character referral codes generated for patients\ncreate table public.referral_codes (\n  id uuid not null default gen_random_uuid() primary key,\n  \n  -- Foreign keys\n  form_session_id uuid not null references public.form_sessions(id) on delete cascade,\n  user_id uuid references auth.users(id) on delete set null,\n  \n  -- Core fields\n  code char(6) not null unique,\n  code_hash text not null, -- bcrypt hash for secure verification\n  \n  -- Status tracking\n  status text not null default 'active' check (status in ('active', 'used', 'expired', 'cancelled')),\n  used_at timestamptz,\n  used_by_referral_id uuid, -- Will reference doctor_referrals.id\n  \n  -- Expiration\n  expires_at timestamptz not null default (now() + interval '30 days'),\n  \n  -- Metadata\n  patient_name text not null,\n  patient_email text,\n  patient_phone text,\n  eligibility_score integer check (eligibility_score between 0 and 100),\n  eligibility_pathway text,\n  \n  -- Timestamps\n  created_at timestamptz not null default now(),\n  updated_at timestamptz not null default now()\n);\n\n-- Add table comment\ncomment on table public.referral_codes is 'Unique referral codes generated for patients after Stage 3A completion';\n\n-- Create indexes\ncreate index idx_referral_codes_code on public.referral_codes(code);\ncreate index idx_referral_codes_form_session_id on public.referral_codes(form_session_id);\ncreate index idx_referral_codes_user_id on public.referral_codes(user_id) where user_id is not null;\ncreate index idx_referral_codes_status on public.referral_codes(status);\ncreate index idx_referral_codes_expires_at on public.referral_codes(expires_at);\n\n-- Enable RLS\nalter table public.referral_codes enable row level security;\n\n-- Table: doctor_referrals\n-- Purpose: Stores doctor-uploaded referral documents and information\ncreate table public.doctor_referrals (\n  id uuid not null default gen_random_uuid() primary key,\n  \n  -- Foreign keys\n  referral_code_id uuid not null references public.referral_codes(id) on delete restrict,\n  patient_user_id uuid references auth.users(id) on delete set null,\n  \n  -- Doctor information\n  doctor_name text not null,\n  doctor_title text,\n  clinic_name text not null,\n  clinic_address jsonb,\n  doctor_hin_email text not null check (doctor_hin_email ~* '^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\\.hin\\.ch$'),\n  doctor_phone text not null,\n  doctor_license_number text,\n  \n  -- Document storage\n  document_id uuid references public.documents(id) on delete restrict,\n  document_metadata jsonb not null default '{}',\n  \n  -- Referral details\n  referral_date date not null default current_date,\n  referral_reason text,\n  medical_notes text,\n  urgency_level text check (urgency_level in ('routine', 'urgent', 'emergency')),\n  \n  -- Compliance\n  gdpr_consent boolean not null default false,\n  gdpr_consent_timestamp timestamptz,\n  data_retention_until timestamptz not null default (now() + interval '7 years'),\n  \n  -- Notification tracking\n  patient_notified_at timestamptz,\n  doctor_confirmation_sent_at timestamptz,\n  \n  -- Status\n  status text not null default 'pending' check (status in ('pending', 'verified', 'processed', 'rejected')),\n  verification_notes text,\n  verified_at timestamptz,\n  verified_by uuid references auth.users(id),\n  \n  -- Timestamps\n  created_at timestamptz not null default now(),\n  updated_at timestamptz not null default now()\n);\n\n-- Add table comment\ncomment on table public.doctor_referrals is 'Doctor-uploaded GP referral documents with 7-year retention';\n\n-- Create indexes\ncreate index idx_doctor_referrals_referral_code_id on public.doctor_referrals(referral_code_id);\ncreate index idx_doctor_referrals_patient_user_id on public.doctor_referrals(patient_user_id) where patient_user_id is not null;\ncreate index idx_doctor_referrals_document_id on public.doctor_referrals(document_id);\ncreate index idx_doctor_referrals_status on public.doctor_referrals(status);\ncreate index idx_doctor_referrals_created_at on public.doctor_referrals(created_at desc);\ncreate index idx_doctor_referrals_doctor_hin_email on public.doctor_referrals(doctor_hin_email);\n\n-- Enable RLS\nalter table public.doctor_referrals enable row level security;\n\n-- Add foreign key constraint back to referral_codes\nalter table public.referral_codes \n  add constraint fk_referral_codes_used_by \n  foreign key (used_by_referral_id) \n  references public.doctor_referrals(id) \n  on delete set null;\n\n-- Create updated_at trigger function if not exists\ncreate or replace function public.handle_updated_at()\nreturns trigger\nlanguage plpgsql\nsecurity invoker\nset search_path = ''\nas $$\nbegin\n  new.updated_at = now();\n  return new;\nend;\n$$;\n\n-- Apply updated_at triggers\ncreate trigger handle_referral_codes_updated_at\n  before update on public.referral_codes\n  for each row\n  execute function public.handle_updated_at();\n\ncreate trigger handle_doctor_referrals_updated_at\n  before update on public.doctor_referrals\n  for each row\n  execute function public.handle_updated_at();"
+    }
+  ],
+  
+  "rls_policies": [
+    {
+      "table": "referral_codes",
+      "policies": [
+        {
+          "name": "Patients can view their own referral codes",
+          "operation": "select",
+          "role": "authenticated",
+          "using_clause": "(select auth.uid()) = user_id",
+          "with_check_clause": null,
+          "performance_notes": "Uses idx_referral_codes_user_id index"
+        },
+        {
+          "name": "Service role can create referral codes",
+          "operation": "insert",
+          "role": "service_role",
+          "using_clause": "true",
+          "with_check_clause": "true",
+          "performance_notes": "Service role only for Edge Functions"
+        },
+        {
+          "name": "Service role can update referral codes",
+          "operation": "update",
+          "role": "service_role",
+          "using_clause": "true",
+          "with_check_clause": "true",
+          "performance_notes": "For marking codes as used"
+        },
+        {
+          "name": "Public can verify referral codes exist",
+          "operation": "select",
+          "role": "anon",
+          "using_clause": "status = 'active' and expires_at > now()",
+          "with_check_clause": null,
+          "performance_notes": "Limited to active, non-expired codes only"
+        }
+      ]
+    },
+    {
+      "table": "doctor_referrals",
+      "policies": [
+        {
+          "name": "Patients can view their own referrals",
+          "operation": "select",
+          "role": "authenticated",
+          "using_clause": "(select auth.uid()) = patient_user_id",
+          "with_check_clause": null,
+          "performance_notes": "Uses idx_doctor_referrals_patient_user_id index"
+        },
+        {
+          "name": "Service role can create doctor referrals",
+          "operation": "insert",
+          "role": "service_role",
+          "using_clause": "true",
+          "with_check_clause": "true",
+          "performance_notes": "Service role for Edge Function uploads"
+        },
+        {
+          "name": "Service role can update doctor referrals",
+          "operation": "update",
+          "role": "service_role",
+          "using_clause": "true",
+          "with_check_clause": "true",
+          "performance_notes": "For status updates and verification"
+        },
+        {
+          "name": "Doctors can view referrals they created",
+          "operation": "select",
+          "role": "anon",
+          "using_clause": "doctor_hin_email = current_setting('request.jwt.claims', true)::json->>'email'",
+          "with_check_clause": null,
+          "performance_notes": "Requires HIN email in JWT claims"
+        }
+      ]
+    }
+  ],
+  
+  "functions_and_triggers": [
+    {
+      "type": "function",
+      "name": "generate_referral_code",
+      "purpose": "Generates a unique 6-character alphanumeric referral code",
+      "sql_content": "create or replace function public.generate_referral_code(\n  p_form_session_id uuid,\n  p_user_id uuid,\n  p_patient_name text,\n  p_patient_email text default null,\n  p_patient_phone text default null\n)\nreturns json\nlanguage plpgsql\nsecurity definer\nset search_path = ''\nas $$\ndeclare\n  v_code char(6);\n  v_code_hash text;\n  v_referral_id uuid;\n  v_attempts integer := 0;\n  v_max_attempts constant integer := 100;\n  v_form_data jsonb;\n  v_eligibility_score integer;\n  v_eligibility_pathway text;\nbegin\n  -- Verify form session exists and is eligible\n  select form_data, eligibility_score, eligibility_pathway\n  into v_form_data, v_eligibility_score, v_eligibility_pathway\n  from public.form_sessions\n  where id = p_form_session_id\n    and status = 'active'\n    and current_step >= 3; -- Must be at least at Stage 3A\n  \n  if not found then\n    raise exception 'Invalid or ineligible form session';\n  end if;\n  \n  -- Check if code already exists for this session\n  select id into v_referral_id\n  from public.referral_codes\n  where form_session_id = p_form_session_id\n    and status = 'active';\n  \n  if found then\n    raise exception 'Referral code already exists for this session';\n  end if;\n  \n  -- Generate unique code\n  loop\n    v_attempts := v_attempts + 1;\n    \n    if v_attempts > v_max_attempts then\n      raise exception 'Could not generate unique code after % attempts', v_max_attempts;\n    end if;\n    \n    -- Generate 6-character alphanumeric code (excluding confusing characters)\n    v_code := upper(substring(\n      encode(gen_random_bytes(6), 'base32'),\n      1, 6\n    ));\n    \n    -- Check uniqueness\n    perform 1 from public.referral_codes where code = v_code;\n    \n    if not found then\n      exit; -- Code is unique\n    end if;\n  end loop;\n  \n  -- Hash the code for secure storage\n  v_code_hash := crypt(v_code, gen_salt('bf', 10));\n  \n  -- Insert referral code\n  insert into public.referral_codes (\n    form_session_id,\n    user_id,\n    code,\n    code_hash,\n    patient_name,\n    patient_email,\n    patient_phone,\n    eligibility_score,\n    eligibility_pathway\n  ) values (\n    p_form_session_id,\n    p_user_id,\n    v_code,\n    v_code_hash,\n    p_patient_name,\n    p_patient_email,\n    p_patient_phone,\n    v_eligibility_score,\n    v_eligibility_pathway\n  )\n  returning id into v_referral_id;\n  \n  -- Log audit event\n  insert into public.audit_events (\n    user_id,\n    event_type,\n    event_category,\n    resource_type,\n    resource_id,\n    event_data,\n    gdpr_relevant,\n    security_relevant\n  ) values (\n    p_user_id,\n    'referral_code_generated',\n    'document',\n    'referral_code',\n    v_referral_id,\n    jsonb_build_object(\n      'form_session_id', p_form_session_id,\n      'code_masked', left(v_code, 2) || '****'\n    ),\n    true,\n    true\n  );\n  \n  -- Return success response\n  return json_build_object(\n    'success', true,\n    'referral_id', v_referral_id,\n    'code', v_code,\n    'expires_at', (now() + interval '30 days')::text\n  );\n  \nexception\n  when others then\n    -- Log error\n    insert into public.audit_events (\n      user_id,\n      event_type,\n      event_category,\n      event_data,\n      security_relevant\n    ) values (\n      p_user_id,\n      'referral_code_generation_failed',\n      'document',\n      jsonb_build_object(\n        'error', sqlerrm,\n        'form_session_id', p_form_session_id\n      ),\n      true\n    );\n    \n    raise;\nend;\n$$;"
+    },
+    {
+      "type": "function",
+      "name": "verify_and_use_referral_code",
+      "purpose": "Verifies a referral code and marks it as used",
+      "sql_content": "create or replace function public.verify_and_use_referral_code(\n  p_code char(6),\n  p_referral_id uuid\n)\nreturns json\nlanguage plpgsql\nsecurity definer\nset search_path = ''\nas $$\ndeclare\n  v_code_record record;\nbegin\n  -- Find and lock the referral code\n  select * into v_code_record\n  from public.referral_codes\n  where code = p_code\n    and status = 'active'\n    and expires_at > now()\n  for update;\n  \n  if not found then\n    return json_build_object(\n      'success', false,\n      'error', 'Invalid or expired referral code'\n    );\n  end if;\n  \n  -- Verify the code hasn't been used\n  if v_code_record.used_at is not null then\n    return json_build_object(\n      'success', false,\n      'error', 'Referral code has already been used'\n    );\n  end if;\n  \n  -- Mark code as used\n  update public.referral_codes\n  set \n    status = 'used',\n    used_at = now(),\n    used_by_referral_id = p_referral_id\n  where id = v_code_record.id;\n  \n  -- Update form session\n  update public.form_sessions\n  set gp_referral_status = 'obtained'\n  where id = v_code_record.form_session_id;\n  \n  -- Log audit event\n  insert into public.audit_events (\n    user_id,\n    event_type,\n    event_category,\n    resource_type,\n    resource_id,\n    event_data,\n    gdpr_relevant,\n    security_relevant\n  ) values (\n    v_code_record.user_id,\n    'referral_code_used',\n    'document',\n    'referral_code',\n    v_code_record.id,\n    jsonb_build_object(\n      'referral_id', p_referral_id,\n      'code_masked', left(p_code, 2) || '****'\n    ),\n    true,\n    true\n  );\n  \n  return json_build_object(\n    'success', true,\n    'referral_code_id', v_code_record.id,\n    'form_session_id', v_code_record.form_session_id,\n    'patient_name', v_code_record.patient_name,\n    'patient_email', v_code_record.patient_email,\n    'eligibility_score', v_code_record.eligibility_score\n  );\nend;\n$$;"
+    },
+    {
+      "type": "trigger",
+      "name": "cleanup_expired_referral_codes",
+      "purpose": "Automatically marks expired referral codes",
+      "sql_content": "create or replace function public.cleanup_expired_referral_codes()\nreturns void\nlanguage plpgsql\nsecurity definer\nset search_path = ''\nas $$\nbegin\n  update public.referral_codes\n  set status = 'expired'\n  where status = 'active'\n    and expires_at < now();\nend;\n$$;\n\n-- Schedule with pg_cron (if available) or call periodically\n-- select cron.schedule('cleanup-expired-referral-codes', '0 * * * *', 'select public.cleanup_expired_referral_codes();');"
+    }
+  ],
+  
+  "edge_functions": [
+    {
+      "name": "generate-referral-code",
+      "purpose": "Generates a unique referral code for a patient",
+      "endpoint": "/generate-referral-code",
+      "file_path": "supabase/functions/generate-referral-code/index.ts",
+      "typescript_content": "import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'\nimport { createClient } from 'npm:@supabase/supabase-js@2'\n\ninterface RequestPayload {\n  formSessionId: string\n  userId?: string\n  patientName: string\n  patientEmail?: string\n  patientPhone?: string\n}\n\nconst corsHeaders = {\n  'Access-Control-Allow-Origin': '*',\n  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',\n}\n\nserve(async (req: Request) => {\n  // Handle CORS\n  if (req.method === 'OPTIONS') {\n    return new Response('ok', { headers: corsHeaders })\n  }\n\n  try {\n    const supabase = createClient(\n      Deno.env.get('SUPABASE_URL')!,\n      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!\n    )\n\n    const { formSessionId, userId, patientName, patientEmail, patientPhone }: RequestPayload = await req.json()\n\n    // Validate required fields\n    if (!formSessionId || !patientName) {\n      throw new Error('Missing required fields')\n    }\n\n    // Call the database function\n    const { data, error } = await supabase.rpc('generate_referral_code', {\n      p_form_session_id: formSessionId,\n      p_user_id: userId || null,\n      p_patient_name: patientName,\n      p_patient_email: patientEmail || null,\n      p_patient_phone: patientPhone || null\n    })\n\n    if (error) throw error\n\n    // Send email notification if email provided\n    if (patientEmail && data.success) {\n      await sendReferralCodeEmail(patientEmail, patientName, data.code, data.expires_at)\n    }\n\n    return new Response(\n      JSON.stringify(data),\n      {\n        headers: { ...corsHeaders, 'Content-Type': 'application/json' },\n        status: 200\n      }\n    )\n  } catch (error) {\n    return new Response(\n      JSON.stringify({ success: false, error: error.message }),\n      {\n        headers: { ...corsHeaders, 'Content-Type': 'application/json' },\n        status: 400\n      }\n    )\n  }\n})\n\nasync function sendReferralCodeEmail(email: string, name: string, code: string, expiresAt: string) {\n  // Implementation using Resend API\n  const resendApiKey = Deno.env.get('RESEND_API_KEY')\n  if (!resendApiKey) return\n\n  await fetch('https://api.resend.com/emails', {\n    method: 'POST',\n    headers: {\n      'Authorization': `Bearer ${resendApiKey}`,\n      'Content-Type': 'application/json',\n    },\n    body: JSON.stringify({\n      from: 'noreply@skiin.ch',\n      to: email,\n      subject: 'Your GP Referral Code',\n      html: `\n        <h2>Dear ${name},</h2>\n        <p>Your GP referral code has been generated successfully.</p>\n        <p><strong>Referral Code: ${code}</strong></p>\n        <p>This code expires on: ${new Date(expiresAt).toLocaleDateString()}</p>\n        <p>Please share this code with your doctor to upload the referral documents.</p>\n        <p>Best regards,<br>SKIIN Switzerland Team</p>\n      `\n    })\n  })\n}",
+      "environment_variables": [
+        "SUPABASE_URL",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "RESEND_API_KEY"
+      ],
+      "deployment_notes": "Deploy with: supabase functions deploy generate-referral-code"
+    },
+    {
+      "name": "upload-doctor-referral",
+      "purpose": "Handles doctor referral uploads with code verification",
+      "endpoint": "/upload-doctor-referral",
+      "file_path": "supabase/functions/upload-doctor-referral/index.ts",
+      "typescript_content": "import { serve } from 'https://deno.land/std@0.168.0/http/server.ts'\nimport { createClient } from 'npm:@supabase/supabase-js@2'\nimport { multiParser } from 'https://deno.land/x/multiparser@0.114.0/mod.ts'\n\ninterface DoctorInfo {\n  referralCode: string\n  doctorName: string\n  doctorTitle?: string\n  clinicName: string\n  clinicAddress?: any\n  doctorHinEmail: string\n  doctorPhone: string\n  doctorLicenseNumber?: string\n  referralReason?: string\n  medicalNotes?: string\n  urgencyLevel?: 'routine' | 'urgent' | 'emergency'\n  gdprConsent: boolean\n}\n\nconst corsHeaders = {\n  'Access-Control-Allow-Origin': '*',\n  'Access-Control-Allow-Headers': 'authorization, x-client-info, apikey, content-type',\n}\n\nconst MAX_FILE_SIZE = 10 * 1024 * 1024 // 10MB\n\nserve(async (req: Request) => {\n  if (req.method === 'OPTIONS') {\n    return new Response('ok', { headers: corsHeaders })\n  }\n\n  try {\n    const supabase = createClient(\n      Deno.env.get('SUPABASE_URL')!,\n      Deno.env.get('SUPABASE_SERVICE_ROLE_KEY')!\n    )\n\n    // Parse multipart form data\n    const form = await multiParser(req)\n    if (!form) {\n      throw new Error('Invalid form data')\n    }\n\n    const doctorInfo: DoctorInfo = JSON.parse(form.fields.doctorInfo)\n    const file = form.files.referralDocument\n\n    // Validate file\n    if (!file) {\n      throw new Error('No file uploaded')\n    }\n\n    if (file.content.byteLength > MAX_FILE_SIZE) {\n      throw new Error('File size exceeds 10MB limit')\n    }\n\n    // Validate file type\n    const allowedTypes = ['application/pdf', 'image/jpeg', 'image/png', 'image/jpg']\n    if (!allowedTypes.includes(file.contentType)) {\n      throw new Error('Invalid file type. Only PDF and images are allowed')\n    }\n\n    // Validate HIN email\n    if (!doctorInfo.doctorHinEmail.endsWith('.hin.ch')) {\n      throw new Error('Invalid HIN email address')\n    }\n\n    // Verify referral code\n    const { data: codeData, error: codeError } = await supabase\n      .from('referral_codes')\n      .select('*')\n      .eq('code', doctorInfo.referralCode)\n      .eq('status', 'active')\n      .single()\n\n    if (codeError || !codeData) {\n      throw new Error('Invalid or expired referral code')\n    }\n\n    // Upload file to Supabase Storage\n    const fileName = `referrals/${codeData.id}/${Date.now()}_${file.filename}`\n    const { data: uploadData, error: uploadError } = await supabase.storage\n      .from('medical-documents')\n      .upload(fileName, file.content, {\n        contentType: file.contentType,\n        upsert: false\n      })\n\n    if (uploadError) throw uploadError\n\n    // Create document record\n    const { data: docData, error: docError } = await supabase\n      .from('documents')\n      .insert({\n        user_id: codeData.user_id,\n        form_session_id: codeData.form_session_id,\n        filename: file.filename,\n        file_path: fileName,\n        file_size_bytes: file.content.byteLength,\n        mime_type: file.contentType,\n        document_type: 'referral',\n        medical_data_classification: 'confidential',\n        retention_period_years: 7\n      })\n      .select()\n      .single()\n\n    if (docError) throw docError\n\n    // Create doctor referral record\n    const { data: referralData, error: referralError } = await supabase\n      .from('doctor_referrals')\n      .insert({\n        referral_code_id: codeData.id,\n        patient_user_id: codeData.user_id,\n        doctor_name: doctorInfo.doctorName,\n        doctor_title: doctorInfo.doctorTitle,\n        clinic_name: doctorInfo.clinicName,\n        clinic_address: doctorInfo.clinicAddress,\n        doctor_hin_email: doctorInfo.doctorHinEmail,\n        doctor_phone: doctorInfo.doctorPhone,\n        doctor_license_number: doctorInfo.doctorLicenseNumber,\n        document_id: docData.id,\n        referral_reason: doctorInfo.referralReason,\n        medical_notes: doctorInfo.medicalNotes,\n        urgency_level: doctorInfo.urgencyLevel || 'routine',\n        gdpr_consent: doctorInfo.gdprConsent,\n        gdpr_consent_timestamp: doctorInfo.gdprConsent ? new Date().toISOString() : null\n      })\n      .select()\n      .single()\n\n    if (referralError) throw referralError\n\n    // Use the referral code\n    const { data: verifyData, error: verifyError } = await supabase.rpc('verify_and_use_referral_code', {\n      p_code: doctorInfo.referralCode,\n      p_referral_id: referralData.id\n    })\n\n    if (verifyError) throw verifyError\n\n    // Send notifications\n    await Promise.all([\n      sendDoctorConfirmationEmail(doctorInfo, referralData.id),\n      sendPatientNotificationEmail(codeData, doctorInfo)\n    ])\n\n    return new Response(\n      JSON.stringify({\n        success: true,\n        referralId: referralData.id,\n        message: 'Referral uploaded successfully'\n      }),\n      {\n        headers: { ...corsHeaders, 'Content-Type': 'application/json' },\n        status: 200\n      }\n    )\n  } catch (error) {\n    console.error('Upload error:', error)\n    return new Response(\n      JSON.stringify({ success: false, error: error.message }),\n      {\n        headers: { ...corsHeaders, 'Content-Type': 'application/json' },\n        status: 400\n      }\n    )\n  }\n})\n\nasync function sendDoctorConfirmationEmail(doctorInfo: DoctorInfo, referralId: string) {\n  const resendApiKey = Deno.env.get('RESEND_API_KEY')\n  if (!resendApiKey) return\n\n  await fetch('https://api.resend.com/emails', {\n    method: 'POST',\n    headers: {\n      'Authorization': `Bearer ${resendApiKey}`,\n      'Content-Type': 'application/json',\n    },\n    body: JSON.stringify({\n      from: 'noreply@skiin.ch',\n      to: doctorInfo.doctorHinEmail,\n      subject: 'GP Referral Upload Confirmation',\n      html: `\n        <h2>Dear Dr. ${doctorInfo.doctorName},</h2>\n        <p>Your GP referral has been successfully uploaded.</p>\n        <p><strong>Reference ID:</strong> ${referralId}</p>\n        <p><strong>Patient Referral Code:</strong> ${doctorInfo.referralCode.substring(0, 2)}****</p>\n        <p>The patient has been notified of your referral submission.</p>\n        <p>Thank you for using SKIIN Switzerland's referral system.</p>\n        <p>Best regards,<br>SKIIN Switzerland Team</p>\n      `\n    })\n  })\n}\n\nasync function sendPatientNotificationEmail(codeData: any, doctorInfo: DoctorInfo) {\n  if (!codeData.patient_email) return\n  \n  const resendApiKey = Deno.env.get('RESEND_API_KEY')\n  if (!resendApiKey) return\n\n  await fetch('https://api.resend.com/emails', {\n    method: 'POST',\n    headers: {\n      'Authorization': `Bearer ${resendApiKey}`,\n      'Content-Type': 'application/json',\n    },\n    body: JSON.stringify({\n      from: 'noreply@skiin.ch',\n      to: codeData.patient_email,\n      subject: 'Your GP Referral Has Been Uploaded',\n      html: `\n        <h2>Dear ${codeData.patient_name},</h2>\n        <p>Good news! Your doctor has uploaded your GP referral.</p>\n        <p><strong>Doctor:</strong> Dr. ${doctorInfo.doctorName}</p>\n        <p><strong>Clinic:</strong> ${doctorInfo.clinicName}</p>\n        <p>You can now proceed with your heart health screening appointment.</p>\n        <p>If you have any questions, please contact our support team.</p>\n        <p>Best regards,<br>SKIIN Switzerland Team</p>\n      `\n    })\n  })\n}",
+      "environment_variables": [
+        "SUPABASE_URL",
+        "SUPABASE_SERVICE_ROLE_KEY",
+        "RESEND_API_KEY"
+      ],
+      "deployment_notes": "Requires multiparser for file uploads. Deploy with: supabase functions deploy upload-doctor-referral"
+    }
+  ],
+  
+  "migration_strategy": {
+    "method": "diff",
+    "zero_downtime": true,
+    "rollback_plan": "1. Remove RLS policies\n2. Drop doctor_referrals table\n3. Drop referral_codes table\n4. Remove Edge Functions\n5. Restore form_sessions.gp_referral_status to previous state",
+    "migration_name_suggestion": "011_gp_referral_system",
+    "estimated_duration": "10 minutes",
+    "risk_assessment": "low",
+    "steps": [
+      "1. Create declarative schema file: supabase/schemas/20_gp_referral_tables.sql",
+      "2. Generate migration: supabase db diff -f 011_gp_referral_system",
+      "3. Review generated migration for accuracy",
+      "4. Apply migration: supabase migration up",
+      "5. Deploy Edge Functions",
+      "6. Configure environment variables (RESEND_API_KEY)",
+      "7. Test code generation and upload flow",
+      "8. Enable pg_cron job for expired code cleanup (optional)"
+    ]
+  },
+  
+  "indexes": [
+    {
+      "name": "idx_referral_codes_code",
+      "table": "referral_codes",
+      "columns": ["code"],
+      "type": "btree",
+      "partial": null,
+      "rationale": "Fast lookup for code verification"
+    },
+    {
+      "name": "idx_referral_codes_expires_at",
+      "table": "referral_codes",
+      "columns": ["expires_at"],
+      "type": "btree",
+      "partial": "WHERE status = 'active'",
+      "rationale": "Efficient cleanup of expired codes"
+    },
+    {
+      "name": "idx_doctor_referrals_doctor_hin_email",
+      "table": "doctor_referrals",
+      "columns": ["doctor_hin_email"],
+      "type": "btree",
+      "partial": null,
+      "rationale": "Fast lookup for doctor's referrals"
+    }
+  ],
+  
+  "testing_requirements": {
+    "unit_tests": [
+      "Test unique code generation (collision handling)",
+      "Test code expiration after 30 days",
+      "Test single-use enforcement",
+      "Test HIN email validation",
+      "Test file size limits (10MB)",
+      "Test file type validation (PDF/images only)"
+    ],
+    "integration_tests": [
+      "Test complete flow from code generation to upload",
+      "Test notification delivery via Resend",
+      "Test concurrent code generation",
+      "Test rate limiting for code generation",
+      "Test storage bucket permissions"
+    ],
+    "performance_tests": [
+      "Load test code generation under high concurrency",
+      "Test file upload performance for 10MB files",
+      "Test query performance with 100k+ referral codes"
+    ],
+    "security_tests": [
+      "Test SQL injection prevention",
+      "Test code brute-force protection",
+      "Test file upload security (malware scanning)",
+      "Test GDPR compliance for data retention"
+    ]
+  },
+  
+  "monitoring_and_alerts": {
+    "metrics": [
+      "Referral codes generated per day",
+      "Average time from code generation to use",
+      "Failed code verification attempts",
+      "Document upload success rate",
+      "Notification delivery rate"
+    ],
+    "alerts": [
+      "High rate of failed code verifications (potential attack)",
+      "Storage quota approaching limit",
+      "Notification delivery failures",
+      "Expired codes not being cleaned up"
+    ],
+    "dashboards": [
+      "GP Referral System Overview",
+      "Doctor Upload Activity",
+      "Code Usage Analytics"
+    ]
+  },
+  
+  "documentation": {
+    "api_documentation": "## GP Referral API\n\n### POST /generate-referral-code\nGenerates a unique 6-character referral code for a patient.\n\n### POST /upload-doctor-referral\nHandles doctor referral document uploads with code verification.",
+    "database_documentation": "## Tables\n\n### referral_codes\nStores unique patient referral codes with 30-day expiration.\n\n### doctor_referrals\nStores doctor-uploaded referral documents with 7-year retention.",
+    "runbook": "## Operational Procedures\n\n### Daily Tasks\n- Monitor expired code cleanup job\n- Check notification delivery rates\n\n### Weekly Tasks\n- Review failed upload attempts\n- Audit code usage patterns\n\n### Monthly Tasks\n- Storage usage review\n- Security audit of uploaded documents"
+  },
+  
+  "implementation_notes": {
+    "dependencies": [
+      "Resend API for email notifications",
+      "Supabase Storage for document uploads",
+      "pg_cron for scheduled cleanup (optional)"
+    ],
+    "breaking_changes": [],
+    "migration_order": [
+      "1. Apply database migration",
+      "2. Deploy Edge Functions",
+      "3. Configure environment variables",
+      "4. Update frontend to use new endpoints"
+    ],
+    "validation_steps": [
+      "Generate test referral code",
+      "Verify code uniqueness and format",
+      "Upload test document as doctor",
+      "Verify notifications are sent",
+      "Check code is marked as used",
+      "Verify document retention period"
+    ],
+    "security_considerations": [
+      "Referral codes are hashed with bcrypt",
+      "Rate limiting prevents brute force attacks",
+      "HIN email validation ensures doctor authenticity",
+      "7-year retention complies with Swiss medical law",
+      "All operations are audit logged"
+    ]
+  }
+}

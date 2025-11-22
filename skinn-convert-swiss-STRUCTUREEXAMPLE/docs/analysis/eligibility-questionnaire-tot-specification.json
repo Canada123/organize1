@@ -1,0 +1,412 @@
+{
+  "metadata": {
+    "request_id": "REQ-20250826-eligibility-tot-001",
+    "parent_request_id": null,
+    "agent": "tree-of-thought-agent",
+    "timestamp": "2025-08-26T00:00:00Z",
+    "output_path": "docs/analysis/",
+    "version": "1.0.0"
+  },
+  
+  "tot_specification": {
+    "spec_id": "TOT-ELIG-001",
+    "version": "1.0.0",
+    "created_date": "2025-08-26",
+    "scope": "6-Stage Eligibility Questionnaire Workflow Analysis",
+    "complexity_level": "Critical",
+    "analysis_focus": [
+      "Component hierarchy violations",
+      "Decision tree mapping",
+      "User pathway analysis",
+      "State management issues",
+      "CSS animation conflicts"
+    ]
+  },
+  
+  "entity_specifications": [
+    {
+      "entity_id": "E-001",
+      "name": "EligibilityFormContainer",
+      "type": "Orchestrator",
+      "classification": "Container Component",
+      "hierarchy_level": 1,
+      "parent_entity": null,
+      "child_entities": ["ContactAccountStage", "EligibilityGateStage", "DetailedInfoStage", "InsuredReviewStage", "SelfPayStage", "CompletionStage"],
+      "properties": {
+        "lines_of_code": 187,
+        "violation_severity": "HIGH",
+        "complexity": "High",
+        "criticality": "Critical",
+        "status": "Requires Refactoring"
+      }
+    },
+    {
+      "entity_id": "E-002",
+      "name": "EligibilityGateStage",
+      "type": "Stage Component",
+      "classification": "Decision Point",
+      "hierarchy_level": 2,
+      "parent_entity": "EligibilityFormContainer",
+      "child_entities": ["InsuranceModelSelector", "ContraindicationScreening", "SymptomSelector", "EligibilityStatusAlert", "EmergencyDialog"],
+      "properties": {
+        "lines_of_code": 301,
+        "violation_severity": "CRITICAL",
+        "complexity": "Very High",
+        "criticality": "Critical",
+        "status": "Major Violation - Monolithic"
+      }
+    },
+    {
+      "entity_id": "E-003",
+      "name": "EmergencyDialog",
+      "type": "Safety Component",
+      "classification": "Emergency Handler",
+      "hierarchy_level": 3,
+      "parent_entity": "EligibilityGateStage",
+      "child_entities": [],
+      "properties": {
+        "lines_of_code": 216,
+        "violation_severity": "HIGH",
+        "complexity": "Medium",
+        "criticality": "Critical",
+        "emergency_number": "144",
+        "status": "Violates Atomic Design"
+      }
+    },
+    {
+      "entity_id": "E-004",
+      "name": "SelfPayStage",
+      "type": "Payment Stage",
+      "classification": "Transaction Handler",
+      "hierarchy_level": 2,
+      "parent_entity": "EligibilityFormContainer",
+      "child_entities": ["OTPVerification", "PaymentForm", "ShippingAddress"],
+      "properties": {
+        "lines_of_code": 244,
+        "violation_severity": "CRITICAL",
+        "complexity": "High",
+        "criticality": "High",
+        "payment_amount": "CHF 390",
+        "status": "Multiple Responsibilities"
+      }
+    },
+    {
+      "entity_id": "E-005",
+      "name": "EligibilityProgressBar",
+      "type": "UI Component",
+      "classification": "Progress Indicator",
+      "hierarchy_level": 3,
+      "parent_entity": "EligibilityFormContainer",
+      "child_entities": [],
+      "properties": {
+        "lines_of_code": 32,
+        "violation_severity": "NONE",
+        "complexity": "Low",
+        "criticality": "Medium",
+        "bug": "Shows 0% at stage 0",
+        "status": "Has Calculation Bug"
+      }
+    }
+  ],
+  
+  "relationship_specifications": [
+    {
+      "relationship_id": "R-001",
+      "from_entity": "ContactAccountStage",
+      "to_entity": "EligibilityGateStage",
+      "relationship_type": "progresses_to",
+      "notation": "→",
+      "condition": "email_verified === true",
+      "description": "User progresses after email verification",
+      "hierarchy_impact": "Sequential flow enforcement"
+    },
+    {
+      "relationship_id": "R-002",
+      "from_entity": "EligibilityGateStage",
+      "to_entity": "InsuredPathway",
+      "relationship_type": "routes_to",
+      "notation": "→",
+      "condition": "hasInsurance && hasSymptoms",
+      "description": "Routes to insured pathway when eligible",
+      "hierarchy_impact": "Creates pathway branch"
+    },
+    {
+      "relationship_id": "R-003",
+      "from_entity": "EligibilityGateStage",
+      "to_entity": "SelfPayPathway",
+      "relationship_type": "routes_to",
+      "notation": "→",
+      "condition": "!hasInsurance || !hasSymptoms",
+      "description": "Routes to self-pay when not covered",
+      "hierarchy_impact": "Creates alternate pathway"
+    },
+    {
+      "relationship_id": "R-004",
+      "from_entity": "EmergencySymptoms",
+      "to_entity": "EmergencyDialog",
+      "relationship_type": "triggers",
+      "notation": "⚠→",
+      "condition": "symptoms.includes('chest_pain') || symptoms.includes('loss_of_consciousness')",
+      "description": "Emergency symptoms trigger safety dialog",
+      "hierarchy_impact": "Interrupts normal flow"
+    },
+    {
+      "relationship_id": "R-005",
+      "from_entity": "Contraindications",
+      "to_entity": "BlockedPathway",
+      "relationship_type": "blocks",
+      "notation": "✕→",
+      "condition": "pregnant || pacemaker || recentHospitalization",
+      "description": "Medical contraindications block progression",
+      "hierarchy_impact": "Terminates workflow branch"
+    }
+  ],
+  
+  "tree_structure_specification": {
+    "document_path": "docs/analysis/ELIGIBILITY-WORKFLOW-TOT.md",
+    "title": "Eligibility Questionnaire Tree of Thought Analysis",
+    "root_nodes": [
+      {
+        "name": "Eligibility Questionnaire System",
+        "level": 1,
+        "children": [
+          "Stage 0: Contact & Account",
+          "Stage 1: Eligibility Gate",
+          "Stage 2: Detailed Information",
+          "Stage 3: Review/Payment",
+          "Stage 4: Consents/Processing",
+          "Stage 5: Completion"
+        ]
+      }
+    ],
+    "hierarchy_levels": {
+      "level_1": "System (Root)",
+      "level_2": "Stages (0-5)",
+      "level_3": "Components (Shared/Stage-specific)",
+      "level_4": "Sub-components (Atoms/Molecules)",
+      "level_5": "Actions/States"
+    },
+    "notation_standards": {
+      "progression": "→",
+      "decision": "◊",
+      "blocked": "✕",
+      "emergency": "⚠",
+      "payment": "$",
+      "verification": "✓"
+    }
+  },
+  
+  "reasoning_framework": [
+    {
+      "decision_point": "Pathway Selection",
+      "location": "Stage 1: Eligibility Gate",
+      "reasoning_tree": {
+        "criteria": [
+          "Insurance coverage status",
+          "Symptom presence",
+          "Medical contraindications",
+          "Emergency indicators"
+        ],
+        "options": [
+          {
+            "option": "Insured Pathway",
+            "conditions": "hasInsurance && hasSymptoms && !contraindications",
+            "pros": ["Full reimbursement", "GP referral provided"],
+            "cons": ["Requires insurance verification"],
+            "probability": 0.6
+          },
+          {
+            "option": "Self-Pay Pathway",
+            "conditions": "!hasInsurance || !hasSymptoms",
+            "pros": ["Direct access", "No insurance required"],
+            "cons": ["CHF 390 cost", "No reimbursement"],
+            "probability": 0.3
+          },
+          {
+            "option": "Blocked Pathway",
+            "conditions": "hasContraindications",
+            "pros": ["Safety enforcement"],
+            "cons": ["Service denial"],
+            "probability": 0.08
+          },
+          {
+            "option": "Emergency Redirect",
+            "conditions": "hasEmergencySymptoms",
+            "pros": ["Immediate medical attention"],
+            "cons": ["Workflow interruption"],
+            "probability": 0.02
+          }
+        ],
+        "selected_logic": "Hierarchical evaluation: Emergency > Contraindications > Insurance Status > Symptoms"
+      }
+    },
+    {
+      "decision_point": "Insurance Model Impact",
+      "location": "InsuranceModelSelector",
+      "reasoning_tree": {
+        "criteria": ["Model type", "Referral requirements", "Coverage scope"],
+        "options": [
+          {
+            "option": "HMO Model",
+            "requirements": "GP referral mandatory",
+            "coverage": "Full after referral",
+            "complexity": "High"
+          },
+          {
+            "option": "Telmed Model",
+            "requirements": "Phone consultation first",
+            "coverage": "Full after consultation",
+            "complexity": "Medium"
+          },
+          {
+            "option": "Flex Model",
+            "requirements": "Flexible referral",
+            "coverage": "Partial to full",
+            "complexity": "Low"
+          }
+        ]
+      }
+    }
+  ],
+  
+  "visual_specifications": {
+    "diagram_format": "Mermaid flowchart",
+    "orientation": "Top to bottom (TD)",
+    "node_styling": {
+      "violations": "Red background with line count",
+      "decision_points": "Diamond shape",
+      "stages": "Rounded rectangles",
+      "emergency": "Double border with warning icon"
+    },
+    "edge_styling": {
+      "normal_flow": "Solid arrow",
+      "conditional": "Dashed arrow with condition label",
+      "emergency": "Bold red arrow",
+      "blocked": "Crossed line"
+    },
+    "annotations": {
+      "line_violations": "Show line count for components > 50 lines",
+      "bugs": "Red exclamation mark",
+      "payment": "Currency symbol with amount"
+    }
+  },
+  
+  "knowledge_graph_integration": [
+    {
+      "operation": "create_entities",
+      "entities": [
+        {
+          "name": "Eligibility Questionnaire ToT Analysis",
+          "type": "Tree-of-Thought",
+          "properties": {
+            "scope": "6-stage workflow analysis",
+            "depth": 5,
+            "entity_count": 25,
+            "relationship_count": 40,
+            "violations_found": 14,
+            "critical_issues": 4
+          }
+        }
+      ]
+    },
+    {
+      "operation": "create_relations",
+      "relations": [
+        {
+          "from": "Eligibility Questionnaire ToT Analysis",
+          "to": "EligibilityFormContainer",
+          "type": "analyzes"
+        },
+        {
+          "from": "Eligibility Questionnaire ToT Analysis",
+          "to": "Component Violations",
+          "type": "identifies"
+        }
+      ]
+    }
+  ],
+  
+  "validation_specifications": {
+    "component_verification": [
+      "Verify all 14 components exceeding 50 lines are documented",
+      "Confirm stage flow matches implementation",
+      "Validate decision logic against business rules",
+      "Check emergency handling covers all critical symptoms"
+    ],
+    "pathway_validation": [
+      "Confirm all user pathways are reachable",
+      "Verify blocked pathways have appropriate messaging",
+      "Validate payment flow for self-pay pathway",
+      "Check insurance model impacts are correctly implemented"
+    ],
+    "bug_verification": [
+      "Progress bar 0% bug confirmed in calculation",
+      "CSS animation conflicts identified in SymptomSelector",
+      "Emergency dialog modality issue documented",
+      "State persistence problem validated"
+    ]
+  },
+  
+  "maintenance_specifications": {
+    "refactoring_priorities": [
+      {
+        "priority": 1,
+        "component": "EligibilityGateStage",
+        "action": "Break into 6+ atomic components",
+        "target_lines": 50
+      },
+      {
+        "priority": 2,
+        "component": "SelfPayStage",
+        "action": "Separate OTP, payment, and shipping",
+        "target_lines": 50
+      },
+      {
+        "priority": 3,
+        "component": "Progress calculation",
+        "action": "Fix mathematical error",
+        "target_lines": "N/A"
+      }
+    ],
+    "quality_metrics": {
+      "current_state": {
+        "total_lines": 2456,
+        "violations": 14,
+        "largest_component": 301,
+        "bugs": 4
+      },
+      "target_state": {
+        "total_lines": 1200,
+        "violations": 0,
+        "largest_component": 50,
+        "bugs": 0
+      }
+    },
+    "implementation_phases": [
+      {
+        "phase": 1,
+        "name": "Critical Fixes",
+        "duration": "1 day",
+        "tasks": ["Fix progress bar", "Resolve CSS conflicts", "Fix emergency modal"]
+      },
+      {
+        "phase": 2,
+        "name": "Component Refactoring",
+        "duration": "1 week",
+        "tasks": ["Break down monoliths", "Create atomic structure", "Separate concerns"]
+      },
+      {
+        "phase": 3,
+        "name": "State Management",
+        "duration": "3 days",
+        "tasks": ["Implement contexts", "Add persistence", "Create validation"]
+      },
+      {
+        "phase": 4,
+        "name": "Polish",
+        "duration": "2 days",
+        "tasks": ["Unify animations", "Add tests", "Optimize performance"]
+      }
+    ]
+  }
+}

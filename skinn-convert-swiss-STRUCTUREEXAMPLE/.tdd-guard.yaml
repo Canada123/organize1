@@ -1,0 +1,5 @@
+# TDD Guard Configuration
+framework: vitest
+testFilePattern: "**/*.test.ts"
+testDirectory: "src"
+watchMode: false

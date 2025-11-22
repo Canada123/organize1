@@ -1,0 +1,17 @@
+{
+  "date": "2025-07-30T09:19:29.867Z",
+  "imagesProcessed": 47,
+  "sizes": [
+    375,
+    768,
+    1024,
+    1440,
+    1920
+  ],
+  "quality": {
+    "webp": 85,
+    "jpg": 85,
+    "png": 90
+  },
+  "outputDirectory": "/Users/yangsim/Nanoleq/sideProjects/skinn-convert-swiss-pages/public/assets/images/optimized"
+}

@@ -1,0 +1,827 @@
+{
+  "version": "2.0",
+  "last_updated": "2025-08-26",
+  "knowledge": {
+    "semantic": {
+      "facts": [
+        {
+          "id": "FACT-001",
+          "category": "project",
+          "fact": "SKIIN Switzerland is a heart health screening service",
+          "confidence": 1.0,
+          "source": "project_requirements"
+        },
+        {
+          "id": "FACT-002",
+          "category": "compliance",
+          "fact": "Swiss VAT rate is 7.7%",
+          "confidence": 1.0,
+          "source": "swiss_tax_law"
+        },
+        {
+          "id": "FACT-003",
+          "category": "compliance",
+          "fact": "Switzerland has 26 cantons",
+          "confidence": 1.0,
+          "source": "swiss_geography"
+        },
+        {
+          "id": "FACT-004",
+          "category": "security",
+          "fact": "HIN domain validates Swiss healthcare professionals",
+          "confidence": 1.0,
+          "source": "swiss_healthcare_network"
+        }
+      ],
+      "relationships": [
+        {
+          "entity1": "Supabase",
+          "relationship": "provides",
+          "entity2": "Authentication",
+          "confidence": 1.0
+        },
+        {
+          "entity1": "React",
+          "relationship": "uses",
+          "entity2": "TypeScript",
+          "confidence": 1.0
+        },
+        {
+          "entity1": "GP Referral",
+          "relationship": "requires",
+          "entity2": "HIN Validation",
+          "confidence": 1.0
+        },
+        {
+          "entity1": "react_hooks_best_practices",
+          "relationship": "complements",
+          "entity2": "atomic_component",
+          "confidence": 0.95
+        },
+        {
+          "entity1": "custom_hooks",
+          "relationship": "enables",
+          "entity2": "component_reusability",
+          "confidence": 0.9
+        }
+      ]
+    },
+    "episodic": {
+      "events": [
+        {
+          "id": "EVENT-001",
+          "date": "2025-08-25",
+          "event": "GP Referral System Implementation",
+          "duration": "2 days",
+          "outcome": "successful",
+          "tokens_used": 45000,
+          "relevance": 0.9
+        },
+        {
+          "id": "EVENT-002",
+          "date": "2025-08-25",
+          "event": "Agent System Standardization",
+          "duration": "1 day",
+          "outcome": "successful",
+          "tokens_used": 15000,
+          "relevance": 0.85
+        },
+        {
+          "id": "EVENT-003",
+          "date": "2025-08-26",
+          "event": "Memory System Revamp",
+          "duration": "ongoing",
+          "outcome": "in_progress",
+          "tokens_used": 10000,
+          "relevance": 1.0
+        }
+      ],
+      "sequences": [
+        {
+          "name": "Feature Implementation Flow",
+          "steps": [
+            "Research existing patterns",
+            "Design component architecture",
+            "Implement with atomic design",
+            "Test with Vitest/Playwright",
+            "Update documentation"
+          ],
+          "success_rate": 0.85
+        }
+      ]
+    },
+    "patterns": {
+      "react_hooks_best_practices": {
+        "id": "PATTERN-001",
+        "category": "react_development",
+        "created": "2025-08-26",
+        "naming_conventions": {
+          "custom_hooks": {
+            "rule": "Must start with 'use' prefix followed by PascalCase",
+            "examples": ["useScrollAnimation", "useAuth", "useFormValidation"],
+            "enforcement": "React ESLint rules automatically check this"
+          },
+          "boolean_hooks": {
+            "rule": "Use 'is/has' pattern for boolean-returning hooks",
+            "examples": ["useIsVisible", "useHasPermission", "useIsMobile"]
+          },
+          "specificity": {
+            "rule": "Avoid generic names, be specific about purpose",
+            "bad_examples": ["useData", "useAPI"],
+            "good_examples": ["useUserData", "useProductAPI"]
+          }
+        },
+        "performance_optimization": {
+          "dependency_arrays": {
+            "rule": "Always specify complete dependency arrays",
+            "reason": "Prevents stale closures and unnecessary re-renders",
+            "hooks_affected": ["useEffect", "useCallback", "useMemo"]
+          },
+          "memoization_strategy": {
+            "useMemo": {
+              "when": "Expensive calculations (O(n) or worse)",
+              "avoid": "Premature optimization - measure first"
+            },
+            "useCallback": {
+              "when": "Functions passed to memoized children or used in dependencies",
+              "pattern": "Wrap event handlers and callbacks that are dependencies"
+            }
+          },
+          "lazy_initialization": {
+            "pattern": "useState(() => computeExpensiveValue())",
+            "when": "Initial state requires expensive computation"
+          },
+          "ref_for_mutables": {
+            "pattern": "useRef for values that don't trigger re-renders",
+            "use_cases": ["timers", "previous values", "DOM references"]
+          }
+        },
+        "anti_patterns": {
+          "conditional_hooks": {
+            "issue": "Calling hooks conditionally",
+            "example": "if (condition) { useState() }",
+            "impact": "Violates Rules of Hooks, causes React errors"
+          },
+          "infinite_loops": {
+            "issue": "useEffect without deps or with object literals",
+            "example": "useEffect(() => {}, [])",
+            "solution": "Stabilize dependencies with useCallback/useMemo"
+          },
+          "direct_mutation": {
+            "issue": "Mutating state directly",
+            "example": "state.push(item)",
+            "solution": "setState([...state, item])"
+          },
+          "async_in_effect": {
+            "issue": "Async functions directly in useEffect",
+            "solution": "Use IIFE or separate async function"
+          },
+          "ignoring_exhaustive_deps": {
+            "issue": "Disabling exhaustive-deps ESLint rule",
+            "impact": "Causes genuine bugs with stale data",
+            "solution": "Fix dependencies instead of disabling"
+          }
+        },
+        "best_practices": {
+          "cleanup_side_effects": {
+            "rule": "Always return cleanup functions from useEffect",
+            "applies_to": ["subscriptions", "timers", "event listeners"],
+            "prevents": "memory leaks"
+          },
+          "multiple_effects": {
+            "rule": "Prefer multiple focused useEffects over one large effect",
+            "benefits": ["better readability", "clearer dependencies", "fewer re-runs"]
+          },
+          "custom_hook_extraction": {
+            "when": "Logic reused in 2+ components or exceeds ~20 lines",
+            "benefits": ["improved testability", "better maintainability"]
+          },
+          "useReducer_threshold": {
+            "rule": "Use useReducer for complex state",
+            "when": ">3 related state variables or interdependent updates"
+          },
+          "consistent_returns": {
+            "rule": "Return objects from custom hooks for better IDE support",
+            "pattern": "{value, setValue} instead of [value, setValue]"
+          }
+        },
+        "related_to": ["atomic_component", "typescript_patterns"],
+        "confidence": 0.95,
+        "source": "React documentation and community best practices 2024"
+      }
+    },
+    "procedural": {
+      "workflows": [
+        {
+          "id": "FLOW-001",
+          "name": "Add New Component",
+          "trigger": "New UI component needed",
+          "steps": [
+            "Create in /src/components/ subdirectory",
+            "Follow atomic design (≤50 lines)",
+            "Use TypeScript with explicit types",
+            "Style with Tailwind CSS only",
+            "Add unit tests",
+            "Update component index"
+          ],
+          "tools": ["React", "TypeScript", "Tailwind", "Vitest"],
+          "success_rate": 0.9
+        },
+        {
+          "id": "FLOW-002",
+          "name": "Database Migration",
+          "trigger": "Schema change needed",
+          "steps": [
+            "Create migration in /supabase/migrations/",
+            "Test locally with supabase db reset",
+            "Apply with apply_migration tool",
+            "Update RLS policies if needed",
+            "Test with integration tests",
+            "Document in decisions.json"
+          ],
+          "tools": ["Supabase CLI", "SQL", "Testing"],
+          "success_rate": 0.95
+        },
+        {
+          "id": "FLOW-003",
+          "name": "Bug Fix Workflow",
+          "trigger": "Bug reported",
+          "agents": ["code-searcher", "main", "testing-qa-agent"],
+          "steps": [
+            "Reproduce the issue",
+            "Search for root cause with code-searcher",
+            "Implement fix following patterns",
+            "Write regression test",
+            "Update troubleshooting docs"
+          ],
+          "success_rate": 0.8
+        }
+      ],
+      "commands": [
+        {
+          "command": "npm run dev",
+          "purpose": "Start development server",
+          "port": "8080/8081"
+        },
+        {
+          "command": "npm run test",
+          "purpose": "Run unit tests with Vitest"
+        },
+        {
+          "command": "npm run check:all",
+          "purpose": "Full validation suite"
+        },
+        {
+          "command": "./scripts/generate-indexes.sh",
+          "purpose": "Regenerate project indexes"
+        }
+      ]
+    },
+    "configuration": {
+      "environment": {
+        "client_variables": {
+          "VITE_SUPABASE_URL": "https://[project-ref].supabase.co",
+          "VITE_SUPABASE_ANON_KEY": "[anon-key]",
+          "VITE_APP_URL_DEV": "http://localhost:5173",
+          "VITE_APP_URL_PROD": "https://skiin.ch",
+          "VITE_ENABLE_ANALYTICS": true,
+          "VITE_ENABLE_ERROR_TRACKING": false,
+          "VITE_MAINTENANCE_MODE": false,
+          "VITE_API_TIMEOUT": 30000,
+          "VITE_MAX_RETRY_ATTEMPTS": 3,
+          "VITE_RETRY_DELAY": 1000
+        },
+        "build_variables": {
+          "NODE_ENV": "development|production|test",
+          "BUILD_PATH": "dist",
+          "PUBLIC_URL": "/",
+          "GENERATE_SOURCEMAP": false,
+          "TSC_COMPILE_ON_ERROR": false,
+          "DISABLE_ESLINT_PLUGIN": false
+        }
+      },
+      "swiss_market": {
+        "languages": {
+          "supported": ["en", "de", "fr", "it"],
+          "default": "de",
+          "fallback": "en",
+          "routes": {
+            "en": "/en",
+            "de": "/de", 
+            "fr": "/fr",
+            "it": "/it"
+          }
+        },
+        "insurance_providers": [
+          {"id": "css", "name": "CSS Versicherung"},
+          {"id": "helsana", "name": "Helsana"},
+          {"id": "swica", "name": "SWICA"},
+          {"id": "sanitas", "name": "Sanitas"},
+          {"id": "concordia", "name": "Concordia"},
+          {"id": "visana", "name": "Visana"},
+          {"id": "groupe-mutuel", "name": "Groupe Mutuel"},
+          {"id": "assura", "name": "Assura"},
+          {"id": "kpt", "name": "KPT/CPT"}
+        ],
+        "cantons": ["AG", "AI", "AR", "BE", "BL", "BS", "FR", "GE", "GL", "GR", "JU", "LU", "NE", "NW", "OW", "SG", "SH", "SO", "SZ", "TG", "TI", "UR", "VD", "VS", "ZG", "ZH"],
+        "compliance": {
+          "VAT_RATE": 0.077,
+          "MIN_AGE": 18,
+          "MAX_AGE": 120,
+          "DATA_RETENTION_DAYS": 90,
+          "AUDIT_LOG_RETENTION_DAYS": 365
+        }
+      },
+      "authentication": {
+        "otp": {
+          "expiryMinutes": 10,
+          "maxAttempts": 5,
+          "cooldownMinutes": 10,
+          "tokenLength": 6
+        },
+        "session": {
+          "expiryHours": 24,
+          "refreshThreshold": 0.25,
+          "cookieName": "skiin-session",
+          "cookieOptions": {
+            "httpOnly": true,
+            "secure": true,
+            "sameSite": "lax"
+          }
+        },
+        "rate_limits": {
+          "otp": {"requests": 5, "windowMinutes": 10},
+          "api": {"requests": 100, "windowMinutes": 1},
+          "submission": {"requests": 10, "windowMinutes": 60}
+        }
+      },
+      "performance": {
+        "targets": {
+          "LCP": 2500,
+          "FID": 100,
+          "CLS": 0.1,
+          "TTFB": 800,
+          "FCP": 1800
+        },
+        "bundle_limits": {
+          "main": 200000,
+          "vendor": 500000,
+          "total": 1000000,
+          "imageMax": 100000,
+          "lazyChunk": 50000
+        }
+      },
+      "testing": {
+        "coverage_thresholds": {
+          "branches": 70,
+          "functions": 70,
+          "lines": 80,
+          "statements": 80,
+          "services": 80,
+          "utilities": 70,
+          "components": 60
+        },
+        "timeouts": {
+          "unit": 5000,
+          "integration": 10000,
+          "e2e": 30000,
+          "setup": 60000
+        }
+      },
+      "database": {
+        "connection": {
+          "maxConnections": 100,
+          "connectionTimeout": 30000,
+          "idleTimeout": 60000,
+          "statementTimeout": 30000
+        },
+        "rls_enabled_tables": [
+          "users", "insurance_providers", "eligibility_submissions",
+          "otp_verifications", "sessions", "audit_logs", "appointments",
+          "feedback", "questionnaires", "questionnaire_responses",
+          "notifications", "referrals", "documents", "analytics_events"
+        ]
+      },
+      "feature_flags": {
+        "core": {
+          "ENABLE_ELIGIBILITY_FORM": true,
+          "ENABLE_GP_REFERRAL": true,
+          "ENABLE_APPOINTMENTS": false
+        },
+        "payments": {
+          "ENABLE_STRIPE_PAYMENTS": false,
+          "ENABLE_INVOICE_GENERATION": false
+        },
+        "communication": {
+          "ENABLE_EMAIL_NOTIFICATIONS": true,
+          "ENABLE_SMS_NOTIFICATIONS": false,
+          "ENABLE_PUSH_NOTIFICATIONS": false
+        },
+        "analytics": {
+          "ENABLE_GOOGLE_ANALYTICS": true,
+          "ENABLE_HOTJAR": false,
+          "ENABLE_SENTRY": true
+        },
+        "experimental": {
+          "ENABLE_DARK_MODE": false,
+          "ENABLE_PWA": false,
+          "ENABLE_OFFLINE_MODE": false
+        },
+        "system": {
+          "ENABLE_AGENT_SELF_PRIMING": true,
+          "ENABLE_REQUEST_TRACKING": true,
+          "ENABLE_MEMORY_BANK_AUTO_SYNC": true,
+          "ENABLE_WORKFLOW_DETECTION": true
+        }
+      },
+      "dev_tools": {
+        "eslint": {
+          "no-console": "warn",
+          "no-debugger": "error",
+          "no-unused-vars": "error",
+          "@typescript-eslint/no-explicit-any": "error",
+          "@typescript-eslint/explicit-return-type": "warn"
+        },
+        "prettier": {
+          "semi": true,
+          "singleQuote": true,
+          "tabWidth": 2,
+          "trailingComma": "es5",
+          "printWidth": 80,
+          "bracketSpacing": true
+        }
+      },
+      "agent_system": {
+        "requirements": {
+          "self_prime": true,
+          "request_id": "string",
+          "description": "string",
+          "tools": "array",
+          "model": "sonnet",
+          "color": "string"
+        },
+        "status": {
+          "total_agents": 20,
+          "standardized_agents": 20,
+          "self_priming_enabled": 20,
+          "request_tracking_enabled": 20,
+          "autonomous": true,
+          "manual_intervention_required": false
+        }
+      },
+      "last_updated": "2025-08-26",
+      "source": "CLAUDE-config-variables.md"
+    },
+    "troubleshooting": {
+      "common_issues": [
+        {
+          "id": "ISSUE-001",
+          "problem": "Context window overflow",
+          "symptoms": ["Slow responses", "Token limit errors"],
+          "solution": "Use tiered loading, prune low-relevance items",
+          "frequency": "medium",
+          "last_occurred": "2025-08-20"
+        },
+        {
+          "id": "ISSUE-002",
+          "problem": "Agent not self-priming",
+          "symptoms": ["Missing context", "Incorrect assumptions"],
+          "solution": "Ensure self_prime: true in frontmatter",
+          "frequency": "low",
+          "last_occurred": "2025-08-24"
+        },
+        {
+          "id": "ISSUE-003",
+          "problem": "Supabase RLS blocking queries",
+          "symptoms": ["Empty results", "Permission denied"],
+          "solution": "Check RLS policies, ensure auth context",
+          "frequency": "medium",
+          "last_occurred": "2025-08-15"
+        },
+        {
+          "id": "ISSUE-004",
+          "problem": "OTP verification fails",
+          "symptoms": ["User doesn't receive OTP", "Verification fails"],
+          "solution": "Check auth settings, rate limiting (5/10min), edge function deployment",
+          "code": "await supabase.rpc('reset_otp_attempts', { email })",
+          "frequency": "medium",
+          "last_occurred": "2025-08-26"
+        },
+        {
+          "id": "ISSUE-005", 
+          "problem": "Session management issues",
+          "symptoms": ["Users logged out unexpectedly"],
+          "solution": "Check session expiry, cookie settings, RLS policies",
+          "code": "const { data: { session } } = await supabase.auth.refreshSession()",
+          "frequency": "low",
+          "last_occurred": "2025-08-25"
+        },
+        {
+          "id": "ISSUE-006",
+          "problem": "Components exceed 50-line limit",
+          "symptoms": ["Build warnings", "Review failures"],
+          "solution": "Extract logic to hooks, split components, move logic to utils",
+          "frequency": "high",
+          "last_occurred": "2025-08-26"
+        },
+        {
+          "id": "ISSUE-007",
+          "problem": "Text overlap in form labels",
+          "symptoms": ["Labels overlapping with inputs"],
+          "solution": "Add proper spacing with cn() utility",
+          "status": "resolved",
+          "frequency": "low",
+          "last_occurred": "2025-08-26"
+        },
+        {
+          "id": "ISSUE-008",
+          "problem": "Progress bar showing 0%",
+          "symptoms": ["Progress stuck at 0%"],
+          "solution": "Fix calculation: Math.round((currentStep / totalSteps) * 100)",
+          "status": "resolved",
+          "frequency": "low",
+          "last_occurred": "2025-08-26"
+        },
+        {
+          "id": "ISSUE-009",
+          "problem": "CSS animation conflicts",
+          "symptoms": ["Multiple fadeIn animations"],
+          "solution": "Consolidate animations in index.css",
+          "status": "resolved",
+          "frequency": "low",
+          "last_occurred": "2025-08-26"
+        },
+        {
+          "id": "ISSUE-010",
+          "problem": "Tests fail with Cannot find module",
+          "symptoms": ["Import errors in tests"],
+          "solution": "Check vitest.config.ts aliases, mock dependencies",
+          "frequency": "medium",
+          "last_occurred": "2025-08-24"
+        },
+        {
+          "id": "ISSUE-011",
+          "problem": "E2E tests timeout",
+          "symptoms": ["Playwright tests exceed timeout"],
+          "solution": "Increase timeout, use proper wait strategies",
+          "frequency": "medium",
+          "last_occurred": "2025-08-23"
+        },
+        {
+          "id": "ISSUE-012",
+          "problem": "Migration failures",
+          "symptoms": ["Database schema out of sync"],
+          "solution": "Check migration order, use supabase db reset for dev",
+          "frequency": "low",
+          "last_occurred": "2025-08-22"
+        },
+        {
+          "id": "ISSUE-013",
+          "problem": "Build exceeds size limit",
+          "symptoms": ["Deployment fails with size error"],
+          "solution": "Check node_modules, optimize images, enable code splitting",
+          "frequency": "low",
+          "last_occurred": "2025-08-20"
+        },
+        {
+          "id": "ISSUE-014",
+          "problem": "Environment variables not loading",
+          "symptoms": ["API calls fail", "Features don't work"],
+          "solution": "Check .env.local, VITE_ prefix, restart server",
+          "frequency": "medium",
+          "last_occurred": "2025-08-26"
+        },
+        {
+          "id": "ISSUE-015",
+          "problem": "Slow initial page load",
+          "symptoms": ["LCP > 2.5s"],
+          "solution": "Code splitting, optimize images, reduce bundle size",
+          "frequency": "medium",
+          "last_occurred": "2025-08-25"
+        },
+        {
+          "id": "ISSUE-016",
+          "problem": "Memory leaks in components",
+          "symptoms": ["Page becomes sluggish"],
+          "solution": "Clean up listeners, cancel async operations, avoid large state",
+          "frequency": "low",
+          "last_occurred": "2025-08-18"
+        },
+        {
+          "id": "ISSUE-017",
+          "problem": "Missing translations",
+          "symptoms": ["Keys showing instead of text"],
+          "solution": "Check all 4 language files, verify paths, configure fallback",
+          "frequency": "medium",
+          "last_occurred": "2025-08-26"
+        },
+        {
+          "id": "ISSUE-018",
+          "problem": "GP Referral code generation fails",
+          "symptoms": ["API returns 500 error"],
+          "solution": "Check edge function, RESEND_API_KEY, RLS policies",
+          "frequency": "low",
+          "last_occurred": "2025-08-25"
+        },
+        {
+          "id": "ISSUE-019",
+          "problem": "File upload size limit exceeded",
+          "symptoms": ["413 error", "Upload fails"],
+          "solution": "Verify 10MB limit, check bucket policies, compress PDFs",
+          "frequency": "low",
+          "last_occurred": "2025-08-24"
+        },
+        {
+          "id": "ISSUE-020",
+          "problem": "File organization violations",
+          "symptoms": ["Files in wrong locations"],
+          "solution": "Run ./scripts/auto-file-mover.sh",
+          "frequency": "medium",
+          "last_occurred": "2025-08-26"
+        }
+      ],
+      "solutions_cache": {
+        "ttl_days": 30,
+        "auto_prune": true
+      },
+      "quick_fixes": {
+        "regenerate_indexes": "./scripts/generate-indexes.sh",
+        "check_organization": "./scripts/file-organization-scanner.sh",
+        "fix_file_locations": "./scripts/auto-file-mover.sh",
+        "clear_build_cache": "rm -rf node_modules/.vite",
+        "reset_database": "supabase db reset",
+        "run_quality_checks": "npm run check:all",
+        "clean_backup_files": "find . -name '*.bak' -type f -delete"
+      },
+      "emergency_contacts": {
+        "supabase_status": "https://status.supabase.com",
+        "github_issues": "Project repository issues",
+        "team_slack": "#skiin-dev channel"
+      }
+    },
+    "mcp_tools": {
+      "description": "Model Context Protocol tools for enhanced capabilities",
+      "last_updated": "2025-08-26",
+      "approved_tools": [
+        {
+          "name": "Serena MCP",
+          "purpose": "Symbolic code navigation and manipulation",
+          "key_tools": [
+            "mcp__serena__find_symbol - Locate specific code symbols",
+            "mcp__serena__search_for_pattern - Find code patterns",
+            "mcp__serena__get_symbols_overview - Get file symbol overview",
+            "mcp__serena__find_referencing_symbols - Find symbol references",
+            "mcp__serena__replace_symbol_body - Replace symbol implementations",
+            "mcp__serena__write_memory - Store analysis results",
+            "mcp__serena__read_memory - Retrieve stored analysis"
+          ],
+          "use_cases": ["Code refactoring", "Symbol analysis", "Reference finding", "Code understanding"],
+          "agents": ["code-searcher", "documentation-maintainer"]
+        },
+        {
+          "name": "Supabase MCP",
+          "purpose": "Database and authentication management",
+          "key_tools": [
+            "mcp__supabase__apply_migration - Apply database migrations",
+            "mcp__supabase__execute_sql - Execute SQL queries",
+            "mcp__supabase__list_tables - List database tables",
+            "mcp__supabase__get_project - Get project details",
+            "mcp__supabase__deploy_edge_function - Deploy edge functions",
+            "mcp__supabase__search_docs - Search Supabase documentation",
+            "mcp__supabase__get_advisors - Security and performance advisors"
+          ],
+          "use_cases": ["Database migrations", "Schema management", "Edge functions", "RLS policies"],
+          "agents": ["supabase-architect", "supabase-implementation-engineer"]
+        },
+        {
+          "name": "Playwright MCP",
+          "purpose": "E2E testing and visual validation (replacing Puppeteer)",
+          "key_tools": [
+            "mcp__playwright__navigate - Navigate to URLs",
+            "mcp__playwright__screenshot - Capture screenshots",
+            "mcp__playwright__click - Click elements",
+            "mcp__playwright__fill - Fill form fields",
+            "mcp__playwright__evaluate - Execute JavaScript",
+            "mcp__playwright__select - Select dropdown options",
+            "mcp__playwright__hover - Hover over elements"
+          ],
+          "use_cases": ["Visual regression testing", "E2E testing", "UI validation", "Accessibility testing"],
+          "agents": ["testing-qa-agent", "ux-design-expert"]
+        },
+        {
+          "name": "Brave Search MCP",
+          "purpose": "External research and documentation",
+          "key_tools": [
+            "mcp__brave-search__brave_web_search - Web search queries",
+            "mcp__brave-search__brave_local_search - Local business search"
+          ],
+          "use_cases": ["Best practices research", "Solution finding", "Competitive analysis", "Documentation lookup"],
+          "agents": ["researcher", "brainstormer"]
+        },
+        {
+          "name": "Context7 MCP",
+          "purpose": "Library documentation retrieval",
+          "key_tools": [
+            "mcp__context7__resolve-library-id - Find library IDs",
+            "mcp__context7__get-library-docs - Get library documentation"
+          ],
+          "use_cases": ["API documentation", "Library usage", "Migration guides", "Feature discovery"],
+          "agents": ["researcher", "documentation-maintainer"]
+        },
+        {
+          "name": "Calculator MCP",
+          "purpose": "Mathematical calculations and metrics",
+          "key_tools": [
+            "mcp__calculator__calculate - Perform calculations"
+          ],
+          "use_cases": ["Coverage metrics", "Performance calculations", "Complexity analysis", "Statistical computations"],
+          "agents": ["testing-qa-agent", "planning-task-agent"]
+        },
+        {
+          "name": "Package Version MCP",
+          "purpose": "Dependency management and updates",
+          "key_tools": [
+            "mcp__package-version__check_npm_versions - Check npm versions",
+            "mcp__package-version__check_python_versions - Check Python versions",
+            "mcp__package-version__check_docker_tags - Check Docker tags",
+            "mcp__package-version__check_github_actions - Check GitHub Actions",
+            "mcp__package-version__get_latest_bedrock_model - Get latest AI models"
+          ],
+          "use_cases": ["Dependency updates", "Security patches", "Version compatibility", "Package auditing"],
+          "agents": ["guardrails-agent", "planning-task-agent"]
+        },
+        {
+          "name": "Stripe MCP",
+          "purpose": "Payment processing and billing",
+          "key_tools": [
+            "mcp__stripe__create_customer - Create customers",
+            "mcp__stripe__create_payment_link - Create payment links",
+            "mcp__stripe__create_invoice - Create invoices",
+            "mcp__stripe__list_subscriptions - Manage subscriptions",
+            "mcp__stripe__search_stripe_documentation - Search Stripe docs"
+          ],
+          "use_cases": ["Payment integration", "Subscription management", "Invoice generation", "Payment documentation"],
+          "agents": ["main agent when payment features are needed"]
+        }
+      ],
+      "migration_notes": {
+        "puppeteer_to_playwright": "All Puppeteer references should be replaced with Playwright MCP",
+        "memory_mcp_removal": "Memory MCP deprecated in favor of JSON memory system v2.0",
+        "completion_date": "2025-08-26"
+      },
+      "integration_guidelines": {
+        "before_code_changes": "Use Serena MCP to understand existing code",
+        "database_work": "Always use Supabase MCP for database operations",
+        "testing": "Use Playwright MCP for all E2E and visual testing",
+        "external_research": "Use Brave Search for web research, Context7 for library docs",
+        "calculations": "Use Calculator MCP for any mathematical operations",
+        "dependencies": "Check versions with Package Version MCP before updates"
+      }
+    },
+    "research_cache": [
+      {
+        "id": "RESEARCH-001",
+        "query": "React 18 best practices",
+        "findings": "Concurrent features, automatic batching, Suspense",
+        "sources": ["React docs", "blog posts"],
+        "cached_date": "2025-08-20",
+        "ttl_days": 30,
+        "relevance": 0.8
+      },
+      {
+        "id": "RESEARCH-002",
+        "query": "Supabase RLS patterns",
+        "findings": "User-based policies, role-based access, public read",
+        "sources": ["Supabase docs", "community examples"],
+        "cached_date": "2025-08-22",
+        "ttl_days": 30,
+        "relevance": 0.9
+      },
+      {
+        "id": "RESEARCH-003",
+        "query": "React hooks best practices 2024",
+        "findings": "Must use 'use' prefix, complete dependency arrays, memoization strategies (useMemo for expensive calcs, useCallback for stable references), avoid conditional hooks, clean up side effects, prefer multiple focused useEffects",
+        "sources": ["React official docs", "Medium articles", "dev.to community", "LinkedIn engineering posts"],
+        "cached_date": "2025-08-26",
+        "ttl_days": 60,
+        "relevance": 0.95
+      }
+    ]
+  },
+  "statistics": {
+    "total_facts": 4,
+    "total_relationships": 5,
+    "total_patterns": 1,
+    "total_events": 3,
+    "total_workflows": 3,
+    "total_research_items": 3,
+    "cache_hit_rate": 0.65,
+    "average_relevance": 0.88
+  },
+  "lifecycle": {
+    "relevance_decay_rate": 0.95,
+    "prune_threshold": 0.1,
+    "archive_after_days": 30,
+    "compress_archived": true
+  }
+}

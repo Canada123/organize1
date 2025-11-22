@@ -1,0 +1,350 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-08-26",
+  "current_sprint": "2025-W35",
+  "epics": {
+    "EPIC-001": {
+      "title": "Atomic Component Refactoring",
+      "status": "in_progress",
+      "progress_percentage": 25,
+      "start_date": "2025-08-26",
+      "target_completion": "2025-08-30",
+      "description": "Refactor all components exceeding 50-line limit to atomic design pattern",
+      "features": ["FEAT-001", "FEAT-002", "FEAT-003", "FEAT-004"],
+      "completed_components": 1,
+      "total_components": 14,
+      "benefits": [
+        "Better testability",
+        "Improved maintainability",
+        "Component reusability",
+        "Reduced complexity"
+      ]
+    },
+    "EPIC-002": {
+      "title": "Memory System v2.0 Migration",
+      "status": "in_progress",
+      "progress_percentage": 40,
+      "start_date": "2025-08-26",
+      "target_completion": "2025-09-05",
+      "description": "Migrate from markdown-based memory files to JSON structure with tiered loading",
+      "features": ["FEAT-005", "FEAT-006", "FEAT-007"],
+      "milestones": [
+        "Create JSON memory structure",
+        "Update agent prompts",
+        "Implement migration bridge",
+        "Validate and cutover"
+      ]
+    },
+    "EPIC-003": {
+      "title": "GP Referral System",
+      "status": "completed",
+      "progress_percentage": 100,
+      "start_date": "2025-08-24",
+      "completion_date": "2025-08-25",
+      "description": "Full production GP referral system with Swiss healthcare compliance",
+      "features": ["FEAT-008", "FEAT-009"],
+      "deliverables": [
+        "2 database tables",
+        "14 atomic components",
+        "3 API routes",
+        "2 edge functions",
+        "QR code generation"
+      ]
+    }
+  },
+  "features": {
+    "FEAT-001": {
+      "title": "ContactAccountStage Atomization",
+      "epic": "EPIC-001",
+      "status": "completed",
+      "components_created": 4,
+      "lines_reduced_from": 165,
+      "lines_reduced_to": "50×4",
+      "atoms": [
+        "EmailSection",
+        "DateOfBirthSection",
+        "EmailVerificationSection",
+        "ContactAccountOrchestrator"
+      ]
+    },
+    "FEAT-002": {
+      "title": "EligibilityGateStage Refactoring",
+      "epic": "EPIC-001",
+      "status": "in_progress",
+      "components_to_create": 6,
+      "lines_to_reduce": 301,
+      "target_atoms": [
+        "InsuranceSection",
+        "ContraindicationSection",
+        "SymptomSection",
+        "FamilyHistorySection",
+        "EmergencyHandler",
+        "DecisionAlert"
+      ]
+    },
+    "FEAT-003": {
+      "title": "SelfPayStage Decomposition",
+      "epic": "EPIC-001",
+      "status": "pending",
+      "components_to_create": 5,
+      "lines_to_reduce": 244
+    },
+    "FEAT-004": {
+      "title": "DetailedInfoStage Modularization",
+      "epic": "EPIC-001",
+      "status": "pending",
+      "components_to_create": 4,
+      "lines_to_reduce": 164
+    },
+    "FEAT-005": {
+      "title": "Create JSON Memory Structure",
+      "epic": "EPIC-002",
+      "status": "in_progress",
+      "deliverables": [
+        "vision.json",
+        "roadmap.json",
+        "memory/*.json files",
+        "JSON schemas"
+      ],
+      "progress": {
+        "vision_json": "completed",
+        "roadmap_json": "in_progress",
+        "memory_files": "pending",
+        "schemas": "pending"
+      }
+    },
+    "FEAT-006": {
+      "title": "Update Agent Prompts",
+      "epic": "EPIC-002",
+      "status": "pending",
+      "agents_to_update": 20,
+      "priority_order": [
+        "memory-bank-synchronizer",
+        "context-manager",
+        "documentation-maintainer"
+      ]
+    },
+    "FEAT-007": {
+      "title": "Migration Bridge Implementation",
+      "epic": "EPIC-002",
+      "status": "pending",
+      "components": [
+        "Legacy adapter for .md files",
+        "JSON converter",
+        "Reference updater",
+        "Validation suite"
+      ]
+    },
+    "FEAT-008": {
+      "title": "Referral Code Generation System",
+      "epic": "EPIC-003",
+      "status": "completed",
+      "deliverables": [
+        "6-character code format (ABC123)",
+        "bcrypt hashing security",
+        "30-day expiration",
+        "QR code generation"
+      ]
+    },
+    "FEAT-009": {
+      "title": "Doctor Upload Portal",
+      "epic": "EPIC-003",
+      "status": "completed",
+      "deliverables": [
+        "Multi-step wizard",
+        "HIN email validation",
+        "Document upload (10MB)",
+        "Email notifications"
+      ]
+    }
+  },
+  "tasks": {
+    "active": [
+      {
+        "id": "T-001",
+        "feature": "FEAT-005",
+        "title": "Create specs directory structure",
+        "status": "completed",
+        "completed_at": "2025-08-26T15:05:00Z"
+      },
+      {
+        "id": "T-002",
+        "feature": "FEAT-005",
+        "title": "Generate vision.json",
+        "status": "completed",
+        "completed_at": "2025-08-26T15:06:00Z"
+      },
+      {
+        "id": "T-003",
+        "feature": "FEAT-005",
+        "title": "Create roadmap.json",
+        "status": "in_progress",
+        "started_at": "2025-08-26T15:07:00Z",
+        "estimated_completion": "2025-08-26T15:10:00Z"
+      },
+      {
+        "id": "T-004",
+        "feature": "FEAT-002",
+        "title": "Fix text overlap in ContactAccountStage",
+        "status": "completed",
+        "issue": "Date of Birth label overlapping",
+        "solution": "Applied proper spacing in FormField atom"
+      },
+      {
+        "id": "T-005",
+        "feature": "FEAT-002",
+        "title": "Create atomic component library",
+        "status": "in_progress",
+        "components": [
+          "FormField",
+          "FormLabel",
+          "FormError",
+          "DateInput",
+          "AlertBox"
+        ]
+      }
+    ],
+    "pending": [
+      {
+        "id": "T-006",
+        "feature": "FEAT-005",
+        "title": "Set up JSON schemas for validation",
+        "priority": "high",
+        "estimated_hours": 2
+      },
+      {
+        "id": "T-007",
+        "feature": "FEAT-006",
+        "title": "Update memory-bank-synchronizer agent",
+        "priority": "critical",
+        "dependencies": ["T-003", "T-006"]
+      },
+      {
+        "id": "T-008",
+        "feature": "FEAT-006",
+        "title": "Update context-manager agent",
+        "priority": "critical",
+        "dependencies": ["T-007"]
+      },
+      {
+        "id": "T-009",
+        "feature": "FEAT-006",
+        "title": "Update documentation-maintainer agent",
+        "priority": "critical",
+        "dependencies": ["T-007"]
+      },
+      {
+        "id": "T-010",
+        "feature": "FEAT-006",
+        "title": "Update remaining 17 agents",
+        "priority": "high",
+        "dependencies": ["T-009"],
+        "estimated_hours": 8
+      }
+    ],
+    "completed": [
+      {
+        "id": "T-000",
+        "title": "Research memory system best practices",
+        "completed_at": "2025-08-26T14:00:00Z",
+        "outcome": "Identified tiered loading strategy"
+      }
+    ],
+    "backlog": [
+      {
+        "id": "B-001",
+        "title": "Performance benchmarking of v2 system",
+        "priority": "medium",
+        "epic": "EPIC-002"
+      },
+      {
+        "id": "B-002",
+        "title": "Create visual regression tests",
+        "priority": "low",
+        "epic": "EPIC-001"
+      },
+      {
+        "id": "B-003",
+        "title": "Implement semantic search for archive",
+        "priority": "low",
+        "epic": "EPIC-002"
+      }
+    ]
+  },
+  "milestones": [
+    {
+      "name": "Atomic Components Phase 1",
+      "date": "2025-08-28",
+      "deliverables": [
+        "4 major components refactored",
+        "50+ atomic components created",
+        "Visual testing complete"
+      ]
+    },
+    {
+      "name": "Memory System v2 Foundation",
+      "date": "2025-08-30",
+      "deliverables": [
+        "All JSON files created",
+        "Critical agents updated",
+        "Migration bridge active"
+      ]
+    },
+    {
+      "name": "Full v2 Migration",
+      "date": "2025-09-05",
+      "deliverables": [
+        "All agents updated",
+        "Legacy system archived",
+        "Performance validated"
+      ]
+    }
+  ],
+  "metrics": {
+    "velocity": {
+      "current_sprint": 15,
+      "average": 12,
+      "trend": "increasing"
+    },
+    "quality": {
+      "test_coverage": 78,
+      "bug_rate": 0.02,
+      "code_quality_score": 8.5
+    },
+    "progress": {
+      "epics_completed": 1,
+      "epics_in_progress": 2,
+      "features_completed": 3,
+      "features_in_progress": 3,
+      "tasks_completed_this_week": 8
+    }
+  },
+  "risks": [
+    {
+      "id": "R-001",
+      "title": "Migration complexity",
+      "impact": "high",
+      "probability": "medium",
+      "mitigation": "Parallel run period with rollback capability"
+    },
+    {
+      "id": "R-002",
+      "title": "Agent update coordination",
+      "impact": "medium",
+      "probability": "low",
+      "mitigation": "Phased rollout with testing at each stage"
+    }
+  ],
+  "dependencies": {
+    "external": [
+      "Supabase infrastructure",
+      "Resend email service",
+      "HIN validation network"
+    ],
+    "internal": [
+      "Memory system must be ready before agent updates",
+      "Atomic components needed for eligibility flow",
+      "JSON schemas required for validation"
+    ]
+  }
+}

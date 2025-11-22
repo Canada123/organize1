@@ -1,0 +1,142 @@
+{
+  "Game_Engines": {
+    "tools": [
+      "Unity",
+      "Unreal Engine",
+      "Godot",
+      "GameMaker Studio",
+      "CryEngine",
+      "Cocos2d",
+      "Phaser",
+      "Three.js",
+      "Babylon.js"
+    ]
+  },
+  "Dialogue_Systems": {
+    "tools": [
+      "Yarn Spinner",
+      "Ink",
+      "Dialogue System for Unity",
+      "Articy:draft",
+      "Twine",
+      "Ren'Py",
+      "ChatMapper",
+      "Fungus"
+    ]
+  },
+  "AI_Behavior": {
+    "tools": [
+      "Behavior Designer",
+      "NodeCanvas",
+      "Behavior Bricks",
+      "GOAP (Goal-Oriented Action Planning)",
+      "Utility AI",
+      "Finite State Machine",
+      "Behavior Trees",
+      "RAIN AI"
+    ]
+  },
+  "Animation_Systems": {
+    "tools": [
+      "Animator Controller",
+      "Mecanim",
+      "Animation Blueprint",
+      "Spine",
+      "DragonBones",
+      "DOTween",
+      "LeanTween"
+    ]
+  },
+  "Physics_Engines": {
+    "tools": [
+      "PhysX",
+      "Havok",
+      "Box2D",
+      "Bullet Physics",
+      "Rapier",
+      "Matter.js"
+    ]
+  },
+  "Procedural_Generation": {
+    "tools": [
+      "Perlin Noise",
+      "Simplex Noise",
+      "Wave Function Collapse",
+      "L-Systems",
+      "Cellular Automata",
+      "Markov Chains"
+    ]
+  },
+  "Social_Simulation": {
+    "tools": [
+      "Belief-Desire-Intention (BDI)",
+      "Social Network Analysis",
+      "Agent-Based Modeling",
+      "Cultural Algorithms",
+      "Memetic Algorithms"
+    ]
+  },
+  "Narrative_Systems": {
+    "tools": [
+      "Quest System",
+      "Branching Narrative",
+      "Dynamic Story Generation",
+      "Emergent Narrative",
+      "Story Grammar"
+    ]
+  }
+}{
+  "Story_Building_Tools": {
+    "tools": [
+      "Twine",
+      "Ink",
+      "Yarn Spinner",
+      "Ren'Py",
+      "ChoiceScript",
+      "Inform 7",
+      "Quest",
+      "Squiffy",
+      "Texture"
+    ]
+  },
+  "Narrative_Frameworks": {
+    "tools": [
+      "StoryNexus",
+      "Versu",
+      "Façade",
+      "Storyteller",
+      "Narrative Engine",
+      "Drama Manager"
+    ]
+  },
+  "Character_Development": {
+    "tools": [
+      "Character.AI",
+      "Personality Forge",
+      "ChatMapper",
+      "Articy:draft",
+      "World Anvil",
+      "Campfire"
+    ]
+  },
+  "Plot_Generation": {
+    "tools": [
+      "Dramatica",
+      "Plot Generator",
+      "Story Structure",
+      "Hero's Journey",
+      "Three-Act Structure",
+      "Freytag's Pyramid"
+    ]
+  },
+  "Language_Generation": {
+    "tools": [
+      "Tracery",
+      "RiTa",
+      "Improv",
+      "Talespin",
+      "MINSTREL",
+      "Universe"
+    ]
+  }
+}

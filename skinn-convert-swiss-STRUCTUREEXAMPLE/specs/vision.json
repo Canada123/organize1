@@ -1,0 +1,267 @@
+{
+  "version": "1.0.0",
+  "last_updated": "2025-08-26",
+  "project": "SKIIN Switzerland",
+  "vision": {
+    "statement": "Enable Swiss citizens to access comprehensive heart health screening through a compliant, multi-language eligibility system that seamlessly integrates with Swiss healthcare infrastructure",
+    "mission": "Deliver a production-ready eligibility questionnaire platform that respects Swiss regulatory requirements while providing an exceptional user experience across all four national languages",
+    "problem_statement": "Swiss healthcare system complexity requires navigation of 26 cantons, 9 insurance providers, 4 official languages, and strict compliance requirements including VAT, GDPR, and healthcare data protection regulations",
+    "solution": "Atomic component architecture with Supabase backend, GP referral integration, and Swiss-compliant security measures including OTP authentication and encrypted data storage",
+    "value_propositions": [
+      "Multi-language support (DE, FR, IT, EN) with complete localization",
+      "Swiss healthcare compliance built-in (HIN validation, canton verification)",
+      "Secure GP referral system with 30-day expiring codes",
+      "Mobile-first responsive design for all devices",
+      "WCAG 2.1 AA accessibility compliance"
+    ]
+  },
+  "personas": [
+    {
+      "id": "P1",
+      "name": "Swiss Patient Paula",
+      "age_range": "45-65",
+      "tech_level": "moderate",
+      "languages": ["German", "French"],
+      "location": "Zürich",
+      "goals": [
+        "Quick eligibility check for heart screening",
+        "Easy GP referral process",
+        "Understanding insurance coverage",
+        "Secure handling of health data"
+      ],
+      "pain_points": [
+        "Complex insurance forms",
+        "Language barriers in medical context",
+        "Uncertainty about coverage",
+        "Privacy concerns with health data"
+      ],
+      "journey": [
+        "Discovers SKIIN through GP recommendation",
+        "Completes eligibility questionnaire",
+        "Receives GP referral code",
+        "Shares code with doctor",
+        "Doctor uploads signed referral",
+        "Receives screening appointment"
+      ]
+    },
+    {
+      "id": "P2",
+      "name": "Dr. Hans Mueller",
+      "age_range": "35-55",
+      "tech_level": "high",
+      "languages": ["German", "English"],
+      "location": "Basel",
+      "role": "General Practitioner",
+      "goals": [
+        "Efficiently process patient referrals",
+        "Maintain compliance with Swiss regulations",
+        "Secure document upload",
+        "Track patient referral status"
+      ],
+      "pain_points": [
+        "Manual paperwork processes",
+        "Multiple system logins",
+        "Compliance verification burden",
+        "Time constraints during consultations"
+      ]
+    },
+    {
+      "id": "P3",
+      "name": "Insurance Agent Marco",
+      "age_range": "30-50",
+      "tech_level": "high",
+      "languages": ["Italian", "German", "English"],
+      "location": "Lugano",
+      "role": "Insurance Provider Representative",
+      "goals": [
+        "Verify coverage eligibility",
+        "Process claims efficiently",
+        "Maintain audit trail",
+        "Ensure compliance"
+      ],
+      "pain_points": [
+        "Inconsistent data formats",
+        "Manual verification processes",
+        "Cross-canton variations",
+        "Integration with legacy systems"
+      ]
+    }
+  ],
+  "use_cases": [
+    {
+      "id": "UC-001",
+      "title": "Complete Eligibility Questionnaire",
+      "actor": "Patient",
+      "preconditions": [
+        "Age >= 18 years",
+        "Swiss resident or valid insurance",
+        "Email address for OTP"
+      ],
+      "flow": [
+        "Select preferred language",
+        "Enter email and date of birth",
+        "Verify email with OTP",
+        "Select insurance model",
+        "Answer contraindication questions",
+        "Select symptoms if applicable",
+        "Provide family history",
+        "Review eligibility decision",
+        "Generate GP referral code if eligible"
+      ],
+      "postconditions": [
+        "Eligibility determined",
+        "Session data stored securely",
+        "Referral code generated if eligible"
+      ],
+      "success_metrics": [
+        "Completion time < 5 minutes",
+        "Clear eligibility outcome",
+        "GP referral code generated",
+        "User satisfaction > 4.5/5"
+      ]
+    },
+    {
+      "id": "UC-002",
+      "title": "Upload GP Referral",
+      "actor": "Doctor",
+      "preconditions": [
+        "Valid referral code from patient",
+        "HIN-validated email address",
+        "Signed referral document"
+      ],
+      "flow": [
+        "Navigate to /referral portal",
+        "Enter 6-character referral code",
+        "Provide doctor details",
+        "Upload signed document (PDF/image)",
+        "Confirm GDPR consent",
+        "Submit referral"
+      ],
+      "postconditions": [
+        "Document stored in Supabase",
+        "Patient notified via email",
+        "Doctor receives confirmation",
+        "Audit trail created"
+      ],
+      "success_metrics": [
+        "Upload success rate > 95%",
+        "Processing time < 30 seconds",
+        "Document security maintained",
+        "Zero data breaches"
+      ]
+    },
+    {
+      "id": "UC-003",
+      "title": "Self-Pay Checkout",
+      "actor": "Patient (Ineligible)",
+      "preconditions": [
+        "Completed eligibility questionnaire",
+        "Determined ineligible for insurance",
+        "Willing to self-pay"
+      ],
+      "flow": [
+        "Review self-pay options",
+        "Enter phone number",
+        "Verify with OTP",
+        "Provide shipping address",
+        "Enter payment details",
+        "Accept terms and conditions",
+        "Complete PCI-compliant payment"
+      ],
+      "postconditions": [
+        "Payment processed securely",
+        "Order confirmation sent",
+        "Shipping initiated",
+        "Invoice generated with VAT"
+      ],
+      "success_metrics": [
+        "Payment success rate > 98%",
+        "PCI DSS compliance maintained",
+        "Correct VAT calculation (7.7%)",
+        "Fraud rate < 0.1%"
+      ]
+    }
+  ],
+  "success_criteria": {
+    "technical": [
+      "Page load time < 2.5 seconds (LCP)",
+      "Cumulative Layout Shift < 0.1",
+      "First Input Delay < 100ms",
+      "Test coverage > 80% for services",
+      "Zero critical security vulnerabilities"
+    ],
+    "business": [
+      "User completion rate > 70%",
+      "GP referral adoption > 50%",
+      "Multi-language usage across all 4 languages",
+      "Insurance provider integration for 9 major providers",
+      "Compliance with Swiss healthcare regulations"
+    ],
+    "user_experience": [
+      "Mobile-first responsive design",
+      "WCAG 2.1 AA accessibility",
+      "Clear eligibility outcomes",
+      "Intuitive multi-step navigation",
+      "Professional healthcare aesthetics"
+    ]
+  },
+  "constraints": {
+    "regulatory": [
+      "Swiss Federal Data Protection Act compliance",
+      "GDPR compliance for EU residents",
+      "Medical device regulations",
+      "Canton-specific healthcare requirements"
+    ],
+    "technical": [
+      "Supabase infrastructure limitations",
+      "10MB file upload limit",
+      "Rate limiting for OTP (5 attempts/10 minutes)",
+      "30-day retention for referral codes"
+    ],
+    "business": [
+      "7.7% VAT on all transactions",
+      "Insurance provider API limitations",
+      "HIN network validation requirements",
+      "Multi-language content maintenance"
+    ]
+  },
+  "risks": {
+    "high": [
+      "Data breach of medical information",
+      "Non-compliance with Swiss regulations",
+      "Insurance provider API changes"
+    ],
+    "medium": [
+      "User abandonment due to complexity",
+      "Translation quality issues",
+      "Performance degradation at scale"
+    ],
+    "low": [
+      "Browser compatibility issues",
+      "Seasonal traffic variations",
+      "Minor UI inconsistencies"
+    ]
+  },
+  "stakeholders": [
+    {
+      "name": "SKIIN Switzerland Operations",
+      "role": "Product Owner",
+      "interests": ["Compliance", "User adoption", "Revenue"]
+    },
+    {
+      "name": "Swiss Healthcare Providers",
+      "role": "Integration Partners",
+      "interests": ["Patient care", "Efficiency", "Compliance"]
+    },
+    {
+      "name": "Insurance Companies",
+      "role": "Coverage Providers",
+      "interests": ["Risk assessment", "Cost control", "Fraud prevention"]
+    },
+    {
+      "name": "Regulatory Bodies",
+      "role": "Compliance Oversight",
+      "interests": ["Data protection", "Patient safety", "Standards adherence"]
+    }
+  ]
+}

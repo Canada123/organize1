@@ -1,0 +1,2149 @@
+{
+  "action_system": {
+    "total_modules": 199,
+    "modules": [
+      {
+        "name": "Commitment",
+        "action": "commitment",
+        "description": "Tracks when entities agree to do something and must follow through or face penalties.",
+        "properties": []
+      },
+      {
+        "name": "Negotiation",
+        "action": "negotiation",
+        "description": "Handles back-and-forth agreements between entities (trade offers, alliance terms, contract negotiations).",
+        "properties": []
+      },
+      {
+        "name": "Validation",
+        "action": "validation",
+        "description": "Checks if any action in the game is allowed based on all current rules and states.",
+        "properties": []
+      },
+      {
+        "name": "Permission",
+        "action": "permission",
+        "description": "Manages who can do what actions (role-based access, level requirements, unlock systems).",
+        "properties": []
+      },
+      {
+        "name": "Restriction",
+        "action": "restriction",
+        "description": "Tracks what entities are currently blocked from doing (temporary bans, commitment restrictions, debuffs).",
+        "properties": []
+      },
+      {
+        "name": "Progression",
+        "action": "progression",
+        "description": "Handles all forms of advancement (experience, levels, skill trees, mastery, prestige).",
+        "properties": []
+      },
+      {
+        "name": "Economy",
+        "action": "economy",
+        "description": "Manages all currencies and economic transactions (gold, gems, tokens, market prices).",
+        "properties": []
+      },
+      {
+        "name": "Inventory",
+        "action": "inventory",
+        "description": "Handles item storage, management, and capacity (bags, banks, shared storage).",
+        "properties": []
+      },
+      {
+        "name": "Combat",
+        "action": "combat",
+        "description": "Processes all combat calculations (damage, healing, mitigation, combat states).",
+        "properties": []
+      },
+      {
+        "name": "Movement",
+        "action": "movement",
+        "description": "Controls entity movement and physics (walking, flying, teleporting, collision).",
+        "properties": []
+      },
+      {
+        "name": "Social",
+        "action": "social",
+        "description": "Manages relationships between entities (friends, enemies, blocks, marriages).",
+        "properties": []
+      },
+      {
+        "name": "Communication",
+        "action": "communication",
+        "description": "Handles all messaging systems (chat, mail, voice, emotes, pings).",
+        "properties": []
+      },
+      {
+        "name": "Guild",
+        "action": "guild",
+        "description": "Everything related to guild management (ranks, permissions, banks, progression).",
+        "properties": []
+      },
+      {
+        "name": "Party",
+        "action": "party",
+        "description": "Small group formation and management (party creation, loot rules, roles).",
+        "properties": []
+      },
+      {
+        "name": "Raid",
+        "action": "raid",
+        "description": "Large group content management (raid formation, assignments, lockouts).",
+        "properties": []
+      },
+      {
+        "name": "Alliance",
+        "action": "alliance",
+        "description": "Multi-guild cooperation systems (alliance wars, shared resources, politics).",
+        "properties": []
+      },
+      {
+        "name": "Matchmaking",
+        "action": "matchmaking",
+        "description": "Finds and creates matches for entities (ranked, casual, custom games).",
+        "properties": []
+      },
+      {
+        "name": "Queue",
+        "action": "queue",
+        "description": "Manages all waiting systems (dungeon queue, battleground queue, login queue).",
+        "properties": []
+      },
+      {
+        "name": "Instance",
+        "action": "instance",
+        "description": "Creates and manages instanced content (dungeons, raids, personal instances).",
+        "properties": []
+      },
+      {
+        "name": "World",
+        "action": "world",
+        "description": "Manages the persistent game world (zones, weather, day/night, world events).",
+        "properties": []
+      },
+      {
+        "name": "Event",
+        "action": "event",
+        "description": "Handles all game events (seasonal events, world bosses, dynamic events).",
+        "properties": []
+      },
+      {
+        "name": "Quest",
+        "action": "quest",
+        "description": "Traditional quest systems (quest chains, daily quests, story quests).",
+        "properties": []
+      },
+      {
+        "name": "Achievement",
+        "action": "achievement",
+        "description": "Tracks and awards achievements (account-wide, character-specific, hidden).",
+        "properties": []
+      },
+      {
+        "name": "Collection",
+        "action": "collection",
+        "description": "Manages collectibles (mounts, pets, toys, appearances, cards).",
+        "properties": []
+      },
+      {
+        "name": "Crafting",
+        "action": "crafting",
+        "description": "All item creation\n\n\nwtf you are supposed to wrote htem out this is sooo dumb wtf and wtf wtf is this im taklin g my module s like commitment negtioations, offer, sacrific , secret, hint, mislead, hide",
+        "properties": [
+          "---------------------------------------------"
+        ]
+      },
+      {
+        "name": "Commitment",
+        "action": "commitment",
+        "description": "When an entity promises to do something, they're locked into completing it. No backing out without consequences.\n\n**What it tracks:**\n\n- Who committed to what\n- What they can't do until it's complete\n",
+        "properties": [
+          "Who committed to what",
+          "What they can't do until it's complete",
+          "Progress toward completion",
+          "Penalties if they abandon"
+        ]
+      },
+      {
+        "name": "Negotiation",
+        "action": "negotiation",
+        "description": "Back-and-forth bargaining between entities. Not instant - requires multiple steps.\n\n**What it handles:**\n\n- Opening negotiations\n- Counter-offers\n- Stalling tactics\n- Final agreements\n- Breaking off t",
+        "properties": [
+          "Opening negotiations",
+          "Counter-offers",
+          "Stalling tactics",
+          "Final agreements",
+          "Breaking off talks"
+        ]
+      },
+      {
+        "name": "Offer",
+        "action": "offer",
+        "description": "One-time proposals from one entity to another. Different from negotiation - this is take it or leave it.\n\n**What it manages:**\n\n- Creating offers\n- Expiration times\n- Acceptance conditions\n- Withdrawa",
+        "properties": [
+          "Creating offers",
+          "Expiration times",
+          "Acceptance conditions",
+          "Withdrawal rules",
+          "Offer visibility (public/private)"
+        ]
+      },
+      {
+        "name": "Sacrifice",
+        "action": "sacrifice",
+        "description": "Giving up something permanently for a benefit. Can't be undone.\n\n**Types of sacrifices:**\n\n- Items destroyed forever\n- Stats permanently reduced\n- Abilities locked away\n- Progress reset\n- Relationship",
+        "properties": [
+          "Items destroyed forever",
+          "Stats permanently reduced",
+          "Abilities locked away",
+          "Progress reset",
+          "Relationships severed"
+        ]
+      },
+      {
+        "name": "Secret",
+        "action": "secret",
+        "description": "Information that's hidden from some entities but known to others.\n\n**What it tracks:**\n\n- Who knows what secrets\n- How secrets spread\n- Conditions for revelation\n- Consequences of exposure\n- Secret ex",
+        "properties": [
+          "Who knows what secrets",
+          "How secrets spread",
+          "Conditions for revelation",
+          "Consequences of exposure",
+          "Secret expiration"
+        ]
+      },
+      {
+        "name": "Hint",
+        "action": "hint",
+        "description": "Partial information given to guide without revealing everything.\n\n**How hints work:**\n\n- Progressive revelation (hints get clearer)\n- Contextual hints (based on what you're doing)\n- Misleading hints (",
+        "properties": [
+          "Progressive revelation (hints get clearer)",
+          "Contextual hints (based on what you're doing)",
+          "Misleading hints (some are false)",
+          "Hint sources (who's giving the hint)",
+          "Hint interpretation (can be misunderstood)"
+        ]
+      },
+      {
+        "name": "Mislead",
+        "action": "mislead",
+        "description": "Intentionally wrong information to trick entities.\n\n**Misleading mechanics:**\n\n- False information that seems real\n- Partial truths mixed with lies\n- Misdirection targets\n- Discovery mechanics (findin",
+        "properties": [
+          "False information that seems real",
+          "Partial truths mixed with lies",
+          "Misdirection targets",
+          "Discovery mechanics (finding out you were misled)",
+          "Consequences for misleading others"
+        ]
+      },
+      {
+        "name": "Hide",
+        "action": "hide",
+        "description": "Making things invisible or undetectable.\n\n**What can be hidden:**\n\n- Physical presence\n- Information/stats\n- Intentions\n- Resources\n- Alliances\n- True identity\n\n**Example:**\u00a0Guild hides their real arm",
+        "properties": [
+          "Physical presence",
+          "Information/stats",
+          "Intentions",
+          "Resources",
+          "Alliances",
+          "True identity"
+        ]
+      },
+      {
+        "name": "Crawl",
+        "action": "crawl",
+        "description": "Slowest movement. Used for stealth or when injured.\n\n**When crawling happens:**\n- Health below threshold\n- Stealth requirements\n- Terrain forcing crawl\n- Carrying too much\n- Specific areas requiring i",
+        "properties": [
+          "Health below threshold",
+          "Stealth requirements",
+          "Terrain forcing crawl",
+          "Carrying too much",
+          "Specific areas requiring it",
+          "10% normal speed",
+          "Harder to detect",
+          "Can fit through small spaces",
+          "Stamina drains slower",
+          "Different animation set"
+        ]
+      },
+      {
+        "name": "Walk",
+        "action": "walk",
+        "description": "Standard movement. Default state.\n\n**Walking mechanics:**\n- Base movement speed\n- No stamina drain\n- Normal detection radius\n- Can perform most actions\n- Standard terrain interaction",
+        "properties": [
+          "Base movement speed",
+          "No stamina drain",
+          "Normal detection radius",
+          "Can perform most actions",
+          "Standard terrain interaction"
+        ]
+      },
+      {
+        "name": "Run",
+        "action": "run",
+        "description": "Faster movement with costs.\n\n**Running mechanics:**\n- 200% walk speed\n- Drains stamina\n- Easier to detect\n- Limited actions while running\n- Terrain affects run speed\n- Can't run forever\n\n## How These ",
+        "properties": [
+          "200% walk speed",
+          "Drains stamina",
+          "Easier to detect",
+          "Limited actions while running",
+          "Terrain affects run speed",
+          "Can't run forever"
+        ]
+      },
+      {
+        "name": "Betray",
+        "action": "betray",
+        "description": "Breaking alliances and trust",
+        "properties": []
+      },
+      {
+        "name": "Reveal",
+        "action": "reveal",
+        "description": "Exposing secrets and hidden information",
+        "properties": []
+      },
+      {
+        "name": "Bluff",
+        "action": "bluff",
+        "description": "Pretending to have something you don't",
+        "properties": []
+      },
+      {
+        "name": "Spy",
+        "action": "spy",
+        "description": "Gathering information without being detected",
+        "properties": []
+      },
+      {
+        "name": "Sabotage",
+        "action": "sabotage",
+        "description": "Secretly damaging others' progress",
+        "properties": []
+      },
+      {
+        "name": "Disguise",
+        "action": "disguise",
+        "description": "Appearing as something you're not",
+        "properties": []
+      },
+      {
+        "name": "Track",
+        "action": "track",
+        "description": "Following other entities' movements",
+        "properties": []
+      },
+      {
+        "name": "Escape",
+        "action": "escape",
+        "description": "Getting out of commitments/traps",
+        "properties": []
+      },
+      {
+        "name": "Trap",
+        "action": "trap",
+        "description": "Setting up situations for others to fall into\n\n## Module Configuration\n\nEach module can be configured with:\n\n**Entities:**\u00a0Who can use this module (players, NPCs, guilds, etc.)\n\n**Conditions:**\u00a0When t",
+        "properties": []
+      },
+      {
+        "name": "Rumor",
+        "action": "rumor",
+        "description": "Rumors spread and mutate as they pass between people. Each retelling changes them.\n\n**How rumors work:**\n- Start with original truth\n- Each person who passes it changes it slightly\n- After 10 people, ",
+        "properties": [
+          "Start with original truth",
+          "Each person who passes it changes it slightly",
+          "After 10 people, might be completely different",
+          "Some people amplify, others diminish",
+          "Can split into multiple versions",
+          "Eventually becomes \"common knowledge\" (even if false)"
+        ]
+      },
+      {
+        "name": "Gossip",
+        "action": "gossip",
+        "description": "Personal information spreading through social networks. More targeted than rumors.\n\n**Gossip mechanics:**\n\n- Travels through friend networks\n- Faster spread than rumors\n- More believable from trusted ",
+        "properties": [
+          "Travels through friend networks",
+          "Faster spread than rumors",
+          "More believable from trusted sources",
+          "Can destroy relationships",
+          "Creates temporary alliances",
+          "Some people are \"super spreaders\""
+        ]
+      },
+      {
+        "name": "Whisper",
+        "action": "whisper",
+        "description": "Direct, secret communication between two people. Can be overheard.\n\n**Whisper features:**\n- Only sender and receiver know (usually)\n- Can be intercepted if someone is listening\n- Leaves no permanent r",
+        "properties": [
+          "Only sender and receiver know (usually)",
+          "Can be intercepted if someone is listening",
+          "Leaves no permanent record",
+          "Can be misheard",
+          "Creates trust or suspicion"
+        ]
+      },
+      {
+        "name": "Tale",
+        "action": "tale",
+        "description": "Stories that grow with each telling. Become legends over time.\n\n**Tale evolution:**\n- Start as simple events\n- Each retelling adds details\n- Eventually become folklore\n- Can become completely fictiona",
+        "properties": [
+          "Start as simple events",
+          "Each retelling adds details",
+          "Eventually become folklore",
+          "Can become completely fictional",
+          "Affect reputation permanently",
+          "Create cultural beliefs"
+        ]
+      },
+      {
+        "name": "Folklore",
+        "action": "folklore",
+        "description": "Established stories that affect how people behave. Like game-wide beliefs.\n\n**Folklore effects:**\n\n- \"Never go to the woods at midnight\" (people actually avoid it)\n- \"The red door brings luck\" (people",
+        "properties": [
+          "\"Never go to the woods at midnight\" (people actually avoid it)",
+          "\"The red door brings luck\" (people seek it)",
+          "Creates behavioral patterns",
+          "Can be proven false but still believed",
+          "Affects NPC behavior too"
+        ]
+      },
+      {
+        "name": "Curse",
+        "action": "curse",
+        "description": "Negative chains that must be passed on or suffered through.\n\n**Curse mechanics:**\n- Received from someone else\n- Must complete task or pass it on\n- Gets worse if held too long\n- Can return to sender i",
+        "properties": [
+          "Received from someone else",
+          "Must complete task or pass it on",
+          "Gets worse if held too long",
+          "Can return to sender if conditions met",
+          "Some curses can split to multiple people",
+          "Breaking curse might require group effort"
+        ]
+      },
+      {
+        "name": "Blessing",
+        "action": "blessing",
+        "description": "Positive chains that can be shared but diminish.\n\n**Blessing behavior:**\n- Starts strong with first person\n- Each sharing weakens it\n- Can choose to keep or pass\n- Some blessings multiply when shared ",
+        "properties": [
+          "Starts strong with first person",
+          "Each sharing weakens it",
+          "Can choose to keep or pass",
+          "Some blessings multiply when shared correctly",
+          "Can turn to curse if hoarded"
+        ]
+      },
+      {
+        "name": "Obligation",
+        "action": "obligation",
+        "description": "Debts and favors owed between entities. Creates long chains of \"I owe you.\"\n\n**Obligation chains:**\n- A owes B, B owes C, C owes A (circular)\n- Can trade obligations\n- Can forgive debts\n- Can call in ",
+        "properties": [
+          "A owes B, B owes C, C owes A (circular)",
+          "Can trade obligations",
+          "Can forgive debts",
+          "Can call in favors",
+          "Interest/growth over time",
+          "Social pressure to fulfill"
+        ]
+      },
+      {
+        "name": "Prophecy",
+        "action": "prophecy",
+        "description": "Future predictions that influence present behavior.\n\n**Prophecy mechanics:**\n- Vague enough to interpret many ways\n- Self-fulfilling or self-defeating\n- Can be passed between people\n- Belief affects o",
+        "properties": [
+          "Vague enough to interpret many ways",
+          "Self-fulfilling or self-defeating",
+          "Can be passed between people",
+          "Belief affects outcome",
+          "Multiple prophecies can conflict",
+          "Create paranoia or confidence"
+        ]
+      },
+      {
+        "name": "Warning",
+        "action": "warning",
+        "description": "Urgent information that must be spread quickly or consequences occur.\n\n**Warning systems:**\n- Time-sensitive spread required\n- Each person warned can warn others\n- False warnings create distrust\n- Ign",
+        "properties": [
+          "Time-sensitive spread required",
+          "Each person warned can warn others",
+          "False warnings create distrust",
+          "Ignoring warnings has consequences",
+          "Some warnings are traps"
+        ]
+      },
+      {
+        "name": "Errand",
+        "action": "errand",
+        "description": "Simple tasks passed between people. \"While you're there, could you...\"\n\n**Errand chains:**\n- A asks B to do something\n- B can delegate to C\n- C might delegate to D\n- Original requester might not know ",
+        "properties": [
+          "A asks B to do something",
+          "B can delegate to C",
+          "C might delegate to D",
+          "Original requester might not know who actually does it",
+          "Payment/reward passes through chain",
+          "Can be corrupted at each step"
+        ]
+      },
+      {
+        "name": "Quest Chain",
+        "action": "quest chain",
+        "description": "Multi-part tasks where each person does one part.\n\n**Chain mechanics:**\n- Person 1 gathers materials\n- Person 2 crafts item\n- Person 3 delivers it\n- Person 4 uses it\n- Break anywhere = entire chain fa",
+        "properties": [
+          "Person 1 gathers materials",
+          "Person 2 crafts item",
+          "Person 3 delivers it",
+          "Person 4 uses it",
+          "Break anywhere = entire chain fails",
+          "Trust required at each step"
+        ]
+      },
+      {
+        "name": "Relay",
+        "action": "relay",
+        "description": "Information or items that must pass through specific people in order.\n\n**Relay rules:**\n- Must go A\u2192B\u2192C\u2192D, can't skip\n- Each person can hold, modify, or pass\n- Time limits at each step\n- Can be interc",
+        "properties": [
+          "Must go A\u2192B\u2192C\u2192D, can't skip",
+          "Each person can hold, modify, or pass",
+          "Time limits at each step",
+          "Can be intercepted",
+          "Rewards for successful completion"
+        ]
+      },
+      {
+        "name": "Burden",
+        "action": "burden",
+        "description": "Tasks nobody wants but someone must do. Gets passed around.\n\n**Burden behavior:**\n- Penalty for holding too long\n- Can trick others into taking it\n- Can force onto someone weaker\n- Eventually someone ",
+        "properties": [
+          "Penalty for holding too long",
+          "Can trick others into taking it",
+          "Can force onto someone weaker",
+          "Eventually someone must complete it",
+          "Creates resentment chains"
+        ]
+      },
+      {
+        "name": "Inheritance",
+        "action": "inheritance",
+        "description": "Things passed down through death/leaving. Can be good or bad.\n\n**Inheritance types:**\n- Debts passed to children\n- Curses through bloodlines\n- Responsibilities to continue\n- Secrets that must be kept\n",
+        "properties": [
+          "Debts passed to children",
+          "Curses through bloodlines",
+          "Responsibilities to continue",
+          "Secrets that must be kept",
+          "Property with obligations"
+        ]
+      },
+      {
+        "name": "Reputation",
+        "action": "reputation",
+        "description": "How actions affect standing with different groups.\n\n**Reputation layers:**\n\n- Personal reputation (what you did)\n- Family reputation (what your family did)\n- Association reputation (who you know)\n- Hi",
+        "properties": [
+          "Personal reputation (what you did)",
+          "Family reputation (what your family did)",
+          "Association reputation (who you know)",
+          "Historical reputation (past actions)",
+          "Rumored reputation (what people think you did)"
+        ]
+      },
+      {
+        "name": "Shame",
+        "action": "shame",
+        "description": "Social punishment for breaking chains or failing tasks.\n\n**Shame mechanics:**\n- Public marking of failure\n- Reduced social options\n- NPCs treat you differently\n- Can be redeemed through action\n- Can b",
+        "properties": [
+          "Public marking of failure",
+          "Reduced social options",
+          "NPCs treat you differently",
+          "Can be redeemed through action",
+          "Can be passed to family/friends",
+          "Some shame is permanent"
+        ]
+      },
+      {
+        "name": "Honor",
+        "action": "honor",
+        "description": "Social rewards for maintaining chains and completing obligations.\n\n**Honor systems:**\n\n- Builds slowly, lost quickly\n- Opens special interactions\n- Can be wagered/risked\n- Family honor vs personal hon",
+        "properties": [
+          "Builds slowly, lost quickly",
+          "Opens special interactions",
+          "Can be wagered/risked",
+          "Family honor vs personal honor",
+          "Can be stolen through accusation"
+        ]
+      },
+      {
+        "name": "Trust",
+        "action": "trust",
+        "description": "How much others believe you'll complete your part of chains.\n\n**Trust mechanics:**\n\n- Built through successful completions\n- Lost through failures\n- Can be manipulated through rumors\n- Different trust",
+        "properties": [
+          "Built through successful completions",
+          "Lost through failures",
+          "Can be manipulated through rumors",
+          "Different trust with different groups",
+          "Trust networks (if A trusts B, and B trusts C...)"
+        ]
+      },
+      {
+        "name": "Betrayal",
+        "action": "betrayal",
+        "description": "Breaking chains intentionally for personal gain.\n\n**Betrayal consequences:**\n- Immediate benefit\n- Long-term reputation damage\n- Creates vendetta chains\n- Can trigger curse chains\n- Sometimes necessar",
+        "properties": [
+          "Immediate benefit",
+          "Long-term reputation damage",
+          "Creates vendetta chains",
+          "Can trigger curse chains",
+          "Sometimes necessary for survival"
+        ]
+      },
+      {
+        "name": "Secret",
+        "action": "secret",
+        "description": "(Expanded)\n\nInformation with power that loses value if spread.\n\n**Secret types:**\n\n- Personal secrets (damages one person)\n- Group secrets (damages organization)\n- Power secrets (gives advantage)\n- Da",
+        "properties": [
+          "Personal secrets (damages one person)",
+          "Group secrets (damages organization)",
+          "Power secrets (gives advantage)",
+          "Dangerous secrets (knowing puts you at risk)",
+          "Time secrets (only valuable until certain time)"
+        ]
+      },
+      {
+        "name": "Lie",
+        "action": "lie",
+        "description": "False information knowingly spread.\n\n**Lie mechanics:**\n- Must remember what you told whom\n- Can be caught through inconsistency\n- Some lies become \"truth\" if believed enough\n- Counter-lies to combat ",
+        "properties": [
+          "Must remember what you told whom",
+          "Can be caught through inconsistency",
+          "Some lies become \"truth\" if believed enough",
+          "Counter-lies to combat other lies",
+          "Webs of lies that trap creator"
+        ]
+      },
+      {
+        "name": "Truth",
+        "action": "truth",
+        "description": "Verified information that can break rumors/lies.\n\n**Truth power:**\n\n- Hard to obtain\n- Can destroy rumor chains\n- Sometimes less believed than lies\n- Can be twisted into new rumors\n- Protected by thos",
+        "properties": [
+          "Hard to obtain",
+          "Can destroy rumor chains",
+          "Sometimes less believed than lies",
+          "Can be twisted into new rumors",
+          "Protected by those who benefit from lies"
+        ]
+      },
+      {
+        "name": "Hint",
+        "action": "hint",
+        "description": "(Expanded)\n\nPartial information that guides without revealing.\n\n**Hint types:**\n\n- Breadcrumbs (following leads to truth)\n- Red herrings (misleading hints)\n- Riddles (must be interpreted)\n- Warnings (",
+        "properties": [
+          "Breadcrumbs (following leads to truth)",
+          "Red herrings (misleading hints)",
+          "Riddles (must be interpreted)",
+          "Warnings (hint at danger)",
+          "Clues (piece together full picture)"
+        ]
+      },
+      {
+        "name": "Omen",
+        "action": "omen",
+        "description": "Signs and portents that may or may not mean something.\n\n**Omen interpretation:**\n\n- Same omen means different things to different people\n- Can create panic or confidence\n- Stack to create patterns\n- S",
+        "properties": [
+          "Same omen means different things to different people",
+          "Can create panic or confidence",
+          "Stack to create patterns",
+          "Some omens are manufactured",
+          "Believing makes them real"
+        ]
+      },
+      {
+        "name": "Fetch",
+        "action": "fetch",
+        "description": "Retrieve something and bring it back through chain.",
+        "properties": []
+      },
+      {
+        "name": "Deliver",
+        "action": "deliver",
+        "description": "Take something through chain to destination.",
+        "properties": []
+      },
+      {
+        "name": "Gather",
+        "action": "gather",
+        "description": "Collect multiple things from multiple people.",
+        "properties": []
+      },
+      {
+        "name": "Spread",
+        "action": "spread",
+        "description": "Distribute something among many people.",
+        "properties": []
+      },
+      {
+        "name": "Find",
+        "action": "find",
+        "description": "Locate something/someone lost.",
+        "properties": []
+      },
+      {
+        "name": "Hide",
+        "action": "hide",
+        "description": "(Expanded)\n\nConceal something from discovery chains.",
+        "properties": []
+      },
+      {
+        "name": "Protect",
+        "action": "protect",
+        "description": "Guard something through time period.",
+        "properties": []
+      },
+      {
+        "name": "Destroy",
+        "action": "destroy",
+        "description": "Eliminate something without being caught.",
+        "properties": []
+      },
+      {
+        "name": "Create",
+        "action": "create",
+        "description": "Make something that requires multiple people.",
+        "properties": []
+      },
+      {
+        "name": "Transform",
+        "action": "transform",
+        "description": "Change something through multiple steps.\n\n## Time Pressure Modules",
+        "properties": []
+      },
+      {
+        "name": "Deadline",
+        "action": "deadline",
+        "description": "Tasks that must complete by specific time or fail.",
+        "properties": []
+      },
+      {
+        "name": "Decay",
+        "action": "decay",
+        "description": "Things that get worse over time if not maintained.",
+        "properties": []
+      },
+      {
+        "name": "Urgency",
+        "action": "urgency",
+        "description": "Tasks that become harder the longer you wait.",
+        "properties": []
+      },
+      {
+        "name": "Patience",
+        "action": "patience",
+        "description": "Tasks that require waiting specific periods.",
+        "properties": []
+      },
+      {
+        "name": "Timing",
+        "action": "timing",
+        "description": "Tasks that must be done at exact right moment.",
+        "properties": []
+      },
+      {
+        "name": "Sequence",
+        "action": "sequence",
+        "description": "Things that must happen in specific order.",
+        "properties": []
+      },
+      {
+        "name": "Simultaneity",
+        "action": "simultaneity",
+        "description": "Multiple things that must happen at same time.",
+        "properties": []
+      },
+      {
+        "name": "Rhythm",
+        "action": "rhythm",
+        "description": "Repeating patterns that must be maintained.",
+        "properties": []
+      },
+      {
+        "name": "Cycle",
+        "action": "cycle",
+        "description": "Circular patterns that repeat.",
+        "properties": []
+      },
+      {
+        "name": "Season",
+        "action": "season",
+        "description": "Things that can only happen at certain times.\n\n## Consequence Modules",
+        "properties": []
+      },
+      {
+        "name": "Ripple",
+        "action": "ripple",
+        "description": "Small actions create expanding consequences.",
+        "properties": []
+      },
+      {
+        "name": "Avalanche",
+        "action": "avalanche",
+        "description": "Consequences that build exponentially.",
+        "properties": []
+      },
+      {
+        "name": "Echo",
+        "action": "echo",
+        "description": "Past actions return in unexpected ways.",
+        "properties": []
+      },
+      {
+        "name": "Karma",
+        "action": "karma",
+        "description": "What you do comes back to you.",
+        "properties": []
+      },
+      {
+        "name": "Vendetta",
+        "action": "vendetta",
+        "description": "Revenge chains that perpetuate.",
+        "properties": []
+      },
+      {
+        "name": "Haunt",
+        "action": "haunt",
+        "description": "Past failures that follow you.",
+        "properties": []
+      },
+      {
+        "name": "Shadow",
+        "action": "shadow",
+        "description": "Hidden consequences not immediately visible.",
+        "properties": []
+      },
+      {
+        "name": "Mirror",
+        "action": "mirror",
+        "description": "What you do to others happens to you.",
+        "properties": []
+      },
+      {
+        "name": "Balance",
+        "action": "balance",
+        "description": "Universe forcing equilibrium.",
+        "properties": []
+      },
+      {
+        "name": "Price",
+        "action": "price",
+        "description": "Everything has a cost, paid eventually.\n\n## Relationship Modules",
+        "properties": []
+      },
+      {
+        "name": "Bond",
+        "action": "bond",
+        "description": "Connections that strengthen or weaken.",
+        "properties": []
+      },
+      {
+        "name": "Rival",
+        "action": "rival",
+        "description": "Competitive relationships that drive action.",
+        "properties": []
+      },
+      {
+        "name": "Mentor",
+        "action": "mentor",
+        "description": "Teaching relationships with obligations.",
+        "properties": []
+      },
+      {
+        "name": "Apprentice",
+        "action": "apprentice",
+        "description": "Learning relationships with duties.",
+        "properties": []
+      },
+      {
+        "name": "Blood",
+        "action": "blood",
+        "description": "Family connections that can't be broken.",
+        "properties": []
+      },
+      {
+        "name": "Oath",
+        "action": "oath",
+        "description": "Sworn promises with supernatural weight.",
+        "properties": []
+      },
+      {
+        "name": "Pact",
+        "action": "pact",
+        "description": "Agreements with severe consequences.",
+        "properties": []
+      },
+      {
+        "name": "Alliance",
+        "action": "alliance",
+        "description": "Temporary cooperation with conditions.",
+        "properties": []
+      },
+      {
+        "name": "Feud",
+        "action": "feud",
+        "description": "Long-standing conflicts between groups.",
+        "properties": []
+      },
+      {
+        "name": "Romance",
+        "action": "romance",
+        "description": "Emotional chains with special rules.\n\n## Transformation Modules",
+        "properties": []
+      },
+      {
+        "name": "Corruption",
+        "action": "corruption",
+        "description": "Gradual degradation through bad choices.",
+        "properties": []
+      },
+      {
+        "name": "Redemption",
+        "action": "redemption",
+        "description": "Paths to restore lost honor/reputation.",
+        "properties": []
+      },
+      {
+        "name": "Evolution",
+        "action": "evolution",
+        "description": "Things that change based on how they're used.",
+        "properties": []
+      },
+      {
+        "name": "Mutation",
+        "action": "mutation",
+        "description": "Unexpected changes from combinations.",
+        "properties": []
+      },
+      {
+        "name": "Infection",
+        "action": "infection",
+        "description": "Spreading conditions through contact.",
+        "properties": []
+      },
+      {
+        "name": "Cure",
+        "action": "cure",
+        "description": "Removing negative conditions through chains.",
+        "properties": []
+      },
+      {
+        "name": "Awakening",
+        "action": "awakening",
+        "description": "Dormant things activated by conditions.",
+        "properties": []
+      },
+      {
+        "name": "Seal",
+        "action": "seal",
+        "description": "Locking away power/danger.",
+        "properties": []
+      },
+      {
+        "name": "Release",
+        "action": "release",
+        "description": "Freeing sealed things.",
+        "properties": []
+      },
+      {
+        "name": "Metamorphosis",
+        "action": "metamorphosis",
+        "description": "Complete transformation at threshold.\n\n## Resource Modules",
+        "properties": []
+      },
+      {
+        "name": "Scarcity",
+        "action": "scarcity",
+        "description": "Limited resources create competition.",
+        "properties": []
+      },
+      {
+        "name": "Abundance",
+        "action": "abundance",
+        "description": "Excess that must be distributed.",
+        "properties": []
+      },
+      {
+        "name": "Trade",
+        "action": "trade",
+        "description": "Exchange networks between people.",
+        "properties": []
+      },
+      {
+        "name": "Debt",
+        "action": "debt",
+        "description": "Owed resources with interest.",
+        "properties": []
+      },
+      {
+        "name": "Investment",
+        "action": "investment",
+        "description": "Resources given expecting return.",
+        "properties": []
+      },
+      {
+        "name": "Theft",
+        "action": "theft",
+        "description": "Taking what isn't yours, creating chains.",
+        "properties": []
+      },
+      {
+        "name": "Gift",
+        "action": "gift",
+        "description": "Given freely but creates social obligation.",
+        "properties": []
+      },
+      {
+        "name": "Sacrifice",
+        "action": "sacrifice",
+        "description": "(Expanded)\n\nGiving up something precious for greater good.",
+        "properties": []
+      },
+      {
+        "name": "Waste",
+        "action": "waste",
+        "description": "Resources lost through negligence.",
+        "properties": []
+      },
+      {
+        "name": "Hoard",
+        "action": "hoard",
+        "description": "Keeping too much creates problems.\n\n## Mystery Modules",
+        "properties": []
+      },
+      {
+        "name": "Puzzle",
+        "action": "puzzle",
+        "description": "Problems requiring multiple people to solve.",
+        "properties": []
+      },
+      {
+        "name": "Riddle",
+        "action": "riddle",
+        "description": "Questions with hidden answers.",
+        "properties": []
+      },
+      {
+        "name": "Mystery",
+        "action": "mystery",
+        "description": "Unknown things that create speculation.",
+        "properties": []
+      },
+      {
+        "name": "Investigation",
+        "action": "investigation",
+        "description": "Uncovering truth through questioning.",
+        "properties": []
+      },
+      {
+        "name": "Conspiracy",
+        "action": "conspiracy",
+        "description": "Hidden groups working together.",
+        "properties": []
+      },
+      {
+        "name": "Revelation",
+        "action": "revelation",
+        "description": "Truth exposed at critical moment.",
+        "properties": []
+      },
+      {
+        "name": "Disguise",
+        "action": "disguise",
+        "description": "Hiding identity to accomplish goals.",
+        "properties": []
+      },
+      {
+        "name": "Unmask",
+        "action": "unmask",
+        "description": "Revealing someone's true nature.",
+        "properties": []
+      },
+      {
+        "name": "Illusion",
+        "action": "illusion",
+        "description": "False realities that affect behavior.",
+        "properties": []
+      },
+      {
+        "name": "Disillusion",
+        "action": "disillusion",
+        "description": "Breaking false beliefs.\n\n## Fairytale Modules",
+        "properties": []
+      },
+      {
+        "name": "Wish",
+        "action": "wish",
+        "description": "Desires that come true with twists.",
+        "properties": []
+      },
+      {
+        "name": "Quest",
+        "action": "quest",
+        "description": "(Fairytale version)\n\nImpossible tasks that test character.",
+        "properties": []
+      },
+      {
+        "name": "Trial",
+        "action": "trial",
+        "description": "Tests that reveal true nature.",
+        "properties": []
+      },
+      {
+        "name": "Transformation",
+        "action": "transformation",
+        "description": "(Fairytale)\n\nPeople becoming animals/objects as punishment/reward.",
+        "properties": []
+      },
+      {
+        "name": "Moral",
+        "action": "moral",
+        "description": "Lessons learned through consequences.",
+        "properties": []
+      },
+      {
+        "name": "Magic",
+        "action": "magic",
+        "description": "Supernatural elements that follow rules.",
+        "properties": []
+      },
+      {
+        "name": "Trickster",
+        "action": "trickster",
+        "description": "Entities that disrupt chains for chaos.",
+        "properties": []
+      },
+      {
+        "name": "Guardian",
+        "action": "guardian",
+        "description": "Protectors of certain chains/paths.",
+        "properties": []
+      },
+      {
+        "name": "Threshold",
+        "action": "threshold",
+        "description": "Points of no return in chains.",
+        "properties": []
+      },
+      {
+        "name": "Return",
+        "action": "return",
+        "description": "Coming back changed from journey.\n\n## How These Create Chain Reactions\n\n**Example Chain:**\n1. Someone starts a RUMOR about treasure (Rumor Module)\n2. You hear it as GOSSIP from a friend (Gossip Module",
+        "properties": []
+      },
+      {
+        "name": "Bet",
+        "action": "bet",
+        "description": "Wagering on outcomes of other people's actions or chain results.\n\n**How betting works:**\n\n- Bet on whether someone completes their task\n- Bet on how rumors will spread\n- Bet on which version of story ",
+        "properties": [
+          "Bet on whether someone completes their task",
+          "Bet on how rumors will spread",
+          "Bet on which version of story becomes \"truth\"",
+          "Bet against yourself to hedge",
+          "Secret bets that affect behavior",
+          "Betting pools that grow",
+          "Can bet things other than money (reputation, favors, secrets)"
+        ]
+      },
+      {
+        "name": "Vote",
+        "action": "vote",
+        "description": "Group decisions that affect everyone involved.\n\n**Voting mechanics:**\n\n- Public vs secret votes\n- Weighted votes based on reputation\n- Votes that require quorum\n- Proxy voting through representatives\n",
+        "properties": [
+          "Public vs secret votes",
+          "Weighted votes based on reputation",
+          "Votes that require quorum",
+          "Proxy voting through representatives",
+          "Votes that can be bought/influenced",
+          "Abstaining has consequences too",
+          "Some votes can be vetoed",
+          "Voting creates factions"
+        ]
+      },
+      {
+        "name": "Help",
+        "action": "help",
+        "description": "Assisting others with their chains/tasks.\n\n**Help dynamics:**\n\n- Help can be requested or offered\n- Some help makes things worse\n- Help creates debt/obligation\n- Can help secretly\n- Can pretend to hel",
+        "properties": [
+          "Help can be requested or offered",
+          "Some help makes things worse",
+          "Help creates debt/obligation",
+          "Can help secretly",
+          "Can pretend to help while sabotaging",
+          "Group help multiplies effectiveness",
+          "Wrong help at wrong time is harmful"
+        ]
+      },
+      {
+        "name": "Hinder",
+        "action": "hinder",
+        "description": "Making things harder for others without outright stopping them.\n\n**Hindrance types:**\n\n- Slow someone down\n- Add extra steps to their chain\n- Increase their costs\n- Spread doubt about them\n- Create co",
+        "properties": [
+          "Slow someone down",
+          "Add extra steps to their chain",
+          "Increase their costs",
+          "Spread doubt about them",
+          "Create competing chains",
+          "Misdirect their efforts"
+        ]
+      },
+      {
+        "name": "Witness",
+        "action": "witness",
+        "description": "Seeing actions creates accountability and proof.\n\n**Witness mechanics:**\n\n- Being witnessed changes outcomes\n- Witnesses can be reliable or not\n- False witnesses exist\n- Can witness without being seen",
+        "properties": [
+          "Being witnessed changes outcomes",
+          "Witnesses can be reliable or not",
+          "False witnesses exist",
+          "Can witness without being seen",
+          "Witness testimony has value",
+          "Multiple witnesses strengthen/weaken claims"
+        ]
+      },
+      {
+        "name": "Judge",
+        "action": "judge",
+        "description": "Evaluating others' actions and chains.\n\n**Judgment systems:**\n\n- Official judges vs mob judgment\n- Biased vs impartial\n- Judgment affects future opportunities\n- Can appeal judgments\n- Judges can be co",
+        "properties": [
+          "Official judges vs mob judgment",
+          "Biased vs impartial",
+          "Judgment affects future opportunities",
+          "Can appeal judgments",
+          "Judges can be corrupted",
+          "Self-judgment sometimes required"
+        ]
+      },
+      {
+        "name": "Accuse",
+        "action": "accuse",
+        "description": "Claiming someone did/didn't do something.\n\n**Accusation dynamics:**\n\n- Accusations require proof (sometimes)\n- False accusations have penalties (sometimes)\n- Accusations spread like rumors\n- Can accus",
+        "properties": [
+          "Accusations require proof (sometimes)",
+          "False accusations have penalties (sometimes)",
+          "Accusations spread like rumors",
+          "Can accuse groups or individuals",
+          "Counter-accusations create confusion",
+          "Some accusations can't be taken back"
+        ]
+      },
+      {
+        "name": "Defend",
+        "action": "defend",
+        "description": "Protecting yourself or others from accusations/attacks.\n\n**Defense options:**\n\n- Provide evidence\n- Find allies to support\n- Redirect blame\n- Admit partial fault\n- Create reasonable doubt\n- Silence ac",
+        "properties": [
+          "Provide evidence",
+          "Find allies to support",
+          "Redirect blame",
+          "Admit partial fault",
+          "Create reasonable doubt",
+          "Silence accusers"
+        ]
+      },
+      {
+        "name": "Convince",
+        "action": "convince",
+        "description": "Changing someone's mind about something.\n\n**Convincing mechanics:**\n\n- Different people need different approaches\n- Can use logic, emotion, or force\n- Convincing takes time\n- Can convince groups or in",
+        "properties": [
+          "Different people need different approaches",
+          "Can use logic, emotion, or force",
+          "Convincing takes time",
+          "Can convince groups or individuals",
+          "Some convictions are temporary",
+          "Failed convincing creates resistance"
+        ]
+      },
+      {
+        "name": "Doubt",
+        "action": "doubt",
+        "description": "Creating uncertainty about information or people.\n\n**Doubt effects:**\n\n- Slows down chains\n- Makes people seek confirmation\n- Can protect from bad information\n- Too much doubt paralyzes\n- Doubt spread",
+        "properties": [
+          "Slows down chains",
+          "Makes people seek confirmation",
+          "Can protect from bad information",
+          "Too much doubt paralyzes",
+          "Doubt spreads naturally",
+          "Some people immune to doubt"
+        ]
+      },
+      {
+        "name": "Confirm",
+        "action": "confirm",
+        "description": "Verifying information through multiple sources.\n\n**Confirmation methods:**\n\n- Multiple witnesses\n- Physical evidence\n- Pattern matching\n- Formal investigation\n- Divine/supernatural confirmation\n- Grou",
+        "properties": [
+          "Multiple witnesses",
+          "Physical evidence",
+          "Pattern matching",
+          "Formal investigation",
+          "Divine/supernatural confirmation",
+          "Group consensus"
+        ]
+      },
+      {
+        "name": "Deny",
+        "action": "deny",
+        "description": "Rejecting accusations, requests, or information.\n\n**Denial types:**\n\n- Flat denial\n- Partial denial\n- Deflecting denial\n- Silent denial (refusing to engage)\n- Counter-claim denial\n- Denial with altern",
+        "properties": [
+          "Flat denial",
+          "Partial denial",
+          "Deflecting denial",
+          "Silent denial (refusing to engage)",
+          "Counter-claim denial",
+          "Denial with alternative explanation"
+        ]
+      },
+      {
+        "name": "Admit",
+        "action": "admit",
+        "description": "Acknowledging truth about actions or information.\n\n**Admission consequences:**\n\n- Can reduce penalties\n- Creates trust\n- Stops speculation chains\n- Can be partial admission\n- Admission under duress\n- ",
+        "properties": [
+          "Can reduce penalties",
+          "Creates trust",
+          "Stops speculation chains",
+          "Can be partial admission",
+          "Admission under duress",
+          "Strategic admission for advantage"
+        ]
+      },
+      {
+        "name": "Ignore",
+        "action": "ignore",
+        "description": "Choosing not to engage with chains or information.\n\n**Ignoring effects:**\n\n- Sometimes makes problems worse\n- Sometimes makes them go away\n- Can't ignore some things\n- Ignoring sends a message\n- Group",
+        "properties": [
+          "Sometimes makes problems worse",
+          "Sometimes makes them go away",
+          "Can't ignore some things",
+          "Ignoring sends a message",
+          "Group ignoring is powerful",
+          "Selective ignoring is strategy"
+        ]
+      },
+      {
+        "name": "Escalate",
+        "action": "escalate",
+        "description": "Making situations more intense/serious.\n\n**Escalation paths:**\n\n- Personal \u2192 Group conflict\n- Minor issue \u2192 Major crisis\n- Local \u2192 Global problem\n- Simple \u2192 Complex chains\n- Gradual vs sudden escalati",
+        "properties": [
+          "Personal \u2192 Group conflict",
+          "Minor issue \u2192 Major crisis",
+          "Local \u2192 Global problem",
+          "Simple \u2192 Complex chains",
+          "Gradual vs sudden escalation"
+        ]
+      },
+      {
+        "name": "Negotiate",
+        "action": "negotiate",
+        "description": "(Expanded)\n\nComplex back-and-forth discussions.\n\n**Negotiation elements:**\n\n- Opening positions\n- Concessions\n- Deal breakers\n- Hidden agendas\n- Time pressure\n- Walking away\n- Bringing in mediators\n- ",
+        "properties": [
+          "Opening positions",
+          "Concessions",
+          "Deal breakers",
+          "Hidden agendas",
+          "Time pressure",
+          "Walking away",
+          "Bringing in mediators",
+          "Package deals"
+        ]
+      },
+      {
+        "name": "Threaten",
+        "action": "threaten",
+        "description": "Warning of consequences if actions taken/not taken.\n\n**Threat dynamics:**\n\n- Credible vs empty threats\n- Conditional threats\n- Veiled threats\n- Group threats\n- Escalating threats\n- Following through c",
+        "properties": [
+          "Credible vs empty threats",
+          "Conditional threats",
+          "Veiled threats",
+          "Group threats",
+          "Escalating threats",
+          "Following through creates reputation"
+        ]
+      },
+      {
+        "name": "Promise",
+        "action": "promise",
+        "description": "Commitment to future action.\n\n**Promise weight:**\n\n- Public promises stronger\n- Written promises binding\n- Witnessed promises enforceable\n- Broken promises damage trust\n- Impossible promises trap make",
+        "properties": [
+          "Public promises stronger",
+          "Written promises binding",
+          "Witnessed promises enforceable",
+          "Broken promises damage trust",
+          "Impossible promises trap makers",
+          "Promise chains create complexity"
+        ]
+      },
+      {
+        "name": "Bribe",
+        "action": "bribe",
+        "description": "Offering incentives to change behavior.\n\n**Bribe mechanics:**\n\n- Hidden vs open bribes\n- Accepted bribes create obligation\n- Refused bribes create enemies\n- Bribe chains (A bribes B to bribe C)\n- Evid",
+        "properties": [
+          "Hidden vs open bribes",
+          "Accepted bribes create obligation",
+          "Refused bribes create enemies",
+          "Bribe chains (A bribes B to bribe C)",
+          "Evidence of bribes is dangerous",
+          "Counter-bribes bidding wars"
+        ]
+      },
+      {
+        "name": "Blackmail",
+        "action": "blackmail",
+        "description": "Using secrets to control others.\n\n**Blackmail dynamics:**\n\n- Requires proof\n- Can backfire if target doesn't care\n- Multiple blackmailers compete\n- Blackmail chains grow complex\n- Revealing eliminates",
+        "properties": [
+          "Requires proof",
+          "Can backfire if target doesn't care",
+          "Multiple blackmailers compete",
+          "Blackmail chains grow complex",
+          "Revealing eliminates power",
+          "Counter-blackmail possible"
+        ]
+      },
+      {
+        "name": "Spy",
+        "action": "spy",
+        "description": "Gathering information secretly.\n\n**Spying methods:**\n\n- Direct observation\n- Planting informants\n- Intercepting messages\n- Following chains\n- Double agents\n- False information to spies",
+        "properties": [
+          "Direct observation",
+          "Planting informants",
+          "Intercepting messages",
+          "Following chains",
+          "Double agents",
+          "False information to spies"
+        ]
+      },
+      {
+        "name": "Infiltrate",
+        "action": "infiltrate",
+        "description": "Becoming part of group to affect from inside.\n\n**Infiltration stages:**\n\n- Gaining trust\n- Rising in ranks\n- Achieving position\n- Taking action\n- Escape or revelation\n- Long-term vs short-term",
+        "properties": [
+          "Gaining trust",
+          "Rising in ranks",
+          "Achieving position",
+          "Taking action",
+          "Escape or revelation",
+          "Long-term vs short-term"
+        ]
+      },
+      {
+        "name": "Expose",
+        "action": "expose",
+        "description": "Revealing hidden information publicly.\n\n**Exposure impacts:**\n\n- Timing matters\n- Partial vs full exposure\n- Controlled exposure\n- Accidental exposure\n- Exposure chains (one leads to another)\n- Can't ",
+        "properties": [
+          "Timing matters",
+          "Partial vs full exposure",
+          "Controlled exposure",
+          "Accidental exposure",
+          "Exposure chains (one leads to another)",
+          "Can't be undone"
+        ]
+      },
+      {
+        "name": "Cover",
+        "action": "cover",
+        "description": "Hiding truth or protecting others.\n\n**Cover operations:**\n\n- Cover stories\n- False trails\n- Destroying evidence\n- Creating alibis\n- Group cover efforts\n- Covers eventually fail",
+        "properties": [
+          "Cover stories",
+          "False trails",
+          "Destroying evidence",
+          "Creating alibis",
+          "Group cover efforts",
+          "Covers eventually fail"
+        ]
+      },
+      {
+        "name": "Frame",
+        "action": "frame",
+        "description": "Making innocent appear guilty.\n\n**Framing techniques:**\n\n- Planting evidence\n- Creating false witnesses\n- Manipulating circumstances\n- Partial truths\n- Misdirection\n- Frame-ups can be exposed",
+        "properties": [
+          "Planting evidence",
+          "Creating false witnesses",
+          "Manipulating circumstances",
+          "Partial truths",
+          "Misdirection",
+          "Frame-ups can be exposed"
+        ]
+      },
+      {
+        "name": "Investigate",
+        "action": "investigate",
+        "description": "Systematic discovery of truth.\n\n**Investigation methods:**\n\n- Following leads\n- Interviewing witnesses\n- Examining evidence\n- Pattern recognition\n- Dead ends and false leads\n- Collaborative investigat",
+        "properties": [
+          "Following leads",
+          "Interviewing witnesses",
+          "Examining evidence",
+          "Pattern recognition",
+          "Dead ends and false leads",
+          "Collaborative investigation"
+        ]
+      },
+      {
+        "name": "Test",
+        "action": "test",
+        "description": "Checking if something/someone is reliable.\n\n**Test types:**\n\n- Loyalty tests\n- Skill tests\n- Trust tests\n- Secret tests\n- Failed tests have consequences\n- Tests can be gamed",
+        "properties": [
+          "Loyalty tests",
+          "Skill tests",
+          "Trust tests",
+          "Secret tests",
+          "Failed tests have consequences",
+          "Tests can be gamed"
+        ]
+      },
+      {
+        "name": "Prove",
+        "action": "prove",
+        "description": "Demonstrating truth beyond doubt.\n\n**Proof requirements:**\n\n- Different standards for different claims\n- Burden of proof varies\n- Impossible proofs\n- Manufactured proof\n- Proof expires over time",
+        "properties": [
+          "Different standards for different claims",
+          "Burden of proof varies",
+          "Impossible proofs",
+          "Manufactured proof",
+          "Proof expires over time"
+        ]
+      },
+      {
+        "name": "Disprove",
+        "action": "disprove",
+        "description": "Showing something is false.\n\n**Disproving methods:**\n\n- Counter-evidence\n- Logical impossibility\n- Timeline conflicts\n- Witness contradiction\n- Sometimes harder than proving",
+        "properties": [
+          "Counter-evidence",
+          "Logical impossibility",
+          "Timeline conflicts",
+          "Witness contradiction",
+          "Sometimes harder than proving"
+        ]
+      },
+      {
+        "name": "Challenge",
+        "action": "challenge",
+        "description": "Questioning authority or accepted truth.\n\n**Challenge dynamics:**\n\n- Formal vs informal challenges\n- Challenge chains (A challenges B challenges C)\n- Failed challenges have penalties\n- Successful chal",
+        "properties": [
+          "Formal vs informal challenges",
+          "Challenge chains (A challenges B challenges C)",
+          "Failed challenges have penalties",
+          "Successful challenges change everything",
+          "Some things unchallengeable"
+        ]
+      },
+      {
+        "name": "Support",
+        "action": "support",
+        "description": "Backing others' actions or claims.\n\n**Support types:**\n\n- Public endorsement\n- Resource support\n- Information support\n- Silent support\n- Conditional support\n- Withdrawn support damages",
+        "properties": [
+          "Public endorsement",
+          "Resource support",
+          "Information support",
+          "Silent support",
+          "Conditional support",
+          "Withdrawn support damages"
+        ]
+      },
+      {
+        "name": "Oppose",
+        "action": "oppose",
+        "description": "Working against others' goals.\n\n**Opposition methods:**\n\n- Direct confrontation\n- Subtle undermining\n- Creating alternatives\n- Building coalitions\n- Persistent opposition\n- Strategic opposition",
+        "properties": [
+          "Direct confrontation",
+          "Subtle undermining",
+          "Creating alternatives",
+          "Building coalitions",
+          "Persistent opposition",
+          "Strategic opposition"
+        ]
+      },
+      {
+        "name": "Compete",
+        "action": "compete",
+        "description": "Racing to complete same/similar goal.\n\n**Competition elements:**\n\n- Winner takes all vs shared rewards\n- Sabotage allowed or not\n- Changing rules mid-competition\n- Secret competitions\n- Forced competi",
+        "properties": [
+          "Winner takes all vs shared rewards",
+          "Sabotage allowed or not",
+          "Changing rules mid-competition",
+          "Secret competitions",
+          "Forced competitions",
+          "Cooperation within competition"
+        ]
+      },
+      {
+        "name": "Cooperate",
+        "action": "cooperate",
+        "description": "Working together despite separate goals.\n\n**Cooperation challenges:**\n\n- Trust issues\n- Unequal contribution\n- Credit distribution\n- Temporary vs permanent\n- Forced cooperation\n- Betrayal possibilitie",
+        "properties": [
+          "Trust issues",
+          "Unequal contribution",
+          "Credit distribution",
+          "Temporary vs permanent",
+          "Forced cooperation",
+          "Betrayal possibilities"
+        ]
+      },
+      {
+        "name": "Merge",
+        "action": "merge",
+        "description": "Combining separate chains into one.\n\n**Merge dynamics:**\n\n- Voluntary vs forced mergers\n- Equal vs absorption\n- Temporary vs permanent\n- Partial mergers\n- Failed mergers create conflicts",
+        "properties": [
+          "Voluntary vs forced mergers",
+          "Equal vs absorption",
+          "Temporary vs permanent",
+          "Partial mergers",
+          "Failed mergers create conflicts"
+        ]
+      },
+      {
+        "name": "Split",
+        "action": "split",
+        "description": "Breaking chains into separate paths.\n\n**Split causes:**\n\n- Disagreements\n- Resource limitations\n- Strategic advantage\n- Natural evolution\n- Forced separation\n- Splits can rejoin later",
+        "properties": [
+          "Disagreements",
+          "Resource limitations",
+          "Strategic advantage",
+          "Natural evolution",
+          "Forced separation",
+          "Splits can rejoin later"
+        ]
+      },
+      {
+        "name": "Block",
+        "action": "block",
+        "description": "Preventing actions or chain progression.\n\n**Blocking methods:**\n\n- Physical blocking\n- Legal/rule blocking\n- Social pressure blocking\n- Resource denial\n- Information blocking\n- Temporary vs permanent ",
+        "properties": [
+          "Physical blocking",
+          "Legal/rule blocking",
+          "Social pressure blocking",
+          "Resource denial",
+          "Information blocking",
+          "Temporary vs permanent blocks"
+        ]
+      },
+      {
+        "name": "Bypass",
+        "action": "bypass",
+        "description": "Going around blocks or obstacles.\n\n**Bypass strategies:**\n\n- Alternative routes\n- Exception exploitation\n- Creating new paths\n- Overwhelming blocks\n- Waiting out blocks\n- Cost of bypass",
+        "properties": [
+          "Alternative routes",
+          "Exception exploitation",
+          "Creating new paths",
+          "Overwhelming blocks",
+          "Waiting out blocks",
+          "Cost of bypass"
+        ]
+      },
+      {
+        "name": "Queue",
+        "action": "queue",
+        "description": "Waiting in line for opportunity/resource.\n\n**Queue dynamics:**\n\n- Position matters\n- Can lose place\n- Can trade places\n- Skip conditions\n- Multiple queues\n- Queue jumping penalties",
+        "properties": [
+          "Position matters",
+          "Can lose place",
+          "Can trade places",
+          "Skip conditions",
+          "Multiple queues",
+          "Queue jumping penalties"
+        ]
+      },
+      {
+        "name": "Reserve",
+        "action": "reserve",
+        "description": "Claiming future rights to something.\n\n**Reservation systems:**\n\n- Binding vs non-binding\n- Reservation costs\n- Transfer rights\n- Cancellation penalties\n- Overbooking possible\n- Reservation chains",
+        "properties": [
+          "Binding vs non-binding",
+          "Reservation costs",
+          "Transfer rights",
+          "Cancellation penalties",
+          "Overbooking possible",
+          "Reservation chains"
+        ]
+      },
+      {
+        "name": "Yield",
+        "action": "yield",
+        "description": "Giving way to others.\n\n**Yielding reasons:**\n\n- Forced yielding\n- Strategic yielding\n- Temporary yielding\n- Yielding creates obligation\n- Refusing to yield consequences",
+        "properties": [
+          "Forced yielding",
+          "Strategic yielding",
+          "Temporary yielding",
+          "Yielding creates obligation",
+          "Refusing to yield consequences"
+        ]
+      },
+      {
+        "name": "Persist",
+        "action": "persist",
+        "description": "Continuing despite obstacles.\n\n**Persistence effects:**\n\n- Wears down opposition\n- Costs accumulate\n- Can become obsession\n- Sometimes rewarded\n- Sometimes punished\n- Group persistence powerful",
+        "properties": [
+          "Wears down opposition",
+          "Costs accumulate",
+          "Can become obsession",
+          "Sometimes rewarded",
+          "Sometimes punished",
+          "Group persistence powerful"
+        ]
+      },
+      {
+        "name": "Abandon",
+        "action": "abandon",
+        "description": "Giving up on chains/commitments.\n\n**Abandonment consequences:**\n\n- Penalties apply\n- Reputation damage\n- Resources lost\n- Others affected\n- Can't always return\n- Strategic abandonment",
+        "properties": [
+          "Penalties apply",
+          "Reputation damage",
+          "Resources lost",
+          "Others affected",
+          "Can't always return",
+          "Strategic abandonment"
+        ]
+      },
+      {
+        "name": "Reclaim",
+        "action": "reclaim",
+        "description": "Taking back what was lost/given.\n\n**Reclaiming challenges:**\n\n- Proof of ownership\n- Current possessor resistance\n- Time limits\n- Condition changes\n- Reclaim conflicts\n- Partial reclaiming",
+        "properties": [
+          "Proof of ownership",
+          "Current possessor resistance",
+          "Time limits",
+          "Condition changes",
+          "Reclaim conflicts",
+          "Partial reclaiming"
+        ]
+      },
+      {
+        "name": "Exchange",
+        "action": "exchange",
+        "description": "Trading one thing for another.\n\n**Exchange complexities:**\n\n- Unequal exchanges\n- Delayed exchanges\n- Chain exchanges (A\u2192B\u2192C\u2192A)\n- Forced exchanges\n- Exchange rates fluctuate\n- Failed exchanges",
+        "properties": [
+          "Unequal exchanges",
+          "Delayed exchanges",
+          "Chain exchanges (A\u2192B\u2192C\u2192A)",
+          "Forced exchanges",
+          "Exchange rates fluctuate",
+          "Failed exchanges"
+        ]
+      },
+      {
+        "name": "Transform",
+        "action": "transform",
+        "description": "(Expanded)\n\nChanging something into something else.\n\n**Transformation types:**\n\n- Gradual vs instant\n- Reversible vs permanent\n- Partial vs complete\n- Voluntary vs forced\n- Predictable vs unexpected\n-",
+        "properties": [
+          "Gradual vs instant",
+          "Reversible vs permanent",
+          "Partial vs complete",
+          "Voluntary vs forced",
+          "Predictable vs unexpected",
+          "Chain transformations"
+        ]
+      },
+      {
+        "name": "Combine",
+        "action": "combine",
+        "description": "Putting things together for new result.\n\n**Combination effects:**\n\n- Some combinations explosive\n- Order matters\n- Can't be separated\n- Failed combinations waste resources\n- Secret combinations\n- Comb",
+        "properties": [
+          "Some combinations explosive",
+          "Order matters",
+          "Can't be separated",
+          "Failed combinations waste resources",
+          "Secret combinations",
+          "Combination chains"
+        ]
+      },
+      {
+        "name": "Separate",
+        "action": "separate",
+        "description": "Breaking apart combined things.\n\n**Separation challenges:**\n\n- Some things inseparable\n- Damage during separation\n- Requires special knowledge\n- Creates multiple pieces\n- Value changes",
+        "properties": [
+          "Some things inseparable",
+          "Damage during separation",
+          "Requires special knowledge",
+          "Creates multiple pieces",
+          "Value changes"
+        ]
+      },
+      {
+        "name": "Preserve",
+        "action": "preserve",
+        "description": "Keeping something from changing/degrading.\n\n**Preservation methods:**\n\n- Active maintenance\n- Protective storage\n- Documentation\n- Tradition keeping\n- Cost of preservation\n- Preservation fails event",
+        "properties": [
+          "Active maintenance",
+          "Protective storage",
+          "Documentation",
+          "Tradition keeping",
+          "Cost of preservation",
+          "Preservation fails event"
+        ]
+      }
+    ],
+    "implementation": "Each module is an action players can take in chains"
+  },
+  "distributed_infrastructure": {
+    "total_patterns": 8,
+    "patterns": [
+      {
+        "name": "Redlock / Redisson (Distributed Locking)",
+        "repo": "https://github.com/redisson/redisson",
+        "concepts": [
+          "distributed_locking",
+          "lease_based"
+        ],
+        "use_case": "player_action_locks"
+      },
+      {
+        "name": "Apache Zookeeper (Ephemeral Locks)",
+        "repo": "https://github.com/apache/zookeeper",
+        "concepts": [
+          "distributed_locking",
+          "lease_based"
+        ],
+        "use_case": "commitment_enforcement"
+      },
+      {
+        "name": "etcd (Distributed Lock with TTL)",
+        "repo": "https://github.com/etcd-io/etcd",
+        "concepts": [
+          "distributed_locking",
+          "lease_based",
+          "time_to_live"
+        ],
+        "use_case": "penalty_system"
+      },
+      {
+        "name": "Consul (Session-based Locking)",
+        "repo": "https://github.com/hashicorp/consul",
+        "concepts": [
+          "distributed_locking",
+          "lease_based",
+          "time_to_live",
+          "session_based"
+        ],
+        "use_case": "commitment_enforcement"
+      },
+      {
+        "name": "Hazelcast (Fenced Locks)",
+        "repo": "https://github.com/hazelcast/hazelcast",
+        "concepts": [
+          "distributed_locking",
+          "lease_based",
+          "fencing",
+          "session_based"
+        ],
+        "use_case": "penalty_system"
+      },
+      {
+        "name": "DynamoDB Lock Client",
+        "repo": "https://github.com/awslabs/amazon-dynamodb-lock-client",
+        "concepts": [
+          "distributed_locking",
+          "lease_based",
+          "fencing"
+        ],
+        "use_case": "penalty_system"
+      },
+      {
+        "name": "Temporal (Workflow as Commitment)",
+        "repo": "https://github.com/temporalio/temporal",
+        "concepts": [
+          "distributed_locking"
+        ],
+        "use_case": "commitment_enforcement"
+      },
+      {
+        "name": "State Machines (XState)",
+        "repo": "https://github.com/statelyai/xstate",
+        "concepts": [],
+        "use_case": "commitment_enforcement"
+      }
+    ],
+    "implementation": "Use these repos for commitment/penalty enforcement"
+  },
+  "chain_mechanics": {
+    "total_chains": 1,
+    "example_chains": [
+      [
+        {
+          "step": 1,
+          "action": "witnesses"
+        },
+        {
+          "step": 3,
+          "action": "doubts"
+        },
+        {
+          "step": 4,
+          "action": "investigates"
+        },
+        {
+          "step": 5,
+          "action": "helps"
+        },
+        {
+          "step": 6,
+          "action": "hinders"
+        },
+        {
+          "step": 7,
+          "action": "spies"
+        },
+        {
+          "step": 8,
+          "action": "votes"
+        },
+        {
+          "step": 10,
+          "action": "exposes"
+        },
+        {
+          "step": 11,
+          "action": "threatens"
+        },
+        {
+          "step": 12,
+          "action": "witnesses"
+        }
+      ]
+    ],
+    "implementation": "Chains emerge from player actions, no forced endpoints"
+  },
+  "code_templates": {
+    "total_examples": 44,
+    "by_category": {
+      "commitment_system": [
+        {
+          "language": "python",
+          "purpose": "Game-Specific Examples:",
+          "lines": 14
+        },
+        {
+          "language": "python",
+          "purpose": "unknown",
+          "lines": 14
+        }
+      ],
+      "distributed_locking": [
+        {
+          "language": "java",
+          "purpose": "Key Repos for Lock-Until-Complete Systems",
+          "lines": 21
+        },
+        {
+          "language": "java",
+          "purpose": "2. Apache Zookeeper (Ephemeral Locks)",
+          "lines": 39
+        },
+        {
+          "language": "go",
+          "purpose": "3. etcd (Distributed Lock with TTL)",
+          "lines": 49
+        },
+        {
+          "language": "python",
+          "purpose": "4. Consul (Session-based Locking)",
+          "lines": 42
+        },
+        {
+          "language": "java",
+          "purpose": "5. Hazelcast (Fenced Locks)",
+          "lines": 27
+        },
+        {
+          "language": "java",
+          "purpose": "6. DynamoDB Lock Client",
+          "lines": 31
+        },
+        {
+          "language": "python",
+          "purpose": "Complete Implementation for Gaming",
+          "lines": 118
+        },
+        {
+          "language": "python",
+          "purpose": "Usage Example for Games:",
+          "lines": 26
+        },
+        {
+          "language": "python",
+          "purpose": "Trigger Module - Every Possible Trigger",
+          "lines": 78
+        }
+      ],
+      "general_pattern": [
+        {
+          "language": "python",
+          "purpose": "Persistent Commitment/Restriction Systems",
+          "lines": 36
+        },
+        {
+          "language": "javascript",
+          "purpose": "2. State Machines (XState)",
+          "lines": 39
+        },
+        {
+          "language": "python",
+          "purpose": "Game Mechanics: Balancing Playstyles",
+          "lines": 47
+        },
+        {
+          "language": "python",
+          "purpose": "Commitment Types by Playstyle",
+          "lines": 43
+        },
+        {
+          "language": "python",
+          "purpose": "Modular Admin Toolbox",
+          "lines": 51
+        },
+        {
+          "language": "python",
+          "purpose": "Commitment Module for Admin",
+          "lines": 111
+        },
+        {
+          "language": "python",
+          "purpose": "Admin Dashboard Interface",
+          "lines": 45
+        },
+        {
+          "language": "python",
+          "purpose": "Plug Everything Together",
+          "lines": 25
+        },
+        {
+          "language": "python",
+          "purpose": "Clean Commitment System",
+          "lines": 40
+        },
+        {
+          "language": "python",
+          "purpose": "The REAL Clean Architecture",
+          "lines": 45
+        },
+        {
+          "language": "python",
+          "purpose": "Universal Progress Checker",
+          "lines": 22
+        },
+        {
+          "language": "python",
+          "purpose": "Separate Type Definitions (Infinitely Extensible)",
+          "lines": 54
+        },
+        {
+          "language": "python",
+          "purpose": "Usage - Works for ANY Entity",
+          "lines": 31
+        },
+        {
+          "language": "python",
+          "purpose": "Admin Toolbox Integration",
+          "lines": 23
+        },
+        {
+          "language": "python",
+          "purpose": "Condition Module - Every Check Possible",
+          "lines": 68
+        },
+        {
+          "language": "python",
+          "purpose": "Progress Module - Every Way to Track Progress",
+          "lines": 54
+        },
+        {
+          "language": "python",
+          "purpose": "Usage with Full Configuration",
+          "lines": 155
+        },
+        {
+          "language": "python",
+          "purpose": "The ACTUAL Clean System",
+          "lines": 26
+        },
+        {
+          "language": "python",
+          "purpose": "Types - Define Whatever You Want",
+          "lines": 21
+        },
+        {
+          "language": "python",
+          "purpose": "ONE Progress Checker for Everything",
+          "lines": 23
+        },
+        {
+          "language": "python",
+          "purpose": "Categories System (What You Asked For)",
+          "lines": 44
+        },
+        {
+          "language": "python",
+          "purpose": "The Complete Setup",
+          "lines": 22
+        },
+        {
+          "language": "python",
+          "purpose": "Admin Toolbox Integration",
+          "lines": 21
+        },
+        {
+          "language": "python",
+          "purpose": "Module Structure",
+          "lines": 15
+        },
+        {
+          "language": "python",
+          "purpose": "How Commitment Types Work",
+          "lines": 36
+        },
+        {
+          "language": "python",
+          "purpose": "Adding New Commitment Types",
+          "lines": 16
+        },
+        {
+          "language": "python",
+          "purpose": "Creating a Commitment",
+          "lines": 47
+        },
+        {
+          "language": "python",
+          "purpose": "The Universal Progress Checker",
+          "lines": 56
+        },
+        {
+          "language": "python",
+          "purpose": "Categories System",
+          "lines": 60
+        },
+        {
+          "language": "python",
+          "purpose": "How This Connects to Other Modules",
+          "lines": 33
+        },
+        {
+          "language": "python",
+          "purpose": "Example: How Everything Works Together",
+          "lines": 46
+        }
+      ],
+      "penalty_enforcement": [
+        {
+          "language": "python",
+          "purpose": "Complete Modular Commitment System",
+          "lines": 27
+        },
+        {
+          "language": "python",
+          "purpose": "Complete Type Definition Structure",
+          "lines": 173
+        }
+      ]
+    },
+    "implementation": "Working code to adapt for your system"
+  },
+  "consensus": {
+    "patterns": [
+      {
+        "type": "consensus_mechanism",
+        "properties": [],
+        "text_sample": "Ranked Match Commitment:**\n\npython\n\n```python\n# Player queues for ranked\ncommitment = await system.create_commitment(\n    player_id=player.id,\n    commitment_type='ranked_match',\n    terms={\n        'duration': 3600,  # 1 hour max\n        'requirements': ['complete_match', 'no_afk', 'no_disconnect']"
+      }
+    ],
+    "implementation": "Jack Dorsey-style consensus, not blockchain"
+  }
+}

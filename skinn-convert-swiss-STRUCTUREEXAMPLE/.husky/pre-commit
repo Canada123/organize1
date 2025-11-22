@@ -1,0 +1,11 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+# Run linting on staged files
+npx lint-staged
+
+# Run type checking
+npm run typecheck
+
+# Check for sensitive data
+npx secretlint "**/*"npx lint-staged

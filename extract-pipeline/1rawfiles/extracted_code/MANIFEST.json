@@ -1,0 +1,31 @@
+{
+  "root": "/Users/ashleygeness/Desktop/intelligence/extract-pipeline/1rawfiles",
+  "timestamp": 1763704293.8150017,
+  "processed": 1,
+  "with_code": [
+    {
+      "source": "scripts 5 step extraction.md",
+      "blocks": 17,
+      "files": [
+        "scripts 5 step extraction/load_config.py",
+        "scripts 5 step extraction/load_config_1.py",
+        "scripts 5 step extraction/load_config_1_2.py",
+        "scripts 5 step extraction/load_config_1_2_3.py",
+        "scripts 5 step extraction/load_config_1_2_3_4.py",
+        "scripts 5 step extraction/run_pipeline.py",
+        "scripts 5 step extraction/discover_topics.py",
+        "scripts 5 step extraction/block_8.py",
+        "scripts 5 step extraction/validate_conversation_markers.py",
+        "scripts 5 step extraction/extract_patterns.py",
+        "scripts 5 step extraction/block_11.py",
+        "scripts 5 step extraction/block_12.py",
+        "scripts 5 step extraction/block_13.py",
+        "scripts 5 step extraction/block_14.py",
+        "scripts 5 step extraction/block_15.py",
+        "scripts 5 step extraction/extract_state_transitions.py",
+        "scripts 5 step extraction/block_17.py"
+      ]
+    }
+  ],
+  "total_files": 17
+}

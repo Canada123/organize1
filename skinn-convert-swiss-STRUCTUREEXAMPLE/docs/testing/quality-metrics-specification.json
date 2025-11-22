@@ -1,0 +1,416 @@
+{
+  "metadata": {
+    "specification_name": "GP Referral System - Quality Metrics & Acceptance Criteria",
+    "version": "1.0.0",
+    "created_date": "2025-08-25",
+    "system": "GP Referral Code System",
+    "compliance_standards": ["WCAG 2.1 AA", "Swiss FADP", "Swiss Medical Data Retention"],
+    "framework_versions": {
+      "vitest": "^1.0.0",
+      "playwright": "^1.40.0",
+      "lighthouse": "^11.0.0",
+      "axe-core": "^4.8.0"
+    }
+  },
+
+  "quality_gates": {
+    "code_coverage": {
+      "overall_target": 80,
+      "critical_path_target": 95,
+      "component_breakdown": {
+        "backend_services": {
+          "target": 85,
+          "includes": ["ReferralService", "Database functions", "Edge functions"],
+          "measurement": "Line coverage"
+        },
+        "api_routes": {
+          "target": 80,
+          "includes": ["/api/referral/*"],
+          "measurement": "Branch coverage"
+        },
+        "react_components": {
+          "target": 75,
+          "includes": ["ReferralCodeDisplay", "DoctorUploadPortal", "Atomic components"],
+          "measurement": "Statement coverage"
+        },
+        "utilities": {
+          "target": 90,
+          "includes": ["Validation functions", "Helper utilities"],
+          "measurement": "Function coverage"
+        }
+      },
+      "exclusions": [
+        "Type definitions",
+        "Configuration files",
+        "Test utilities",
+        "Development-only code"
+      ]
+    },
+
+    "performance_budgets": {
+      "backend_performance": {
+        "referral_code_generation": {
+          "target": "< 2 seconds",
+          "measurement": "P95 response time",
+          "load_conditions": "100 concurrent requests"
+        },
+        "code_verification": {
+          "target": "< 500ms", 
+          "measurement": "P95 response time",
+          "load_conditions": "1000 concurrent requests"
+        },
+        "document_upload": {
+          "target": "< 5 seconds",
+          "measurement": "P95 response time", 
+          "file_size": "10MB maximum"
+        },
+        "database_queries": {
+          "code_lookup": "< 50ms",
+          "referral_insert": "< 100ms",
+          "audit_logging": "< 25ms"
+        }
+      },
+      "frontend_performance": {
+        "core_web_vitals": {
+          "lcp": "< 2.5 seconds",
+          "fid": "< 100ms",
+          "cls": "< 0.1"
+        },
+        "referral_code_display": {
+          "time_to_interactive": "< 1 second",
+          "qr_code_generation": "< 200ms",
+          "copy_action_response": "< 50ms"
+        },
+        "doctor_portal": {
+          "form_render": "< 800ms",
+          "validation_feedback": "< 100ms",
+          "file_upload_progress": "< 100ms initial response"
+        },
+        "bundle_size": {
+          "referral_components": "< 50KB gzipped",
+          "total_js_bundle": "< 500KB gzipped",
+          "critical_css": "< 15KB"
+        }
+      }
+    },
+
+    "accessibility_requirements": {
+      "wcag_compliance": {
+        "level": "AA",
+        "version": "2.1",
+        "automated_violations": 0,
+        "manual_audit_required": "Critical user paths"
+      },
+      "component_requirements": {
+        "referral_code_display": {
+          "screen_reader": "Code announced character by character",
+          "keyboard_navigation": "Full keyboard access to all functions",
+          "color_contrast": "7:1 for code text",
+          "focus_indicators": "Visible focus rings on all interactive elements"
+        },
+        "doctor_portal": {
+          "form_labels": "All fields properly labeled",
+          "error_messages": "Associated with inputs via aria-describedby",
+          "progress_indicators": "Upload progress announced via live regions",
+          "success_confirmation": "Success messages announced"
+        }
+      },
+      "testing_requirements": {
+        "automated_testing": "axe-playwright for all components",
+        "manual_testing": "Screen reader testing for critical flows",
+        "browser_testing": "NVDA, JAWS, VoiceOver compatibility"
+      }
+    },
+
+    "security_requirements": {
+      "vulnerability_scans": {
+        "critical_vulnerabilities": 0,
+        "high_vulnerabilities": 0,
+        "medium_vulnerabilities": "< 5",
+        "scan_frequency": "Every release"
+      },
+      "penetration_testing": {
+        "code_brute_force": "Rate limiting effective at 5 attempts/10min",
+        "file_upload_attacks": "Malicious files blocked 100%",
+        "sql_injection": "All database queries parameterized",
+        "xss_prevention": "Input sanitization verified"
+      },
+      "data_protection": {
+        "encryption_at_rest": "All sensitive data encrypted",
+        "encryption_in_transit": "HTTPS enforced",
+        "code_hashing": "bcrypt with appropriate salt rounds",
+        "audit_logging": "All security events logged"
+      }
+    },
+
+    "reliability_requirements": {
+      "error_rates": {
+        "code_generation_success_rate": "> 99.9%",
+        "upload_success_rate": "> 99.5%",
+        "email_delivery_rate": "> 99%",
+        "api_error_rate": "< 0.1%"
+      },
+      "resilience": {
+        "code_collision_handling": "100% collision resolution",
+        "transaction_rollback": "100% rollback on failure",
+        "graceful_degradation": "Email failures don't block core functionality",
+        "retry_mechanisms": "Exponential backoff for transient failures"
+      }
+    }
+  },
+
+  "acceptance_criteria": {
+    "functional_requirements": {
+      "referral_code_generation": {
+        "criteria": [
+          "✅ Generates unique 6-character alphanumeric codes",
+          "✅ Codes are case-insensitive but stored uppercase", 
+          "✅ Collision detection and retry mechanism works",
+          "✅ 30-day expiration set correctly",
+          "✅ Single-use enforcement prevents reuse",
+          "✅ Audit logging captures generation events",
+          "✅ Email notifications sent successfully"
+        ],
+        "test_coverage": "DB-001 through DB-003, EF-001, SRV-001"
+      },
+      "doctor_upload_portal": {
+        "criteria": [
+          "✅ 6-character code entry with validation",
+          "✅ HIN email validation (*.hin.ch domain)",
+          "✅ File type validation (PDF, JPG, PNG only)",
+          "✅ File size validation (10MB maximum)",
+          "✅ Multi-step wizard with progress indication",
+          "✅ GDPR consent requirement enforced",
+          "✅ Upload confirmation and notifications"
+        ],
+        "test_coverage": "COMP-006 through COMP-010, E2E-002, E2E-004"
+      },
+      "data_management": {
+        "criteria": [
+          "✅ Secure file storage in Supabase bucket",
+          "✅ 7-year retention policy for medical documents",
+          "✅ Row-level security policies enforced",
+          "✅ Database referential integrity maintained",
+          "✅ Proper cleanup of expired codes",
+          "✅ Complete audit trail for all operations"
+        ],
+        "test_coverage": "STORAGE-001 through STORAGE-003, INT-003"
+      },
+      "multi_language_support": {
+        "criteria": [
+          "✅ All UI text translated (EN, DE, FR, IT)",
+          "✅ Email templates in all languages",
+          "✅ Error messages localized",
+          "✅ Date/time formatting per locale",
+          "✅ Language switching maintains session state"
+        ],
+        "test_coverage": "E2E-005, EMAIL-001, EMAIL-002"
+      }
+    },
+
+    "non_functional_requirements": {
+      "performance": {
+        "criteria": [
+          "✅ Code generation completes in < 2 seconds",
+          "✅ File upload processes 10MB files in < 5 seconds", 
+          "✅ System handles 1000+ concurrent users",
+          "✅ Database queries execute in < 100ms",
+          "✅ Frontend achieves LCP < 2.5s, CLS < 0.1"
+        ],
+        "test_coverage": "PERF-001 through PERF-003, DB-PERF-001"
+      },
+      "security": {
+        "criteria": [
+          "✅ Zero critical or high severity vulnerabilities",
+          "✅ Rate limiting prevents brute force attacks",
+          "✅ File uploads scanned for malware",
+          "✅ All data encrypted at rest and in transit",
+          "✅ bcrypt hashing for referral codes",
+          "✅ Complete audit logging for compliance"
+        ],
+        "test_coverage": "SEC-001 through SEC-003, COMP-001, COMP-002"
+      },
+      "accessibility": {
+        "criteria": [
+          "✅ WCAG 2.1 AA compliance verified",
+          "✅ Zero automated accessibility violations", 
+          "✅ Screen reader compatibility confirmed",
+          "✅ Keyboard navigation fully functional",
+          "✅ Color contrast ratios meet standards",
+          "✅ Mobile accessibility optimized"
+        ],
+        "test_coverage": "A11Y-001 through A11Y-003"
+      },
+      "usability": {
+        "criteria": [
+          "✅ Intuitive user interface for both patients and doctors",
+          "✅ Clear error messages with recovery instructions",
+          "✅ Progress indicators for multi-step processes",
+          "✅ Responsive design works across all devices",
+          "✅ Fast feedback for user actions (< 100ms)",
+          "✅ Consistent UI patterns with existing application"
+        ],
+        "test_coverage": "MOBILE-001 through MOBILE-003, BROWSER-001 through BROWSER-003"
+      }
+    },
+
+    "compliance_requirements": {
+      "swiss_fadp": {
+        "criteria": [
+          "✅ Patient consent properly tracked and recorded",
+          "✅ Data minimization principles followed",
+          "✅ Right to deletion implemented",
+          "✅ Data processing lawfulness documented",
+          "✅ Cross-border data transfer compliance",
+          "✅ Data breach notification procedures ready"
+        ],
+        "verification": "Manual compliance review required"
+      },
+      "medical_data_retention": {
+        "criteria": [
+          "✅ 7-year retention period enforced for medical documents",
+          "✅ Automatic deletion after retention period",
+          "✅ Secure disposal methods documented",
+          "✅ Data anonymization procedures in place",
+          "✅ Audit trail for data lifecycle events"
+        ],
+        "verification": "Database retention policies verified"
+      },
+      "hin_integration": {
+        "criteria": [
+          "✅ HIN email validation strictly enforced",
+          "✅ Doctor authentication via HIN credentials",
+          "✅ Secure communication with HIN network",
+          "✅ Professional identity verification",
+          "✅ HIN compliance standards met"
+        ],
+        "verification": "HIN email domain validation confirmed"
+      }
+    }
+  },
+
+  "test_metrics_tracking": {
+    "automation_metrics": {
+      "test_automation_coverage": {
+        "target": "> 90%",
+        "measurement": "Automated test cases / Total test cases"
+      },
+      "test_execution_time": {
+        "unit_tests": "< 5 minutes",
+        "integration_tests": "< 15 minutes", 
+        "e2e_tests": "< 30 minutes",
+        "full_suite": "< 45 minutes"
+      },
+      "test_reliability": {
+        "flaky_test_rate": "< 2%",
+        "test_failure_rate": "< 1%"
+      }
+    },
+
+    "defect_metrics": {
+      "bug_discovery": {
+        "critical_bugs": "0 in production",
+        "high_priority_bugs": "< 5 per release",
+        "bug_escape_rate": "< 5%"
+      },
+      "resolution_time": {
+        "critical_bugs": "< 24 hours",
+        "high_priority_bugs": "< 72 hours",
+        "medium_priority_bugs": "< 1 week"
+      }
+    },
+
+    "quality_trends": {
+      "coverage_trends": "Track coverage changes over time",
+      "performance_regression": "Alert on 10% performance degradation",
+      "accessibility_regression": "Alert on new violations",
+      "security_posture": "Monthly security scan results"
+    }
+  },
+
+  "reporting_requirements": {
+    "daily_reports": {
+      "test_execution_summary": "Pass/fail rates, execution times",
+      "coverage_metrics": "Current coverage by component",
+      "defect_status": "New bugs, resolved bugs, open bugs"
+    },
+    "weekly_reports": {
+      "quality_dashboard": "Comprehensive metrics overview",
+      "trend_analysis": "Quality metrics trends and projections",
+      "risk_assessment": "Quality risks and mitigation status"
+    },
+    "release_reports": {
+      "quality_gate_status": "All quality gates pass/fail status",
+      "compliance_verification": "Regulatory compliance confirmation",
+      "performance_benchmarks": "Performance test results summary",
+      "security_assessment": "Security scan and penetration test results"
+    }
+  },
+
+  "tool_configuration": {
+    "vitest_config": {
+      "coverage_threshold": {
+        "global": {
+          "branches": 80,
+          "functions": 80,
+          "lines": 80,
+          "statements": 80
+        },
+        "specific": {
+          "./src/services/referralService.ts": {
+            "branches": 90,
+            "functions": 95,
+            "lines": 90,
+            "statements": 90
+          }
+        }
+      }
+    },
+    "playwright_config": {
+      "performance_budgets": {
+        "lcp": 2500,
+        "fid": 100,
+        "cls": 0.1
+      },
+      "accessibility": {
+        "axe_rules": "wcag21aa",
+        "disableRules": []
+      }
+    },
+    "lighthouse_config": {
+      "performance_score": "> 90",
+      "accessibility_score": "> 95",
+      "best_practices_score": "> 90",
+      "seo_score": "> 85"
+    }
+  },
+
+  "quality_assurance_checklist": [
+    "All test specifications implemented and executed",
+    "Code coverage thresholds met across all components",
+    "Performance budgets satisfied under load",
+    "Security vulnerabilities addressed and verified",
+    "Accessibility compliance confirmed (WCAG 2.1 AA)",
+    "Swiss healthcare compliance requirements met",
+    "Cross-browser compatibility verified",
+    "Mobile responsiveness tested and optimized",
+    "Error handling and edge cases covered",
+    "Data integrity and retention policies validated",
+    "Email notification delivery confirmed",
+    "Multi-language support functioning correctly",
+    "Audit logging and monitoring configured",
+    "Rollback procedures tested and documented",
+    "User acceptance testing completed successfully"
+  ],
+
+  "success_criteria_summary": {
+    "functional_completeness": "100% of functional requirements met",
+    "quality_standards": "All quality gates passed",
+    "performance_targets": "All performance budgets met",
+    "security_compliance": "Zero critical vulnerabilities",
+    "accessibility_compliance": "WCAG 2.1 AA certified",
+    "regulatory_compliance": "Swiss FADP requirements satisfied",
+    "test_automation": "> 90% test automation coverage",
+    "defect_rate": "< 5% bug escape rate to production"
+  }
+}

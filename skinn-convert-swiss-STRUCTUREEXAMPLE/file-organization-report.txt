@@ -1,0 +1,12 @@
+File Organization Scan Report
+Generated: Tue Aug 26 20:02:23 CEST 2025
+==========================
+
+Total Violations: 4
+
+Details:
+
+  CLAUDE-process-v2.md → /docs/ or /context/
+  CLAUDE-v2.md → /docs/ or /context/
+  MIGRATION-GUIDE-v2.md → /docs/ or /context/
+  REVAMP-SUMMARY.md → /docs/ or /context/

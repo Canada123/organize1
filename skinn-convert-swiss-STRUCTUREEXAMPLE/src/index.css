@@ -1,0 +1,533 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Base Variables - S&W Design Theme (Default) - WCAG 2.1 AA COMPLIANT */
+    --background: 0 0% 100%;
+    --foreground: 0 0% 5%; /* #0D0D0D - Near Black for headlines */
+    --card: 0 0% 100%;
+    --card-foreground: 0 0% 5%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 0 0% 5%;
+    --primary: 208 87% 39%; /* #0d69ba - ACCESSIBILITY COMPLIANT Primary Blue (5.60:1 contrast) */
+    --primary-foreground: 0 0% 100%;
+    --secondary: 30 29% 91%; /* #EEE8E1 - Cream */
+    --secondary-foreground: 209 100% 29%; /* #004C96 - Dark Blue */
+    --muted: 0 0% 95%; /* #F2F2F2 - Off White */
+    --muted-foreground: 213 11% 33%; /* #475259 - Charcoal for body text */
+    --accent: 245 48% 47%; /* #5549A6 - Purple */
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 90%;
+    --input: 0 0% 90%;
+    --ring: 208 87% 39%; /* ACCESSIBILITY COMPLIANT Primary Blue focus ring */
+    --radius: 0.5rem;
+
+    /* Medical Blue Palette - Clinical Trust & Precision */
+    --primary-navy: 210 85% 25%;
+    --primary-charcoal: 210 12% 40%;
+    --medical-teal: 185 55% 50%;
+    --bridge-teal: 195 50% 45%;
+    --action-red: 0 70% 58%;
+    --success-green: 142 71% 45%;
+    --swiss-red: 348 84% 48%;
+    --trust-blue: 210 70% 40%;
+    --medical-grade: 168 80% 38%;
+    --clinical-white: 210 20% 98%;
+    --swiss-silver: 210 8% 75%;
+    --precision-gray: 210 10% 85%;
+    
+    /* S&W Design Landing Page Palette (2025) - ACCESSIBILITY COMPLIANT */
+    --lp-primary-blue: 208 87% 39%; /* #0d69ba - ACCESSIBILITY COMPLIANT CTAs and primary actions */
+    --lp-dark-blue: 209 100% 29%; /* #004C96 - Headers and strong emphasis */
+    --lp-charcoal: 213 11% 33%; /* #475259 - Body text and secondary content */
+    --lp-black: 0 0% 5%; /* #0D0D0D - Main headlines and high contrast text */
+    --lp-purple: 245 48% 47%; /* #5549A6 - Accent color for highlights and comparison */
+    --lp-purple-light: 255 65% 82%; /* #BCA2F2 - Light purple for gradients */
+    --lp-white: 0 0% 95%; /* #F2F2F2 - Off-white backgrounds */
+    --lp-cream: 30 29% 91%; /* #EEE8E1 - Cream section backgrounds */
+    
+    /* Advanced Gradient System */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--medical-teal)));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary) / 0.03), hsl(var(--medical-teal) / 0.02));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));
+    --gradient-cta: linear-gradient(120deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-button: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--bridge-teal)));
+    --gradient-trust: linear-gradient(135deg, hsl(var(--trust-blue)), hsl(var(--medical-grade)));
+    --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
+    --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
+    
+    /* Landing Page Design Gradients (2025) - ACCESSIBILITY COMPLIANT */
+    --gradient-lp-hero: linear-gradient(180deg, rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.1));
+    --gradient-lp-timeline: linear-gradient(135deg, hsl(var(--lp-primary-blue)), hsl(var(--lp-dark-blue)));
+    --gradient-lp-purple: linear-gradient(135deg, hsl(var(--lp-purple)), hsl(var(--lp-purple-light) / 0.7));
+    --gradient-lp-cream: linear-gradient(180deg, hsl(var(--lp-cream)), hsl(var(--lp-white)));
+  }
+
+  /* Professional Teal Theme */
+  [data-theme="professional-teal"] {
+    --primary: 185 55% 45%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 168 60% 35%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 185 30% 96%;
+    --muted-foreground: 185 15% 50%;
+    --secondary: 185 25% 94%;
+    --secondary-foreground: 185 60% 20%;
+    --ring: 185 55% 45%;
+    
+    --primary-navy: 185 55% 45%;
+    --medical-teal: 168 60% 35%;
+    --bridge-teal: 175 50% 40%;
+    --trust-blue: 185 70% 35%;
+    --medical-grade: 168 80% 30%;
+  }
+
+  /* Swiss Innovation Theme */
+  [data-theme="swiss-innovation"] {
+    --primary: 348 84% 48%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 210 8% 45%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 210 15% 96%;
+    --muted-foreground: 210 8% 50%;
+    --secondary: 210 10% 94%;
+    --secondary-foreground: 210 30% 20%;
+    --ring: 348 84% 48%;
+    
+    --primary-navy: 210 30% 25%;
+    --medical-teal: 210 8% 45%;
+    --bridge-teal: 210 15% 40%;
+    --trust-blue: 210 50% 35%;
+    --medical-grade: 210 20% 30%;
+    --swiss-red: 348 84% 48%;
+  }
+
+  /* Soft Blue-Teal Theme */
+  [data-theme="soft-blue-teal"] {
+    --primary: 187 85% 55%;
+    --primary-foreground: 0 0% 100%;
+    --accent: 190 75% 45%;
+    --accent-foreground: 0 0% 100%;
+    --muted: 187 45% 96%;
+    --muted-foreground: 187 20% 50%;
+    --secondary: 187 30% 94%;
+    --secondary-foreground: 187 65% 20%;
+    --ring: 187 85% 55%;
+    
+    --primary-navy: 187 70% 35%;
+    --medical-teal: 190 75% 45%;
+    --bridge-teal: 185 65% 50%;
+    --trust-blue: 192 60% 40%;
+    --medical-grade: 190 85% 35%;
+  }
+
+  /* Myant Blue & Violet Theme */
+  [data-theme="myant-violet"] {
+    /* Core colors based on Myant branding */
+    --primary: 210 100% 15%; /* Deep Myant Blue #002B5C */
+    --primary-foreground: 0 0% 100%;
+    --accent: 270 85% 55%; /* Vibrant Violet #7C3AED */
+    --accent-foreground: 0 0% 100%;
+    --secondary: 210 30% 94%;
+    --secondary-foreground: 210 100% 15%;
+    --muted: 210 20% 96%;
+    --muted-foreground: 210 20% 40%;
+    --foreground: 210 100% 15%; /* Dark blue for text */
+    --background: 0 0% 100%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 100% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 100% 15%;
+    --border: 210 20% 90%;
+    --input: 210 20% 90%;
+    --ring: 270 85% 55%; /* Violet focus ring */
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    
+    /* Extended palette */
+    --myant-blue: 210 100% 15%; /* #002B5C */
+    --myant-blue-light: 210 85% 25%;
+    --myant-blue-dark: 210 100% 10%;
+    --violet-primary: 270 85% 55%; /* #7C3AED */
+    --violet-light: 270 70% 65%;
+    --violet-dark: 270 90% 45%;
+    --violet-muted: 270 50% 90%;
+    
+    /* Theme-specific colors */
+    --primary-navy: 210 100% 15%;
+    --primary-charcoal: 210 20% 30%;
+    --medical-teal: 185 60% 45%;
+    --bridge-teal: 195 55% 40%;
+    --action-red: 0 70% 58%;
+    --success-green: 142 71% 45%;
+    --swiss-red: 348 84% 48%;
+    --trust-blue: 210 90% 35%;
+    --medical-grade: 168 70% 35%;
+    --clinical-white: 210 20% 98%;
+    --swiss-silver: 210 8% 75%;
+    --precision-gray: 210 10% 85%;
+    
+    /* Gradient system with violet accents */
+    --gradient-primary: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--accent)));
+    --gradient-subtle: linear-gradient(135deg, hsl(var(--primary) / 0.03), hsl(var(--accent) / 0.02));
+    --gradient-hero: linear-gradient(135deg, hsl(var(--primary) / 0.05), hsl(var(--accent) / 0.05));
+    --gradient-cta: linear-gradient(120deg, hsl(var(--accent)), hsl(var(--violet-dark)));
+    --gradient-button: linear-gradient(135deg, hsl(var(--accent)), hsl(var(--violet-dark)));
+    --gradient-trust: linear-gradient(135deg, hsl(var(--primary)), hsl(var(--myant-blue-light)));
+    --gradient-swiss: linear-gradient(135deg, hsl(var(--swiss-red) / 0.1), hsl(var(--precision-gray) / 0.05));
+    --gradient-medical: linear-gradient(135deg, hsl(var(--medical-grade)), hsl(var(--medical-teal)));
+  }
+
+  /* S&W Design Theme - Uses root defaults - WCAG 2.1 AA COMPLIANT */
+  [data-theme="sw-design"] {
+    /* Theme uses root defaults - accessibility-compliant colors */
+  }
+
+  /* Original Theme (Medical Blue) */
+  [data-theme="original"] {
+    --background: 0 0% 100%;
+    --foreground: 210 15% 35%;
+    --card: 0 0% 100%;
+    --card-foreground: 210 15% 35%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 210 15% 35%;
+    --primary: 210 85% 25%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 210 40% 94%;
+    --secondary-foreground: 210 60% 20%;
+    --muted: 210 40% 96%;
+    --muted-foreground: 210 15% 50%;
+    --accent: 195 60% 45%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 60% 50%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 0 0% 89%;
+    --input: 0 0% 89%;
+    --ring: 210 85% 25%;
+
+    --primary-navy: 210 85% 25%;
+    --medical-teal: 185 55% 50%;
+    --bridge-teal: 195 50% 45%;
+    --trust-blue: 210 70% 40%;
+    --medical-grade: 168 80% 38%;
+  }
+    
+  
+  /* Shadow System */
+  --shadow-medical: 0 4px 20px rgba(30, 58, 95, 0.08);
+  --shadow-trust: 0 8px 30px rgba(0, 121, 107, 0.12);
+  --shadow-swiss: 0 2px 15px rgba(218, 41, 28, 0.08);
+  --shadow-precision: 0 1px 10px rgba(113, 119, 133, 0.15);
+
+  --sidebar-background: 0 0% 98%;
+  --sidebar-foreground: 240 5.3% 26.1%;
+  --sidebar-primary: 210 50% 35%;
+  --sidebar-primary-foreground: 0 0% 98%;
+  --sidebar-accent: 240 4.8% 95.9%;
+  --sidebar-accent-foreground: 240 5.9% 10%;
+  --sidebar-border: 220 13% 91%;
+  --sidebar-ring: 210 50% 35%;
+  }
+
+  .dark {
+    --background: 224 71% 4%;
+    --foreground: 210 40% 98%;
+
+    --card: 224 71% 4%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 224 71% 4%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 50% 45%;
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 217.2 32.6% 17.5%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217.2 32.6% 17.5%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 168 65% 42%;
+    --accent-foreground: 210 40% 98%;
+
+    --destructive: 0 62.8% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217.2 32.6% 17.5%;
+    --input: 217.2 32.6% 17.5%;
+    --ring: 210 50% 45%;
+
+    /* Dark mode medical colors */
+    --primary-navy: 210 50% 45%;
+    --medical-teal: 168 65% 42%;
+    --bridge-teal: 185 55% 38%;
+    --action-red: 0 62.8% 50%;
+  }
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif;
+  }
+}
+
+@layer utilities {
+  .bg-gradient-primary {
+    background: var(--gradient-primary);
+  }
+  
+  .bg-gradient-subtle {
+    background: var(--gradient-subtle);
+  }
+  
+  .bg-gradient-hero {
+    background: var(--gradient-hero);
+  }
+  
+  .bg-gradient-cta {
+    background: var(--gradient-cta);
+  }
+  
+  .bg-gradient-button {
+    background: var(--gradient-button);
+  }
+  
+  .bg-gradient-trust {
+    background: var(--gradient-trust);
+  }
+  
+  .bg-gradient-swiss {
+    background: var(--gradient-swiss);
+  }
+  
+  .bg-gradient-medical {
+    background: var(--gradient-medical);
+  }
+  
+  /* Landing Page Design Gradients */
+  .bg-gradient-lp-hero {
+    background: var(--gradient-lp-hero);
+  }
+  
+  .bg-gradient-lp-timeline {
+    background: var(--gradient-lp-timeline);
+  }
+  
+  .bg-gradient-lp-purple {
+    background: var(--gradient-lp-purple);
+  }
+  
+  .bg-gradient-lp-cream {
+    background: var(--gradient-lp-cream);
+  }
+  
+  .shadow-medical {
+    box-shadow: var(--shadow-medical);
+  }
+  
+  .shadow-trust {
+    box-shadow: var(--shadow-trust);
+  }
+  
+  .shadow-swiss {
+    box-shadow: var(--shadow-swiss);
+  }
+  
+  .shadow-precision {
+    box-shadow: var(--shadow-precision);
+  }
+
+  .section-padding {
+    @apply py-16 md:py-24;
+  }
+
+  .container-custom {
+    @apply px-4 sm:px-6 lg:px-8 mx-auto max-w-7xl;
+  }
+
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  /* Subtle Container Styles for Section Separation */
+  .content-container {
+    @apply relative overflow-hidden;
+  }
+  
+  .content-container-light {
+    @apply bg-muted/20;
+  }
+  
+  .content-container-medium {
+    @apply bg-muted/30;
+  }
+  
+  .content-container-dark {
+    @apply bg-muted/40;
+  }
+  
+  /* Subtle borders for additional separation */
+  .container-border-top {
+    @apply border-t border-muted/50;
+  }
+  
+  .container-border-bottom {
+    @apply border-b border-muted/50;
+  }
+  
+  /* Smooth transitions between sections */
+  .section-transition {
+    @apply transition-all duration-300 ease-in-out;
+  }
+}
+
+@keyframes gradient {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 0%;
+  }
+}
+
+.animate-gradient {
+  animation: gradient 8s infinite alternate ease-in-out;
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+.animate-float {
+  animation: float 6s ease-in-out infinite;
+}
+
+/* Fade animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse-subtle {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.animate-fadeIn {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+.animate-fadeInUp {
+  animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 2s ease-in-out infinite;
+}
+
+/* Animation delays */
+.animation-delay-100 {
+  animation-delay: 100ms;
+}
+
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+
+.animation-delay-300 {
+  animation-delay: 300ms;
+}
+
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+
+.animation-delay-500 {
+  animation-delay: 500ms;
+}
+
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+
+.animation-delay-700 {
+  animation-delay: 700ms;
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+  
+  .animate-gradient,
+  .animate-float,
+  .animate-fadeIn,
+  .animate-fadeInUp,
+  .animate-pulse-subtle,
+  .hover\\:scale-105:hover,
+  .hover\\:-translate-y-2:hover,
+  .hover\\:-translate-y-0\\.5:hover,
+  .hover\\:-translate-y-1:hover {
+    animation: none !important;
+    transform: none !important;
+  }
+}
+
+/* Animation Classes for Eligibility Form - Consolidated */
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* fadeIn already defined above - removed duplicate */
+
+.animate-slideIn {
+  animation: slideIn 0.3s ease-out;
+}
+
+/* animate-fadeIn already defined above with 0.8s - removed duplicate */

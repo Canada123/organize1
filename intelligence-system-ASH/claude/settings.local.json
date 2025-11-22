@@ -1,0 +1,44 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(for template in planning-session.json todo-session.json workbook-session.json event-stream-session.json)",
+      "Bash(do test -f \"templates/$template\")",
+      "Bash(echo:*)",
+      "Bash(done)",
+      "Bash(for cmd in intel orchestrate search validate workflow)",
+      "Bash(do test:*)",
+      "Bash(cat:*)",
+      "Bash(test:*)",
+      "Bash(node:*)",
+      "Bash(command -v:*)",
+      "Bash(/dev/null)",
+      "Read(//Users/ashleygeness/Desktop/ontology index/Rcorpa/**)",
+      "Bash(python3:*)",
+      "Read(//Users/ashleygeness/Desktop/game_items/optolith-client-develop/**)",
+      "Read(//Users/ashleygeness/Desktop/game_items/entity-descriptions-main/**)",
+      "Read(//Users/ashleygeness/Desktop/game_items/elyukai_optolith-database-schema/**)",
+      "Read(//Users/ashleygeness/Desktop/game_items/**)",
+      "Bash(npm run build:gen:*)",
+      "Bash(npm install)",
+      "Bash(for dir in \"Cataclysm-DDA-master\" \"5etools-master #GAME\" \"dariusk_corpora\" \"entity-descriptions-main\" \"elyukai_optolith-database-schema\")",
+      "Bash(do echo -n \"$dir: \")",
+      "Bash(find:*)",
+      "Bash(uuidgen)",
+      "Bash(SESSION_ID=\"58c08d44-75c2-4755-8de8-0d9ac2f42664\")",
+      "Bash(mkdir -p session workflow/{planning,intel,packages,outputs,final,errors})",
+      "Read(//Users/ashleygeness/Desktop/ontology index/**)",
+      "Read(//Users/ashleygeness/Desktop/untitled folder/code-analysis/**)",
+      "Read(//Users/ashleygeness/Desktop/untitled folder/product-spec/**)",
+      "Bash(pip3 install pyyaml)",
+      "Read(//Users/ashleygeness/Desktop/Riddim/MAIN OPEN FILES/**)",
+      "Read(//Users/ashleygeness/Desktop/Riddim/**)"
+    ]
+  },
+  "enableAllProjectMcpServers": true,
+  "enabledMcpjsonServers": [
+    "brave-search",
+    "context7",
+    "mcp-server-firecrawl",
+    "shadcn"
+  ]
+}

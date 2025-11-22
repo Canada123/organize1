@@ -1,0 +1,1483 @@
+{
+  "metadata": {
+    "specification_name": "GP Referral Code System - Test Specifications",
+    "version": "1.0.0",
+    "created_date": "2025-08-25",
+    "system_under_test": "GP Referral Code System",
+    "test_framework_stack": {
+      "unit_tests": "Vitest",
+      "component_tests": "React Testing Library", 
+      "integration_tests": "Vitest + Supabase Test Client",
+      "e2e_tests": "Playwright",
+      "visual_tests": "Playwright + Percy",
+      "accessibility_tests": "axe-playwright",
+      "performance_tests": "Lighthouse CI + Artillery",
+      "security_tests": "Custom security test suite"
+    },
+    "coverage_requirements": {
+      "backend_services": "85%",
+      "api_routes": "80%",
+      "react_components": "75%",
+      "edge_functions": "80%",
+      "overall_target": "80%"
+    },
+    "test_data_location": "/tests/fixtures/referral-system/",
+    "test_results_location": "/archive/tests/YYYY-MM-DD/"
+  },
+
+  "test_strategy": {
+    "test_pyramid": {
+      "unit_tests": {
+        "percentage": "60%",
+        "focus": "Individual functions, utilities, components in isolation",
+        "execution_time": "< 5 minutes for full suite"
+      },
+      "integration_tests": {
+        "percentage": "30%",
+        "focus": "API routes, database operations, service interactions",
+        "execution_time": "< 15 minutes for full suite"
+      },
+      "e2e_tests": {
+        "percentage": "10%",
+        "focus": "Critical user journeys and business workflows",
+        "execution_time": "< 30 minutes for full suite"
+      }
+    },
+    "testing_phases": {
+      "phase_1_unit": "Test individual components and services in isolation",
+      "phase_2_integration": "Test API endpoints and database operations", 
+      "phase_3_e2e": "Test complete user workflows",
+      "phase_4_performance": "Load testing and performance validation",
+      "phase_5_security": "Security vulnerability testing",
+      "phase_6_accessibility": "WCAG 2.1 AA compliance validation"
+    }
+  },
+
+  "test_environments": {
+    "development": {
+      "database": "Local Supabase instance",
+      "storage": "Local storage emulator",
+      "email": "Mock email service",
+      "auth": "Test auth tokens"
+    },
+    "ci_cd": {
+      "database": "Ephemeral test database",
+      "storage": "Test bucket",
+      "email": "Test email service",
+      "parallelization": "4 workers"
+    },
+    "staging": {
+      "database": "Staging Supabase project",
+      "storage": "Staging bucket",
+      "email": "Test email service",
+      "real_data": "Anonymized production-like data"
+    }
+  },
+
+  "backend_test_specifications": {
+    "database_tests": {
+      "test_suite": "Database Schema and Functions",
+      "framework": "Vitest + Supabase Test Client",
+      "test_cases": [
+        {
+          "id": "DB-001",
+          "description": "Verify referral_codes table creation and constraints",
+          "preconditions": ["Clean database state"],
+          "test_steps": [
+            "Connect to test database",
+            "Verify referral_codes table exists",
+            "Check all columns and data types",
+            "Verify primary key and foreign key constraints",
+            "Test unique constraint on code field",
+            "Verify check constraints on status field"
+          ],
+          "expected_result": "Table exists with correct schema and constraints",
+          "test_data": "None required",
+          "priority": "High"
+        },
+        {
+          "id": "DB-002", 
+          "description": "Test generate_referral_code function",
+          "preconditions": ["Valid form session exists"],
+          "test_steps": [
+            "Create test form session in Stage 3A+",
+            "Call generate_referral_code function",
+            "Verify code is 6 characters alphanumeric",
+            "Verify code is unique in database",
+            "Verify bcrypt hash is stored correctly",
+            "Verify expiration is set to 30 days from now",
+            "Verify audit event is logged"
+          ],
+          "expected_result": "Unique code generated with proper metadata",
+          "test_data": {
+            "form_session_id": "550e8400-e29b-41d4-a716-446655440000",
+            "user_id": "123e4567-e89b-12d3-a456-426614174000", 
+            "patient_name": "Test Patient",
+            "patient_email": "patient@test.ch",
+            "eligibility_score": 85
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "DB-003",
+          "description": "Test code collision handling in generate_referral_code",
+          "preconditions": ["Database with many existing codes"],
+          "test_steps": [
+            "Pre-populate database with 100,000 referral codes",
+            "Mock gen_random_bytes to return predictable values",
+            "Call generate_referral_code function",
+            "Verify function retries on collision",
+            "Verify maximum retry limit is enforced",
+            "Verify eventual success with unique code"
+          ],
+          "expected_result": "Function handles collisions gracefully",
+          "test_data": "Large dataset of existing codes",
+          "priority": "Medium"
+        },
+        {
+          "id": "DB-004",
+          "description": "Test verify_and_use_referral_code function",
+          "preconditions": ["Active referral code exists"],
+          "test_steps": [
+            "Create active referral code",
+            "Call verify_and_use_referral_code with valid code",
+            "Verify code is marked as 'used'",
+            "Verify used_at timestamp is set",
+            "Verify used_by_referral_id is set",
+            "Verify form_session.gp_referral_status updated",
+            "Attempt to use same code again",
+            "Verify second attempt fails"
+          ],
+          "expected_result": "Code verified once and marked as used",
+          "test_data": {
+            "referral_code": "ABC123",
+            "referral_id": "550e8400-e29b-41d4-a716-446655440001"
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "DB-005",
+          "description": "Test doctor_referrals table constraints",
+          "preconditions": ["Clean database state"],
+          "test_steps": [
+            "Attempt to insert doctor referral with invalid HIN email",
+            "Verify constraint violation error",
+            "Insert valid doctor referral",
+            "Verify foreign key relationships work",
+            "Test GDPR consent requirement",
+            "Verify retention period calculation"
+          ],
+          "expected_result": "Constraints enforced correctly",
+          "test_data": {
+            "invalid_hin_email": "doctor@gmail.com",
+            "valid_hin_email": "doctor@test.hin.ch",
+            "gdpr_consent": true
+          },
+          "priority": "High"
+        }
+      ]
+    },
+
+    "edge_functions_tests": {
+      "test_suite": "Supabase Edge Functions",
+      "framework": "Vitest + Supabase Functions Test Client",
+      "test_cases": [
+        {
+          "id": "EF-001",
+          "description": "Test generate-referral-code Edge Function",
+          "preconditions": ["Mock Supabase client", "Mock Resend API"],
+          "test_steps": [
+            "Send POST request with valid form data",
+            "Mock database function call",
+            "Verify response contains generated code",
+            "Verify email notification is sent",
+            "Test with missing required fields",
+            "Verify error handling"
+          ],
+          "expected_result": "Code generated and email sent successfully",
+          "test_data": {
+            "formSessionId": "550e8400-e29b-41d4-a716-446655440000",
+            "patientName": "John Doe",
+            "patientEmail": "john@test.ch"
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "EF-002",
+          "description": "Test upload-doctor-referral Edge Function", 
+          "preconditions": ["Mock multiparser", "Mock file upload"],
+          "test_steps": [
+            "Send multipart form with valid data and file",
+            "Verify file size validation (10MB limit)",
+            "Verify file type validation (PDF/images only)",
+            "Verify HIN email validation",
+            "Mock Supabase storage upload",
+            "Verify database records creation",
+            "Verify notification emails sent",
+            "Test error scenarios"
+          ],
+          "expected_result": "Document uploaded and processed successfully",
+          "test_data": {
+            "file": "test-referral.pdf (2MB)",
+            "doctorInfo": {
+              "referralCode": "XYZ789",
+              "doctorName": "Dr. Smith",
+              "doctorHinEmail": "smith@clinic.hin.ch",
+              "clinicName": "Test Clinic",
+              "gdprConsent": true
+            }
+          },
+          "priority": "Critical"
+        }
+      ]
+    },
+
+    "api_routes_tests": {
+      "test_suite": "Next.js API Routes",
+      "framework": "Vitest + Next.js Test Utils",
+      "test_cases": [
+        {
+          "id": "API-001",
+          "description": "Test /api/referral/generate-code endpoint",
+          "preconditions": ["Mock ReferralService"],
+          "test_steps": [
+            "Send POST request with valid data",
+            "Verify service method called correctly",
+            "Test error handling for invalid data",
+            "Test rate limiting enforcement",
+            "Verify response format and status codes"
+          ],
+          "expected_result": "API responds with generated code data",
+          "test_data": {
+            "formSessionId": "test-session-id",
+            "patientName": "Test Patient"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "API-002",
+          "description": "Test /api/referral/verify-code endpoint",
+          "preconditions": ["Mock ReferralService"],
+          "test_steps": [
+            "Send POST request with valid code",
+            "Verify code verification logic",
+            "Test with invalid code",
+            "Test with expired code", 
+            "Test with already used code",
+            "Verify appropriate error responses"
+          ],
+          "expected_result": "Code verification results returned correctly",
+          "test_data": {
+            "valid_code": "ABC123",
+            "invalid_code": "INVALID",
+            "expired_code": "OLD123",
+            "used_code": "USED99"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "API-003",
+          "description": "Test /api/referral/upload endpoint",
+          "preconditions": ["Mock file upload handlers"],
+          "test_steps": [
+            "Send multipart form with file and data",
+            "Verify file validation logic",
+            "Test upload service integration",
+            "Test error handling for various scenarios",
+            "Verify response format"
+          ],
+          "expected_result": "Upload handled correctly with proper responses",
+          "test_data": {
+            "file": "mock-file.pdf",
+            "doctorData": "Valid doctor information"
+          },
+          "priority": "High"
+        }
+      ]
+    },
+
+    "service_layer_tests": {
+      "test_suite": "ReferralService Business Logic",
+      "framework": "Vitest",
+      "test_cases": [
+        {
+          "id": "SRV-001",
+          "description": "Test ReferralService.generateReferralCode method",
+          "preconditions": ["Mock fetch API"],
+          "test_steps": [
+            "Call method with valid parameters",
+            "Verify API call made with correct data",
+            "Test error handling for API failures",
+            "Verify return value format",
+            "Test parameter validation"
+          ],
+          "expected_result": "Service method works correctly",
+          "test_data": {
+            "formSessionId": "test-123",
+            "patientName": "John Doe",
+            "patientEmail": "john@test.ch"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "SRV-002",
+          "description": "Test ReferralService.verifyReferralCode method",
+          "preconditions": ["Mock fetch API"],
+          "test_steps": [
+            "Call method with valid code",
+            "Verify API call format",
+            "Test response parsing",
+            "Test error scenarios",
+            "Verify type safety"
+          ],
+          "expected_result": "Code verification works as expected",
+          "test_data": {
+            "code": "ABC123"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "SRV-003",
+          "description": "Test ReferralService.uploadDoctorReferral method",
+          "preconditions": ["Mock FormData and fetch"],
+          "test_steps": [
+            "Call method with DoctorUploadData",
+            "Verify FormData construction",
+            "Verify API call with multipart data",
+            "Test file handling",
+            "Test error scenarios"
+          ],
+          "expected_result": "Upload service works correctly",
+          "test_data": {
+            "doctorData": "Complete doctor information",
+            "file": "Mock File object"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "SRV-004",
+          "description": "Test ReferralService.downloadReferralPacket method",
+          "preconditions": ["Mock PDF generation"],
+          "test_steps": [
+            "Call method with referral code",
+            "Verify PDF generation logic",
+            "Test blob creation",
+            "Verify content includes code and instructions",
+            "Test error handling"
+          ],
+          "expected_result": "PDF packet generated successfully",
+          "test_data": {
+            "referralCode": "ABC123"
+          },
+          "priority": "Medium"
+        },
+        {
+          "id": "SRV-005",
+          "description": "Test ReferralService.shareReferralCode method",
+          "preconditions": ["Mock navigator.share API"],
+          "test_steps": [
+            "Test SMS sharing",
+            "Test email sharing",
+            "Test native share API fallback",
+            "Verify sharing content format",
+            "Test error handling for unsupported methods"
+          ],
+          "expected_result": "Sharing methods work correctly",
+          "test_data": {
+            "code": "ABC123",
+            "recipient": "doctor@clinic.ch"
+          },
+          "priority": "Medium"
+        }
+      ]
+    }
+  },
+
+  "frontend_test_specifications": {
+    "component_tests": {
+      "test_suite": "React Components",
+      "framework": "React Testing Library + Vitest",
+      "test_cases": [
+        {
+          "id": "COMP-001",
+          "description": "Test ReferralCodeDisplay component",
+          "preconditions": ["Component rendered with props"],
+          "test_steps": [
+            "Render with valid code and patient data",
+            "Verify code is displayed correctly",
+            "Verify QR code is generated",
+            "Test copy to clipboard functionality",
+            "Test share buttons functionality",
+            "Test expiration countdown display",
+            "Test accessibility attributes"
+          ],
+          "expected_result": "Component displays code with all features working",
+          "test_data": {
+            "code": "ABC123",
+            "patientName": "John Doe", 
+            "generatedAt": "2025-08-25T10:00:00Z",
+            "language": "en"
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "COMP-002",
+          "description": "Test ReferralCodeQR atomic component",
+          "preconditions": ["Component rendered with code"],
+          "test_steps": [
+            "Render with referral code",
+            "Verify QR code SVG is generated",
+            "Verify QR code contains correct data",
+            "Test download functionality",
+            "Test responsive sizing",
+            "Test accessibility labels"
+          ],
+          "expected_result": "QR code generated and interactive",
+          "test_data": {
+            "code": "ABC123",
+            "size": 200
+          },
+          "priority": "High"
+        },
+        {
+          "id": "COMP-003",
+          "description": "Test ReferralCodeText atomic component", 
+          "preconditions": ["Component rendered with code"],
+          "test_steps": [
+            "Render with 6-character code",
+            "Verify code display format (ABC-123)",
+            "Test copy button functionality", 
+            "Test clipboard API integration",
+            "Verify success feedback display",
+            "Test keyboard accessibility"
+          ],
+          "expected_result": "Code displayed with working copy function",
+          "test_data": {
+            "code": "ABC123"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "COMP-004",
+          "description": "Test ExpiryNotice atomic component",
+          "preconditions": ["Component with expiry date"],
+          "test_steps": [
+            "Render with future expiry date",
+            "Verify countdown timer works",
+            "Test different time remaining scenarios",
+            "Test urgency indicators (colors)",
+            "Test expired state display",
+            "Verify timer updates every second"
+          ],
+          "expected_result": "Countdown displays correctly with visual indicators",
+          "test_data": {
+            "expiresAt": "2025-09-25T10:00:00Z"
+          },
+          "priority": "Medium"
+        },
+        {
+          "id": "COMP-005",
+          "description": "Test ReferralCodeActions atomic component",
+          "preconditions": ["Component with sharing functions"],
+          "test_steps": [
+            "Render with action callbacks",
+            "Test download PDF button",
+            "Test email sharing button",
+            "Test print button",
+            "Test SMS sharing button",
+            "Verify callback functions are called",
+            "Test disabled states"
+          ],
+          "expected_result": "All action buttons work correctly",
+          "test_data": {
+            "code": "ABC123",
+            "onShare": "mock function"
+          },
+          "priority": "Medium"
+        },
+        {
+          "id": "COMP-006",
+          "description": "Test DoctorUploadPortal component",
+          "preconditions": ["Portal component rendered"],
+          "test_steps": [
+            "Render portal component",
+            "Test code entry step",
+            "Test code validation",
+            "Test doctor details form",
+            "Test file upload zone",
+            "Test form submission",
+            "Test progress through wizard steps"
+          ],
+          "expected_result": "Multi-step upload wizard works correctly", 
+          "test_data": {
+            "referralCode": "ABC123",
+            "maxFileSize": 10485760
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "COMP-007", 
+          "description": "Test CodeEntryStep component",
+          "preconditions": ["Step component rendered"],
+          "test_steps": [
+            "Render code entry step",
+            "Test 6-character input with auto-advance",
+            "Test code format validation",
+            "Test API verification call",
+            "Test error state display",
+            "Test loading state",
+            "Test patient info display on success"
+          ],
+          "expected_result": "Code entry works with validation and patient display",
+          "test_data": {
+            "onCodeValid": "mock callback",
+            "verifyCode": "mock service"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "COMP-008",
+          "description": "Test DoctorDetailsStep component",
+          "preconditions": ["Step component with form"],
+          "test_steps": [
+            "Render doctor details form",
+            "Test all form field validation",
+            "Test HIN email validation specifically",
+            "Test phone number formatting",
+            "Test required field indicators",
+            "Test form submission",
+            "Test error display"
+          ],
+          "expected_result": "Doctor details form validates and submits correctly",
+          "test_data": {
+            "onSubmit": "mock callback",
+            "validHinEmail": "doctor@clinic.hin.ch"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "COMP-009",
+          "description": "Test DocumentUploadStep component",
+          "preconditions": ["Upload step rendered"],
+          "test_steps": [
+            "Render file upload zone",
+            "Test drag and drop functionality",
+            "Test file selection via button",
+            "Test file type validation",
+            "Test file size validation (10MB)",
+            "Test upload progress display",
+            "Test error handling for failed uploads"
+          ],
+          "expected_result": "File upload works with validation and progress",
+          "test_data": {
+            "acceptedFormats": [".pdf", ".jpg", ".png"],
+            "maxFileSize": 10485760,
+            "onUpload": "mock callback"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "COMP-010",
+          "description": "Test ConfirmationStep component",
+          "preconditions": ["Success step rendered"],
+          "test_steps": [
+            "Render confirmation step",
+            "Verify success message display",
+            "Test referral ID display",
+            "Test next steps information",
+            "Test contact information display",
+            "Test redirect functionality"
+          ],
+          "expected_result": "Confirmation displays success information",
+          "test_data": {
+            "referralId": "12345678-1234-1234-1234-123456789012",
+            "doctorName": "Dr. Smith"
+          },
+          "priority": "Medium"
+        }
+      ]
+    },
+
+    "form_validation_tests": {
+      "test_suite": "Form Validation Logic",
+      "framework": "Vitest + Zod Schemas",
+      "test_cases": [
+        {
+          "id": "FORM-001",
+          "description": "Test referral code format validation",
+          "preconditions": ["Validation schema available"],
+          "test_steps": [
+            "Test valid 6-character codes",
+            "Test invalid formats (too short, too long)",
+            "Test special characters (should fail)",
+            "Test lowercase conversion",
+            "Test empty input",
+            "Test numeric-only codes"
+          ],
+          "expected_result": "Code validation works correctly",
+          "test_data": {
+            "valid_codes": ["ABC123", "XYZ789", "123ABC"],
+            "invalid_codes": ["ABC12", "ABCDEFG", "ABC-123", "abc123", ""]
+          },
+          "priority": "High"
+        },
+        {
+          "id": "FORM-002",
+          "description": "Test HIN email validation",
+          "preconditions": ["Email validation schema"],
+          "test_steps": [
+            "Test valid HIN email formats",
+            "Test invalid domains",
+            "Test email format errors",
+            "Test case sensitivity",
+            "Test special characters in local part"
+          ],
+          "expected_result": "HIN email validation enforced correctly",
+          "test_data": {
+            "valid_emails": ["doctor@clinic.hin.ch", "test.doctor@hospital.hin.ch"],
+            "invalid_emails": ["doctor@gmail.com", "doctor@clinic.com", "invalid-email"]
+          },
+          "priority": "High"
+        },
+        {
+          "id": "FORM-003",
+          "description": "Test file upload validation",
+          "preconditions": ["File validation utilities"],
+          "test_steps": [
+            "Test accepted file types (PDF, JPG, PNG)",
+            "Test rejected file types (DOCX, TXT, etc.)",
+            "Test file size limits (10MB)",
+            "Test empty file rejection",
+            "Test corrupted file handling"
+          ],
+          "expected_result": "File validation prevents invalid uploads",
+          "test_data": {
+            "valid_files": ["document.pdf", "scan.jpg", "referral.png"],
+            "invalid_files": ["document.docx", "large-file.pdf (15MB)", "empty-file.pdf"],
+            "size_limit": 10485760
+          },
+          "priority": "High"
+        }
+      ]
+    }
+  },
+
+  "integration_test_specifications": {
+    "api_integration_tests": {
+      "test_suite": "End-to-End API Workflows",
+      "framework": "Vitest + Supertest + Test Database",
+      "test_cases": [
+        {
+          "id": "INT-001",
+          "description": "Complete referral code generation and usage flow",
+          "preconditions": ["Test database with form session"],
+          "test_steps": [
+            "Create form session in Stage 3A",
+            "Call generate code API endpoint",
+            "Verify code stored in database",
+            "Call verify code API endpoint",
+            "Upload referral as doctor",
+            "Verify code marked as used",
+            "Verify documents stored correctly",
+            "Verify notifications sent"
+          ],
+          "expected_result": "Complete workflow from generation to usage works",
+          "test_data": {
+            "form_session": "Valid Stage 3A session",
+            "patient_data": "Complete patient information",
+            "doctor_data": "Valid doctor information",
+            "referral_file": "Test PDF document"
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "INT-002",
+          "description": "Concurrent code generation stress test",
+          "preconditions": ["Test database", "Multiple form sessions"],
+          "test_steps": [
+            "Create 100 concurrent requests for code generation",
+            "Verify all codes generated are unique",
+            "Check database consistency",
+            "Verify no race conditions",
+            "Check audit logs completeness"
+          ],
+          "expected_result": "System handles concurrent requests correctly",
+          "test_data": {
+            "concurrent_requests": 100,
+            "form_sessions": "100 valid sessions"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "INT-003",
+          "description": "Database transaction rollback testing",
+          "preconditions": ["Test database with error injection"],
+          "test_steps": [
+            "Start code generation process",
+            "Inject error during transaction",
+            "Verify rollback occurs correctly",
+            "Check no partial data left in database",
+            "Verify audit logs reflect failure"
+          ],
+          "expected_result": "Failed operations roll back cleanly",
+          "test_data": {
+            "error_injection_points": ["Database constraint", "External API failure"]
+          },
+          "priority": "Medium"
+        }
+      ]
+    },
+
+    "email_notification_tests": {
+      "test_suite": "Email Notification Integration",
+      "framework": "Vitest + Mock SMTP Server",
+      "test_cases": [
+        {
+          "id": "EMAIL-001",
+          "description": "Test patient notification email generation",
+          "preconditions": ["Mock email service", "Generated referral code"],
+          "test_steps": [
+            "Generate referral code with patient email",
+            "Verify email sent to correct address",
+            "Check email content includes code",
+            "Verify QR code attached",
+            "Test multi-language email templates",
+            "Check HTML and text versions"
+          ],
+          "expected_result": "Patient receives properly formatted notification email",
+          "test_data": {
+            "patient_email": "patient@test.ch",
+            "referral_code": "ABC123",
+            "language": "de"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "EMAIL-002",
+          "description": "Test doctor confirmation email",
+          "preconditions": ["Mock email service", "Completed upload"],
+          "test_steps": [
+            "Complete doctor referral upload",
+            "Verify confirmation email sent to HIN address",
+            "Check email contains referral details",
+            "Verify professional formatting",
+            "Test email delivery tracking"
+          ],
+          "expected_result": "Doctor receives upload confirmation email",
+          "test_data": {
+            "doctor_hin_email": "doctor@clinic.hin.ch",
+            "referral_id": "12345678-1234-1234-1234-123456789012"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "EMAIL-003",
+          "description": "Test email delivery failure handling",
+          "preconditions": ["Mock email service with failures"],
+          "test_steps": [
+            "Configure email service to fail",
+            "Attempt code generation with email",
+            "Verify system continues operation",
+            "Check error logging",
+            "Test retry mechanism"
+          ],
+          "expected_result": "Email failures don't break core functionality",
+          "test_data": {
+            "failure_scenarios": ["SMTP timeout", "Invalid recipient", "Rate limit exceeded"]
+          },
+          "priority": "Medium"
+        }
+      ]
+    },
+
+    "file_storage_tests": {
+      "test_suite": "Document Storage Integration",
+      "framework": "Vitest + Supabase Storage Test Client",
+      "test_cases": [
+        {
+          "id": "STORAGE-001",
+          "description": "Test referral document upload and storage",
+          "preconditions": ["Test storage bucket", "Valid referral file"],
+          "test_steps": [
+            "Upload referral document via API",
+            "Verify file stored in correct bucket path",
+            "Check file metadata recorded",
+            "Verify file accessible via signed URL",
+            "Test file encryption at rest",
+            "Check storage permissions"
+          ],
+          "expected_result": "Documents stored securely with proper metadata",
+          "test_data": {
+            "test_file": "sample-referral.pdf (2MB)",
+            "expected_path": "referrals/{referral_id}/{timestamp}_{filename}"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "STORAGE-002", 
+          "description": "Test file access control and retention",
+          "preconditions": ["Stored documents", "Various user roles"],
+          "test_steps": [
+            "Test patient can access their documents",
+            "Test doctors cannot access other patient documents",
+            "Test admin access controls",
+            "Verify 7-year retention policy setup",
+            "Test document deletion after retention period"
+          ],
+          "expected_result": "Access controls and retention work correctly",
+          "test_data": {
+            "test_users": ["patient", "doctor", "admin"],
+            "retention_test_date": "7 years ago"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "STORAGE-003",
+          "description": "Test storage quota and monitoring", 
+          "preconditions": ["Storage monitoring setup"],
+          "test_steps": [
+            "Upload files to approach quota limits",
+            "Verify quota warnings triggered",
+            "Test graceful handling of quota exceeded",
+            "Check monitoring metrics collection",
+            "Verify cleanup processes work"
+          ],
+          "expected_result": "Storage quotas monitored and enforced",
+          "test_data": {
+            "quota_limit": "1GB",
+            "test_files": "Multiple large documents"
+          },
+          "priority": "Medium"
+        }
+      ]
+    }
+  },
+
+  "e2e_test_specifications": {
+    "user_journey_tests": {
+      "test_suite": "Complete User Workflows",
+      "framework": "Playwright",
+      "test_cases": [
+        {
+          "id": "E2E-001",
+          "description": "Patient completes Stage 3A and receives referral code",
+          "preconditions": ["Clean browser state", "Test patient account"],
+          "test_steps": [
+            "Navigate to eligibility questionnaire",
+            "Complete stages 1-3A with qualifying responses", 
+            "Submit Stage 3A",
+            "Verify referral code display appears",
+            "Check code format (ABC-123)",
+            "Verify QR code generation",
+            "Test copy to clipboard function",
+            "Verify download PDF option"
+          ],
+          "expected_result": "Patient receives functional referral code display",
+          "test_data": {
+            "patient_responses": "High-risk eligibility responses",
+            "expected_pathway": "High risk - GP referral required"
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "E2E-002",
+          "description": "Doctor uploads referral using patient code",
+          "preconditions": ["Generated referral code", "Clean browser"],
+          "test_steps": [
+            "Navigate to /referral portal", 
+            "Enter 6-character referral code",
+            "Verify patient information display",
+            "Fill doctor information form",
+            "Upload referral document (PDF)",
+            "Submit complete form",
+            "Verify success confirmation",
+            "Check confirmation email sent"
+          ],
+          "expected_result": "Doctor successfully uploads referral",
+          "test_data": {
+            "referral_code": "Generated from E2E-001",
+            "doctor_info": {
+              "name": "Dr. Test",
+              "email": "test@clinic.hin.ch",
+              "clinic": "Test Clinic"
+            },
+            "document": "sample-referral.pdf"
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "E2E-003",
+          "description": "Patient receives notification and continues journey",
+          "preconditions": ["Doctor has uploaded referral"],
+          "test_steps": [
+            "Check patient email for notification",
+            "Verify notification contains doctor details",
+            "Click continuation link in email",
+            "Verify patient redirected to next stage",
+            "Check eligibility status updated",
+            "Verify payment stage becomes available"
+          ],
+          "expected_result": "Patient notified and can continue to payment",
+          "test_data": {
+            "notification_email": "Patient email from initial registration",
+            "continuation_url": "Link to payment stage"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "E2E-004",
+          "description": "Error handling - Invalid referral code",
+          "preconditions": ["Doctor portal open"],
+          "test_steps": [
+            "Navigate to doctor portal",
+            "Enter invalid referral code format",
+            "Verify validation error displayed",
+            "Enter non-existent code",
+            "Verify 'code not found' error",
+            "Enter expired code",
+            "Verify expiration error message",
+            "Test error message accessibility"
+          ],
+          "expected_result": "Appropriate error messages shown for invalid codes",
+          "test_data": {
+            "invalid_codes": ["12345", "ABCDEFG", "NOTFOUND", "EXPIRED1"]
+          },
+          "priority": "Medium"
+        },
+        {
+          "id": "E2E-005",
+          "description": "Multi-language support testing",
+          "preconditions": ["Clean browser state"],
+          "test_steps": [
+            "Test patient flow in German (/de/)",
+            "Verify German referral code display",
+            "Test doctor portal in German",
+            "Verify German email notifications",
+            "Test French (/fr/) and Italian (/it/) flows",
+            "Check language switching works"
+          ],
+          "expected_result": "All languages work correctly throughout flow",
+          "test_data": {
+            "languages": ["de", "fr", "it", "en"],
+            "ui_elements": "All text should be translated"
+          },
+          "priority": "Medium"
+        }
+      ]
+    },
+
+    "cross_browser_tests": {
+      "test_suite": "Browser Compatibility",
+      "framework": "Playwright with Multiple Browsers",
+      "test_cases": [
+        {
+          "id": "BROWSER-001",
+          "description": "Test referral system on Chrome",
+          "preconditions": ["Chrome browser", "Standard resolution"],
+          "test_steps": [
+            "Execute complete patient-doctor workflow",
+            "Test QR code generation",
+            "Test file upload functionality", 
+            "Verify responsive design",
+            "Check performance metrics"
+          ],
+          "expected_result": "Full functionality works in Chrome",
+          "priority": "High"
+        },
+        {
+          "id": "BROWSER-002",
+          "description": "Test referral system on Firefox",
+          "preconditions": ["Firefox browser"],
+          "test_steps": [
+            "Execute core referral workflow",
+            "Test copy to clipboard (different API)",
+            "Test file drag and drop",
+            "Verify PDF generation",
+            "Check accessibility features"
+          ],
+          "expected_result": "Full functionality works in Firefox",
+          "priority": "High"
+        },
+        {
+          "id": "BROWSER-003",
+          "description": "Test referral system on Safari",
+          "preconditions": ["Safari browser (macOS)"],
+          "test_steps": [
+            "Execute workflow with Safari-specific considerations",
+            "Test clipboard API differences",
+            "Test file handling differences",
+            "Verify mobile Safari on iOS",
+            "Check privacy setting impacts"
+          ],
+          "expected_result": "Functionality works with Safari limitations handled",
+          "priority": "Medium"
+        }
+      ]
+    },
+
+    "mobile_responsive_tests": {
+      "test_suite": "Mobile Device Testing",
+      "framework": "Playwright Mobile Emulation",
+      "test_cases": [
+        {
+          "id": "MOBILE-001",
+          "description": "Test referral display on mobile (375px)",
+          "preconditions": ["Mobile viewport (375x667)"],
+          "test_steps": [
+            "Generate referral code",
+            "Verify mobile-optimized display",
+            "Test QR code sizing",
+            "Test touch interactions",
+            "Verify text readability",
+            "Test share functionality"
+          ],
+          "expected_result": "Referral code display optimized for mobile",
+          "test_data": {
+            "viewport": "375x667",
+            "device_type": "iPhone SE"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "MOBILE-002",
+          "description": "Test doctor portal on mobile",
+          "preconditions": ["Mobile viewport", "Doctor portal"],
+          "test_steps": [
+            "Access doctor portal on mobile",
+            "Test code entry with mobile keyboard",
+            "Test form completion",
+            "Test file upload from mobile camera",
+            "Verify upload progress display",
+            "Test success confirmation"
+          ],
+          "expected_result": "Doctor portal fully functional on mobile",
+          "test_data": {
+            "viewport": "375x667",
+            "input_method": "Touch keyboard"
+          },
+          "priority": "High"
+        },
+        {
+          "id": "MOBILE-003",
+          "description": "Test tablet experience (768px)",
+          "preconditions": ["Tablet viewport (768x1024)"],
+          "test_steps": [
+            "Test both patient and doctor flows",
+            "Verify layout optimization",
+            "Test touch and tap targets",
+            "Verify proper spacing",
+            "Test landscape orientation"
+          ],
+          "expected_result": "Tablet experience optimized appropriately",
+          "test_data": {
+            "viewport": "768x1024",
+            "device_type": "iPad"
+          },
+          "priority": "Medium"
+        }
+      ]
+    }
+  },
+
+  "performance_test_specifications": {
+    "load_testing": {
+      "test_suite": "System Load Testing",
+      "framework": "Artillery + Lighthouse CI",
+      "test_cases": [
+        {
+          "id": "PERF-001",
+          "description": "Load test referral code generation",
+          "preconditions": ["Load testing environment"],
+          "test_steps": [
+            "Generate 1000 concurrent code requests",
+            "Monitor response times",
+            "Check database performance",
+            "Monitor Edge Function execution",
+            "Verify no code collisions occur"
+          ],
+          "expected_result": "System handles high load of code generation",
+          "test_data": {
+            "concurrent_users": 1000,
+            "duration": "5 minutes",
+            "target_response_time": "< 2 seconds"
+          },
+          "priority": "Medium"
+        },
+        {
+          "id": "PERF-002",
+          "description": "Stress test file upload system",
+          "preconditions": ["File upload endpoints"],
+          "test_steps": [
+            "Upload 100 concurrent 10MB files",
+            "Monitor storage throughput",
+            "Check Edge Function memory usage",
+            "Verify upload success rate",
+            "Monitor database write performance"
+          ],
+          "expected_result": "File upload system handles concurrent large files",
+          "test_data": {
+            "concurrent_uploads": 100,
+            "file_size": "10MB",
+            "target_success_rate": "> 95%"
+          },
+          "priority": "Medium"
+        },
+        {
+          "id": "PERF-003",
+          "description": "Frontend performance benchmarking",
+          "preconditions": ["Lighthouse CI setup"],
+          "test_steps": [
+            "Measure LCP for referral code display",
+            "Measure CLS for doctor portal",
+            "Test FID for interactive elements",
+            "Check bundle size impact",
+            "Verify core web vitals compliance"
+          ],
+          "expected_result": "Frontend performance meets targets",
+          "test_data": {
+            "target_lcp": "< 2.5s",
+            "target_cls": "< 0.1",
+            "target_fid": "< 100ms"
+          },
+          "priority": "High"
+        }
+      ]
+    },
+
+    "database_performance": {
+      "test_suite": "Database Performance Testing",
+      "framework": "pgbench + Custom Queries",
+      "test_cases": [
+        {
+          "id": "DB-PERF-001",
+          "description": "Test referral code lookup performance",
+          "preconditions": ["Database with 1M referral codes"],
+          "test_steps": [
+            "Populate database with large dataset",
+            "Execute 1000 concurrent code lookups",
+            "Measure query execution time",
+            "Check index effectiveness",
+            "Monitor database resource usage"
+          ],
+          "expected_result": "Code lookups remain fast with large dataset",
+          "test_data": {
+            "dataset_size": "1 million codes",
+            "target_query_time": "< 50ms"
+          },
+          "priority": "Medium"
+        }
+      ]
+    }
+  },
+
+  "security_test_specifications": {
+    "penetration_testing": {
+      "test_suite": "Security Vulnerability Testing",
+      "framework": "Custom Security Test Suite",
+      "test_cases": [
+        {
+          "id": "SEC-001",
+          "description": "Test referral code brute force protection",
+          "preconditions": ["Rate limiting configured"],
+          "test_steps": [
+            "Attempt rapid code verification requests",
+            "Verify rate limiting kicks in",
+            "Test account lockout mechanisms",
+            "Check audit logging of attempts",
+            "Test IP-based blocking"
+          ],
+          "expected_result": "Brute force attacks blocked effectively",
+          "test_data": {
+            "attempt_rate": "100 requests per minute",
+            "rate_limit": "5 attempts per 10 minutes"
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "SEC-002",
+          "description": "Test file upload security",
+          "preconditions": ["File upload endpoints"],
+          "test_steps": [
+            "Upload malicious file types",
+            "Test file size bomb attacks", 
+            "Attempt path traversal in filenames",
+            "Test malware-infected files",
+            "Verify virus scanning integration"
+          ],
+          "expected_result": "Malicious files blocked, system protected",
+          "test_data": {
+            "malicious_files": ["script.exe", "path/../../../etc/passwd", "malware.pdf"],
+            "file_size_bomb": "Zip bomb file"
+          },
+          "priority": "Critical"
+        },
+        {
+          "id": "SEC-003",
+          "description": "Test data encryption and privacy",
+          "preconditions": ["GDPR compliance setup"],
+          "test_steps": [
+            "Verify code hashing with bcrypt",
+            "Check data encryption at rest",
+            "Test secure data transmission (HTTPS)",
+            "Verify PII data handling",
+            "Test data retention compliance"
+          ],
+          "expected_result": "Data properly encrypted and privacy protected",
+          "test_data": {
+            "encryption_algorithm": "bcrypt",
+            "retention_period": "7 years for medical data"
+          },
+          "priority": "Critical"
+        }
+      ]
+    },
+
+    "compliance_testing": {
+      "test_suite": "Swiss Healthcare Compliance",
+      "framework": "Manual + Automated Compliance Checks",
+      "test_cases": [
+        {
+          "id": "COMP-001",
+          "description": "Test FADP compliance",
+          "preconditions": ["FADP requirements documentation"],
+          "test_steps": [
+            "Verify patient consent tracking",
+            "Check data minimization principles",
+            "Test right to deletion",
+            "Verify audit trail completeness",
+            "Check data processing lawfulness"
+          ],
+          "expected_result": "FADP compliance requirements met",
+          "priority": "Critical"
+        },
+        {
+          "id": "COMP-002",
+          "description": "Test medical data retention compliance",
+          "preconditions": ["Swiss medical law requirements"],
+          "test_steps": [
+            "Verify 7-year retention policy",
+            "Test automatic deletion after retention",
+            "Check data anonymization processes",
+            "Verify secure disposal methods",
+            "Test data subject rights"
+          ],
+          "expected_result": "Medical data retention legally compliant",
+          "priority": "High"
+        }
+      ]
+    }
+  },
+
+  "accessibility_test_specifications": {
+    "wcag_compliance": {
+      "test_suite": "WCAG 2.1 AA Compliance Testing",
+      "framework": "axe-playwright + Manual Testing",
+      "test_cases": [
+        {
+          "id": "A11Y-001",
+          "description": "Test referral code display accessibility",
+          "preconditions": ["Screen reader testing setup"],
+          "test_steps": [
+            "Test with screen reader (NVDA/JAWS)",
+            "Verify code is announced correctly",
+            "Test keyboard navigation",
+            "Check focus management",
+            "Verify color contrast ratios",
+            "Test with high contrast mode"
+          ],
+          "expected_result": "Referral code display fully accessible",
+          "test_data": {
+            "contrast_ratio_target": "7:1 for code text",
+            "screen_readers": ["NVDA", "JAWS", "VoiceOver"]
+          },
+          "priority": "High"
+        },
+        {
+          "id": "A11Y-002",
+          "description": "Test doctor portal accessibility",
+          "preconditions": ["Accessibility testing tools"],
+          "test_steps": [
+            "Run axe-core automated tests",
+            "Test keyboard-only navigation",
+            "Verify form labels and descriptions",
+            "Test error message announcements",
+            "Check file upload accessibility",
+            "Test with various assistive technologies"
+          ],
+          "expected_result": "Doctor portal meets WCAG 2.1 AA standards",
+          "test_data": {
+            "target_compliance": "WCAG 2.1 AA",
+            "zero_critical_violations": true
+          },
+          "priority": "High"
+        },
+        {
+          "id": "A11Y-003",
+          "description": "Test mobile accessibility",
+          "preconditions": ["Mobile screen readers"],
+          "test_steps": [
+            "Test with TalkBack (Android)",
+            "Test with VoiceOver (iOS)",
+            "Verify touch target sizes (44px min)",
+            "Test zoom functionality (up to 200%)",
+            "Check orientation support",
+            "Test voice input compatibility"
+          ],
+          "expected_result": "Mobile experience fully accessible",
+          "test_data": {
+            "touch_target_min": "44x44px",
+            "zoom_support": "200%"
+          },
+          "priority": "High"
+        }
+      ]
+    }
+  },
+
+  "test_data_requirements": {
+    "fixtures": {
+      "location": "/tests/fixtures/referral-system/",
+      "files": [
+        {
+          "name": "test-patients.json",
+          "content": "Sample patient data for testing",
+          "count": 50
+        },
+        {
+          "name": "test-doctors.json", 
+          "content": "Sample doctor profiles with HIN emails",
+          "count": 25
+        },
+        {
+          "name": "test-form-sessions.json",
+          "content": "Form sessions at various stages",
+          "count": 100
+        },
+        {
+          "name": "referral-documents/",
+          "content": "Sample PDF and image files for upload testing",
+          "files": ["sample-referral.pdf", "scan.jpg", "large-file.pdf"]
+        },
+        {
+          "name": "invalid-files/",
+          "content": "Files for negative testing",
+          "files": ["malware.exe", "too-large.pdf", "corrupted.pdf"]
+        }
+      ]
+    },
+    "mock_services": {
+      "supabase_client": "Mock Supabase client for unit tests",
+      "email_service": "Mock Resend API for email testing",
+      "file_upload": "Mock file upload service",
+      "qr_generator": "Mock QR code generation"
+    },
+    "test_databases": {
+      "unit_tests": "In-memory SQLite database",
+      "integration_tests": "Docker PostgreSQL with test data",
+      "e2e_tests": "Staging Supabase project"
+    }
+  },
+
+  "ci_cd_integration": {
+    "pipeline_stages": {
+      "pre_commit": {
+        "hooks": ["lint", "type-check", "unit-tests"],
+        "max_duration": "2 minutes"
+      },
+      "pull_request": {
+        "tests": ["unit", "integration", "component"],
+        "coverage_gate": "80%",
+        "max_duration": "15 minutes"
+      },
+      "main_branch": {
+        "tests": ["all tests", "e2e", "accessibility", "performance"],
+        "deployment_gate": "all tests pass",
+        "max_duration": "45 minutes"
+      },
+      "release": {
+        "tests": ["full test suite", "security scan", "compliance check"],
+        "manual_approval": "required",
+        "max_duration": "2 hours"
+      }
+    },
+    "test_environments": {
+      "development": "Local with mocks",
+      "ci": "Containerized with test database",
+      "staging": "Production-like with test data",
+      "production": "Smoke tests only"
+    }
+  },
+
+  "quality_gates": {
+    "coverage_thresholds": {
+      "backend_services": "85%",
+      "api_routes": "80%",
+      "react_components": "75%",
+      "utilities": "90%",
+      "overall": "80%"
+    },
+    "performance_budgets": {
+      "code_generation_api": "< 2 seconds",
+      "file_upload_api": "< 5 seconds for 10MB",
+      "frontend_lcp": "< 2.5 seconds",
+      "frontend_cls": "< 0.1"
+    },
+    "accessibility_requirements": {
+      "wcag_level": "AA",
+      "automated_violations": 0,
+      "manual_audit": "Required for critical flows"
+    },
+    "security_requirements": {
+      "vulnerability_scan": "No high/critical issues",
+      "dependency_audit": "No known vulnerabilities",
+      "penetration_test": "Annual requirement"
+    }
+  },
+
+  "monitoring_and_alerting": {
+    "test_metrics": {
+      "test_execution_time": "Track test suite duration trends",
+      "test_failure_rate": "Monitor flaky test patterns",
+      "coverage_trends": "Track coverage changes over time",
+      "performance_regression": "Alert on performance degradation"
+    },
+    "production_monitoring": {
+      "referral_generation_rate": "Track daily code generation",
+      "upload_success_rate": "Monitor doctor upload success",
+      "api_error_rates": "Alert on elevated error rates",
+      "user_journey_completion": "Track end-to-end success rates"
+    }
+  },
+
+  "test_maintenance": {
+    "review_schedule": {
+      "weekly": "Review failed tests and flaky tests",
+      "monthly": "Update test data and scenarios",
+      "quarterly": "Comprehensive test suite review",
+      "annually": "Test strategy and tooling evaluation"
+    },
+    "cleanup_procedures": {
+      "test_data": "Clean test databases after each run",
+      "uploaded_files": "Remove test uploads from storage",
+      "audit_logs": "Archive old audit logs",
+      "email_notifications": "Clean test email queues"
+    }
+  },
+
+  "implementation_checklist": [
+    "Set up test database with proper schema",
+    "Create test fixtures for patients, doctors, and documents",
+    "Configure mock services for external dependencies",
+    "Implement unit tests for all service methods",
+    "Create component tests for React components",
+    "Set up integration tests for API endpoints",
+    "Configure E2E tests with Playwright",
+    "Implement accessibility testing with axe-core",
+    "Set up performance testing with Lighthouse CI",
+    "Create security test suite for vulnerabilities",
+    "Configure CI/CD pipeline with test stages",
+    "Set up test result reporting and archival",
+    "Implement test monitoring and alerting",
+    "Document test execution procedures"
+  ]
+}

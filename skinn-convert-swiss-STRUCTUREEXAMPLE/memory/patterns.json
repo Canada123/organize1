@@ -1,0 +1,242 @@
+{
+  "version": "2.0",
+  "last_validated": "2025-08-26",
+  "patterns": {
+    "ui": {
+      "atomic_component": {
+        "name": "Atomic Component Pattern",
+        "rule": "Components must be ≤50 lines",
+        "example": "export const Button: React.FC<Props> = ({ children }) => <button>{children}</button>",
+        "usage_count": 87,
+        "last_used": "2025-08-25",
+        "confidence": 0.95
+      },
+      "multi_step_wizard": {
+        "name": "Multi-Step Wizard",
+        "rule": "Track progress, validate each step",
+        "example": "const [step, setStep] = useState(0); const progress = (step / total) * 100;",
+        "usage_count": 12,
+        "last_used": "2025-08-25",
+        "confidence": 0.9
+      },
+      "responsive_mobile_first": {
+        "name": "Mobile-First Responsive",
+        "rule": "Start at 375px, enhance to desktop",
+        "example": "@apply w-full md:w-1/2 lg:w-1/3",
+        "usage_count": 156,
+        "last_used": "2025-08-26",
+        "confidence": 1.0
+      }
+    },
+    "database": {
+      "rls_policies": {
+        "name": "Row Level Security",
+        "rule": "All tables must have RLS policies",
+        "example": "CREATE POLICY 'Users view own' ON users FOR SELECT USING (auth.uid() = id)",
+        "usage_count": 16,
+        "last_used": "2025-08-25",
+        "confidence": 1.0
+      },
+      "migration_based": {
+        "name": "Migration Schema Management",
+        "rule": "All schema changes via migrations",
+        "example": "supabase migration new add_referral_tables",
+        "usage_count": 11,
+        "last_used": "2025-08-25",
+        "confidence": 0.95
+      },
+      "bcrypt_hashing": {
+        "name": "Bcrypt for Sensitive Data",
+        "rule": "Hash codes/passwords with bcrypt",
+        "example": "await bcrypt.hash(code, 12)",
+        "usage_count": 8,
+        "last_used": "2025-08-25",
+        "confidence": 1.0
+      }
+    },
+    "testing": {
+      "unit_test_structure": {
+        "name": "Vitest Unit Testing",
+        "rule": "Test each component/service",
+        "example": "describe('Component', () => { it('should render', () => {...}) })",
+        "usage_count": 45,
+        "last_used": "2025-08-24",
+        "confidence": 0.85
+      },
+      "e2e_playwright": {
+        "name": "E2E with Playwright",
+        "rule": "Test critical user flows",
+        "example": "test('user completes form', async ({ page }) => {...})",
+        "usage_count": 12,
+        "last_used": "2025-08-23",
+        "confidence": 0.8
+      }
+    },
+    "state_management": {
+      "context_reducer": {
+        "name": "Context + Reducer Pattern",
+        "rule": "Complex state uses Context + useReducer",
+        "example": "const [state, dispatch] = useReducer(reducer, initialState)",
+        "usage_count": 18,
+        "last_used": "2025-08-25",
+        "confidence": 0.9
+      },
+      "tanstack_query": {
+        "name": "TanStack Query for Server State",
+        "rule": "Server state managed by TanStack Query",
+        "example": "const { data } = useQuery({ queryKey: ['users'], queryFn })",
+        "usage_count": 24,
+        "last_used": "2025-08-26",
+        "confidence": 0.95
+      }
+    },
+    "security": {
+      "otp_only": {
+        "name": "OTP Authentication",
+        "rule": "No passwords, OTP only",
+        "example": "await supabase.auth.verifyOtp({ email, token })",
+        "usage_count": 15,
+        "last_used": "2025-08-25",
+        "confidence": 1.0
+      },
+      "rate_limiting": {
+        "name": "Rate Limit Protection",
+        "rule": "5 attempts per 10 minutes",
+        "example": "if (attempts >= 5) throw new Error('Rate limit')",
+        "usage_count": 8,
+        "last_used": "2025-08-25",
+        "confidence": 1.0
+      }
+    },
+    "swiss_compliance": {
+      "multi_language": {
+        "name": "4-Language Support",
+        "rule": "EN, DE, FR, IT with route-based i18n",
+        "example": "/[lang]/[page] routing structure",
+        "usage_count": 98,
+        "last_used": "2025-08-26",
+        "confidence": 1.0
+      },
+      "vat_calculation": {
+        "name": "Swiss VAT",
+        "rule": "7.7% VAT calculation",
+        "example": "const VAT_RATE = 0.077",
+        "usage_count": 6,
+        "last_used": "2025-08-20",
+        "confidence": 1.0
+      },
+      "canton_validation": {
+        "name": "Canton Validation",
+        "rule": "Validate 26 Swiss cantons",
+        "example": "const CANTONS = ['ZH', 'BE', ...] as const",
+        "usage_count": 9,
+        "last_used": "2025-08-22",
+        "confidence": 1.0
+      }
+    },
+    "agent_system": {
+      "self_prime": {
+        "name": "Agent Self-Priming",
+        "rule": "All agents must have self_prime: true",
+        "example": "self_prime: true in frontmatter",
+        "usage_count": 20,
+        "last_used": "2025-08-25",
+        "confidence": 1.0
+      },
+      "request_tracking": {
+        "name": "Request ID Tracking",
+        "rule": "Track all requests with unique IDs",
+        "example": "request_id: 'REQ-2025-001'",
+        "usage_count": 50,
+        "last_used": "2025-08-26",
+        "confidence": 1.0
+      }
+    },
+    "mcp_patterns": {
+      "serena_code_search": {
+        "name": "Serena for Symbolic Code Search",
+        "rule": "Use Serena MCP for precise symbol location before modifications",
+        "example": "mcp__serena__find_symbol({ symbolName: 'useEligibility' })",
+        "usage_count": 34,
+        "last_used": "2025-08-26",
+        "confidence": 0.95,
+        "when_to_use": "Before refactoring, finding references, understanding code structure"
+      },
+      "supabase_operations": {
+        "name": "Supabase MCP for Database",
+        "rule": "All Supabase operations through MCP tools",
+        "example": "mcp__supabase__apply_migration({ query: 'CREATE TABLE...', name: 'add_gp_referral' })",
+        "usage_count": 28,
+        "last_used": "2025-08-25",
+        "confidence": 1.0,
+        "when_to_use": "Database migrations, RLS policies, edge functions, schema queries"
+      },
+      "playwright_testing": {
+        "name": "Playwright for Visual Testing",
+        "rule": "Use Playwright MCP for E2E and visual validation",
+        "example": "mcp__playwright__navigate({ url: 'http://localhost:8080' })",
+        "usage_count": 18,
+        "last_used": "2025-08-26",
+        "confidence": 0.9,
+        "when_to_use": "Testing UI implementations, visual regression, accessibility checks"
+      },
+      "brave_research": {
+        "name": "Brave Search for External Research",
+        "rule": "Use Brave for current best practices and documentation",
+        "example": "mcp__brave-search__brave_web_search({ query: 'React 18 concurrent features' })",
+        "usage_count": 42,
+        "last_used": "2025-08-26",
+        "confidence": 0.85,
+        "when_to_use": "Researching current trends, finding solutions, competitive analysis"
+      },
+      "context7_docs": {
+        "name": "Context7 for Library Docs",
+        "rule": "Use Context7 for official library documentation",
+        "example": "mcp__context7__get-library-docs({ libraryID: '/vercel/next.js' })",
+        "usage_count": 31,
+        "last_used": "2025-08-26",
+        "confidence": 0.95,
+        "when_to_use": "Understanding library APIs, checking latest features, migration guides"
+      },
+      "calculator_metrics": {
+        "name": "Calculator for Metrics",
+        "rule": "Use Calculator MCP for complex calculations",
+        "example": "mcp__calculator__calculate({ expression: 'coverage_percent * 100 / total' })",
+        "usage_count": 15,
+        "last_used": "2025-08-25",
+        "confidence": 1.0,
+        "when_to_use": "Coverage calculations, performance metrics, complexity analysis"
+      },
+      "package_version_check": {
+        "name": "Package Version Management",
+        "rule": "Check and update package versions through MCP",
+        "example": "mcp__package-version__check_npm_versions({ dependencies: pkg.dependencies })",
+        "usage_count": 22,
+        "last_used": "2025-08-26",
+        "confidence": 0.9,
+        "when_to_use": "Dependency updates, security patches, version compatibility"
+      },
+      "stripe_payments": {
+        "name": "Stripe MCP for Payments",
+        "rule": "All Stripe operations through MCP tools",
+        "example": "mcp__stripe__create_customer({ name, email })",
+        "usage_count": 8,
+        "last_used": "2025-08-24",
+        "confidence": 1.0,
+        "when_to_use": "Payment processing, subscription management, invoice generation"
+      }
+    }
+  },
+  "deprecated_patterns": [
+    {
+      "name": "Class Components",
+      "deprecated_date": "2025-01-15",
+      "replacement": "Functional Components with Hooks"
+    },
+    {
+      "name": "Redux State Management",
+      "deprecated_date": "2025-08-01",
+      "replacement": "Context + Reducer or TanStack Query"
+    }
+  ]
+}

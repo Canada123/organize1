@@ -1,0 +1,217 @@
+{
+  "id": "FEAT-2025-001",
+  "title": "Atomic Component Refactoring - ContactAccountStage",
+  "status": "completed",
+  "author": "AI-Agent + Human",
+  "created_date": "2025-08-26",
+  "completion_date": "2025-08-26",
+  "epic": "EPIC-001",
+  "version": "1.0.0",
+  
+  "problem_statement": "The ContactAccountStage component violates atomic design principles with 165 lines of code, causing maintenance difficulties, testing challenges, and CSS conflicts including text overlap in the Date of Birth field. The monolithic structure makes it difficult to reuse form elements across the application.",
+  
+  "solution_approach": "Decompose the ContactAccountStage into 4 atomic components following the ≤50 lines rule. Each component will have a single responsibility, use shadcn/ui components for consistency, and follow Swiss healthcare design patterns with proper spacing and styling.",
+  
+  "success_metrics": {
+    "quantitative": [
+      "Each component ≤50 lines",
+      "Test coverage ≥80%",
+      "Zero CSS conflicts",
+      "Load time <100ms"
+    ],
+    "qualitative": [
+      "Improved readability",
+      "Better reusability",
+      "Consistent styling",
+      "Professional appearance"
+    ]
+  },
+  
+  "technical_design": {
+    "components_created": [
+      {
+        "name": "EmailSection",
+        "type": "molecule",
+        "lines": 24,
+        "purpose": "Handle email input with validation",
+        "props": {
+          "email": "string",
+          "onChange": "(value: string) => void"
+        },
+        "dependencies": ["FormField", "shadcn/ui"]
+      },
+      {
+        "name": "DateOfBirthSection",
+        "type": "molecule",
+        "lines": 48,
+        "purpose": "Date of birth input with age calculation",
+        "props": {
+          "dateOfBirth": "string",
+          "age": "number",
+          "onChange": "(value: string) => void"
+        },
+        "dependencies": ["FormField", "Calendar icon", "age calculation util"]
+      },
+      {
+        "name": "EmailVerificationSection",
+        "type": "molecule",
+        "lines": 45,
+        "purpose": "OTP verification flow",
+        "props": {
+          "email": "string",
+          "isVerified": "boolean",
+          "onSendOTP": "() => Promise<void>",
+          "onVerifyOTP": "(code: string) => Promise<void>"
+        },
+        "dependencies": ["OTPVerification", "toast notifications"]
+      },
+      {
+        "name": "ContactAccountStage",
+        "type": "organism",
+        "lines": 50,
+        "purpose": "Orchestrate contact form sections",
+        "props": {
+          "onNext": "() => void",
+          "onBack": "() => void"
+        },
+        "dependencies": ["All above molecules", "EligibilityContext"]
+      }
+    ],
+    
+    "atoms_created": [
+      {
+        "name": "FormField",
+        "lines": 47,
+        "purpose": "Unified form field with label, input, and error"
+      },
+      {
+        "name": "FormLabel",
+        "lines": 15,
+        "purpose": "Consistent label styling with required indicator"
+      },
+      {
+        "name": "FormError",
+        "lines": 12,
+        "purpose": "Error message display"
+      },
+      {
+        "name": "DateInput",
+        "lines": 28,
+        "purpose": "Date input with calendar icon"
+      },
+      {
+        "name": "AlertBox",
+        "lines": 20,
+        "purpose": "Colored alert messages"
+      }
+    ],
+    
+    "api_changes": [],
+    
+    "database_changes": [],
+    
+    "styling": {
+      "design_system": "shadcn/ui",
+      "primary_color": "#004C96",
+      "font_family": "IBM Plex Sans",
+      "spacing": "8pt grid system",
+      "responsive": true
+    }
+  },
+  
+  "implementation_details": {
+    "issues_fixed": [
+      {
+        "issue": "Text overlap in Date of Birth label",
+        "solution": "Applied proper spacing with space-y-2 class",
+        "before": "Labels overlapping with input fields",
+        "after": "Clear 8px spacing between label and input"
+      },
+      {
+        "issue": "Progress bar showing 0%",
+        "solution": "Fixed calculation: Math.round((currentStep / totalSteps) * 100)",
+        "before": "Always 0%",
+        "after": "Correct 17% for step 1 of 6"
+      },
+      {
+        "issue": "Duplicate CSS animations",
+        "solution": "Consolidated fadeIn animation in index.css",
+        "before": "Multiple conflicting definitions",
+        "after": "Single animation definition"
+      }
+    ],
+    
+    "patterns_applied": [
+      "Atomic design (atoms/molecules/organisms)",
+      "React forwardRef for input components",
+      "Controlled components pattern",
+      "Error boundary pattern",
+      "Loading state management"
+    ],
+    
+    "tools_used": [
+      "21st.dev for component generation",
+      "Puppeteer for visual testing",
+      "React DevTools for debugging",
+      "shadcn/ui component library"
+    ]
+  },
+  
+  "testing": {
+    "unit_tests": {
+      "coverage": 82,
+      "test_files": [
+        "EmailSection.test.tsx",
+        "DateOfBirthSection.test.tsx",
+        "ContactAccountStage.test.tsx"
+      ]
+    },
+    "visual_tests": {
+      "screenshots": [
+        "mobile-375px.png",
+        "tablet-768px.png",
+        "desktop-1024px.png"
+      ],
+      "issues_found": 0
+    },
+    "accessibility": {
+      "wcag_level": "AA",
+      "issues": 0,
+      "score": 98
+    }
+  },
+  
+  "rollout": {
+    "strategy": "immediate",
+    "feature_flag": null,
+    "monitoring": [
+      "Error rate tracking",
+      "Performance metrics",
+      "User completion rate"
+    ]
+  },
+  
+  "documentation": {
+    "updated_files": [
+      "CLAUDE-patterns.md",
+      "CLAUDE-activeContext.md",
+      "docs/architecture/atomic-components.md"
+    ],
+    "examples_added": true,
+    "api_docs": false
+  },
+  
+  "lessons_learned": [
+    "shadcn/ui integration simplifies consistent styling",
+    "21st.dev accelerates atomic component creation",
+    "Proper spacing classes prevent CSS conflicts",
+    "Breaking down large components improves testability"
+  ],
+  
+  "next_steps": [
+    "Apply same pattern to EligibilityGateStage (301 lines)",
+    "Create shared component library documentation",
+    "Set up Storybook for component showcase",
+    "Implement visual regression testing"
+  ]
+}

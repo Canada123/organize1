@@ -1,0 +1,353 @@
+{
+  "ontology": {
+    "keywords": ["ontology", "owl", "rdf", "rdfs", "n3", "notation3", "turtle", "ttl", "sparql", "semantic_web", "knowledge_graph", "triple_store", "reasoning_engine", "protege", "inference", "entailment", "axiom", "class_hierarchy", "object_property", "data_property", "individual", "instance", "reasoner", "classifier", "consistency_check", "satisfiability", "tbox", "abox", "description_logic", "dl", "shacl", "shapes"]
+  },
+  "prolog": {
+    "keywords": ["prolog", "swipl", "swi-prolog", "clause", "predicate", "unification", "logic_programming", "horn_clause", "resolution", "backtracking", "dcg", "definite_clause_grammar", "fact", "rule", "query", "cut", "negation_as_failure", "findall", "bagof", "setof", "constraint_logic_programming", "clp", "chr", "constraint_handling_rules", "tabling", "memoing", "xsb", "yap"]
+  },
+  "mechanics": {
+    "keywords": ["gameplay", "item_system", "inventory", "equipment", "stat", "attribute", "skill", "ability", "talent", "perk", "trait", "level", "experience", "xp", "progression", "advancement", "combat", "battle", "fight", "damage", "health", "mana", "energy", "buff", "debuff", "status_effect", "condition", "modifier", "crafting", "recipe", "resource", "material", "ingredient", "quest", "mission", "objective", "achievement", "reward", "tech_tree", "skill_tree", "progression_tree", "unlock", "loot", "drop", "rarity", "legendary", "epic", "rare", "common", "tuning", "scaling", "curve", "formula", "character_sheet", "build"]
+  },
+  "dialogue": {
+    "keywords": ["dialogue", "conversation", "chat", "npc", "non_player_character", "character_interaction", "dialogue_tree", "branching_dialogue", "conversation_flow", "response", "reply", "utterance", "turn_taking", "intent", "entity", "slot_filling", "natural_language_understanding", "chatbot", "conversational_agent", "virtual_assistant", "speech_act", "illocutionary_force", "perlocutionary_effect", "context_tracking", "dialogue_state", "conversation_history", "bark", "one_liner", "ambient_dialogue", "reactive_dialogue"]
+  },
+  "narrative": {
+    "keywords": ["narrative", "story", "tale", "plot", "storyline", "arc", "story_generation", "procedural_narrative", "emergent_story", "propp", "campbell", "hero_journey", "monomyth", "narrative_function", "character_arc", "protagonist", "antagonist", "supporting_character", "exposition", "rising_action", "climax", "falling_action", "resolution", "fabula", "syuzhet", "story_discourse", "narrative_time", "narratology", "story_grammar", "narrative_schema", "quest_structure", "narrative_beat", "plot_point", "turning_point", "storytelling", "narration", "narrative_voice", "point_of_view", "story_world", "fictional_world", "diegesis", "storyverse"]
+  },
+  "contract": {
+    "keywords": ["contract", "agreement", "terms", "clause", "provision", "stipulation", "obligation", "duty", "responsibility", "commitment", "promise", "party", "signatory", "counterparty", "participant", "negotiation", "bargaining", "deal", "settlement", "compromise", "constraint", "restriction", "limitation", "boundary", "enforcement", "compliance", "violation", "breach", "remedy", "smart_contract", "blockchain", "solidity", "ethereum", "legal_framework", "law", "regulation", "statute", "consent", "approval", "authorization", "permission", "exit_condition", "termination", "cancellation", "withdrawal"]
+  },
+  "relationships": {
+    "keywords": ["graph", "network", "node", "edge", "vertex", "link", "connection", "relationship", "relation", "association", "bond", "tie", "social_network", "social_graph", "friend_graph", "entity_relationship", "er_diagram", "relationship_model", "directed_graph", "undirected_graph", "weighted_edge", "graph_database", "neo4j", "graph_query", "cypher", "gremlin", "centrality", "degree", "betweenness", "closeness", "eigenvector", "community_detection", "clustering", "clique", "component", "graph_traversal", "path_finding", "shortest_path", "reachability", "influence_propagation", "cascade", "diffusion", "spread"]
+  },
+  "patterns": {
+    "keywords": ["pattern", "pattern_recognition", "pattern_detection", "pattern_matching", "behavior", "behavioral", "action", "conduct", "activity", "archetype", "collective_unconscious", "trait", "characteristic", "feature", "quality", "classification", "categorization", "taxonomy", "typology", "clustering", "grouping", "segmentation", "profiling", "anomaly_detection", "outlier_detection", "deviation", "temporal_pattern", "sequence", "time_series", "trend", "correlation", "association", "co_occurrence", "dependency"]
+  },
+  "extraction": {
+    "keywords": ["extract", "extraction", "extractor", "pull", "retrieve", "harvest", "entity", "named_entity", "ner", "entity_recognition", "information_extraction", "ie", "fact_extraction", "scraping", "scraper", "crawl", "crawler", "spider", "parser", "parse", "parsing", "tokenize", "tokenization", "annotation", "annotator", "tagger", "tagging", "labeling", "relation_extraction", "relationship_extraction", "triple_extraction", "event_extraction", "temporal_extraction", "spatial_extraction", "web_scraping", "html_parsing", "dom_traversal", "data_mining", "text_mining", "content_extraction"]
+  },
+  "validation": {
+    "keywords": ["validate", "validation", "validator", "verify", "verification", "check", "schema", "json_schema", "xml_schema", "xsd", "dtd", "constraint", "policy", "specification", "compliance", "conformance", "adherence", "satisfaction", "type_checking", "type_validation", "type_safety", "data_quality", "data_integrity", "data_consistency", "shacl", "shape", "constraint_language", "assertion", "invariant", "precondition", "postcondition", "test", "testing", "unit_test", "integration_test", "validation_test"]
+  },
+  "generator": {
+    "keywords": ["generate", "generation", "generator", "create", "creator", "builder", "template", "templating", "template_engine", "mustache", "handlebars", "scaffold", "scaffolding", "boilerplate", "starter", "seed", "code_generation", "codegen", "metaclass", "metaprogramming", "procedural_generation", "procgen", "algorithmic_generation", "synthetic_data", "fake_data", "mock_data", "test_data", "lorem_ipsum", "placeholder", "dummy_content", "dynamic_content", "parameterized", "configurable"]
+  },
+  "simulation": {
+    "keywords": ["simulation", "simulate", "simulator", "model", "modeling", "agent", "multi_agent", "agent_based", "mas", "agent_system", "emergent", "emergence", "emergent_behavior", "self_organization", "cellular_automaton", "ca", "game_of_life", "conway", "monte_carlo", "stochastic", "random", "probabilistic", "discrete_event_simulation", "des", "event_driven", "system_dynamics", "stock_and_flow", "feedback_loop", "complex_system", "complexity", "nonlinear", "chaos"]
+  },
+  "voting": {
+    "keywords": ["vote", "voting", "ballot", "poll", "election", "referendum", "governance", "government", "policy", "legislation", "democracy", "democratic", "consensus", "majority", "plurality", "quorum", "threshold", "supermajority", "veto", "override", "proposal", "motion", "amendment", "resolution", "deliberation", "debate", "discussion", "forum", "representation", "delegate", "representative", "constituency", "quadratic_voting", "ranked_choice", "approval_voting", "runoff", "dao", "decentralized_autonomous_organization", "on_chain_governance"]
+  },
+  "achievements": {
+    "keywords": ["achievement", "badge", "trophy", "medal", "award", "accolade", "unlock", "unlockable", "locked", "gated", "restricted", "milestone", "checkpoint", "waypoint", "marker", "leaderboard", "ranking", "score", "points", "rating", "prize", "bonus", "incentive", "progress", "progression", "advancement", "completion", "gamification", "engagement", "streak", "combo", "multiplier", "boost"]
+  },
+  "tasks": {
+    "keywords": ["task", "todo", "to_do", "checklist", "action_item", "project_management", "pm", "workflow", "pipeline", "kanban", "scrum", "agile", "sprint", "backlog", "issue_tracking", "bug_tracking", "ticket", "issue", "status", "state", "in_progress", "completed", "blocked", "priority", "urgent", "critical", "high_priority", "assignment", "assignee", "owner", "responsible", "deadline", "due_date", "schedule", "timeline", "dependency", "prerequisite", "blocker", "depends_on"]
+  },
+  "psychology": {
+    "keywords": ["jung", "jungian", "carl_jung", "analytical_psychology", "archetype", "archetypal", "collective_unconscious", "shadow", "anima", "animus", "self", "persona", "ego", "individuation", "psychic_development", "wholeness", "moore", "robert_moore", "king_warrior_magician_lover", "bipolar_shadow", "active_shadow", "passive_shadow", "tyrant", "weakling", "sadist", "masochist", "manipulator", "von_franz", "marie_louise_von_franz", "fairy_tale", "amplification", "active_imagination", "dream_analysis", "cognitive", "emotion", "behavior"]
+  },
+  "story_structure": {
+    "keywords": ["propp", "vladimir_propp", "morphology", "narrative_function", "campbell", "joseph_campbell", "hero_journey", "monomyth", "departure", "initiation", "return", "call_to_adventure", "fabula", "syuzhet", "formalism", "russian_formalism", "actant", "actantial_model", "greimas", "narrative_grammar", "todorov", "equilibrium", "disruption", "narrative_structure", "narrative_theory", "narratology", "plot_point", "beat", "sequence", "act_structure", "three_act", "five_act", "seven_point_plot"]
+  },
+  "magic": {
+    "keywords": ["magic", "magical", "spell", "spellcasting", "incantation", "mystical", "mystic", "occult", "esoteric", "arcane", "ritual", "ceremony", "rite", "liturgy", "practice", "mana", "energy", "power", "force", "essence", "enchantment", "charm", "hex", "curse", "blessing", "divination", "scrying", "augury", "prophecy", "alchemy", "alchemical", "transmutation", "philosopher_stone", "tarot", "cards", "major_arcana", "minor_arcana", "astrology", "astrological", "zodiac", "planetary", "grimoire", "spellbook", "magical_text"]
+  },
+  "requirements": {
+    "keywords": ["requirement", "requirements", "specification", "spec", "extract_requirements", "business_requirement", "functional_requirement", "user_story", "acceptance_criteria", "requirement_analysis", "requirement_gathering", "elicitation"]
+  },
+  "doc_cleanup": {
+    "keywords": ["format", "formatting", "cleanup", "clean_up", "prettify", "beautify", "markdown", "obsidian", "documentation", "doc_formatting", "text_formatting"]
+  },
+  "rules": {
+    "keywords": ["rule", "rules", "extract_rule", "rule_extraction", "guideline"]
+  },
+  "dice": {
+    "keywords": ["dice", "roll", "die", "d20", "d6", "d4", "d8", "d10", "d12", "dice_roll", "probability", "dice_mechanics", "rolling", "dice_pool", "dice_system"]
+  },
+  "skills": {
+    "keywords": ["skill", "ability", "talent", "proficiency", "expertise", "skill_tree", "skill_system", "ability_system", "progression", "advancement", "mastery"]
+  },
+  "stats": {
+    "keywords": ["stat", "stats", "attribute", "attributes", "character_stats", "statistics", "strength", "dexterity", "intelligence", "wisdom", "charisma", "constitution", "stat_system", "attribute_system"]
+  },
+  "economy": {
+    "keywords": ["currency", "economy", "money", "gold", "coins", "credits", "economic_system", "marketplace", "shop", "vendor", "price", "cost", "trade", "barter"]
+  },
+  "balancing": {
+    "keywords": ["balancing", "tuning", "adjustment", "scaling", "difficulty_curve", "balance_calculator", "balance_tool", "equilibrium", "fairness"]
+  },
+  "poetry": {
+    "keywords": ["rhyme", "rhyming", "poetry", "poem", "verse", "stanza", "meter", "rhythm", "lyric", "sonnet", "haiku", "limerick", "rhyme_scheme"]
+  },
+  "quests": {
+    "keywords": ["quest", "quest_generation", "mission", "objective", "quest_system", "quest_generator", "procedural_quest", "dynamic_quest", "quest_chain", "quest_line"]
+  },
+  "transform": {
+    "keywords": ["transform", "transformation", "convert", "conversion", "etl", "data_transformation", "format_conversion", "data_pipeline", "data_migration", "serialization"]
+  },
+  "diagrams": {
+    "keywords": ["diagram", "flowchart", "chart", "graph_visualization", "mermaid", "graphviz", "uml", "sequence_diagram", "entity_relationship", "data_flow_diagram"]
+  },
+  "ui_create": {
+    "keywords": ["ui_builder", "interface_builder", "gui_builder", "ui_generator", "interface_generator", "component_library", "design_system", "ui_kit", "widget", "ui_framework"]
+  },
+  "ui_analysis": {
+    "keywords": ["ui_analysis", "interface_analysis", "screen_analysis", "layout_analysis", "design_analysis", "accessibility", "a11y", "usability_testing", "heuristic_evaluation"]
+  },
+  "ux": {
+    "keywords": ["ux", "user_experience", "ux_analysis", "user_research", "usability", "user_testing", "user_journey", "user_flow", "interaction_design", "experience_design"]
+  },
+  "team": {
+    "keywords": ["team", "collaboration", "party", "squad", "cooperative", "multiplayer", "teamwork", "guild", "clan", "alliance"]
+  },
+  "consequences": {
+    "keywords": ["consequence", "consequences", "effect", "effects", "outcome", "impact", "result", "aftermath", "repercussion", "ramification"]
+  },
+  "social": {
+    "keywords": ["reddit", "facebook", "twitter", "discord", "mastodon", "telegram", "social_media"]
+  },
+  "learning": {
+    "keywords": ["learn", "tutorial", "course", "education", "training"]
+  },
+  "dataflow": {
+    "keywords": ["dwarf_fortress", "dataflow"]
+  },
+  "blockchain": {
+    "keywords": ["blockchain", "crypto", "web3", "bitcoin", "ethereum"]
+  },
+  "architecture": {
+    "keywords": ["architecture", "pattern", "design_pattern"]
+  },
+  "schema": {
+    "keywords": ["schema", "type", "typedef", "taxonomy", "structure"]
+  },
+  "culture": {
+    "keywords": ["culture", "society", "anthropology"]
+  },
+  "music": {
+    "keywords": ["music", "audio", "sound", "midi"]
+  },
+  "genetics": {
+    "keywords": ["genetics", "dna", "gene", "genome"]
+  },
+  "game_of_life": {
+    "keywords": ["game_of_life", "cellular", "conway", "cellular_automata"]
+  },
+  "algorithms": {
+    "keywords": ["algorithm", "sort", "search", "leetcode"]
+  },
+  "marketing": {
+    "keywords": ["marketing", "seo", "campaign"]
+  },
+  "media_analysis": {
+    "keywords": ["video_processing", "audio_processing", "image_processing", "computer_vision"]
+  },
+  "meme": {
+    "keywords": ["meme", "viral", "copypasta"]
+  },
+  "book": {
+    "keywords": ["book", "ebook", "publication", "library"]
+  },
+  "military": {
+    "keywords": ["military", "army", "soldier"]
+  },
+  "api": {
+    "keywords": ["api", "endpoint", "rest", "graphql"]
+  },
+  "design": {
+    "keywords": ["design", "figma", "sketch", "storybook"]
+  },
+  "analytics": {
+    "keywords": ["analytics", "metrics", "tracking"]
+  },
+  "analysis": {
+    "keywords": ["analysis", "analyze"]
+  },
+  "predict": {
+    "keywords": ["predict", "forecast", "ml"]
+  },
+  "spec": {
+    "keywords": ["specification", "rfc"]
+  },
+  "grant": {
+    "keywords": ["grant", "funding"]
+  },
+  "legacy": {
+    "keywords": ["legacy", "migration"]
+  },
+  "goal": {
+    "keywords": ["goal", "objective"]
+  },
+  "dream": {
+    "keywords": ["dream", "subconscious"]
+  },
+  "performance": {
+    "keywords": ["performance", "optimization", "perf"]
+  },
+  "resource": {
+    "keywords": ["resource", "asset"]
+  },
+  "process": {
+    "keywords": ["process", "pipeline"]
+  },
+  "event": {
+    "keywords": ["event", "trigger"]
+  },
+  "contest": {
+    "keywords": ["contest", "competition"]
+  },
+  "route": {
+    "keywords": ["route", "router", "path", "dispatch", "navigate"]
+  },
+  "index": {
+    "keywords": ["index", "search", "catalog"]
+  },
+  "social_analytics": {
+    "keywords": ["social_media_analysis"]
+  },
+  "sociology": {
+    "keywords": ["sociology", "social_science"]
+  },
+  "knowledge": {
+    "keywords": ["knowledge_graph", "semantic"]
+  },
+  "recommend": {
+    "keywords": ["recommend", "suggestion"]
+  },
+  "prompt": {
+    "keywords": ["prompt", "llm", "gpt"]
+  },
+  "rag": {
+    "keywords": ["rag", "retrieval"]
+  },
+  "rpg": {
+    "keywords": ["rpg", "dnd", "pathfinder", "ttrpg", "character_sheet"]
+  },
+  "godot": {
+    "keywords": ["godot", "gd", "pck"]
+  },
+  "unity": {
+    "keywords": ["unity", "unitypackage"]
+  },
+  "unreal": {
+    "keywords": ["unreal", "ue4", "ue5"]
+  },
+  "phaser": {
+    "keywords": ["phaser"]
+  },
+  "pygame": {
+    "keywords": ["pygame"]
+  },
+  "love2d": {
+    "keywords": ["love2d", "love"]
+  },
+  "defold": {
+    "keywords": ["defold"]
+  },
+  "game_engine": {
+    "keywords": ["game_engine", "engine"]
+  },
+  "folklore": {
+    "keywords": ["folklore", "myth", "fairy", "mythology"]
+  },
+  "db": {
+    "keywords": ["database", "sql", "postgres", "mysql", "mongodb"]
+  },
+  "text": {
+    "keywords": ["text", "corpus", "corpora", "document", "article"]
+  },
+  "business": {
+    "keywords": ["business", "crm", "invoice", "sales", "revenue"]
+  },
+  "tool": {
+    "keywords": ["tool", "utility", "framework"]
+  },
+  "math": {
+    "keywords": ["math", "calculus", "algebra", "mathematics"]
+  },
+  "nlp": {
+    "keywords": ["nlp", "language", "linguistic", "semantic", "bert"]
+  },
+  "code_analysis": {
+    "keywords": ["lint", "code_analysis", "code_quality"]
+  },
+  "alchemy": {
+    "keywords": ["alchemy", "alchemical", "transmutation", "philosopher_stone"]
+  },
+  "animals": {
+    "keywords": ["animals", "fauna", "creatures"]
+  },
+  "art": {
+    "keywords": ["art", "visual_art", "painting", "drawing"]
+  },
+  "colors": {
+    "keywords": ["colors", "colour", "palette", "hue"]
+  },
+  "corporations": {
+    "keywords": ["corporations", "companies", "organizations"]
+  },
+  "divination": {
+    "keywords": ["divination", "scrying", "augury", "prophecy", "iching", "i_ching"]
+  },
+  "foods": {
+    "keywords": ["foods", "cuisine", "recipes", "ingredients"]
+  },
+  "geography": {
+    "keywords": ["geography", "locations", "places", "maps"]
+  },
+  "governments": {
+    "keywords": ["governments", "politics", "administration"]
+  },
+  "humans": {
+    "keywords": ["humans", "people", "names", "demographics"]
+  },
+  "instructions": {
+    "keywords": ["instructions", "how_to", "procedures"]
+  },
+  "materials": {
+    "keywords": ["materials", "substances", "elements"]
+  },
+  "medicine": {
+    "keywords": ["medicine", "medical", "health", "diseases"]
+  },
+  "mythology": {
+    "keywords": ["mythology", "myths", "legends", "deities"]
+  },
+  "objects": {
+    "keywords": ["objects", "items", "artifacts", "things"]
+  },
+  "plants": {
+    "keywords": ["plants", "flora", "botany", "herbs"]
+  },
+  "technology": {
+    "keywords": ["technology", "tech", "devices", "gadgets"]
+  },
+  "tarot": {
+    "keywords": ["tarot", "tarot_cards", "major_arcana", "minor_arcana"]
+  },
+  "words": {
+    "keywords": ["words", "vocabulary", "lexicon", "terminology"]
+  },
+  "ritual": {
+    "keywords": ["ritual", "ceremony", "rite", "liturgy", "ceremonial"]
+  },
+  "cascade": {
+    "keywords": ["cascade", "chain", "sequence"]
+  },
+  "timeseries": {
+    "keywords": ["timeseries", "temporal"]
+  },
+  "alignment": {
+    "keywords": ["alignment", "ethics", "moral", "lawful", "chaotic", "good", "evil"]
+  },
+  "power_test": {
+    "keywords": ["power", "authority"]
+  },
+  "symbol": {
+    "keywords": ["symbol", "sigil", "glyph", "icon"]
+  },
+  "ui": {
+    "keywords": ["ui", "frontend", "react", "vue", "interface"]
+  }
+}

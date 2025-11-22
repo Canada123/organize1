@@ -1,0 +1,147 @@
+{
+  "tagged_data": {
+    "query_index": {
+      "moral_scenarios": {
+        "dataset": "ethics",
+        "count": 131885,
+        "categories": [
+          "commonsense",
+          "deontology",
+          "justice",
+          "virtue",
+          "utilitarianism"
+        ],
+        "use_cases": [
+          "npc_moral_decision_making",
+          "player_alignment_testing",
+          "dynamic_dilemma_generation"
+        ],
+        "access": {
+          "method": "load_dataset",
+          "code": "from datasets import load_dataset; ethics = load_dataset('hendrycks/ethics', 'commonsense')"
+        }
+      }
+    },
+    "by_purpose": {
+      "npc_behavior": {
+        "source": "ethics_dataset",
+        "what_it_provides": "moral reasoning patterns for NPC decision making",
+        "example_use": "Generate NPC responses to player moral choices"
+      },
+      "player_testing": {
+        "source": "ethics_dataset",
+        "what_it_provides": "moral scenarios to test player values",
+        "example_use": "Present dilemmas, track choices, build psychological profile"
+      }
+    },
+    "by_type": {
+      "measurement_mechanics": {
+        "trust_cooperation": [
+          {
+            "measures": "player cooperation patterns",
+            "implementation": "track team-up rates, resource sharing, alliance duration",
+            "output": "trust_score, cooperation_tendency"
+          }
+        ],
+        "ethical_alignment": [
+          {
+            "measures": "player moral framework",
+            "implementation": "present moral dilemmas, track choice patterns",
+            "output": "deontological_score, utilitarian_score, virtue_score"
+          }
+        ],
+        "decision_making": [
+          {
+            "measures": "planning and delayed gratification",
+            "implementation": "track immediate vs delayed reward choices",
+            "output": "planning_ability, impulsivity_score"
+          }
+        ]
+      }
+    },
+    "agent_api": {
+      "available_queries": {
+        "get_moral_scenarios": {
+          "description": "Get moral scenarios by category",
+          "parameters": {
+            "category": [
+              "commonsense",
+              "deontology",
+              "justice",
+              "virtue",
+              "utilitarianism"
+            ],
+            "count": "int (default 10)"
+          },
+          "returns": "list of scenario objects with labels"
+        },
+        "get_mechanics_for": {
+          "description": "Get mechanics that measure specific trait",
+          "parameters": {
+            "trait": [
+              "trust",
+              "cooperation",
+              "planning",
+              "ethics",
+              "social_skill"
+            ]
+          },
+          "returns": "list of applicable mechanics with implementation details"
+        },
+        "check_data_availability": {
+          "description": "Check if specific data is validated and ready",
+          "parameters": {
+            "data_type": [
+              "ethics",
+              "moral_machine",
+              "behaviors",
+              "mechanics"
+            ]
+          },
+          "returns": "boolean and access instructions"
+        }
+      }
+    }
+  },
+  "implementation_manifest": {
+    "immediately_buildable": [
+      {
+        "component": "Code templates",
+        "count": 5,
+        "action": "Extract and adapt working code examples"
+      },
+      {
+        "component": "Measurement mechanics",
+        "count": 12,
+        "action": "Implement tracking logic for actionable mechanics"
+      }
+    ],
+    "needs_data_download": [
+      {
+        "component": "ETHICS dataset",
+        "size": "131,885 scenarios",
+        "command": "from datasets import load_dataset; load_dataset('hendrycks/ethics')"
+      }
+    ],
+    "needs_implementation": [
+      {
+        "component": "Vague mechanics",
+        "count": 8,
+        "action": "Convert conceptual descriptions into measurable implementations"
+      }
+    ]
+  },
+  "quick_access": {
+    "get_moral_scenarios": {
+      "code": "from datasets import load_dataset\nethics = load_dataset('hendrycks/ethics', 'commonsense')\nscenarios = ethics['train']"
+    },
+    "measure_trust": {
+      "mechanic": "Track cooperation in multi-player scenarios",
+      "metric": "cooperation_rate = successful_teams / total_interactions"
+    },
+    "measure_ethics": {
+      "mechanic": "Present moral dilemmas, track consistency",
+      "metric": "alignment_score by framework (deontology/utilitarian/virtue)"
+    }
+  }
+}

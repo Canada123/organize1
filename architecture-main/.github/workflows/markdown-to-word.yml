@@ -1,0 +1,47 @@
+# This workflow converts Markdown docs to Word documents and publishes them as a release.
+name: Markdown to Word Release
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - 'doc/design-authority/dhcw/architecture-decision-record-template.md'
+      - 'doc/design-authority/dhcw/architecture-design-overview-template.md'
+  workflow_dispatch:
+
+jobs:
+  convert-and-release:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Get next version
+        id: get_version
+        run: |
+          # Get the latest tag
+          latest_tag=$(git describe --tags $(git rev-list --tags --max-count=1) 2>/dev/null || echo "v0")
+          # Increment the version
+          version_number=$(echo $latest_tag | sed 's/v//')
+          next_version_number=$((version_number + 1))
+          echo "RELEASE_TAG=v$next_version_number" >> $GITHUB_ENV
+
+      - name: Set up Pandoc
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y pandoc
+
+      - name: Set up Just
+        uses: extractions/setup-just@v3
+
+      - name: Convert Markdown to Word
+        run: just word
+
+      - name: Publish Release
+        run: |
+          gh release create ${{ env.RELEASE_TAG }} --generate-notes architecture-decision-record-template.docx architecture-design-overview-template.docx
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}

@@ -1,0 +1,259 @@
+{
+  "cryptography": {
+    "algorithms": [
+      "RSA",
+      "AES",
+      "SHA-256",
+      "Diffie-Hellman",
+      "Elliptic Curve Cryptography"
+    ]
+  },
+  "compression": {
+    "algorithms": [
+      "Huffman Coding",
+      "LZ77",
+      "LZW",
+      "DEFLATE"
+    ]
+  },
+  "search_algorithms": {
+    "algorithms": [
+      "Binary Search",
+      "Depth-First Search",
+      "Breadth-First Search",
+      "Linear Search"
+    ]
+  },
+  "data_processing": {
+    "algorithms": [
+      "Normalization",
+      "Standardization",
+      "FeatureScaling",
+      "OneHotEncoding",
+      "Imputation",
+      "OutlierRemoval",
+      "DataCleaning",
+      "FeatureEngineering"
+    ]
+  },
+  "evaluation_metrics": {
+    "algorithms": [
+      "MAE",
+      "MSE",
+      "RMSE",
+      "R2",
+      "Accuracy",
+      "Precision",
+      "Recall",
+      "F1",
+      "AUC",
+      "SilhouetteScore",
+      "AdjustedRandIndex"
+    ]
+  },
+  "time_series": {
+    "algorithms": [
+      "ARIMA",
+      "SARIMA",
+      "Prophet",
+      "ExponentialSmoothing",
+      "VAR",
+      "LSTM",
+      "GRU",
+      "KalmanFilter",
+      "HoltWinters",
+      "TBATS"
+    ]
+  },
+  "trend_detection": {
+    "algorithms": [
+      "MannKendallTest",
+      "SeasonalMannKendall",
+      "KendallTau",
+      "ADX",
+      "DIPlus",
+      "DIMinus",
+      "HilbertTransform",
+      "LinearRegressionSlope",
+      "TrendStrength",
+      "BreakpointDetection",
+      "ChangepointDetection",
+      "CUSUM",
+      "EWMA",
+      "ZScoreTrend",
+      "SeasonalDecomposition"
+    ]
+  },
+  "game_balance": {
+    "algorithms": [
+      "PowerCurve",
+      "QuickPointing",
+      "DoublingHalving",
+      "RockPaperScissors",
+      "FermiSolution",
+      "IterativeDesign",
+      "Playtesting",
+      "Buffs",
+      "Nerfs",
+      "Revamp",
+      "Rework",
+      "DominantStrategy",
+      "MetaAnalysis",
+      "PlayerAgency",
+      "BalanceMatrix",
+      "WinRateAnalysis",
+      "PickRateAnalysis",
+      "ResourceCurve",
+      "ProgressionTuning",
+      "DifficultyScaling"
+    ]
+  },
+  "network_analysis": {
+    "algorithms": [
+      "pagerank",
+      "betweenness_centrality",
+      "louvain_communities",
+      "label_propagation",
+      "node2vec",
+      "graph_convolution",
+      "k_core",
+      "minimum_spanning_tree",
+      "max_flow",
+      "shortest_path"
+    ]
+  },
+  "anomaly_detection": {
+    "algorithms": [
+      "IsolationForest",
+      "LocalOutlierFactor",
+      "OneClassSVM",
+      "DBSCAN",
+      "EllipticEnvelope",
+      "Autoencoder",
+      "COPOD"
+    ]
+  },
+  "nlp": {
+    "algorithms": [
+      "BERT",
+      "TFIDFVectorizer",
+      "Word2Vec",
+      "LDA",
+      "Transformer",
+      "NER",
+      "SentenceTransformer"
+    ]
+  },
+  "computer_vision": {
+    "algorithms": [
+      "YOLO",
+      "CNN",
+      "UNet",
+      "ResNet",
+      "VGG",
+      "EfficientNet",
+      "MaskRCNN"
+    ]
+  },
+  "clustering": {
+    "algorithms": [
+      "KMeans",
+      "DBSCAN",
+      "GaussianMixture",
+      "AgglomerativeClustering",
+      "OPTICS",
+      "SpectralClustering"
+    ]
+  },
+  "optimization": {
+    "algorithms": [
+      "gradient_descent",
+      "adam",
+      "rmsprop",
+      "genetic_algorithm",
+      "particle_swarm",
+      "simulated_annealing"
+    ]
+  },
+  "number_theory": {
+    "algorithms": [
+      "Euclidean Algorithm",
+      "Extended Euclidean Algorithm",
+      "Sieve of Eratosthenes",
+      "Fermat's Little Theorem",
+      "Chinese Remainder Theorem"
+    ]
+  },
+  "graph_algorithms": {
+    "algorithms": [
+      "Dijkstra's Algorithm",
+      "A* Search Algorithm",
+      "Bellman-Ford Algorithm",
+      "Floyd-Warshall Algorithm",
+      "PageRank Algorithm"
+    ]
+  },
+  "game_theory": {
+    "algorithms": [
+      "Minimax Algorithm",
+      "Alpha-Beta Pruning",
+      "Monte Carlo Tree Search"
+    ]
+  },
+  "machine_learning": {
+    "algorithms": [
+      "K-means Clustering",
+      "k-Nearest Neighbors",
+      "Support Vector Machine",
+      "Linear Regression",
+      "Logistic Regression",
+      "Neural Networks",
+      "Backpropagation",
+      "Convolutional Neural Networks",
+      "Recurrent Neural Networks",
+      "Long Short-Term Memory",
+      "Generative Adversarial Networks",
+      "Q-Learning",
+      "Thompson Sampling"
+    ]
+  },
+  "probabilistic_methods": {
+    "algorithms": [
+      "Markov Chain Monte Carlo",
+      "Bayesian Inference",
+      "Hidden Markov Model",
+      "Viterbi Algorithm",
+      "Kalman Filter"
+    ]
+  },
+  "signal_processing": {
+    "algorithms": [
+      "Fast Fourier Transform"
+    ]
+  },
+  "dimensionality_reduction": {
+    "algorithms": [
+      "Principal Component Analysis",
+      "Singular Value Decomposition",
+      "Non-negative Matrix Factorization",
+      "Independent Component Analysis"
+    ]
+  },
+  "string_algorithms": {
+    "algorithms": [
+      "Knuth-Morris-Pratt Algorithm",
+      "Rabin-Karp Algorithm",
+      "Levenshtein Distance"
+    ]
+  },
+  "robust_estimation": {
+    "algorithms": [
+      "RANSAC"
+    ]
+  },
+  "dynamic_programming": {
+    "algorithms": [
+      "Dynamic Programming"
+    ]
+  }
+}

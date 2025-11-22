@@ -1,0 +1,143 @@
+# Game Actions Configuration
+# NOT HARDCODED - modify this file to change game behavior
+
+actions:
+  witness:
+    requires_lock: true
+    ttl: 300  # 5 minutes to complete
+    valid_responses:
+      - doubt
+      - corroborate
+      - investigate
+      - challenge
+    penalty:
+      reputation: -50
+      ban: 900  # 15 min ban
+
+  betray:
+    requires_lock: true
+    ttl: 60  # 1 minute to complete
+    valid_responses:
+      - retaliate
+      - forgive
+      - expose
+      - defend
+    penalty:
+      reputation: -200
+      ban: 3600  # 1 hour ban
+
+  investigate:
+    requires_lock: true
+    ttl: 600  # 10 minutes to complete
+    valid_responses:
+      - help
+      - hinder
+      - spy
+      - witness
+    penalty:
+      reputation: -30
+      ban: 300  # 5 min ban
+
+  doubt:
+    requires_lock: true
+    ttl: 120  # 2 minutes to complete
+    valid_responses:
+      - prove
+      - defend
+      - admit
+    penalty:
+      reputation: -20
+      ban: 180
+
+  help:
+    requires_lock: true
+    ttl: 300
+    valid_responses:
+      - accept
+      - reject
+      - reciprocate
+    penalty:
+      reputation: -10
+      ban: 60
+
+  hinder:
+    requires_lock: true
+    ttl: 180
+    valid_responses:
+      - bypass
+      - confront
+      - report
+    penalty:
+      reputation: -40
+      ban: 600
+
+  expose:
+    requires_lock: true
+    ttl: 240
+    valid_responses:
+      - deny
+      - confirm
+      - explain
+      - threaten
+    penalty:
+      reputation: -60
+      ban: 1200
+
+  vote:
+    requires_lock: false  # Voting doesn't need lock
+    ttl: 0
+    valid_responses:
+      - counter_vote
+      - campaign
+    penalty:
+      reputation: 0
+      ban: 0
+
+  bribe:
+    requires_lock: true
+    ttl: 120
+    valid_responses:
+      - accept
+      - refuse
+      - expose
+      - counter_bribe
+    penalty:
+      reputation: -150
+      ban: 7200  # 2 hour ban
+
+  threaten:
+    requires_lock: true
+    ttl: 90
+    valid_responses:
+      - yield
+      - resist
+      - report
+      - counter_threaten
+    penalty:
+      reputation: -100
+      ban: 3600
+
+  defend:
+    requires_lock: true
+    ttl: 300
+    valid_responses:
+      - accept
+      - reject
+      - support
+    penalty:
+      reputation: -15
+      ban: 120
+
+  frame:
+    requires_lock: true
+    ttl: 600
+    valid_responses:
+      - prove_innocence
+      - counter_frame
+      - accept
+    penalty:
+      reputation: -250
+      ban: 14400  # 4 hour ban
+
+  # Add more actions here - system will automatically load them
+  # No code changes needed

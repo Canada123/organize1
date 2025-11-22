@@ -1,0 +1,15 @@
+# Ignore all generated reports
+*.md
+
+# Exception: Keep README.md
+!README.md
+
+# Ignore timestamped reports (future pattern)
+[0-9][0-9][0-9][0-9][0-9][0-9][0-9][0-9]-[0-9][0-9][0-9][0-9]-*.md
+
+# Ignore specific report types
+foundation-research*.md
+design-showcase*.md
+wireframe*.md
+qa-report*.md
+audit-report*.md

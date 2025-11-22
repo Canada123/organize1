@@ -1,0 +1,39 @@
+{
+    "version": "0.2",
+    "language": "en,en-GB",
+    "ignorePaths": [
+        ".*",
+        "Dockerfile",
+        "zensical.toml"
+    ],
+    "dictionaryDefinitions": [],
+    "dictionaries": [],
+    "words": [
+        "Ardoq",
+        "CCIO",
+        "CISO",
+        "daemonless",
+        "Descr",
+        "DHCW",
+        "Fargate",
+        "FHIR",
+        "Fiori",
+        "isolatability",
+        "isolatable",
+        "justfile",
+        "Knative",
+        "metamodel",
+        "Mkdoc",
+        "mkdocs",
+        "NCSC",
+        "Pandoc",
+        "Pulumi",
+        "TDA",
+        "TDAG",
+        "zensical"
+    ],
+    "ignoreWords": [
+        "Rodarmor"
+    ],
+    "import": []
+}

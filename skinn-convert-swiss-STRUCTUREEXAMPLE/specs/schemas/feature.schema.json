@@ -1,0 +1,267 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "feature.schema.json",
+  "title": "Feature Specification Schema",
+  "description": "Schema for individual feature specifications",
+  "type": "object",
+  "required": ["id", "title", "status", "version", "problem_statement", "solution_approach"],
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^FEAT-\\d{4}-\\d{3}$",
+      "description": "Feature ID format: FEAT-YYYY-NNN"
+    },
+    "title": {
+      "type": "string",
+      "minLength": 5,
+      "maxLength": 100
+    },
+    "status": {
+      "type": "string",
+      "enum": ["draft", "in_review", "approved", "in_progress", "completed", "deprecated"]
+    },
+    "author": {
+      "type": "string"
+    },
+    "created_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "completion_date": {
+      "type": "string",
+      "format": "date"
+    },
+    "epic": {
+      "type": "string",
+      "pattern": "^EPIC-\\d{3}$"
+    },
+    "version": {
+      "type": "string",
+      "pattern": "^\\d+\\.\\d+\\.\\d+$"
+    },
+    "problem_statement": {
+      "type": "string",
+      "minLength": 50
+    },
+    "solution_approach": {
+      "type": "string",
+      "minLength": 50
+    },
+    "success_metrics": {
+      "type": "object",
+      "properties": {
+        "quantitative": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "qualitative": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "technical_design": {
+      "type": "object",
+      "properties": {
+        "architecture": {
+          "type": "string"
+        },
+        "components_created": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "type"],
+            "properties": {
+              "name": { "type": "string" },
+              "type": {
+                "type": "string",
+                "enum": ["atom", "molecule", "organism", "template", "page", "service", "utility"]
+              },
+              "lines": { "type": "number", "maximum": 50 },
+              "purpose": { "type": "string" },
+              "props": { "type": "object" },
+              "dependencies": {
+                "type": "array",
+                "items": { "type": "string" }
+              }
+            }
+          }
+        },
+        "atoms_created": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["name", "lines", "purpose"],
+            "properties": {
+              "name": { "type": "string" },
+              "lines": { "type": "number", "maximum": 50 },
+              "purpose": { "type": "string" }
+            }
+          }
+        },
+        "api_changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["endpoint", "method", "description"],
+            "properties": {
+              "endpoint": { "type": "string" },
+              "method": {
+                "type": "string",
+                "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"]
+              },
+              "description": { "type": "string" },
+              "request_schema": { "type": "object" },
+              "response_schema": { "type": "object" }
+            }
+          }
+        },
+        "database_changes": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["type", "name", "description"],
+            "properties": {
+              "type": {
+                "type": "string",
+                "enum": ["table", "migration", "index", "function", "trigger", "policy"]
+              },
+              "name": { "type": "string" },
+              "description": { "type": "string" },
+              "sql": { "type": "string" }
+            }
+          }
+        },
+        "styling": {
+          "type": "object",
+          "properties": {
+            "design_system": { "type": "string" },
+            "primary_color": { "type": "string", "pattern": "^#[0-9A-F]{6}$" },
+            "font_family": { "type": "string" },
+            "spacing": { "type": "string" },
+            "responsive": { "type": "boolean" }
+          }
+        }
+      }
+    },
+    "implementation_details": {
+      "type": "object",
+      "properties": {
+        "issues_fixed": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["issue", "solution"],
+            "properties": {
+              "issue": { "type": "string" },
+              "solution": { "type": "string" },
+              "before": { "type": "string" },
+              "after": { "type": "string" }
+            }
+          }
+        },
+        "patterns_applied": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "tools_used": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "testing": {
+      "type": "object",
+      "properties": {
+        "unit_tests": {
+          "type": "object",
+          "properties": {
+            "coverage": { "type": "number", "minimum": 0, "maximum": 100 },
+            "test_files": {
+              "type": "array",
+              "items": { "type": "string" }
+            }
+          }
+        },
+        "integration_tests": {
+          "type": "object",
+          "properties": {
+            "scenarios": { "type": "array", "items": { "type": "string" } },
+            "issues_found": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "visual_tests": {
+          "type": "object",
+          "properties": {
+            "screenshots": {
+              "type": "array",
+              "items": { "type": "string" }
+            },
+            "issues_found": { "type": "integer", "minimum": 0 }
+          }
+        },
+        "accessibility": {
+          "type": "object",
+          "properties": {
+            "wcag_level": {
+              "type": "string",
+              "enum": ["A", "AA", "AAA"]
+            },
+            "issues": { "type": "integer", "minimum": 0 },
+            "score": { "type": "number", "minimum": 0, "maximum": 100 }
+          }
+        }
+      }
+    },
+    "rollout": {
+      "type": "object",
+      "properties": {
+        "strategy": {
+          "type": "string",
+          "enum": ["immediate", "staged", "canary", "feature_flag"]
+        },
+        "feature_flag": { "type": ["string", "null"] },
+        "rollback_plan": { "type": "string" },
+        "monitoring": {
+          "type": "array",
+          "items": { "type": "string" }
+        }
+      }
+    },
+    "documentation": {
+      "type": "object",
+      "properties": {
+        "updated_files": {
+          "type": "array",
+          "items": { "type": "string" }
+        },
+        "examples_added": { "type": "boolean" },
+        "api_docs": { "type": "boolean" },
+        "user_guide": { "type": "boolean" }
+      }
+    },
+    "lessons_learned": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "next_steps": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "references": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["title", "url"],
+        "properties": {
+          "title": { "type": "string" },
+          "url": { "type": "string", "format": "uri" },
+          "type": {
+            "type": "string",
+            "enum": ["documentation", "article", "code", "issue", "discussion"]
+          }
+        }
+      }
+    }
+  }
+}
